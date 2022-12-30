@@ -1,0 +1,84 @@
+::selection {
+    background: $orange;
+    color: $white;
+}
+
+* {
+    font-family: $inter;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+        width: 16px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, .1);
+        border: 4px solid rgba(0, 0, 0, 0);
+        background-clip: padding-box;
+        border-radius: 1000px;
+    }
+}
+
+html {
+    overflow-x: hidden;
+    overflow-y: overlay;
+}
+
+body {
+    background: $grey-1;
+
+    figure {
+        margin: 0;
+    }
+}
+
+h1 {
+    @include h1;
+    text-transform: uppercase;
+}
+
+p {
+    @include paragraph;
+    color: $grey-5;
+    
+    a {
+        font-weight: 500;
+        text-decoration: underline;
+    }
+}
+
+small {
+    display: block;
+}
+
+.pt-big {
+    padding-top: 152px;
+
+    @media screen and (max-width: $mobile) {
+        padding-top: 112px;
+    }
+}
+
+.pt-md {
+    padding-top: 120px;
+
+    @media screen and (max-width: $mobile) {
+        padding-top: 80px;
+    }
+}
+
+.pt-sm {
+    padding-top: 88px;
+
+    @media screen and (max-width: $mobile) {
+        padding-top: 64px;
+    }
+}

@@ -1,0 +1,37 @@
+input,
+textarea,
+select,
+option {
+    height: 56px;
+    border: 1px solid $grey-2;
+    font-weight: 400;
+    font-size: 16px;
+    background: transparent;
+    line-height: 24px;
+
+    &:hover {
+        border-color: $orange;
+    }
+
+    &::placeholder {
+        color: $grey-4;
+        opacity: .5;
+    }
+}
+
+input,
+select,
+option {
+    &.sm {
+        height: 48px;
+    }
+
+    &.big {
+        height: 64px;
+    }
+}
+
+select {
+    position: relative;
+    z-index: 5;
+}

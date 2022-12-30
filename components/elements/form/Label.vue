@@ -1,0 +1,38 @@
+<template>
+    <label
+        :class="['block mb-2', (floating ? 'floating' : '')]"
+        :for="$formatStringSimple(label)"
+    >
+        {{ label }}
+    </label>
+</template>
+
+<script setup lang="ts">
+defineProps({
+    label: String,
+    floating: Boolean,
+});
+</script>
+
+<style lang="scss" scoped>
+label {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    z-index: 9;
+    
+    &.floating {
+        position: absolute;
+        top: 0;
+        transform: translateY(-50%);
+        left: 8px;
+        padding: 2px 8px;
+        font-size: 14px;
+        line-height: 14px;
+        margin: 0;
+        background: $white;
+        color: $grey-4;
+        display: inline-block;
+    }
+}
+</style>
