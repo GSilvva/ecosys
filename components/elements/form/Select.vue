@@ -7,7 +7,7 @@
         />
         <div class="relative w-full">
             <select
-                :class="['block w-full transition ease duration-300 px-4 appearance-none', (small ? 'sm' : ''), (big ? 'big' : '')]"
+                :class="['block w-full transition px-4 appearance-none', (small ? 'sm' : ''), (big ? 'big' : '')]"
                 :id="label ? $formatStringSimple(label) : name"
                 :name="name ? name : $formatStringSimple(label)"
                 :required="required"

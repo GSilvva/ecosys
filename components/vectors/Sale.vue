@@ -1,0 +1,16 @@
+<template>
+    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="72" height="72" rx="36" fill="#F6531A"/>
+        <path d="M21 30H18" stroke="white" stroke-width="3" stroke-linecap="square" stroke-linejoin="round"/>
+        <path d="M21 42H18" stroke="white" stroke-width="3" stroke-linecap="square" stroke-linejoin="round"/>
+        <path d="M20 36H16" stroke="white" stroke-width="3" stroke-linecap="square" stroke-linejoin="round"/>
+        <path d="M24 23.2725C29.026 18.1246 36.5847 16.5847 43.1515 19.3707C49.7183 22.1566 54 28.7199 54 36C54 43.2801 49.7183 49.8434 43.1515 52.6293C36.5847 55.4153 29.026 53.8754 24 48.7275" stroke="white" stroke-width="3" stroke-linecap="square" stroke-linejoin="round"/>
+        <path d="M36 27.0912V28.9088" stroke="white" stroke-width="3" stroke-linecap="square" stroke-linejoin="round"/>
+        <path d="M32 32C32.2337 30.1665 34.0101 28.841 36 29.0154" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M36 44.9088V43.0912" stroke="white" stroke-width="3" stroke-linecap="square" stroke-linejoin="round"/>
+        <path d="M41 40C40.7079 41.8335 38.4874 43.159 36 42.9846" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M41 32C40.2281 30.0962 38.1982 28.882 36 29.0091" stroke="white" stroke-width="3" stroke-linecap="square" stroke-linejoin="round"/>
+        <path d="M32 40C32.6176 41.9038 34.2414 43.118 36 42.9909" stroke="white" stroke-width="3" stroke-linecap="square" stroke-linejoin="round"/>
+        <path d="M32 32V32C32 33.7357 33.0864 35.2301 34.5955 35.5704L38.4045 36.4296C39.9136 36.7699 41 38.2643 41 40V40" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</template>

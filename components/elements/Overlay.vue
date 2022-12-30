@@ -1,5 +1,5 @@
 <template>
-    <div class="top-0 left-0 fixed w-full h-full transition ease duration-300 z-40">
+    <div class="top-0 left-0 fixed w-full h-full transition z-40">
         <slot />
     </div>
 </template>

@@ -1,8 +1,15 @@
 <template>
-    <div>
+    <div :class="`${block ? 'block' : 'flex justify-between'} ${center ? 'items-center' : ''}  `">
         <slot />
     </div>
 </template>
+
+<script setup lang="ts">
+defineProps({
+    block: Boolean,
+    center: Boolean
+});
+</script>
 
 <style lang="scss" scoped>
     div {

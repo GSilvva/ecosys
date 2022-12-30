@@ -1,0 +1,12 @@
+<template>
+    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="72" height="72" rx="36" fill="#F6531A"/>
+        <path d="M29 37H25" stroke="white" stroke-width="3" stroke-linecap="square" stroke-linejoin="round"/>
+        <path d="M48 30L51 29" stroke="white" stroke-width="3" stroke-linecap="square" stroke-linejoin="round"/>
+        <path d="M22 30L19 29" stroke="white" stroke-width="3" stroke-linecap="square" stroke-linejoin="round"/>
+        <path d="M47 31L45.207 23.7294C44.8127 22.1305 43.3122 21 41.5843 21H28.4157C26.6878 21 25.1873 22.1305 24.793 23.7294L23 31" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M51 38V37C51 33.6863 48.4717 31 45.3529 31H24.6471C21.5283 31 19 33.6863 19 37V46C19 47.1046 19.8428 48 20.8824 48H25.0913C26.1309 48 26.9736 47.1046 26.9736 46V43H35.8866" stroke="white" stroke-width="3" stroke-linecap="square" stroke-linejoin="round"/>
+        <path d="M41 37H45" stroke="white" stroke-width="3" stroke-linecap="square" stroke-linejoin="round"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M47.5 55C47.5 51.4101 44.5899 48.5 41 48.5C44.5899 48.5 47.5 45.5899 47.5 42C47.5 45.5899 50.4101 48.5 54 48.5C50.4101 48.5 47.5 51.4101 47.5 55Z" stroke="white" stroke-width="3" stroke-linecap="square"/>
+    </svg>
+</template>

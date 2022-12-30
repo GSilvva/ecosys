@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-const classes = "rounded-full transition ease duration-300 flex items-center justify-center px-8";
+const classes = "rounded-full transition flex items-center justify-center px-8";
 
 defineProps({
   href: String,

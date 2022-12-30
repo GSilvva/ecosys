@@ -15,7 +15,7 @@
     </header>
 
     <section class="content sm:flex items-center justify-center min-h-screen">
-      <ElementsContainer>
+      <ElementsContainer block>
         <article class="box box--phone flex w-full m-auto bg-transparent sm:bg-white" v-if="!validPhone">
           <aside class="sm:p-10">
             <header>

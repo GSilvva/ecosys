@@ -7,7 +7,7 @@
         />
         <textarea
             v-if="textarea"
-            :class="['block w-full transition ease duration-300 px-4 py-4 !h-24 appearance-none', classes]"
+            :class="['block w-full transition px-4 py-4 !h-24 appearance-none', classes]"
             :id="label ? $formatStringSimple(label) : name"
             :name="name ? name : $formatStringSimple(label)"
             :placeholder="placeholder"
@@ -15,7 +15,7 @@
         ></textarea>
         <input
             v-else
-            :class="['block w-full transition ease duration-300 px-4', (small ? 'sm' : ''), (big ? 'big' : ''), classes]"
+            :class="['block w-full transition px-4', (small ? 'sm' : ''), (big ? 'big' : ''), classes]"
             :id="label ? $formatStringSimple(label) : name"
             :name="name ? name : $formatStringSimple(label)"
             :type="type ? type : 'text'"
