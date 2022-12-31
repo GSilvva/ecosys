@@ -1,21 +1,77 @@
+// RESETS
 @mixin h1 {
-    font-size: 72px;
-    line-height: 1;
-    font-family: $gotham;
+    font: 72px/1 $gotham;
 
     @media screen and (max-width: $mobile) {
-        font-size: 42px;
-        line-height: 44px;
+        font: 42px/44px $gotham;
+    }
+}
+
+@mixin h2 {
+    font: 56px/62px $gotham;
+
+    @media screen and (max-width: $mobile) {
+        font: 28px/34px $gotham;
+    }
+}
+
+@mixin h3 {
+    font: 48px/1 $gotham;
+
+    @media screen and (max-width: $mobile) {
+        font: 24px/30px $gotham;
+    }
+}
+
+@mixin h4 {
+    font: 40px/44px $gotham;
+
+    @media screen and (max-width: $mobile) {
+        font: 20px/26px $gotham;
+    }
+}
+
+@mixin h5 {
+    font: 32px/40px $gotham;
+
+    @media screen and (max-width: $mobile) {
+        font: 14px/22px $gotham;
+    }
+}
+
+@mixin h6 {
+    font: 24px/28px $gotham;
+
+    @media screen and (max-width: $mobile) {
+        font: 10px/1 $gotham;
     }
 }
 
 @mixin paragraph {
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 28px;
+    font: 400 20px/28px $inter;
 
     @media screen and (max-width: $mobile) {
-        font-size: 16px;
-        line-height: 24px;
+        font: 400 16px/24px $inter;
     }
+}
+
+// TITLES
+@mixin titlePage {
+    font: 48px/1 $gotham;
+
+    @media screen and (max-width: $mobile) {
+        font: 28px/34px $gotham;
+    }
+}
+
+@mixin titlePageNormal {
+    font: 32px/40px $gotham;
+
+    @media screen and (max-width: $mobile) {
+        font: 20px/28px $gotham;
+    }
+}
+
+@mixin titlePageMobile {
+    font: 24px/32px $gotham;
 }

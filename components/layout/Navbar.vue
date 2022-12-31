@@ -10,7 +10,7 @@
         
         <nuxt-link class="logo relative z-40" to="/"><VectorsLogotype /></nuxt-link>
 
-        <article class="menu h-full w-full bg-white top-0 right-0 opacity-0 translate-x-full xl:translate-x-0 xl:opacity-100 transition fixed xl:relative z-20 pt-28 xl:p-0 overflow-y-scroll lg:overflow">
+        <article class="menu h-full w-full bg-white top-0 right-0 opacity-0 translate-x-full xl:translate-x-0 xl:opacity-100 transition fixed xl:relative z-20 pt-28 xl:p-0 overflow-y-scroll lg:overflow-y-visible">
           <div class="xl:h-full px-6 md:px-10 xl:p-0 md:flex md:flex-col md:items-start xl:block">
             <ul class="links flex xl:items-center flex-col xl:flex-row gap-6 xl:gap-8 xl:h-full">
               <li :class="`h-full flex items-center relative pl-8 xl:pl-0 ${link.mobile ? 'xl:hidden' : ''}`" v-for="(link, index) in navigationLinks" :key="index">

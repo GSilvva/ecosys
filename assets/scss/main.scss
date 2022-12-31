@@ -1,3 +1,4 @@
+// RESETS
 ::selection {
     background: $orange;
     color: $white;
@@ -40,6 +41,11 @@ body {
     }
 }
 
+small {
+    display: block;
+}
+
+// TEXTS
 h1 {
     @include h1;
     text-transform: uppercase;
@@ -55,10 +61,7 @@ p {
     }
 }
 
-small {
-    display: block;
-}
-
+// GENERAL CLASSES
 .pt-big {
     padding-top: 152px;
 
