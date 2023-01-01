@@ -10,7 +10,7 @@
             <VectorsClose />
           </nuxt-link>
         </aside>
-        <h4 class="text-center">Entrar</h4>
+        <h4 class="text-center w-full">Entrar</h4>
       </ElementsContainer>
     </header>
 
@@ -129,7 +129,10 @@ useHead({
 
     &:focus,
     &:focus-visible,
-    &:hover {
+    &:hover,
+    &:target,
+    &:focus-within,
+    &:active {
       z-index: 10;
     }
   }

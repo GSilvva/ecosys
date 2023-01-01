@@ -1,57 +1,303 @@
 <template>
   <NuxtLayout>
     <section class="header pt-big">
+      <ElementsContainer block>
+        <section class="call xl:flex justify-between">
+          <aside class="xl:pt-12 pb-8 xl:pb-28">
+            <h1 class="h1">compre, venda ou troque seu carro</h1>
+            <p class="mt-8 xl:mt-10">Tudo de forma inteligente, <br> segura e simplificada.</p>
+            <div class="mt-8 xl:hidden">
+              <ElementsButton href="/comprar" class="h-16 flex items-center justify-between md:justify-center gap-6">
+                Catálogo de carros
+                <VectorsArrowRightBig />
+              </ElementsButton>
+              <ElementsButton href="/vender" class="h-16 mt-4" outline>Vender meu carro</ElementsButton>
+            </div>
+          </aside>
+
+          <figure class="relative w-full xl:pr-10 pb-6 xl:pt-14 xl:pb-24 bg-white">
+            <article class="relative z-20 flex items-center xl:justify-center gap-6 xl:gap-8 mb-6 xl:mb-12 xl:pl-36 pb-6 xl:pb-0">
+              <VectorsFirst />
+              <p>A autotech mais bem <br> avaliada do segmento</p>
+            </article>
+            <img class="relative z-20 pr-6 xl:pr-0" src="@/images/home/car-header.png" alt="Carro">
+          </figure>
+        </section>
+
+        <footer class="actions xl:flex">
+          <a class="more bg-white w-full h-full items-center justify-center gap-4 hidden xl:flex" href="#sobre"><VectorsArrowBottom class="transition" /> Veja mais</a>
+          <div class="thumb w-full h-full" type="button">
+            <ElementsVideo
+              thumbnail="./images/home/thumbnail.jpg"
+              video="https://www.youtube.com/embed/dYk_2QXpkgc"
+            />
+          </div>
+          <nuxt-link class="big-btn w-full overflow-hidden relative h-full hidden xl:block" to="/comprar">
+            <span class="text-white flex items-center justify-center gap-24 h-full relative z-10">
+              Catálogo de carros
+              <VectorsArrowRightBig class="transition" />
+            </span>
+          </nuxt-link>
+        </footer>
+      </ElementsContainer>
+    </section>
+
+    <section class="about pt-32 pb-32 xl:pt-48 xl:pb-48" id="sobre">
+      <ElementsContainer block>
+        <section class="w-full mx-auto">
+          <p class="mb-12 xl:mb-20">A b.car está há mais 10 anos no marcado foi a primeira marketplace de veículos seminovos do país e possui expertise no mercado de veículos para proporcionar a todos os clientes um bom negócio.</p>
+          <div class="flex items-center gap-8 xl:gap-20">
+            <VectorsIconLogo />
+            <p class="w-full">Nossa missão é te ajudar a realizar o sonho de comprar um seminovo com garantia, qualidade e segurança.</p>
+          </div>
+        </section>
+      </ElementsContainer>
+    </section>
+
+    <section class="services pb-48">
       <ElementsContainer>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis asperiores delectus sapiente nihil repellendus suscipit illo doloremque quam nulla facilis? Voluptate quibusdam mollitia numquam eligendi debitis dignissimos perspiciatis sed accusamus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime illum quasi repellat porro illo asperiores neque dolor, repudiandae et eligendi, architecto molestiae quibusdam accusamus eveniet aliquid, necessitatibus praesentium sunt officia? Modi nulla laborum nobis quae dolores, sit nisi eaque necessitatibus officiis. Culpa, sunt, quia facilis nesciunt eligendi cum aliquid laudantium tempore laboriosam, accusantium amet deleniti dolores doloribus perferendis ad ut.
-        Atque suscipit est quasi iste inventore magnam nihil incidunt dignissimos praesentium optio. Architecto ipsum excepturi cumque perspiciatis rerum iusto, accusamus provident vitae dolores facilis voluptates suscipit quia distinctio qui voluptate!
-      Dolore, animi? Sunt tempore nihil repellat laudantium, nostrum nam ex commodi ullam, doloremque molestias nobis similique amet ipsam. Laborum sed quisquam harum animi ipsam alias repellendus ullam ducimus repellat vero.
-      Asperiores nisi temporibus magnam beatae ratione dolorem rerum repellendus necessitatibus doloremque ipsum nobis, fuga sed facilis corporis quibusdam nulla quae placeat ullam quis unde vero fugit ad? Modi, molestiae ipsam.
-      Explicabo ipsum nam, vero dolorem sed, error aut qui nisi saepe sapiente facere doloribus amet inventore vitae natus totam dolor ipsam tenetur, deserunt laborum unde eos! Fuga veniam totam doloremque?
-      Quae reprehenderit ab soluta ducimus pariatur beatae sed unde? Cupiditate maiores amet eum reprehenderit nesciunt similique nulla recusandae illum, repellendus excepturi sed tempore labore earum odit officiis, quasi inventore nostrum.
-      Similique fugit expedita cumque pariatur animi sequi blanditiis distinctio voluptatem at sit inventore possimus non, corrupti ipsum voluptate nobis ratione maiores officia nemo fugiat. Alias mollitia dolor dignissimos cum enim?
-      Qui eaque excepturi corporis at debitis unde cumque ex ducimus culpa esse reiciendis pariatur repudiandae accusantium corrupti odit perferendis nobis ut saepe explicabo, exercitationem sunt itaque, iure dicta! Inventore, debitis.
-      Velit est libero accusantium sunt ullam maiores ea unde aperiam aspernatur tenetur ut, aliquid nesciunt amet! Facilis amet, blanditiis ullam ea esse, et provident voluptatibus aperiam, autem itaque quod non.
-      Doloremque voluptatum nemo facilis corrupti molestiae molestias voluptate perferendis labore ipsam, excepturi obcaecati id quia autem repudiandae laborum rem inventore officia optio laboriosam adipisci. Similique cum quod nisi nihil unde!
-      Nam eligendi repudiandae quae cupiditate eveniet? Possimus labore pariatur explicabo voluptatem tempore tenetur unde modi maiores. Dicta quis magni quibusdam officiis, quos molestiae nemo optio sint quod nam vero id.
-      Inventore sint ad consequuntur animi rem quasi iure voluptatibus ex, dolor molestiae facilis optio dignissimos minus iste, quod saepe corporis odio doloribus eius assumenda quis! Impedit voluptatem repellat excepturi error.
-      Dolor beatae, culpa porro a eligendi enim quae consequuntur amet corrupti rerum qui facere quo quasi deleniti odit quas, itaque reiciendis officia ipsum eaque perspiciatis autem, explicabo impedit ut? Aspernatur!
-      Numquam, rem! Saepe, harum. Cumque accusantium illum laboriosam minus iste a? Saepe, dolorum! Mollitia ad nulla placeat, iusto corrupti itaque provident ducimus et voluptas, facilis debitis maiores tempora, quasi expedita?
-      Magni voluptate harum odit praesentium? Libero corporis deserunt cumque assumenda pariatur est ullam voluptatibus quia temporibus rem. Corrupti consequatur doloremque illum ipsum. Numquam rem molestiae obcaecati odio iste excepturi esse?
-      Possimus incidunt perspiciatis corporis maxime reprehenderit. Totam quaerat, facere aspernatur omnis fugiat magnam nulla explicabo quia placeat inventore officia doloremque dolore tenetur dolorum nobis incidunt ipsum molestias obcaecati, exercitationem vel?
-      Vero cupiditate impedit quam placeat nulla inventore neque cumque ipsum expedita omnis sunt nobis eligendi error, veniam eius. Est laborum deserunt iusto beatae rem nam et neque maxime maiores molestiae?
-      Aspernatur facilis commodi pariatur nulla aliquid, totam tenetur at dignissimos error deserunt enim sunt amet sed, exercitationem eveniet odit voluptate tempore provident ipsum soluta dolorem mollitia nesciunt consectetur. Veritatis, perferendis.
-      Excepturi magni molestiae eius doloribus repudiandae dolor architecto quod repellat exercitationem voluptates corrupti est, iusto dignissimos aspernatur distinctio accusamus fugiat rem accusantium? Non vel quia suscipit fugiat illo optio dicta!
-      Temporibus quam hic sit quidem. Quas ipsam molestias modi nobis quasi? Reprehenderit eius ducimus, laboriosam delectus dolorem dolorum ipsum autem praesentium nisi nesciunt. Voluptas nobis cum, aperiam optio officiis atque!
-      Assumenda, pariatur! Reiciendis, corporis, molestiae accusamus optio et reprehenderit, sunt expedita repellat placeat culpa architecto excepturi saepe ullam aspernatur quos pariatur beatae consectetur dolores ad! Officia placeat voluptate consectetur minima!
-      Iure fugit, laudantium tenetur at veritatis, molestiae consectetur sunt totam enim rerum obcaecati accusantium pariatur dolorum quae error nihil nesciunt dicta consequuntur alias. Neque, beatae dolorem cumque eos placeat sint?
-      Blanditiis, quaerat! Hic, ipsa, sed vero dicta quis dolorum facilis atque vitae beatae expedita blanditiis cumque voluptates temporibus. Laudantium soluta ipsum nihil libero et quo nobis accusantium modi sed recusandae.
-      Aspernatur tempora hic assumenda dignissimos doloribus maxime officia, iure id, itaque soluta laborum ex commodi autem magnam optio nobis magni. Pariatur saepe quas enim inventore qui praesentium quasi consectetur hic!
-      Temporibus quidem obcaecati, soluta consequuntur quasi ad consequatur molestiae numquam iure aliquam. Quas ut placeat ipsum laboriosam corporis aspernatur blanditiis, consequatur, officia dolorum iste nostrum laudantium reprehenderit doloribus? Quae, obcaecati!
-      Natus rerum quaerat deserunt temporibus voluptatibus quod placeat optio, recusandae praesentium illum illo doloribus enim repudiandae atque similique ducimus. Libero cumque eveniet odit fugit expedita laboriosam nulla, impedit debitis doloremque!
-      Labore sit culpa debitis nisi quidem amet asperiores perferendis. Placeat cumque nobis quod neque sint dolores quam quo hic non ex dolore consectetur, aliquid corrupti minus tempore nostrum nam repudiandae?
-      Enim, molestiae. Debitis mollitia nobis rem tenetur, vitae esse molestiae quidem nulla eius ipsa quae quibusdam dolores officiis commodi animi! Optio fugit fugiat nam doloremque nihil porro repellat aperiam praesentium!
-      Accusamus enim architecto voluptas dolorem, ea magni dicta culpa perferendis mollitia eius! Itaque nesciunt doloremque ratione debitis rerum commodi et explicabo. Sequi totam perspiciatis laudantium ad nisi reiciendis consectetur esse.
-      Dolore quibusdam libero cupiditate molestias ea aliquam quas dolores, temporibus nostrum iste beatae non quo saepe maiores sed voluptate eligendi suscipit repellendus nihil assumenda aut. Amet quod sed ea non.
-      Laborum, magnam nobis corrupti a commodi laudantium omnis veritatis ex hic animi cumque magni cupiditate nulla? Reprehenderit a veritatis perspiciatis quam magni. Recusandae sapiente nesciunt nihil deleniti corporis reprehenderit? Quaerat?
-      Earum ea consectetur, maiores explicabo consequuntur vel neque recusandae fuga ullam corrupti incidunt eius perferendis qui quasi necessitatibus, quam quibusdam nemo deserunt ipsum? Tenetur reiciendis, neque a repellat aliquam ut.
-      Tempore rerum incidunt provident totam, sapiente quidem illo, quod quaerat debitis eius laborum dolorum, quas hic libero ex nesciunt ut non fugiat! Architecto sapiente quae dolorem blanditiis vero neque quibusdam.
-      A veniam laudantium nulla omnis nam id nemo provident impedit assumenda corporis natus nisi adipisci quidem ex officiis minus quaerat beatae, exercitationem quod aut repudiandae rem tempora velit. Officiis, omnis!
-      Consectetur sed quis sequi illo culpa ea delectus magnam neque temporibus provident cumque voluptatem repellat aperiam tempora sit ipsa magni veritatis asperiores sint, optio quos. Repellat expedita unde inventore officiis.
-      At odio suscipit officiis adipisci mollitia voluptas! Vero, iste. Iusto assumenda, delectus velit et dolorum ducimus ea harum fugiat sapiente, ab illo rem magni laudantium recusandae aperiam. Accusantium, fugit dicta.
-      Voluptates, porro quam cum velit adipisci laborum aperiam magni modi quas amet sint est nam veritatis a ad et quisquam aliquam esse, autem itaque doloremque unde necessitatibus aliquid illo! Fuga.
-      Facere doloremque optio, velit officia at quis veritatis nostrum eveniet. Eum at a sapiente sint, harum soluta, doloremque dolorum ex tempore quod explicabo corporis, reiciendis laborum minima veritatis perferendis. Repellat.
-      Modi incidunt cumque saepe corporis ab molestiae nisi qui corrupti consequatur dolores eum voluptates aspernatur, labore molestias amet quos, officia voluptatum! Recusandae animi earum a beatae, inventore nam natus optio.
-      Ut blanditiis temporibus excepturi dignissimos cupiditate eligendi. Sequi quas, facilis fugiat quibusdam adipisci quis sint repellendus repudiandae cumque tempora odit praesentium, numquam alias minus laudantium molestias, eligendi consequatur optio a!
-      Exercitationem aperiam vero eius sunt esse? Quisquam facilis animi deserunt rerum reiciendis, voluptatem nostrum possimus omnis praesentium repudiandae molestias odio, magni exercitationem illo, recusandae vero eaque debitis temporibus assumenda laborum!
-      Eius soluta repudiandae maiores at et illo commodi non quisquam, porro cumque amet provident vel beatae voluptatum vero fugit culpa cupiditate, quibusdam nesciunt! Tenetur quisquam fugiat error accusamus accusantium laboriosam?
-      Inventore similique dolorum, dolore nisi, nihil quaerat accusamus magni voluptatem, sequi error vero provident commodi libero officia quibusdam iure eum ex sint voluptatibus quis? Blanditiis dignissimos eum excepturi! Autem, officia.
-      Quo ipsum consequatur nisi perferendis voluptatum, praesentium laudantium harum! Vero, optio tempora. Facere quos consequuntur maiores, facilis voluptate ea dicta. Molestias dolore obcaecati deserunt iure ad nulla reiciendis dignissimos minima!
-      Rerum accusamus doloremque dolores, vero provident possimus repudiandae ipsum voluptatum omnis, minus odio natus perferendis suscipit atque corporis fugit, molestias distinctio consectetur esse id sequi assumenda consequatur? Sunt, aliquam recusandae?
-      Autem sint in tenetur architecto, nihil sunt? Voluptatibus facere soluta iure dolorem incidunt, id facilis odit laudantium enim voluptatem modi, velit eius, molestiae sapiente impedit maxime earum! Obcaecati, reiciendis dolor?
-      Animi, atque eligendi corrupti inventore accusamus natus, ut fugit soluta, perferendis dolor rerum error? Ducimus dicta in dignissimos ea dolore repellat quia impedit! Vel at aut ratione eaque inventore ex!
-      Sapiente eos excepturi placeat, eaque voluptatem exercitationem beatae atque dolor eligendi enim laboriosam illo amet at alias et perspiciatis sint! Voluptatem illo dignissimos beatae architecto quisquam, minus tempore sapiente saepe?
-      Doloremque sunt reprehenderit culpa placeat dolore est animi accusantium labore dolorum ut doloribus eos corporis, a itaque dicta hic debitis, qui earum quod. Repellat voluptates unde fugiat ab sequi expedita.</p>
-    </ElementsContainer>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel aut in dolor consequatur quas recusandae maxime aliquam corrupti, quaerat voluptatibus dicta ea commodi amet odio, sint nam modi facilis iste.</p>
+      </ElementsContainer>
+    </section>
+
+    <section class="featured">
+      <ElementsContainer block>
+        <section class="xl:flex items-center justify-between py-16 xl:pt-40 xl:pb-32">
+          <figure class="relative w-full xl:pl-7 xl:pt-20 xl:pb-16">
+            <article class="relative z-20 flex items-center xl:justify-center gap-6 xl:gap-8 mb-6 pb-6 xl:pb-0 xl:mb-8 xl:pr-36">
+              <VectorsFirst />
+              <p class="text-white">A autotech mais bem <br> avaliada do segmento</p>
+            </article>
+            <img class="relative z-20 hidden xl:block" src="@/images/home/car-footer.png" alt="Carro">
+          </figure>
+          <aside class="flex flex-col items-start w-full">
+            <h2 class="h1 text-white mb-6 md:mb-10">Mais de <br> 200 carros pra você</h2>
+            <p class="text-white w-full mb-8 md:mb-10">Veja nosso catálogo de veículos e fique a vontade para falar com a gente ou nos visitar em brasília.</p>
+            <ElementsButton href="/comprar">Ver todos os carros</ElementsButton>
+          </aside>
+        </section>
+      </ElementsContainer>
     </section>
   </NuxtLayout>
 </template>
+
+<style lang="scss" scoped>
+.header {
+  .call {
+    aside {
+      max-width: 465px;
+      width: 100%;
+      @media screen and (max-width: $tablet) {
+        max-width: 100%;
+      }
+    }
+
+    figure {
+      max-width: 632px;
+
+      @media screen and (max-width: $tablet) {
+        max-width: 100%;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 112px;
+        height: 100%;
+        background: $grey-1;
+
+        @media screen and (max-width: $mobile) {
+          widows: 72px;
+        }
+      }
+
+      article {
+        @media screen and (max-width: $tablet) {
+          background: $grey-1;
+        }
+
+        @media screen and (max-width: $mobile) {          
+          svg {
+            width: 48px;
+            height: 48px;
+          }
+        }
+
+        p {
+          color: $dark;
+          font: 400 18px/26px $inter;
+
+          @media screen and (max-width: $mobile) {
+            font: 400 14px/20px $inter;
+          }
+        }
+      }
+    }
+  }
+
+  .actions {
+    height: 120px;
+
+    @media screen and (max-width: $tablet) {
+      height: 140px;
+    }
+    
+    .more {
+      font: 500 18px/24px $inter;
+
+      svg {
+        animation: bounce 3s ease infinite;
+      }
+
+      @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-12px);
+        }
+        60% {
+          transform: translateY(-6px);
+        }
+      }
+    }
+
+    .thumb {
+      max-width: 344px;
+
+      @media screen and (max-width: $tablet) {
+        max-width: 100%;
+      }
+    }
+
+    .big-btn {
+      max-width: 520px;
+      min-width: 520px;
+      background: $orange;
+
+      span {
+        font: 500 18px/24px $inter;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -50px;
+        bottom: 0;
+        left: 0;
+        border-right: 50px solid transparent;
+        border-top: 120px solid $light-orange;
+        transform: translateX(-100%);
+        z-index: 1;
+        transition: .5s ease;
+      }
+
+      &:hover {
+        &::before {
+          transform: translateX(0);
+        }
+        svg {
+          transform: translateX(6px);
+        }
+      }
+    }
+  }
+}
+
+.about {
+  section {
+    max-width: 750px;
+    
+    & > p {
+      font: 500 40px/48px $inter;
+      color: $dark;
+      @media screen and (max-width: $mobile) {
+        font: 500 24px/32px $inter;
+      }
+    }
+
+    div {
+      p {
+        max-width: 420px;
+        @media screen and (max-width: $mobile) {
+          font: 400 14px/20px $inter;
+        }
+      }
+
+      svg {
+        min-width: 72px;
+        max-width: 72px;
+        height: 72px;
+
+        @media screen and (max-width: $mobile) {
+          min-width: 56px;
+          max-width: 56px;
+          height: 56px;
+        }
+      }
+    }
+  }
+}
+
+.featured {
+  background: $dark;
+
+  section {
+    border-bottom: 1px solid rgba(86, 86, 89, .2);
+
+    figure {
+      max-width: 640px;
+      background: rgba(86, 86, 89, .24);
+
+      @media screen and (max-width: $tablet) {
+        background: transparent;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        width: 120px;
+        height: 100%;
+        background: $dark;
+      }
+
+      article {
+        @media screen and (max-width: $mobile) {
+          svg {
+            width: 48px;
+            height: 48px;
+          }
+        }
+
+        p {
+          font: 400 18px/26px $inter;
+
+          @media screen and (max-width: $mobile) {
+            font: 400 14px/20px $inter;
+          }
+        }
+      }
+    }
+
+    aside {
+      max-width: 495px;
+
+      p {
+        font: 400 22px/30px $inter;
+        max-width: 420px;
+
+        @media screen and (max-width: $mobile) {
+          font: 400 18px/26px $inter;
+        }
+      }
+    }
+  }
+}
+</style>

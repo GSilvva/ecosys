@@ -1,6 +1,6 @@
 // RESETS
 @mixin h1 {
-    font: 72px/1 $gotham;
+    font: 72px/74px $gotham;
 
     @media screen and (max-width: $mobile) {
         font: 42px/44px $gotham;

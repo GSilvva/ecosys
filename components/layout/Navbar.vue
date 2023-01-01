@@ -1,6 +1,6 @@
 <template>
-  <nav :class="`nav bg-white fixed top-0 left-0 w-full transition ${openMenu ? 'nav--open' : ''}`">
-    <ElementsContainer class="h-full" center>
+  <nav :class="`nav bg-white fixed top-0 left-0 w-full transition z-30 ${openMenu ? 'nav--open' : ''}`">
+    <ElementsContainer class="h-full flex" center>
       <aside class="content flex items-center gap-5 xl:gap-20 h-full">
         <button
           @click="openMenu = !openMenu"
@@ -10,7 +10,7 @@
         
         <nuxt-link class="logo relative z-40" to="/"><VectorsLogotype /></nuxt-link>
 
-        <article class="menu h-full w-full bg-white top-0 right-0 opacity-0 translate-x-full xl:translate-x-0 xl:opacity-100 transition fixed xl:relative z-20 pt-28 xl:p-0 overflow-y-scroll lg:overflow-y-visible">
+        <article class="menu h-full w-full bg-white top-0 right-0 opacity-0 translate-x-full xl:translate-x-0 xl:opacity-100 transition fixed xl:relative z-20 pt-28 xl:p-0 overflow-y-scroll xl:overflow-y-visible">
           <div class="xl:h-full px-6 md:px-10 xl:p-0 md:flex md:flex-col md:items-start xl:block">
             <ul class="links flex xl:items-center flex-col xl:flex-row gap-6 xl:gap-8 xl:h-full">
               <li :class="`h-full flex items-center relative pl-8 xl:pl-0 ${link.mobile ? 'xl:hidden' : ''}`" v-for="(link, index) in navigationLinks" :key="index">
@@ -108,7 +108,7 @@ const navigationLinks = [
   },
   {
     text: "Dúvidas e sugestões",
-    url: "/cn-news",
+    url: "/central-ajuda",
     newLayer: false,
     mobile: true
   },
@@ -122,6 +122,10 @@ const navigationLinks = [
 
   &.nav--fixed {
     height: 72px;
+
+    @media screen and (max-width: $tablet) {
+      height: 64px;
+    }
   }
 
   &.nav--open {
@@ -156,7 +160,7 @@ const navigationLinks = [
     }
   }
 
-  @media screen and (max-width: $mobile) {
+  @media screen and (max-width: $tablet) {
     height: 64px;
   }
 }

@@ -1,15 +1,15 @@
 <template>
     <nuxt-link
         v-if="href"
-        :class="['py-5', classes]"
-        :href="href"
+        :class="`xl:py-5 ${outline ? 'outlined' : ''} ${classes}`"
+        :to="href"
         :target="blank ? '_blank' : ''"
     >
         <slot />
     </nuxt-link>
     <button
         v-else
-        :class="['py-4', classes]"
+        :class="classes"
         :type="submit ? 'submit' : 'button'"
     >
         <slot />
@@ -17,26 +17,41 @@
 </template>
 
 <script setup lang="ts">
-const classes = "rounded-full transition flex items-center justify-center px-8";
+const classes = "rounded-full transition flex items-center justify-center px-8 py-4";
 
 defineProps({
   href: String,
   blank: Boolean,
   submit: Boolean,
+  outline: Boolean
 });
 </script>
 
 <style lang="scss" scoped>
 a,
 button {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
+    font: 500 18px/24px $inter;
     color: $white;
     background: $orange;
 
+    @media screen and (max-width: $mobile) {
+        font-size: 16px;
+    }
+
     &:hover {
         background: $light-orange;
+    }
+
+    &.outlined {
+        background: transparent;
+        border: 1px solid $grey-3;
+        color: $dark;
+
+        &:hover {
+            color: $white;
+            background: $orange;
+            border-color: $orange;
+        }
     }
 }
 </style>

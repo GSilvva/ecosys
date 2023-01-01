@@ -1,5 +1,5 @@
 <template>
-    <div :class="`${block ? 'block' : 'flex justify-between'} ${center ? 'items-center' : ''}  `">
+    <div :class="`${block ? 'block' : 'xl:flex justify-between'} ${center ? 'items-center' : ''}  `">
         <slot />
     </div>
 </template>
