@@ -36,9 +36,9 @@ html {
 body {
     background: $grey-1;
 
-    @media screen and (max-width: 1300px) {
-        zoom: .93;
-    }
+    // @media screen and (max-width: 1300px) {
+    //     zoom: .93;
+    // }
 
     @media screen and (max-width: $tablet) {
         zoom: 1;

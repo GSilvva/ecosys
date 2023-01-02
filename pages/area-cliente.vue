@@ -30,6 +30,7 @@
                   required
                 />
                 <ElementsFormInput
+                  @input="$masksInput('test')"
                   classes="!pl-6 !pr-6"
                   label="Telefone"
                   placeholder="9 9999 9999"

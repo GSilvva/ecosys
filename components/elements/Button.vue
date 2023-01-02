@@ -1,7 +1,7 @@
 <template>
     <nuxt-link
         v-if="href"
-        :class="`xl:py-5 ${outline ? 'outlined' : ''} ${classes}`"
+        :class="`xl:py-5 ${outline ? 'outlined' : ''} ${black ? 'black' : ''} ${classes}`"
         :to="href"
         :target="blank ? '_blank' : ''"
     >
@@ -23,7 +23,8 @@ defineProps({
   href: String,
   blank: Boolean,
   submit: Boolean,
-  outline: Boolean
+  outline: Boolean,
+  black: Boolean
 });
 </script>
 
@@ -39,7 +40,7 @@ button {
     }
 
     &:hover {
-        background: $light-orange;
+        background: #ff6c3b;
     }
 
     &.outlined {
@@ -48,9 +49,14 @@ button {
         color: $dark;
 
         &:hover {
-            color: $white;
-            background: $orange;
-            border-color: $orange;
+            background: rgba(0, 0, 0, .04);
+        }
+    }
+    
+    &.black {
+        background: $dark;
+        &:hover {
+            background: rgba(0, 0, 0, .88);
         }
     }
 }

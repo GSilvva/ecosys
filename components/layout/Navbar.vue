@@ -4,6 +4,7 @@
       <aside class="content flex items-center gap-5 xl:gap-20 h-full">
         <button
           @click="openMenu = !openMenu"
+          @click.prevent="$preventScrollBody"
           class="hamb flex xl:hidden relative z-40 transition"
           type="button"
         ></button>
@@ -120,10 +121,18 @@ const navigationLinks = [
   height: 88px;
   box-shadow: $nav;
 
+  @media screen and (max-width: $tablet) {
+    height: 72px;
+  }
+
+  @media screen and (max-width: $mobile) {
+    height: 64px;
+  }
+
   &.nav--fixed {
     height: 72px;
 
-    @media screen and (max-width: $tablet) {
+    @media screen and (max-width: $mobile) {
       height: 64px;
     }
   }
@@ -158,10 +167,6 @@ const navigationLinks = [
         background: $white;
       }
     }
-  }
-
-  @media screen and (max-width: $tablet) {
-    height: 64px;
   }
 }
 

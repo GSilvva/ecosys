@@ -58,9 +58,10 @@
 // TITLES
 @mixin titlePage {
     font: 48px/1 $gotham;
+    text-transform: uppercase;
 
     @media screen and (max-width: $mobile) {
-        font: 28px/34px $gotham;
+        font: 24px/28px $gotham;
     }
 }
 

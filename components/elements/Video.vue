@@ -1,13 +1,18 @@
 <template>
-    <button @click="openVideo = true" class="thumbnail relative h-full w-full" type="button">
+    <button @click="openVideo = true" @click.prevent="$preventScrollBody" class="thumbnail relative h-full w-full" type="button">
         <img class="h-full w-full object-cover opacity-80" :src="thumbnail" alt="Foto">
-        <div class="absolute top-1/2 left-1/2 p-3 rounded-full"><VectorsPlay /></div>
+        <div
+            :class="`absolute top-1/2 left-1/2 transition ${medium ? 'medium' : ''} ${small ? 'w-10 h-10' : ''}`"
+        >
+            <VectorsPlay />
+        </div>
     </button>
     
     <article :class="`modal fixed left-0 top-0 z-50 w-full h-full opacity-0 invisible flex items-center justify-center transition overflow-hidden ${openVideo ? 'visible' : ''}`">
         <button
             class="close absolute right-4 rounded-full py-1 px-3 transition xl:hidden z-50"
             @click="openVideo = false"
+            @click.prevent="$preventScrollBody"
             type="button"
         >Fechar</button>
         <ElementsContainer block class="relative z-50">
@@ -15,12 +20,13 @@
                 <button
                     class="close absolute right-0 rounded-full py-1 px-3 transition hidden xl:block"
                     @click="openVideo = false"
+                    @click.prevent="$preventScrollBody"
                     type="button"
                 >Fechar</button>
                 <div class="overflow-hidden relative"><iframe width="100%" height="100%" :src="`${video}${openVideo ? '?autoplay=1' : ''}`" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
             </div>
         </ElementsContainer>
-        <div @click="openVideo = false" class="overlay fixed top-0 left-0 w-full h-full z-40"></div>
+        <div @click="openVideo = false" @click.prevent="$preventScrollBody" class="overlay fixed top-0 left-0 w-full h-full z-40"></div>
     </article>
 </template>
 
@@ -30,6 +36,8 @@ const openVideo = ref(false);
 defineProps({
     thumbnail: String,
     video: String,
+    medium: Boolean,
+    small: Boolean
 });
 </script>
 
@@ -38,21 +46,20 @@ defineProps({
     background: $dark;
 
     div {
-        border: 3px solid rgba(255, 255, 255, .8);
-        animation: scale 4s ease infinite;
+        animation: scale 3s ease infinite;
 
-        @media screen and (max-width: $tablet) {
+        &.medium {
             width: 72px;
             height: 72px;
-            border-width: 2px;
-            svg {
-                width: 100%;
-                height: 100%;
-            }
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
         }
 
         @keyframes scale {
-            0%, 30%, 50%, 80%, 100% {
+            0%, 50%, 80%, 100% {
                 transform: translate(-50%, -50%) scale(1);
             }
             40% {

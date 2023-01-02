@@ -13,9 +13,9 @@ defineProps({
 
 <style lang="scss" scoped>
     div {
-        max-width: calc(1216px + 80px);
+        max-width: calc(1216px + 96px);
         width: 100%;
-        padding: 0 40px;
+        padding: 0 48px;
         margin: 0 auto;
         
         @media screen and (max-width: 640px) {
