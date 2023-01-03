@@ -16,9 +16,7 @@ defineProps({
 
 <style lang="scss" scoped>
 label {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
+    font: 500 16px/24px $inter;
     z-index: 9;
     
     &.floating {

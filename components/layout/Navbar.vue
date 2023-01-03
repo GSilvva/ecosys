@@ -102,8 +102,8 @@ const navigationLinks = [
     mobile: false
   },
   {
-    text: "CN News",
-    url: "/cn-news",
+    text: "News",
+    url: "/news",
     newLayer: false,
     mobile: false
   },

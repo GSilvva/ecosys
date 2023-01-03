@@ -12,6 +12,7 @@
                 :name="name ? name : $formatStringSimple(label)"
                 :required="required"
             >
+                <option value="">Selecione</option>
                 <option v-for="(option, index) in options" :key="index" :value="option">{{ option }}</option>
             </select>
             <VectorsArrowSelect />

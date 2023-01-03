@@ -3,6 +3,6 @@
         <rect opacity="0.08" width="205" height="205" fill="#F6531A"/>
         <rect opacity="0.04" y="205" width="205" height="205" fill="#F6531A"/>
         <rect opacity="0.04" x="205" width="205" height="205" fill="#F6531A"/>
-        <path d="M93.6 52V56.2L98.16 109.48H106.2L110.64 56.2V52H93.6ZM110.16 136V119.56H94.2V136H110.16Z" fill="#F6531A"/>
+        <path d="M96.72 109.48H104.76L123.48 56.2L124.68 52H107.64L106.44 56.2L96.72 109.48ZM85.68 136H101.64L106.08 119.56H90L85.68 136Z" fill="#F6531A"/>
     </svg>
 </template>

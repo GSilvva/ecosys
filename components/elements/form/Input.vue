@@ -15,7 +15,7 @@
         ></textarea>
         <input
             v-else
-            :class="['block w-full transition px-4', (small ? 'sm' : ''), (big ? 'big' : ''), classes]"
+            :class="['block w-full transition px-4', (small ? 'sm' : ''), (big ? 'big' : ''), (legend ? 'legend' : ''), classes]"
             :id="label ? $formatStringSimple(label) : name"
             :name="name ? name : $formatStringSimple(label)"
             :type="type ? type : 'text'"
@@ -39,7 +39,7 @@ defineProps({
     type: String,
     textarea: Boolean,
     placeholder: String,
-    required: Boolean
+    required: Boolean,
 });
 </script>
 

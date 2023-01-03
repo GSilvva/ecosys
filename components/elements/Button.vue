@@ -1,7 +1,7 @@
 <template>
     <nuxt-link
         v-if="href"
-        :class="`xl:py-5 ${outline ? 'outlined' : ''} ${black ? 'black' : ''} ${classes}`"
+        :class="`xl:py-5 ${outline ? 'outlined' : ''} ${black ? 'black' : ''} ${small ? 'small' : ''} ${classes}`"
         :to="href"
         :target="blank ? '_blank' : ''"
     >
@@ -9,7 +9,7 @@
     </nuxt-link>
     <button
         v-else
-        :class="classes"
+        :class="`${outline ? 'outlined' : ''} ${black ? 'black' : ''} ${small ? 'small' : ''} ${classes}`"
         :type="submit ? 'submit' : 'button'"
     >
         <slot />
@@ -17,14 +17,15 @@
 </template>
 
 <script setup lang="ts">
-const classes = "rounded-full transition flex items-center justify-center px-8 py-4";
+const classes = "rounded-full transition inline-block px-8 py-4 text-center";
 
 defineProps({
   href: String,
   blank: Boolean,
   submit: Boolean,
   outline: Boolean,
-  black: Boolean
+  black: Boolean,
+  small: Boolean,
 });
 </script>
 
@@ -34,30 +35,50 @@ button {
     font: 500 18px/24px $inter;
     color: $white;
     background: $orange;
+    border: 1px solid $orange;
 
     @media screen and (max-width: $mobile) {
         font-size: 16px;
     }
 
     &:hover {
-        background: #ff6c3b;
+        background: $dark;
+        border-color: $grey-1;
     }
 
     &.outlined {
         background: transparent;
-        border: 1px solid $grey-3;
+        border-color: $grey-3;
         color: $dark;
 
         &:hover {
-            background: rgba(0, 0, 0, .04);
+            border-color: $dark;
         }
     }
     
+    &.green {
+        background: $green;
+        border-color: $green;
+        
+        &:hover {
+            border-color: $dark;
+        }
+    }
+
     &.black {
         background: $dark;
+        border-color: $dark;
+
         &:hover {
-            background: rgba(0, 0, 0, .88);
+            background: $white;
+            color: $dark;
+            border-color: $white;
         }
+    }
+
+    &.small {
+        font-size: 16px;
+        padding: .75rem 1.5rem;
     }
 }
 </style>

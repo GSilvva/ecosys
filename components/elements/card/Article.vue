@@ -6,7 +6,7 @@
                     <img
                         class="h-44 md:h-80 object-cover w-full"
                         alt="Foto"
-                        :src="thumbnail ? thumbnail : './images/general/default-thumbnail-article.svg'"
+                        :src="thumbnail ? thumbnail : './images/general/default-image.svg'"
                     >
                     <h6 class="absolute bottom-0 left-6 md:left-12 xl:left-0 text-white uppercase py-2 px-3">{{ category }}</h6>
                 </figure>

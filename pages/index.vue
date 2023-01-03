@@ -145,7 +145,7 @@
     <section class="finance pb-28 xl:pb-48">
       <ElementsContainer center>
         <img class="mb-12 xl:mb-0 w-full" src="@/images/home/finance.jpg" alt="Foto">
-        <aside class="flex items-start flex-col">
+        <aside>
           <h6 class="mb-4 xl:mb-6">Financie com a gente</h6>
           <h2 class="mb-6 xl:mb-8">Agilidade e sem burocracia</h2>
           <p class="mb-6 xl:mb-8">Segurança, atendimento diferenciado e as melhores condições do mercado. Escolha o carro que deseja solicite um orçamento personalizado pelo nosso chat.</p>
@@ -157,10 +157,10 @@
     <section class="blog pb-28 xl:pb-48">
       <ElementsContainer block class="container">
         <section class="bg-white px-6 md:px-12 xl:pr-0 pt-12 xl:pl-24 xl:pt-16 flex-col-reverse xl:flex-row flex xl:items-end">
-          <aside class="flex flex-col items-start w-full pt-12 pb-12 xl:pt-10 xl:pb-28">
+          <aside class="w-full pt-12 pb-12 xl:pt-10 xl:pb-28">
             <h2 class="mb-5 xl:mb-8">Conheça <br> a Car News</h2>
             <p class="mb-6 xl:mb-8">Veja as noticias e conteúdos mais relevantes do mercado automotivo.</p>
-            <ElementsButton href="/cn-news">Ver últimas notícias</ElementsButton>
+            <ElementsButton href="/news">Ver últimas notícias</ElementsButton>
             <footer class="hidden xl:flex justify-between mt-12 pt-8">
               <span class="flex items-center">Veículos</span>
               <span class="flex items-center">Carros</span>
@@ -175,7 +175,7 @@
               <ElementsCardArticle
                 class="absolute left-0 top-36 px-3.5 md:px-3.5"
                 mobile
-                link="/cn-news"
+                link="/news"
                 thumbnail="./images/home/article.jpg"
                 category="Esportivos"
                 title="O novo BMW M5 2023 traz novidades que você não esperava"
@@ -203,10 +203,10 @@
           <div class="flex flex-col-reverse xl:flex-row justify-between items-center">
             <aside class="flex flex-col items-center xl:items-start w-full mt-16 xl:mt-0">
               <h2 class="text-center xl:text-left text-white">Descubra o b.car ideal pRa você</h2>
-              <p class="text-center xl:text-left mt-6 mb-8 xl:my-8 text-white">Responda o nosso questionário a seguir. Cada pergunta respondida representa um caminho a seguir. Assim, fica mais fácil encontrar seu carro ideal.</p>
+              <p class="text-center xl:text-left mt-6 mb-8 xl:my-8 text-white">Responda o nosso questionário a seguir. Cada pergunta respondida representa um caminho pra você encontrar seu carro ideal.</p>
               <ElementsButton black href="/descubra">Descobrir meu carro</ElementsButton>
             </aside>
-            <figure class="relative">
+            <figure class="relative w-full">
               <img class="mix-blend-multiply relative z-20" src="@/images/general/mystery-car.png" alt="Carro misterioso">
               <img class="absolute top-1/2 left-1/2 z-10" src="@/images/general/graphism-mystery-car.svg" alt="Graphismo">
             </figure>
@@ -226,7 +226,7 @@
             </article>
             <img class="relative z-20 hidden xl:block" src="@/images/home/car-footer.png" alt="Carro">
           </figure>
-          <aside class="flex flex-col items-start w-full">
+          <aside class="w-full">
             <h2 class="h1 text-white mb-6 md:mb-10">Mais de <br> 200 carros pra você</h2>
             <p class="text-white w-full mb-8 md:mb-10">Veja nosso catálogo de veículos e fique a vontade para falar com a gente ou nos visitar em brasília.</p>
             <ElementsButton href="/comprar">Ver todos os carros</ElementsButton>
@@ -433,7 +433,7 @@
         font-weight: 600 !important;
       }
       p {
-        font: 400 18px/26px $inter; 
+        font: 400 17px/25px $inter; 
         @media screen and (max-width: $mobile) {
           font: 400 16px/24px $inter;
         }
@@ -541,6 +541,7 @@
       }
     }
     figure {
+      max-width: 632px;
       img:last-of-type {
         transform: translate(-50%, -50%);
       }

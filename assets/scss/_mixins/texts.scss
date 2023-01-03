@@ -67,6 +67,7 @@
 
 @mixin titlePageNormal {
     font: 32px/40px $gotham;
+    text-transform: uppercase;
 
     @media screen and (max-width: $mobile) {
         font: 20px/28px $gotham;
@@ -75,4 +76,5 @@
 
 @mixin titlePageMobile {
     font: 24px/32px $gotham;
+    text-transform: uppercase;
 }

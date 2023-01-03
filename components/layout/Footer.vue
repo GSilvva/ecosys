@@ -15,7 +15,7 @@
               <nuxt-link class="transition" to="/comprar">Veículos</nuxt-link>
               <nuxt-link class="transition" to="/vender">Anunciar</nuxt-link>
               <nuxt-link class="text-white transition" to="/descubra">Descubra</nuxt-link>
-              <nuxt-link class="transition" to="/cn-news">News</nuxt-link>
+              <nuxt-link class="transition" to="/news">News</nuxt-link>
             </div>
           </article>
           <article class="w-6/12 md:w-max">
