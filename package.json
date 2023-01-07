@@ -13,7 +13,6 @@
     "sass": "^1.57.1"
   },
   "dependencies": {
-    "dayjs": "^1.11.6",
     "swiper": "^8.4.5"
   }
 }

@@ -11,7 +11,7 @@
             :value="label"
             :required="required"
         >
-        <div class="rounded mt-1.5"></div>
+        <div class="rounded mt-0.5 relative transition"></div>
         <span class="w-full inline-block">{{ label }}</span>
     </label>
 </template>
@@ -28,16 +28,40 @@ defineProps({
 <style lang="scss" scoped>
 label {
 
+    &:not(:last-of-type) {
+        margin: 0 0 12px 0;
+    }
+
+    input:checked {
+
+        & ~ div {
+            background: $orange;
+            border-color: $orange;
+        }
+    }
+
     div {
         border: 1px solid $grey-2;
         min-width: 20px;
         max-width: 20px;
         height: 20px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: $white;
+            width: 8px;
+            height: 8px;
+            border-radius: 2px;
+        }
     }
 
     span {
         color: $grey-5;
-        font: 400 16px/32px $inter;
+        font: 400 16px/22px $inter;
     }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <label
-        :class="['block mb-2', (floating ? 'floating' : '')]"
+        :class="['block mb-2 cursor-pointer', (floating ? 'floating' : '')]"
         :for="$formatStringSimple(label)"
     >
         {{ label }}

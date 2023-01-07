@@ -7,7 +7,7 @@
 <script setup lang="ts">
 defineProps({
     block: Boolean,
-    center: Boolean
+    center: Boolean,
 });
 </script>
 
@@ -18,8 +18,21 @@ defineProps({
         padding: 0 48px;
         margin: 0 auto;
         
-        @media screen and (max-width: 640px) {
+        @media screen and (max-width: $mobile) {
             padding: 0 24px;
+        }
+
+        &.full {
+            max-width: 100%;
+            padding: 0 32px;
+
+            @media screen and (max-width: $tablet) {
+                padding: 0 48px;
+            }
+
+            @media screen and (max-width: $mobile) {
+                padding: 0 24px;
+            }
         }
     }
 
