@@ -38,7 +38,7 @@
                         class="mb-10"
                         label="Marca"
                         name="marca"
-                        :options="arrBrands"
+                        :options="[]"
                         small
                     />
                     <div class="flex items-end gap-4 mb-10">
@@ -173,6 +173,7 @@
                                     @click="buyPage.filtersActive = true"
                                     class="flex xl:hidden items-center gap-2 bg-white rounded-full h-10 px-5"
                                     type="button"
+                                    @click.prevent="$preventScrollBody"
                                 >
                                     Filtros
                                     <VectorsFilters />
@@ -181,7 +182,7 @@
                         </section>
                     </header>
 
-                    <section :class="`cards grid gap-8 ${buyPage.listView ? 'col' : ''}`">
+                    <section :class="`cards grid gap-1 xl:gap-8 ${buyPage.listView ? 'col' : ''}`">
                         <template v-if="pending">
                             <ElementsCardPreview
                                 v-for="(ads, index) in adverts.ads.data"
@@ -193,7 +194,7 @@
                                 v-for="(ads, index) in adverts.ads.data"
                                 :key="index"
                                 :list="buyPage.listView"
-                                :url="ads.slug"
+                                :url="`/comprar/${ads.car.model.brand.slug}/${ads.slug}`"
                                 :photos="ads.photos"
                                 :recent="true"
                                 :promotion="false"
@@ -215,13 +216,9 @@
 </template>
 
 <script setup lang="ts">
-const page = ref(1);
-const { data: adverts, pending } = await useLazyFetch(`/anuncios?page=${page.value}`, {
-    baseURL: useRuntimeConfig().public.apiBase,
-});
-
-const arrBrands = [];
-const brands = adverts.value.filters.brands.forEach((el: { name: any; }) => arrBrands.push(el.name));
+const { data: adverts, pending } = await useLazyFetch(`/anuncios`, {
+    baseURL: useRuntimeConfig().public.apiBase
+})
 
 const buyPage: object = reactive({
     links: [
@@ -233,35 +230,6 @@ const buyPage: object = reactive({
             text: "Comprar",
             url: ""
         }
-    ],
-    brandsCars: [
-        "AUDI",
-        "BMW",
-        "CADILLAC",
-        "CHERY",
-        "CHEVROLET",
-        "CITROËN",
-        "FIAT",
-        "FORD",
-        "HONDA",
-        "HYUNDAI",
-        "JEEP",
-        "KIA",
-        "LAND ROVER",
-        "LEXUS",
-        "MASERATI",
-        "MERCEDES-BENZ",
-        "MINI",
-        "MITSUBISHI",
-        "NISSAN",
-        "PEUGEOT",
-        "PORSCHE",
-        "RAM",
-        "RENAULT",
-        "SSANGYONG",
-        "TOYOTA",
-        "TROLLER",
-        "VOLKSWAGEN",
     ],
     filtersActive: false,
     listView: false,
@@ -380,12 +348,10 @@ useHead({
 
         &.col {
             grid-template-columns: 1fr;
-            gap: 24px;
         }
 
         @media screen and (max-width: $tablet) {
-        grid-template-columns: 1fr;
-            gap: 4px;
+            grid-template-columns: 1fr;
         }
     }
 }

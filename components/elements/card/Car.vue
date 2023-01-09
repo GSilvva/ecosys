@@ -4,7 +4,7 @@
         :class="`flex xl:block card-car w-full transition h-36 md:h-60 xl:h-fit ${list ? 'horizontal' : ''}`"
         target="_blank"
     >
-        <figure class="images relative h-full w-full md:h-64 xl:h-56 2xl:h-64">
+        <figure class="images relative h-full w-full xl:h-56 2xl:h-64">
             <div class="tags flex absolute top-0 left-0 z-20">
                 <span class="recent py-2 px-2 md:px-3 md:py-2.5 pb-2 text-white uppercase flex items-center" v-if="recent">Novo</span>
                 <span class="promo py-2 px-2 md:px-3 md:py-2.5 pb-2 text-white uppercase flex items-center" v-if="promotion">Promoção</span>

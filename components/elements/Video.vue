@@ -1,11 +1,6 @@
 <template>
     <button @click="openVideo = true" @click.prevent="$preventScrollBody" class="thumbnail relative h-full w-full" type="button">
-        <img class="h-full w-full object-cover opacity-80" :src="thumbnail" alt="Foto">
-        <div
-            :class="`absolute top-1/2 left-1/2 transition ${medium ? 'medium' : ''} ${small ? 'w-10 h-10' : ''}`"
-        >
-            <VectorsPlay />
-        </div>
+        <slot />
     </button>
     
     <article :class="`modal fixed left-0 top-0 z-50 w-full h-full opacity-0 invisible flex items-center justify-center transition overflow-hidden ${openVideo ? 'visible' : ''}`">
@@ -34,44 +29,11 @@
 const openVideo = ref(false);
 
 defineProps({
-    thumbnail: String,
     video: String,
-    medium: Boolean,
-    small: Boolean
 });
 </script>
 
 <style lang="scss" scoped>
-.thumbnail {
-    background: $dark;
-
-    div {
-        animation: scale 3s ease infinite;
-
-        &.medium {
-            width: 72px;
-            height: 72px;
-        }
-
-        svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        @keyframes scale {
-            0%, 50%, 80%, 100% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-            40% {
-                transform: translate(-50%, -50%) scale(1.2);
-            }
-            60% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-        }
-    }
-}
-
 .modal {
     &.visible {
         opacity: 1;

@@ -11,7 +11,7 @@
             :value="label"
             :required="required"
         >
-        <div class="rounded mt-0.5 relative transition"></div>
+        <div class="rounded mt-px relative transition"></div>
         <span class="w-full inline-block">{{ label }}</span>
     </label>
 </template>

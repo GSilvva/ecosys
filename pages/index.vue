@@ -2,57 +2,107 @@
   <NuxtLayout>
     <section class="header pt-big">
       <ElementsContainer block>
-        <section class="call xl:flex justify-between">
-          <aside class="xl:pt-12 pb-16 xl:pb-28">
+        <section class="call xl:flex items-end justify-between">
+          <aside class="pb-16 xl:pb-0">
             <h1 class="h1">compre, venda ou troque seu carro</h1>
             <p class="mt-8 xl:mt-10">Tudo de forma inteligente, <br> segura e simplificada.</p>
-            <div class="mt-8 xl:hidden">
-              <ElementsButton href="/comprar" class="h-16 flex items-center justify-between md:justify-center gap-6">
-                Catálogo de carros
+            <div class="mt-8 xl:mt-12 w-full">
+              <ElementsButton href="/comprar" class="h-16 md:h-20 flex items-center justify-between mb-3 md:mb-4">
+                Comprar ou trocar
                 <VectorsArrowRightBig />
               </ElementsButton>
-              <ElementsButton href="/vender" class="h-16 mt-3 flex items-center justify-between md:justify-center gap-6" outline>
-                Vender meu carro
+              <ElementsButton href="/vender" class="h-16 md:h-20 mt-3 flex items-center justify-between" outline>
+                Vender
                 <VectorsArrowLeftBig />
               </ElementsButton>
             </div>
           </aside>
 
-          <figure class="relative w-full xl:pr-10 pb-6 xl:pt-14 xl:pb-24 bg-white">
-            <article class="relative z-20 flex items-center xl:justify-center gap-6 xl:gap-8 mb-6 xl:mb-12 xl:pl-36 pb-7 xl:pb-0">
-              <VectorsFirst />
-              <p>A autotech mais bem <br> avaliada do segmento</p>
-            </article>
-            <img class="relative z-20 pr-6 xl:pr-0" src="@/images/home/car-header.png" alt="Carro">
+          <figure class="w-full">
+            <div class="car relative xl:pr-10 xl:pt-16 pb-6 xl:pb-16 bg-white">
+              <article class="relative z-20 flex items-center xl:justify-center gap-6 xl:gap-8 mb-6 xl:mb-12 xl:pl-36 pb-7 xl:pb-0">
+                <VectorsFirst />
+                <p>A autotech mais bem avaliada <br> do segmento</p>
+              </article>
+              <img class="relative z-20 pr-6 xl:pr-0" src="@/images/home/car-header.png" alt="Carro">
+            </div>
+            <div class="thumb ml-auto w-full">
+              <ElementsVideo video="https://www.youtube.com/embed/dYk_2QXpkgc">
+                <img class="h-full w-full object-cover opacity-60" src="@/images/home/thumbnail.jpg" alt="Foto">
+                <div class="text absolute top-1/2 left-8 md:left-20 flex items-center gap-6">
+                  <div class="transition h-19 w-19">
+                    <VectorsPlay />
+                  </div>
+                  <p class="text-white text-left">Veja como <br> funciona</p>
+                </div>
+              </ElementsVideo>
+            </div>
           </figure>
         </section>
-
-        <footer class="actions xl:flex">
-          <a class="more bg-white w-full h-full items-center justify-center gap-4 hidden xl:flex" href="#sobre"><VectorsArrowBottom class="transition" /> Veja mais</a>
-          <div class="thumb w-full h-full" type="button">
-            <ElementsVideo
-              medium
-              thumbnail="./images/home/thumbnail.jpg"
-              video="https://www.youtube.com/embed/dYk_2QXpkgc"
-            />
-          </div>
-          <nuxt-link class="big-btn w-full overflow-hidden relative h-full hidden xl:block" to="/comprar">
-            <span class="text-white flex items-center justify-center gap-24 h-full relative z-10">
-              Catálogo de carros
-              <div class="transition"><VectorsArrowRightBig /></div>
-            </span>
-          </nuxt-link>
-        </footer>
       </ElementsContainer>
     </section>
 
-    <section class="about pt-28 pb-28 xl:pt-48 xl:pb-48" id="sobre">
+    <section class="about pt-24 xl:pt-36 pb-32 xl:pb-48" id="sobre">
       <ElementsContainer block>
-        <section class="w-full mx-auto">
-          <p class="mb-12 xl:mb-20">A b.car está há mais 10 anos no marcado foi a primeira marketplace de veículos seminovos do país e possui expertise no mercado de veículos para proporcionar a todos os clientes um bom negócio.</p>
-          <div class="flex items-center gap-8 xl:gap-20">
-            <VectorsIconLogo />
-            <p class="w-full">Nossa missão é te ajudar a realizar o sonho de comprar um seminovo com garantia, qualidade e segurança.</p>
+        <div class="text flex items-center gap-8 xl:gap-12 mb-20 xl:mb-36">
+          <VectorsIconLogo />
+          <p class="w-full">Há 10 anos resolvendo a vida de quem quer comprar ou vender um seminovo com garantia e segurança.</p>
+        </div>
+        <h2 class="title mb-8 md:mb-12 xl:mb-20">visite nossas <br> lojas em brasília</h2>
+        <section class="cards flex justify-between gap-6 md:gap-8 overflow-x-auto xl:overflow-x-visible px-6 md:px-12 xl:px-0">
+          <div class="card w-full">
+            <img class="object-cover w-full h-60 xl:h-72" src="@/images/general/terraco.jpg" alt="Foto">
+            <div class="pt-6 xl:p-10 xl:bg-white">
+              <header class="mb-6 flex justify-between xl:block">
+                <aside>
+                  <h3 class="mb-1">Terraço Shopping</h3>
+                  <h6>Sudoeste, Brasília/DF</h6>
+                </aside>
+                <a class="inline-block xl:hidden underline mt-1" href="##" target="_blank">Ver no maps</a>
+              </header>
+              <p>
+                <strong>Seg a Sex:</strong> 8h30 às 18h
+                <br>
+                <strong>Sáb:</strong> 9h às 14h
+              </p>
+              <a class="hidden xl:inline-block underline mt-6" href="##" target="_blank">Ver no maps</a>
+            </div>
+          </div>
+          <div class="card w-full">
+            <img class="object-cover w-full h-60 xl:h-72" src="@/images/general/boulevard.jpg" alt="Foto">
+            <div class="pt-6 xl:p-10 xl:bg-white">
+              <header class="mb-6 flex justify-between xl:block">
+                <aside>
+                  <h3 class="mb-1">Boulevard Shopping</h3>
+                  <h6>Sudoeste, Brasília/DF</h6>
+                </aside>
+                <a class="inline-block xl:hidden underline mt-1" href="##" target="_blank">Ver no maps</a>
+              </header>
+              <p>
+                <strong>Seg a Sex:</strong> 8h30 às 18h
+                <br>
+                <strong>Sáb:</strong> 9h às 14h
+              </p>
+              <a class="hidden xl:inline-block underline mt-6" href="##" target="_blank">Ver no maps</a>
+            </div>
+          </div>
+          <div class="card w-full">
+            <img class="object-cover w-full h-60 xl:h-72" src="@/images/general/aguas-claras.jpg" alt="Foto">
+            <div class="pt-6 xl:p-10 xl:bg-white">
+              <header class="mb-6 flex justify-between xl:block">
+                <aside>
+                  <h3 class="mb-1">Águas Claras</h3>
+                  <h6>Sudoeste, Brasília/DF</h6>
+                </aside>
+                <a class="inline-block xl:hidden underline mt-1" href="##" target="_blank">Ver no maps</a>
+              </header>
+              <p>
+                <strong>Seg a Sex:</strong> 8h30 às 18h
+                <br>
+                <strong>Sáb:</strong> 9h às 14h
+              </p>
+              <a class="hidden xl:inline-block underline mt-6" href="##" target="_blank">Ver no maps</a>
+            </div>
           </div>
         </section>
       </ElementsContainer>
@@ -142,7 +192,7 @@
       Um ótimo negócio para quem deseja vender ou comprar seu carro sem dor de cabeça. Ótimo atendimento e colaboradores excepcionais. Indico de olhos fechados a b.car.
     </ElementsTestimonial>
 
-    <section class="finance pb-28 xl:pb-48">
+    <section class="finance pb-24 xl:pb-36">
       <ElementsContainer center>
         <img class="mb-12 xl:mb-0 w-full" src="@/images/home/finance.jpg" alt="Foto">
         <aside>
@@ -155,13 +205,13 @@
     </section>
 
     <section class="blog pb-28 xl:pb-48">
-      <ElementsContainer block class="container">
-        <section class="bg-white px-6 md:px-12 xl:pr-0 pt-12 xl:pl-24 xl:pt-16 flex-col-reverse xl:flex-row flex xl:items-end">
-          <aside class="w-full pt-12 pb-12 xl:pt-10 xl:pb-28">
+      <ElementsContainer block>
+        <section class="relative bg-white flex-col-reverse xl:flex-row flex xl:items-end justify-between pl-6 md:pl-10 xl:pl-0">
+          <aside class="w-full py-10 xl:py-24 pr-14 xl:pl-24 flex flex-col items-start">
             <h2 class="mb-5 xl:mb-8">Conheça <br> a Car News</h2>
-            <p class="mb-6 xl:mb-8">Veja as noticias e conteúdos mais relevantes do mercado automotivo.</p>
+            <p class="mb-6 xl:mb-8 w-full">Veja as noticias e conteúdos mais relevantes do mercado automotivo.</p>
             <ElementsButton href="/news">Ver últimas notícias</ElementsButton>
-            <footer class="hidden xl:flex justify-between mt-12 pt-8">
+            <footer class="hidden xl:flex mt-12 pt-8">
               <span class="flex items-center">Veículos</span>
               <span class="flex items-center">Carros</span>
               <span class="flex items-center">Esportivos</span>
@@ -169,22 +219,7 @@
             </footer>
           </aside>
 
-          <figure class="w-full flex justify-center">
-            <div class="relative w-full md:w-max flex">
-              <VectorsMockupBlogDesktop class="h-max" />
-              <ElementsCardArticle
-                class="absolute left-0 top-36 px-3.5 md:px-3.5"
-                mobile
-                link="/news"
-                thumbnail="./images/home/article.jpg"
-                category="Esportivos"
-                title="O novo BMW M5 2023 traz novidades que você não esperava"
-                resume="Bayerische Motoren Werke AG é uma empresa alemã, fabricante de automóveis e motocicletas, sediada em Munique, Baviera."
-                date="27 janeiro"
-                reading="5"
-              />
-            </div>
-          </figure>
+          <img class="relative z-20" src="@/images/home/blog.png" alt="Blog">
         </section>
       </ElementsContainer>
     </section>
@@ -202,7 +237,7 @@
         <section class="overflow-hidden px-6 pt-24 xl:pt-28 xl:pr-8 pb-16 xl:pb-10 xl:pl-24">
           <div class="flex flex-col-reverse xl:flex-row justify-between items-center">
             <aside class="flex flex-col items-center xl:items-start w-full mt-16 xl:mt-0">
-              <h2 class="text-center xl:text-left text-white">Descubra o b.car ideal pRa você</h2>
+              <h2 class="text-center xl:text-left text-white !normal-case">DESCUBRA AGORA O SEU b.car IDEAL</h2>
               <p class="text-center xl:text-left mt-6 mb-8 xl:my-8 text-white">Responda o nosso questionário a seguir. Cada pergunta respondida representa um caminho pra você encontrar seu carro ideal.</p>
               <ElementsButton black href="/descubra">Descobrir meu carro</ElementsButton>
             </aside>
@@ -246,6 +281,17 @@
       @media screen and (max-width: $tablet) {
         max-width: 100%;
       }
+
+      p {
+        font: 400 22px/30px $inter;
+      }
+
+      div {
+        max-width: 375px;
+        @media screen and (max-width: $tablet) {
+          max-width: 100%;
+        }
+      }
     }
 
     figure {
@@ -255,109 +301,93 @@
         max-width: 100%;
       }
 
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 10;
-        width: 112px;
-        height: 100%;
-        background: $grey-1;
-
-        @media screen and (max-width: $mobile) {
-          widows: 72px;
-        }
-      }
-
-      article {
-        @media screen and (max-width: $tablet) {
+      .car {
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 10;
+          height: 100%;
           background: $grey-1;
-        }
-
-        @media screen and (max-width: $mobile) {          
-          svg {
-            width: 48px;
-            height: 48px;
-          }
-        }
-
-        p {
-          color: $dark;
-          font: 400 18px/26px $inter;
+          width: 112px;
 
           @media screen and (max-width: $mobile) {
-            font: 400 14px/20px $inter;
+            width: 72px;
+          }
+        }
+
+        article {
+          @media screen and (max-width: $tablet) {
+            background: $grey-1;
+          }
+
+          @media screen and (max-width: $mobile) {          
+            svg {
+              width: 48px;
+              height: 48px;
+            }
+          }
+
+          p {
+            color: $dark;
+            font: 400 18px/26px $inter;
+
+            @media screen and (max-width: $mobile) {
+              font: 400 14px/20px $inter;
+            }
           }
         }
       }
-    }
-  }
 
-  .actions {
-    height: 120px;
+      .thumb {
+        max-width: calc(100% - 112px);
+        background: $dark;
+        height: 136px;
 
-    @media screen and (max-width: $tablet) {
-      height: 140px;
-    }
-    
-    .more {
-      font: 500 18px/24px $inter;
-
-      svg {
-        animation: bounce 3s ease infinite;
-      }
-
-      @keyframes bounce {
-        0%, 20%, 50%, 80%, 100% {
-          transform: translateY(0);
+        @media screen and (max-width: $tablet) {
+          max-width: 100%;
+          height: 140px;
         }
-        40% {
-          transform: translateY(-12px);
-        }
-        60% {
-          transform: translateY(-6px);
-        }
-      }
-    }
 
-    .thumb {
-      max-width: 344px;
+        .text {
+          transform: translateY(-50%);
 
-      @media screen and (max-width: $tablet) {
-        max-width: 100%;
-      }
-    }
+          div {
+            animation: scale 3s ease infinite;
+            width: 72px;
+            height: 72px;
 
-    .big-btn {
-      max-width: 520px;
-      min-width: 520px;
-      background: $orange;
+            @media screen and (max-width: $mobile) {
+              width: 56px;
+              height: 56px;
+            }
 
-      span {
-        font: 500 18px/24px $inter;
-      }
+            svg {
+              width: 100%;
+              height: 100%;
+            }
 
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: -50px;
-        bottom: 0;
-        left: 0;
-        border-right: 50px solid transparent;
-        border-top: 120px solid $light-orange;
-        transform: translateX(-100%);
-        z-index: 1;
-        transition: .5s ease;
-      }
+            @keyframes scale {
+                  0%, 40%, 80%, 100% {
+                      transform: scale(1);
+                  }
+                  30% {
+                      transform: scale(1.2);
+                  }
+                  60% {
+                      transform: scale(1);
+                  }
+            }
+          }
 
-      &:hover {
-        &::before {
-          transform: translateX(0);
-        }
-        div {
-          transform: translateX(6px);
+          p {
+            font: 500 18px/24px $inter;
+
+            @media screen and (max-width: $mobile) {
+              font: 500 16px/22px $inter;
+            }
+          }
         }
       }
     }
@@ -365,34 +395,91 @@
 }
 
 .about {
-  section {
-    max-width: 750px;
-    
-    & > p {
-      font: 500 40px/48px $inter;
-      color: $dark;
+  .text {
+    p {
+      max-width: 375px;
+      font: 400 18px/26px $inter;
       @media screen and (max-width: $mobile) {
-        font: 500 24px/32px $inter;
+        font: 400 14px/20px $inter;
       }
     }
 
-    div {
-      p {
-        max-width: 420px;
-        @media screen and (max-width: $mobile) {
-          font: 400 14px/20px $inter;
+    svg {
+      min-width: 72px;
+      max-width: 72px;
+      height: 72px;
+
+      @media screen and (max-width: $mobile) {
+        min-width: 56px;
+        max-width: 56px;
+        height: 56px;
+      }
+    }
+  }
+
+  .title {
+    @include titlePage;
+  }
+
+  .cards {
+
+    @media screen and (max-width: $tablet) {
+      width: calc(100% + 96px);
+      transform: translateX(-48px);
+    }
+
+    @media screen and (max-width: $mobile) {
+      width: calc(100% + 48px);
+      transform: translateX(-24px);
+    }
+
+    .card {
+
+      @media screen and (max-width: $tablet) {
+        min-width: 330px;
+        max-width: 330px;
+      }
+
+      @media screen and (max-width: 390px) {
+        min-width: 305px;
+        max-width: 305px;
+      }
+
+      h3 {
+        font: 600 24px/32px $inter;
+
+        @media screen and (max-width: $tablet) {
+          font: 500 20px/28px $inter;
         }
       }
 
-      svg {
-        min-width: 72px;
-        max-width: 72px;
-        height: 72px;
+      h6 {
+        font: 400 18px/26px $inter;
+        color: $grey-5;
+        
+        @media screen and (max-width: $tablet) {
+          font: 400 16px/22px $inter;
+        }
+      }
 
-        @media screen and (max-width: $mobile) {
-          min-width: 56px;
-          max-width: 56px;
-          height: 56px;
+      p {
+        font: 400 16px/24px $inter;
+
+        @media screen and (max-width: $tablet) {
+          font-size: 14px;
+          line-height: 22px;
+        }
+
+        strong {
+          font-weight: 500;
+        }
+      }
+
+      a {
+        font: 500 16px/24px $inter;
+
+        @media screen and (max-width: $tablet) {
+          font: 500 14px/20px $inter;
         }
       }
     }
@@ -467,33 +554,45 @@
 }
 
 .blog {
-  .container {
-    @media screen and (max-width: $mobile) {
-      padding: 0 16px;
 
-      .card-article {
-        zoom: .75;
+  section {
+
+    &::before {
+      content: "";
+      background: $grey-1;
+      width: 100%;
+      height: 50px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+
+      @media screen and (max-width: $mobile) {
+        height: 28px;
       }
     }
-  }
-  aside {
-    max-width: 445px;
-    h2 {
-      @include titlePage;
-    }
-    footer {
-      border-top: 1px solid $grey-2;
-      span {
-        color: $grey-5;
-        font: 500 18px/24px $inter;
-        &:not(:last-of-type) {
-          &::after {
-            content: "";
-            min-width: 4px;
-            height: 4px;
-            margin: 0 16px;
-            background: rgba(15, 15, 15, .2);
-            display: block;
+
+    aside {
+      h2 {
+        @include titlePage;
+      }
+      p {
+        max-width: 440px;
+      }
+      footer {
+        border-top: 1px solid $grey-2;
+        span {
+          color: $grey-5;
+          font: 500 18px/24px $inter;
+          &:not(:last-of-type) {
+            &::after {
+              content: "";
+              min-width: 4px;
+              height: 4px;
+              margin: 0 16px;
+              background: rgba(15, 15, 15, .2);
+              display: block;
+            }
           }
         }
       }
