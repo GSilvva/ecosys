@@ -24,11 +24,11 @@
                 <VectorsFirst />
                 <p>A autotech mais bem avaliada <br> do segmento</p>
               </article>
-              <!-- <img class="relative z-20 pr-6 xl:pr-0" src="@/images/home/car-footer.png" alt="Carro"> -->
+              <img class="relative z-20 pr-6 xl:pr-0" src="/images/home/car-header.png" alt="Carro">
             </div>
             <div class="thumb ml-auto w-full">
               <ElementsVideo video="https://www.youtube.com/embed/dYk_2QXpkgc">
-                <img class="h-full w-full object-cover opacity-60" src="@/images/home/thumbnail.jpg" alt="Foto">
+                <img class="h-full w-full object-cover opacity-60" src="/images/home/thumbnail.jpg" alt="Foto">
                 <div class="text absolute top-1/2 left-8 md:left-20 flex items-center gap-6">
                   <div class="transition h-19 w-19">
                     <VectorsPlay />
@@ -51,7 +51,7 @@
         <h2 class="title mb-8 md:mb-12 xl:mb-20">visite nossas <br> lojas em brasília</h2>
         <section class="cards flex justify-between gap-6 md:gap-8 overflow-x-auto xl:overflow-x-visible px-6 md:px-12 xl:px-0">
           <div class="card w-full">
-            <img class="object-cover w-full h-60 xl:h-72" src="@/images/general/terraco.jpg" alt="Foto">
+            <img class="object-cover w-full h-60 xl:h-72" src="/images/general/terraco.jpg" alt="Foto">
             <div class="pt-6 xl:p-10 xl:bg-white">
               <header class="mb-6 flex justify-between xl:block">
                 <aside>
@@ -69,7 +69,7 @@
             </div>
           </div>
           <div class="card w-full">
-            <img class="object-cover w-full h-60 xl:h-72" src="@/images/general/boulevard.jpg" alt="Foto">
+            <img class="object-cover w-full h-60 xl:h-72" src="/images/general/boulevard.jpg" alt="Foto">
             <div class="pt-6 xl:p-10 xl:bg-white">
               <header class="mb-6 flex justify-between xl:block">
                 <aside>
@@ -87,7 +87,7 @@
             </div>
           </div>
           <div class="card w-full">
-            <img class="object-cover w-full h-60 xl:h-72" src="@/images/general/aguas-claras.jpg" alt="Foto">
+            <img class="object-cover w-full h-60 xl:h-72" src="/images/general/aguas-claras.jpg" alt="Foto">
             <div class="pt-6 xl:p-10 xl:bg-white">
               <header class="mb-6 flex justify-between xl:block">
                 <aside>
@@ -194,7 +194,7 @@
 
     <section class="finance pb-24 xl:pb-36">
       <ElementsContainer center>
-        <img class="mb-12 xl:mb-0 w-full" src="@/images/home/finance.jpg" alt="Foto">
+        <img class="mb-12 xl:mb-0 w-full" src="/images/home/finance.jpg" alt="Foto">
         <aside>
           <h6 class="mb-4 xl:mb-6">Financie com a gente</h6>
           <h2 class="mb-6 xl:mb-8">Agilidade e sem burocracia</h2>
@@ -219,7 +219,7 @@
             </footer>
           </aside>
 
-          <img class="relative z-20" src="@/images/home/blog.png" alt="Blog">
+          <img class="relative z-20" src="/images/home/blog.png" alt="Blog">
         </section>
       </ElementsContainer>
     </section>
@@ -242,8 +242,8 @@
               <ElementsButton black href="/descubra">Descobrir meu carro</ElementsButton>
             </aside>
             <figure class="relative w-full">
-              <img class="mix-blend-multiply relative z-20" src="@/images/general/mystery-car.png" alt="Carro misterioso">
-              <img class="absolute top-1/2 left-1/2 z-10" src="@/images/general/graphism-mystery-car.svg" alt="Graphismo">
+              <img class="mix-blend-multiply relative z-20" src="/images/general/mystery-car.png" alt="Carro misterioso">
+              <img class="absolute top-1/2 left-1/2 z-10" src="/images/general/graphism-mystery-car.svg" alt="Graphismo">
             </figure>
           </div>
           <h6 class="hidden xl:block text-white text-right pr-2 mt-3.5">Entre 200 veículos, <br> 1 com certeza tem a sua cara</h6>
@@ -259,7 +259,7 @@
               <VectorsFirst />
               <p class="text-white">A autotech mais bem <br> avaliada do segmento</p>
             </article>
-            <img class="relative z-20 hidden xl:block" src="@/images/home/car-footer.png" alt="Carro">
+            <img class="relative z-20 hidden xl:block" src="/images/home/car-footer.png" alt="Carro">
           </figure>
           <aside class="w-full">
             <h2 class="h1 text-white mb-6 md:mb-10">Mais de <br> 200 carros pra você</h2>

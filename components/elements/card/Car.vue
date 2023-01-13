@@ -25,7 +25,7 @@
                     </swiper-slide>
                 </swiper>
             </template>
-            <img v-else src="@/images/general/default-image.svg" alt="Foto">
+            <img v-else src="/images/general/default-image.svg" alt="Foto">
         </figure>
 
         <article class="content transition px-4 pt-4 xl:pt-8 pb-4 md:px-8 flex flex-col justify-between w-full h-full">

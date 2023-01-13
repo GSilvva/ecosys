@@ -38,7 +38,7 @@
                             <div class="car-preview mb-8 flex items-center gap-8">
                                 <img
                                     class="w-full object-cover h-32 w-40"
-                                    src="@/images/general/car.jpg"
+                                    src="/images/general/car.jpg"
                                     alt="BMW M3 5.0"
                                 >
                                 <div>

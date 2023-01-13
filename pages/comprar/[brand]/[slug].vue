@@ -8,14 +8,14 @@
                     <aside class="infos">
                         <figure class="images gap-4 hidden xl:grid">
                             <aside class="others flex flex-col gap-4">
-                                <button @click="openModal = true" class="flex-1" type="button"><img src="@/images/home/article.jpg" alt="Foto" class="object-cover w-full h-full"></button>
-                                <button @click="openModal = true" class="flex-1" type="button"><img src="@/images/home/article.jpg" alt="Foto" class="object-cover w-full h-full"></button>
+                                <button @click="openModal = true" class="flex-1" type="button"><img src="/images/home/article.jpg" alt="Foto" class="object-cover w-full h-full"></button>
+                                <button @click="openModal = true" class="flex-1" type="button"><img src="/images/home/article.jpg" alt="Foto" class="object-cover w-full h-full"></button>
                                 <button @click="openModal = true" class="flex-1 relative" type="button">
-                                    <img src="@/images/home/article.jpg" alt="Foto" class="object-cover w-full h-full opacity-50">
+                                    <img src="/images/home/article.jpg" alt="Foto" class="object-cover w-full h-full opacity-50">
                                     <p class="absolute top-1/2 left-1/2 text-white">+12</p>
                                 </button>
                             </aside>
-                            <button @click="openModal = true" class="w-full h-full" type="button"><img class="object-cover w-full h-full" src="@/images/home/article.jpg" alt="Foto"></button>
+                            <button @click="openModal = true" class="w-full h-full" type="button"><img class="object-cover w-full h-full" src="/images/home/article.jpg" alt="Foto"></button>
                         </figure>
 
                         <figure class="carousel xl:hidden">
@@ -263,19 +263,19 @@
                             <swiper-slide>
                                 <img
                                     class="object-cover w-full h-full"
-                                    src="@/images/home/article.jpg"
+                                    src="/images/home/article.jpg"
                                 >
                             </swiper-slide>
                             <swiper-slide>
                                 <img
                                     class="object-cover w-full h-full"
-                                    src="@/images/home/article.jpg"
+                                    src="/images/home/article.jpg"
                                 >
                             </swiper-slide>
                             <swiper-slide>
                                 <img
                                     class="object-cover w-full h-full"
-                                    src="@/images/home/article.jpg"
+                                    src="/images/home/article.jpg"
                                 >
                             </swiper-slide>
                         </swiper>
@@ -303,19 +303,19 @@
                         <swiper-slide>
                             <img
                                 class="object-cover w-full h-full"
-                                src="@/images/home/article.jpg"
+                                src="/images/home/article.jpg"
                             >
                         </swiper-slide>
                         <swiper-slide>
                             <img
                                 class="object-cover w-full h-full"
-                                src="@/images/home/article.jpg"
+                                src="/images/home/article.jpg"
                             >
                         </swiper-slide>
                         <swiper-slide>
                             <img
                                 class="object-cover w-full h-full"
-                                src="@/images/home/article.jpg"
+                                src="/images/home/article.jpg"
                             >
                         </swiper-slide>
                     </swiper>
@@ -365,6 +365,8 @@ const { data: car } = await useFetch(`/anuncios/${id}`, {
     baseURL: useRuntimeConfig().public.apiBase,
 })
 
+const carData: any = car.value
+
 const carPage: object = reactive({
     links: [
         {
@@ -376,7 +378,7 @@ const carPage: object = reactive({
             url: "/comprar"
         },
         {
-            text: car.value.name,
+            text: carData.name,
         }
     ],
     photos: [
@@ -400,7 +402,7 @@ const carPage: object = reactive({
 });
 
 useHead({
-    title: `${car.value.name} | b.car`
+    title: `${carData.name} | b.car`
 })
 </script>
 

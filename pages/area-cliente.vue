@@ -40,7 +40,7 @@
               <ElementsButton submit>Acessar</ElementsButton>
             </form>
           </aside>
-          <img class="object-cover w-full hidden sm:block" src="@/images/area-cliente/foto.jpg" alt="Foto">
+          <img class="object-cover w-full hidden sm:block" src="/images/area-cliente/foto.jpg" alt="Foto">
         </article>
 
         <article class="box box--code w-full m-auto sm:p-10 bg-transparent sm:bg-white" v-if="validPhone">
