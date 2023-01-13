@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout>
+  <main class="home">
     <section class="header pt-big">
       <ElementsContainer block>
         <section class="call xl:flex items-end justify-between">
@@ -269,7 +269,7 @@
         </section>
       </ElementsContainer>
     </section>
-  </NuxtLayout>
+  </main>
 </template>
 
 <style lang="scss" scoped>
