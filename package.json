@@ -13,7 +13,6 @@
     "sass": "^1.57.1"
   },
   "dependencies": {
-    "swiper": "^8.4.5",
-    "yarn": "^1.22.19"
+    "swiper": "^8.4.5"
   }
 }
