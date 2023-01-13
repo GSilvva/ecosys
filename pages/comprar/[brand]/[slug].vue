@@ -1,6 +1,6 @@
 <template>
-    <NuxtLayout>
-        <main class="page pt-md xl:pb-28">      
+    <main class="car">
+        <section class="page pt-md xl:pb-28">      
             <ElementsContainer class="container" block>
                 <ElementsBreadcrumb class="hidden xl:flex mb-8" :links="carPage.links" />
 
@@ -323,7 +323,7 @@
 
                 <div @click="carPage.openModal = false" @click.prevent="$preventScrollBody" class="overlay fixed top-0 left-0 w-full h-full z-40"></div>
             </article>
-        </main>
+        </section>
 
         <ElementsInterestModal
             carImage="../../images/general/car.jpg"
@@ -341,7 +341,7 @@
             localeRegion="Sudoeste, Brasília/DF"
             localeURL="https://www.google.com.br/maps"   
         />
-    </NuxtLayout>
+    </main>
 </template>
 
 <script setup lang="ts">

@@ -1,5 +1,5 @@
 <template>
-    <NuxtLayout>
+    <main class="help">
         <header class="header pt-big mb-8 md:mb-16">
             <ElementsContainer block>
                 <h1 class="mb-1 md:mb-3">Têm dúvidas?</h1>
@@ -41,7 +41,7 @@
                 </ElementsContainer>
             </template>
         </ElementsTabs>
-    </NuxtLayout>
+    </main>
 </template>
 
 <script setup lang="ts">

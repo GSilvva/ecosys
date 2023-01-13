@@ -1,5 +1,5 @@
 <template>
-    <NuxtLayout>
+    <main class="policy-privacy">
         <ElementsContainer class="container">
             <article class="pb-20 xl:pb-28 pt-big">
                 <h1 class="mb-8 md:mb-16 uppercase">Política e termos <br> de privacidade</h1>
@@ -39,7 +39,7 @@
                 </p>
             </article>
         </ElementsContainer>
-    </NuxtLayout>
+    </main>
 </template>
 
 <style lang="scss" scoped>

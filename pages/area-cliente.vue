@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout name="empty">
+  <main class="client-area">
     <header class="header relative bg-white mb-16 py-5 sm:hidden">
       <ElementsContainer>
         <aside class="absolute top-2/4 left-6">
@@ -84,10 +84,14 @@
         </article>
       </ElementsContainer>
     </section>
-  </NuxtLayout>
+  </main>
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: "empty",
+})
+
 const validPhone = ref(false);
 
 useHead({
