@@ -24,7 +24,7 @@
                 <VectorsFirst />
                 <p>A autotech mais bem avaliada <br> do segmento</p>
               </article>
-              <img class="relative z-20 pr-6 xl:pr-0" src="@/images/home/car-header.png" alt="Carro">
+              <img class="relative z-20 pr-6 xl:pr-0" src="@/images/home/car.png" alt="Carro">
             </div>
             <div class="thumb ml-auto w-full">
               <ElementsVideo video="https://www.youtube.com/embed/dYk_2QXpkgc">
