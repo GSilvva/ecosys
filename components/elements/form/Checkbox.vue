@@ -12,7 +12,7 @@
             :required="required"
         >
         <div class="rounded mt-px relative transition"></div>
-        <span class="w-full inline-block">{{ label }}</span>
+        <span :class="`w-full inline-block ${form ? 'form' : ''}`">{{ label }}</span>
     </label>
 </template>
 
@@ -22,6 +22,7 @@ defineProps({
     name: String,
     type: String,
     required: Boolean,
+    form: Boolean,
 });
 </script>
 
@@ -30,6 +31,13 @@ label {
 
     &:not(:last-of-type) {
         margin: 0 0 12px 0;
+    }
+
+    &:hover {
+
+        div {
+            border-color: $dark;
+        }
     }
 
     input:checked {
@@ -62,6 +70,11 @@ label {
     span {
         color: $grey-5;
         font: 400 16px/22px $inter;
+
+        &.form {
+            font: 500 14px/20px $inter;
+            color: $grey-4;
+        }
     }
 }
 </style>

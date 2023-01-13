@@ -1,5 +1,5 @@
 <template>
-  <nav :class="`nav bg-white fixed top-0 left-0 w-full transition z-30 ${openMenu ? 'nav--open' : ''}`">
+  <nav :class="`nav bg-white fixed top-0 left-0 w-full transition z-40 ${openMenu ? 'nav--open' : ''}`">
     <ElementsContainer :class="`h-full flex ${full ? 'full' : ''}`" center>
       <aside class="content flex items-center gap-5 xl:gap-20 h-full">
         <button

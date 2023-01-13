@@ -1,10 +1,10 @@
 <template>
     <NuxtLayout>
-        <main class="page pt-md pb-28">      
+        <main class="page pt-md xl:pb-28">      
             <ElementsContainer class="container" block>
                 <ElementsBreadcrumb class="hidden xl:flex mb-8" :links="carPage.links" />
 
-                <section class="content xl:grid gap-8 pb-12 xl:pb-28">
+                <section class="content xl:grid gap-8 xl:pb-28">
                     <aside class="infos">
                         <figure class="images gap-4 hidden xl:grid">
                             <aside class="others flex flex-col gap-4">
@@ -20,6 +20,7 @@
 
                         <figure class="carousel xl:hidden">
                             <swiper
+                                class="h-72 sm:h-96"
                                 :modules="modules"
                                 :loop="carPage.photos.length > 1 ? true : false"
                                 :pagination="{ clickable: true, dynamicBullets: true }"
@@ -34,15 +35,25 @@
                             </swiper>
                         </figure>
 
-                        <section class="box mt-0 xl:mt-8 px-6 sm:p-12 py-12 xl:p-10 bg-white">
-                            <h2>BMW M3</h2>
-                            <h5 class="mt-3 mb-6">3.0 V6 Gasolina Limited 4X4 <br> Automático</h5>
+                        <section class="box mt-0 xl:mt-8 px-6 sm:px-12 xl:px-10 pt-6 pb-12 sm:py-12 xl:p-10 bg-white">
+                            <h1>BMW M3</h1>
+                            <h5 class="mt-4 xl:mt-3 mb-6">3.0 V6 Gasolina Limited 4X4 <br> Automático</h5>
                             <div class="tags flex gap-2 flex-wrap">
-                                <span class="uppercase py-2.5 px-3">Garantia de fábrica</span>
-                                <span class="uppercase py-2.5 px-3">Único dono</span>
-                                <span class="uppercase py-2.5 px-3">Sem passagem por leilão</span>
+                                <span class="uppercase py-1.5 sm:py-2.5 px-3">Garantia de fábrica</span>
+                                <span class="uppercase py-1.5 sm:py-2.5 px-3">Único dono</span>
+                                <span class="uppercase py-1.5 sm:py-2.5 px-3">Sem passagem por leilão</span>
                             </div>
-                            <ul class="mt-12 grid grid-cols-5 gap-y-8">
+                            <div class="local xl:hidden mt-12">
+                                <h6 class="mb-5">Visita disponível:</h6>
+                                <div class="flex gap-4">
+                                    <VectorsMapBlack />
+                                    <p>
+                                        Terraço Shoping
+                                        <a class="underline block transition" href="##" target="_blank">Sudoeste, Brasília/DF</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <ul class="mt-12 grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-5 gap-y-6 xl:gap-y-8">
                                 <li>
                                     <p>Ano</p>
                                     <p><strong>2019/2020</strong></p>
@@ -74,9 +85,9 @@
                             </ul>
                         </section>
 
-                        <section class="box mt-1.5 xl:mt-8 px-6 sm:p-12 py-12 xl:p-10 bg-white">
-                            <h4 class="uppercase mb-4 sm:mb-8">Opcionais</h4>
-                            <ul class="grid grid-cols-2 gap-y-3 gap-x-16">
+                        <section class="box xl:mt-8 px-6 sm:px-12 xl:px-10 py-12 xl:p-10 bg-white">
+                            <h4 class="uppercase mb-8">Opcionais</h4>
+                            <ul class="grid xl:grid-cols-2 gap-y-3 gap-x-16">
                                 <li class="flex gap-4">
                                     <VectorsCheck class="mt-0.5" />
                                     <p class="w-full"><strong>AEB - Sistema Autônomo de frenagem de emergência</strong></p>
@@ -112,7 +123,7 @@
                             </ul>
                         </section>
                         
-                        <section class="box mt-1.5 xl:mt-8 px-6 sm:p-12 py-12 xl:p-10 bg-white">
+                        <section class="box xl:mt-8 px-6 sm:px-12 xl:px-10 py-12 xl:p-10 bg-white">
                             <h4 class="uppercase mb-4 sm:mb-8">Sobre o veículo</h4>
                             <p class="about">
                                 Um verdadeiro rastro de elegância e classe é deixado por onde passa, chamando a atenção e captando os olhares de todos. em seu aspecto visual externo, são diversos detalhes que fazem desse, um sinônimo de luxo.
@@ -129,16 +140,18 @@
                         </section>
                     </aside>
 
-                    <article class="add-infos fixed xl:relative bottom-0 left-0 w-full h-16 sm:h-20 xl:h-full z-10">
+                    <article class="add-infos fixed xl:relative bottom-0 left-0 w-full h-16 sm:h-20 xl:h-full z-30">
                         <div class="xl:sticky bg-white xl:px-8 xl:py-10 grid grid-cols-2 xl:block h-full xl:h-max">
                             <h2 class="flex items-center sm:justify-center xl:block pl-6 sm:pl-0">R$ 125.900</h2>
-                            <h6 class="mt-8 mb-5 hidden xl:block">Visita disponível:</h6>
-                            <div class="local gap-5 mb-8 hidden xl:flex">
-                                <VectorsMapBlack />
-                                <p>
-                                    Terraço Shoping
-                                    <a class="underline block" href="##" target="_blank">Sudoeste, Brasília/DF</a>
-                                </p>
+                            <div class="local hidden xl:block my-8">
+                                <h6 class="mb-5">Visita disponível:</h6>
+                                <div class="flex gap-5">
+                                    <VectorsMapBlack />
+                                    <p>
+                                        Terraço Shoping
+                                        <a class="underline block transition" href="##" target="_blank">Sudoeste, Brasília/DF</a>
+                                    </p>
+                                </div>
                             </div>
                             <ElementsButton class="w-full hidden xl:block">Tenho interesse</ElementsButton>
                             <footer class="mt-8 pt-8 justify-between items-center hidden xl:flex">
@@ -155,7 +168,7 @@
                     </article>
                 </section>
 
-                <section class="relateds">
+                <section class="py-12 pb-28 bg-white xl:bg-transparent relateds">
                     <h2 class="ml-6 sm:ml-12 xl:ml-0 mb-8 sm:mb-12">Carros <br class="block xl:hidden"> semelhantes</h2>
 
                     <div class="grid grid-cols-1 xl:grid-cols-4 gap-1 xl:gap-6 2xl:gap-8">
@@ -218,18 +231,132 @@
                     </div>
                 </section>
             </ElementsContainer>
+
+            <article :class="`modal fixed left-0 top-0 z-50 w-full h-full opacity-0 invisible flex items-center justify-between flex-col transition overflow-hidden pb-8 sm:pb-14 ${carPage.openModal ? 'visible' : ''}`">
+                <div class="relative z-50 principal py-6 xl:pt-0 m-auto h-full w-full flex flex-col justify-between xl:justify-center">
+                    <button
+                        class="close rounded-full py-1 px-3 transition mr-6 xl:mr-0 xl:mb-3 block ml-auto"
+                        @click="carPage.openModal = false"
+                        @click.prevent="$preventScrollBody"
+                        type="button"
+                    >
+                        Fechar
+                    </button>
+
+                    <div class="relative w-full m-auto xl:m-0">
+                        <button
+                            class="prev absolute top-1/2 hidden xl:block"
+                            type="button"
+                        >
+                            <VectorsArrowPrev />
+                        </button>
+
+                        <swiper
+                            :modules="modules"
+                            :loop="true"
+                            :thumbs="{ swiper: thumbsSwiper }"
+                            :navigation="{
+                                prevEl: '.prev',
+                                nextEl: '.next',
+                            }"
+                        >
+                            <swiper-slide>
+                                <img
+                                    class="object-cover w-full h-full"
+                                    src="@/images/home/article.jpg"
+                                >
+                            </swiper-slide>
+                            <swiper-slide>
+                                <img
+                                    class="object-cover w-full h-full"
+                                    src="@/images/home/article.jpg"
+                                >
+                            </swiper-slide>
+                            <swiper-slide>
+                                <img
+                                    class="object-cover w-full h-full"
+                                    src="@/images/home/article.jpg"
+                                >
+                            </swiper-slide>
+                        </swiper>
+
+                        <button
+                            class="next absolute top-1/2 hidden xl:block"
+                            type="button"
+                        >
+                            <VectorsArrowNext />
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="thumbs relative z-50 w-full">
+                    <swiper
+                        class="w-full h-full"
+                        :modules="modules"
+                        :loop="true"
+                        :freeMode="true"
+                        slides-per-view="auto"
+                        :space-between="16"
+                        watch-slides-progress
+                        @swiper="setThumbsSwiper"
+                    >
+                        <swiper-slide>
+                            <img
+                                class="object-cover w-full h-full"
+                                src="@/images/home/article.jpg"
+                            >
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img
+                                class="object-cover w-full h-full"
+                                src="@/images/home/article.jpg"
+                            >
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img
+                                class="object-cover w-full h-full"
+                                src="@/images/home/article.jpg"
+                            >
+                        </swiper-slide>
+                    </swiper>
+                </div>
+
+                <div @click="carPage.openModal = false" @click.prevent="$preventScrollBody" class="overlay fixed top-0 left-0 w-full h-full z-40"></div>
+            </article>
         </main>
+
+        <ElementsInterestModal
+            carImage="../../images/general/car.jpg"
+            carName="BMW M3 5.0"
+            :carPrice="125900"
+            :carBuildYear="2018"
+            :carModelYear="2019"
+            carBrand="Mitsubishi"
+            carColor="Prata"
+            carVersion="V6 3.0 GT"
+            carModel="Outlander V6 3.0"
+            :carKM="158836"
+            localeName="Terraço Shopping"
+            localeAddress="QS 1 Rua 210, 24, Lote, Areal (Águas claras)"
+            localeRegion="Sudoeste, Brasília/DF"
+            localeURL="https://www.google.com.br/maps"   
+        />
     </NuxtLayout>
 </template>
 
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Pagination, A11y } from 'swiper'
+import { Navigation, Thumbs, Pagination, A11y } from 'swiper'
 
 import 'swiper/css'
-import 'swiper/css/pagination'
+import 'swiper/css/navigation';
 
-const modules = [Pagination, A11y]
+const modules = [Navigation, Thumbs, Pagination, A11y]
+
+const thumbsSwiper = ref(null)
+const setThumbsSwiper = (swiper: any) => {
+    thumbsSwiper.value = swiper
+}
 
 const { slug } = useRoute().params
 const id = slug.toString().substr(slug.length - 8)
@@ -269,7 +396,7 @@ const carPage: object = reactive({
             url_path: "../../images/home/article.jpg"
         }
     ],
-    openModal: false
+    openModal: false,
 });
 
 useHead({
@@ -318,11 +445,15 @@ useHead({
     .box {
 
         @media screen and (max-width: $tablet) {
-            border-bottom: 5px solid $grey-1;
+            border-bottom: 6px solid $grey-1;
         }
 
-        h2 {
+        h1 {
             font: 700 32px/38px $gotham;
+
+            @media screen and (max-width: $mobile) {
+                font: 700 24px/32px $gotham;
+            }
         }
 
         h4 {
@@ -332,6 +463,11 @@ useHead({
 
         h5 {
             font: 500 18px/26px $inter;
+            color: $grey-4;
+            
+            @media screen and (max-width: $mobile) {
+                font: 500 16px/24px $inter;
+            }
         }
 
         .tags {
@@ -339,6 +475,10 @@ useHead({
             span {
                 border: 1px solid $dark;
                 font: 700 12px/10px $gotham;
+
+                @media screen and (max-width: $mobile) {
+                    font-size: 10px;
+                }
             }
         }
         
@@ -354,6 +494,10 @@ useHead({
             &.about {
                 color: $dark;
                 font: 400 18px/24px $inter;
+
+                @media screen and (max-width: $mobile) {
+                    font-size: 16px;
+                }
             }
         }
     }
@@ -366,6 +510,10 @@ useHead({
 }
 
 .add-infos {
+
+    @media screen and (max-width: $tablet) {
+        box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+    }
 
     & > div {
         top: 105px;
@@ -383,14 +531,6 @@ useHead({
         font: 500 16px/24px $inter;
     }
 
-    .local {
-
-        * {
-            color: $dark;
-            font: 500 18px/26px $inter;
-        }
-    }
-
     footer {
         border-top: 1px solid $grey-2;
 
@@ -406,6 +546,89 @@ useHead({
         @media screen and (max-width: $mobile) {
             font-size: 16px;
         }
+    }
+}
+
+.local {
+
+    h6 {
+        font: 500 16px/24px $inter;
+        color: $grey-5;
+
+        @media screen and (max-width: $tablet) {
+            color: $dark;
+        }
+    }
+
+    p {
+        color: $dark;
+
+        @media screen and (max-width: $tablet) {
+            color: $dark !important;
+        }
+
+        &,
+        & * {
+            font: 500 18px/26px $inter;
+            
+            @media screen and (max-width: $mobile) {
+                font: 500 16px/24px $inter;
+            }
+        }
+
+        a {
+            color: $grey-4;
+
+            &:hover {
+                color: $dark;
+            }
+        }
+    }
+}
+
+.modal {
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .principal {
+        max-width: 805px;
+
+        .close {
+            font: 500 12px/20px $inter;
+            background: $grey-1;
+            
+            &:hover {
+                background: $grey-2;
+            }
+        }
+
+        .prev {
+            transform: translate(-100%, -50%);
+            left: -46px;
+        }
+
+        .next {
+            transform: translate(100%, -50%);
+            right: -46px;
+        }
+    }
+
+    .overlay {
+        background: $dark;
+    }
+}
+</style>
+
+<style lang="scss">
+.modal .thumbs .swiper-slide {
+    width: 148px;
+    height: 110px;
+
+    @media screen and (max-width: $mobile) {
+        width: 98px;
+        height: 73px;
     }
 }
 </style>

@@ -38,7 +38,7 @@
                         class="mb-10"
                         label="Marca"
                         name="marca"
-                        :options="[]"
+                        :options="buyPage.brands"
                         small
                     />
                     <div class="flex items-end gap-4 mb-10">
@@ -90,7 +90,7 @@
                         <ElementsFormLabel label="Categoria" />
                         <div class="flex flex-col items-start">
                             <ElementsFormCheckbox
-                                v-for="(filter, index) in adverts.filters.categories"
+                                v-for="(filter, index) in filters.filters.categories"
                                 :key="index"
                                 :label="filter.name"
                             />
@@ -100,7 +100,7 @@
                         <ElementsFormLabel label="Câmbio" />
                         <div class="flex flex-col items-start">
                             <ElementsFormCheckbox
-                                v-for="(filter, index) in adverts.filters.transmissions"
+                                v-for="(filter, index) in filters.filters.transmissions"
                                 :key="index"
                                 :label="filter.name"
                             />
@@ -110,13 +110,13 @@
                         <ElementsFormLabel label="Opcionais" />
                         <div class="flex flex-col items-start">
                             <ElementsFormCheckbox
-                                v-for="(filter, index) in adverts.filters.car_features.slice(0, 4)"
+                                v-for="(filter, index) in filters.filters.car_features.slice(0, 4)"
                                 :key="index"
                                 :label="filter.name"
                             />
                             <template v-if="buyPage.allOptions">
                                 <ElementsFormCheckbox
-                                    v-for="(filter, index) in adverts.filters.car_features.slice(4, adverts.filters.car_features.length)"
+                                    v-for="(filter, index) in filters.filters.car_features.slice(4, filters.filters.car_features.length)"
                                     :key="index"
                                     :label="filter.name"
                                 />
@@ -216,9 +216,15 @@
 </template>
 
 <script setup lang="ts">
-const { data: adverts, pending } = await useLazyFetch(`/anuncios`, {
-    baseURL: useRuntimeConfig().public.apiBase
-})
+const api_url = `${useRuntimeConfig().public.apiBase}/anuncios`
+
+const { data: filters } = useAsyncData(() => $fetch(api_url))
+
+const { pending, data:adverts } = useLazyAsyncData("adverts", () => $fetch(api_url))
+
+function getAdverts() {
+    return adverts.value
+}
 
 const buyPage: object = reactive({
     links: [
@@ -231,6 +237,16 @@ const buyPage: object = reactive({
             url: ""
         }
     ],
+    brands: [
+        {
+            name: "Selecione",
+            value: false
+        },
+        {
+            name: "Toyota",
+            value: true
+        },
+    ],
     filtersActive: false,
     listView: false,
     allOptions: false,
@@ -240,7 +256,7 @@ const buyPage: object = reactive({
 useHead({
     title: "Comprar carros | b.car",
     htmlAttrs: {
-      class: 'xl:overflow-hidden'
+        class: 'xl:overflow-hidden'
     }
 });
 </script>

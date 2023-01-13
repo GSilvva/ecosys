@@ -78,7 +78,7 @@ button {
 
     &.small {
         font-size: 16px;
-        padding: .75rem 1.5rem;
+        padding: 15px 32px;
     }
 }
 </style>

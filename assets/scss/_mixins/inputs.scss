@@ -6,6 +6,7 @@ option {
     border: 1px solid $grey-2;
     font: 500 16px/24px $inter;
     background: transparent;
+    resize: none;
 
     &:hover,
     &:focus {
