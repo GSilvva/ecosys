@@ -90,7 +90,7 @@
                         <ElementsFormLabel label="Categoria" />
                         <div class="flex flex-col items-start">
                             <ElementsFormCheckbox
-                                v-for="(filter, index) in filters.filters.categories"
+                                v-for="(filter, index) in data.filters.categories"
                                 :key="index"
                                 :label="filter.name"
                             />
@@ -100,7 +100,7 @@
                         <ElementsFormLabel label="Câmbio" />
                         <div class="flex flex-col items-start">
                             <ElementsFormCheckbox
-                                v-for="(filter, index) in filters.filters.transmissions"
+                                v-for="(filter, index) in data.filters.transmissions"
                                 :key="index"
                                 :label="filter.name"
                             />
@@ -110,13 +110,13 @@
                         <ElementsFormLabel label="Opcionais" />
                         <div class="flex flex-col items-start">
                             <ElementsFormCheckbox
-                                v-for="(filter, index) in filters.filters.car_features.slice(0, 4)"
+                                v-for="(filter, index) in data.filters.car_features.slice(0, 4)"
                                 :key="index"
                                 :label="filter.name"
                             />
                             <template v-if="buyPage.allOptions">
                                 <ElementsFormCheckbox
-                                    v-for="(filter, index) in filters.filters.car_features.slice(4, filters.filters.car_features.length)"
+                                    v-for="(filter, index) in data.filters.car_features.slice(4, data.filters.car_features.length)"
                                     :key="index"
                                     :label="filter.name"
                                 />
@@ -144,9 +144,9 @@
                         <section class="flex-col xl:flex-row flex justify-between xl:items-end gap-6">
                             <div>
                                 <h1 class="mb-1">Carros Novos e Usados</h1>
-                                <p v-if="adverts.ads.total <= 0">Nenhum carro encontrado</p>
-                                <p v-else-if="adverts.ads.total === 1">1 carro encontrado</p>
-                                <p v-else>{{ adverts.ads.total }} carros encontrados</p>
+                                <p v-if="data.ads.total <= 0">Nenhum carro encontrado</p>
+                                <p v-else-if="data.ads.total === 1">1 carro encontrado</p>
+                                <p v-else>{{ data.ads.total }} carros encontrados</p>
                             </div>
                             <div class="flex justify-between gap-4 w-full xl:w-max">
                                 <button
@@ -185,7 +185,7 @@
                     <section :class="`cards grid gap-1 xl:gap-8 ${buyPage.listView ? 'col' : ''}`">
                         <template v-if="pending">
                             <ElementsCardPreview
-                                v-for="(ads, index) in adverts.ads.data"
+                                v-for="(ads, index) in data.ads.data"
                                 :key="index"
                             />
                         </template>
@@ -218,15 +218,10 @@
 <script setup lang="ts">
 const api_url = `${useRuntimeConfig().public.apiBase}/anuncios`
 
-const { data: filters } = useAsyncData(() => $fetch(api_url))
+const { pending, data: adverts } = useLazyAsyncData("adverts", () => $fetch(api_url))
+const { data } = await useFetch(api_url)
 
-const { pending, data:adverts } = useLazyAsyncData("adverts", () => $fetch(api_url))
-
-function getAdverts() {
-    return adverts.value
-}
-
-const buyPage: object = reactive({
+const buyPage = reactive({
     links: [
         {
             text: "Home",
@@ -250,7 +245,7 @@ const buyPage: object = reactive({
     filtersActive: false,
     listView: false,
     allOptions: false,
-    allLocales: true
+    allLocales: true,
 });
 
 useHead({
