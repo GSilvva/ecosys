@@ -1,4 +1,6 @@
 <template>
-  <LayoutNavbar />
-  <slot />
+  <div class="__app">
+    <LayoutNavbar />
+    <slot />
+  </div>
 </template>

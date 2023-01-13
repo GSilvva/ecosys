@@ -1,5 +1,7 @@
 <template>
-  <LayoutNavbar />
-  <slot />
-  <LayoutFooter />
+  <div class="__app">
+    <LayoutNavbar />
+    <slot />
+    <LayoutFooter />
+  </div>
 </template>

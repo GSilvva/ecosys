@@ -1,5 +1,5 @@
 <template>
-    <NuxtLayout name="simple-full">
+    <NuxtLayout>
         <main class="cars block xl:grid pt-sm">
             <aside
                 :class="`transition filters bg-white overflow-y-auto fixed xl:relative z-40 xl:z-10 top-0 left-0 w-full opacity-0 invisible xl:opacity-100 xl:visible ${buyPage.filtersActive ? 'active' : ''}`"
@@ -216,6 +216,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: "simple-full",
+})
+
 const api_url = `${useRuntimeConfig().public.apiBase}/anuncios`
 
 const { pending, data: adverts } = useLazyAsyncData("adverts", () => $fetch(api_url))
