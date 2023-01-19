@@ -1,29 +1,31 @@
 <template>
-    <div :class="`modal fixed top-0 left-0 w-full h-full z-50 opacity-0 invisible transition pt-big pb-20 overflow-y-auto ${visible ? 'visible' : ''}`">
+    <div :class="`modal fixed top-0 left-0 w-full h-full z-50 opacity-0 invisible transition pt-big p-0 sm:pb-20 overflow-y-auto ${open ? 'visible' : ''}`">
         <header
-            class="header bg-white fixed top-0 left-0 w-full py-8"
+            class="header bg-white fixed top-0 left-0 w-full py-5 xl:py-8"
             v-if="!modal.resume"
         >
             <ElementsContainer block>
                 <div class="relative">
                     <button
-                        v-if="modal.buy === false && modal.exchange === false"
+                        v-if="modal.buy === false && modal.exchange === false && modal.scheduling === false || modal.scheduling && modal.choice === 'buy'"
                         class="absolute left-0 top-1/2"
-                        @click="visible = false"
+                        @click="$emit('update:open', false)"
+                        @click.prevent="$scrollBody"
                         type="button"
                     >
                         <VectorsClose />
                     </button>
                     <button
                         v-else
-                        @click="modal.buy = false, modal.exchange = false"
+                        v-on="modal.choice === 'exchange' && modal.scheduling ? { click: () => (modal.scheduling = false, modal.exchange = true) } : { click: () => (modal.buy = false, modal.exchange = false) }"
                         class="absolute left-0 top-1/2"
                         type="button"
                     >
                         <VectorsArrowBack />
                     </button>
-                    <h6 class="text-center" v-if="modal.choice === 'buy'">Quero comprar</h6>
-                    <h6 class="text-center" v-else-if="modal.choice === 'exchange'">Quero trocar</h6>
+                    <h6 class="text-center" v-if="modal.buy">Quero comprar</h6>
+                    <h6 class="text-center" v-else-if="modal.exchange">Quero trocar</h6>
+                    <h6 class="text-center" v-else-if="modal.scheduling && modal.choice === 'buy'">Agendamento</h6>
                     <h6 class="text-center" v-else>Tenho interesse</h6>
                 </div>
             </ElementsContainer>
@@ -35,31 +37,23 @@
         >
             <ElementsContainer block>
                 <div class="content w-full m-auto">
-                    <h2 class="uppercase mb-6">Como podemos te ajudar?</h2>
+                    <h2 class="uppercase mb-4 sm:mb-6">Como podemos te  <br class="sm:hidden"> ajudar?</h2>
                     <p class="mb-10">Escolha uma opção para começar. <br> As outras continuarão disponíveis no seu processo de compra.</p>
-                    <div class="car-preview mb-12 flex items-center gap-8">
-                        <img
-                            class="w-full object-cover h-32 w-40"
-                            :src="carImage"
-                            :alt="carName"
-                        >
-                        <div>
-                            <h5 class="mb-0.5">{{ carName }}</h5>
-                            <h6 class="mb-5">{{ $formatCurrency(carPrice) }}</h6>
-                            <footer class="flex gap-2 items-center">
-                                <small>{{ carBuildYear }}/{{ carModelYear }}</small>
-                                <div class="square"></div>
-                                <small>{{ $formatNumber(carKM) }}km</small>
-                            </footer>
-                        </div>
-                    </div>
-                    <div class="flex gap-8">
+                    <ElementsInterestCarPreview
+                        :carImage="carImage"
+                        :carName="carName"
+                        :carPrice="carPrice"
+                        :carBuildYear="carBuildYear"
+                        :carModelYear="carModelYear"
+                        :carKM="carKM"
+                    />
+                    <div class="buttons flex-col xl:flex-row flex gap-4 xl:gap-8 pb-14 xl:pb-0">
                         <button
-                            @click="modal.buy = true, modal.personalInfos = true"
-                            class="flex-1 bg-white pt-8 pr-8 pb-10 pl-10"
+                            @click="modal.buy = true, modal.personalInfos = true, modal.choice = 'buy'"
+                            class="flex-1 bg-white pt-6 sm:pt-8 pr-6 sm:pr-8 pb-8 sm:pb-10 pl-8 sm:pl-10"
                             type="button"
                         >
-                            <VectorsBuy class="w-16 ml-auto mb-4" />
+                            <VectorsBuy class="w-14 h-14 sm:h-14 sm:w-16 ml-auto mb-0 sm:mb-4" />
                             <h5 class="mb-1 text-left">Eu quero</h5>
                             <div class="flex items-end justify-between">
                                 <h3 class="uppercase text-left">Comprar <br> este carro</h3>
@@ -69,11 +63,11 @@
                             </div>
                         </button>
                         <button
-                            @click="modal.exchange = true, modal.personalInfos = false"
-                            class="flex-1 bg-white pt-8 pr-8 pb-10 pl-10"
+                            @click="modal.exchange = true, modal.personalInfos = false, modal.choice = 'exchange'"
+                            class="flex-1 bg-white pt-6 sm:pt-8 pr-6 sm:pr-8 pb-8 sm:pb-10 pl-8 sm:pl-10"
                             type="button"
                         >
-                            <VectorsExchange class="w-16 ml-auto mb-4" />
+                            <VectorsExchange class="w-14 h-14 sm:h-14 sm:w-16 ml-auto mb-0 sm:mb-4" />
                             <h5 class="mb-1 text-left">Eu quero</h5>
                             <div class="flex items-end justify-between">
                                 <h3 class="uppercase text-left">Dar meu carro <br> na troca</h3>
@@ -92,26 +86,18 @@
             v-if="modal.buy === true || modal.exchange === true"
         >
             <ElementsContainer block>
-                <div class="content-form w-full m-auto flex justify-between gap-6">
+                <div class="content-form w-full m-auto xl:flex justify-between gap-6">
                     <aside class="w-full">
-                        <div class="car-preview mb-12 flex items-center gap-8">
-                            <img
-                                class="w-full object-cover h-32 w-40"
-                                :src="carImage"
-                                :alt="carName"
-                            >
-                            <div>
-                                <h5 class="mb-0.5">{{ carName }}</h5>
-                                <h6 class="mb-5">{{ $formatCurrency(carPrice) }}</h6>
-                                <footer class="flex gap-2 items-center">
-                                    <small>{{ carBuildYear }}/{{ carModelYear }}</small>
-                                    <div class="square"></div>
-                                    <small>{{ $formatNumber(carKM) }}km</small>
-                                </footer>
-                            </div>
-                        </div>
+                        <ElementsInterestCarPreview
+                            :carImage="carImage"
+                            :carName="carName"
+                            :carPrice="carPrice"
+                            :carBuildYear="carBuildYear"
+                            :carModelYear="carModelYear"
+                            :carKM="carKM"
+                        />
 
-                        <div class="local hidden xl:block my-8">
+                        <div class="local my-8">
                             <h6 class="mb-5">Visita disponível:</h6>
                             <div class="flex gap-5">
                                 <VectorsMapBlack />
@@ -125,16 +111,17 @@
 
                     <ElementsInterestForm
                         v-bind:car="modal.personalInfos ? false : true"
-                        title="Seus dados"
+                        :title="modal.personalInfos ? 'Seus dados' : 'Dados do carro para troca'"
                         textButton="Continuar"
+                        :event="eventBuy"
                     >
                         <template
                             v-slot:button
                             v-if="modal.personalInfos === true"
                         >
                             <ElementsButton
-                                @click="modal.scheduling = true, modal.buy = false, modal.exchange = false"
                                 class="button py-4 px-8"
+                                submit
                             >
                                 Continuar
                             </ElementsButton>
@@ -159,12 +146,21 @@
             class="scheduling"
             v-if="modal.scheduling"
         >
-            <ElementsContainer block>
+            <ElementsContainer class="container" block>
                 <div class="content w-full m-auto">
-                    <ElementsInterestMessage name="Tiago">
+                    <ElementsInterestMessage
+                        class="message"
+                        v-if="modal.choice === 'buy'"
+                        name="Tiago"
+                    >
                         Recebemos seus dados e agradecemos pelo seu interesse. <br> Retornaremos o mais breve possível.
                     </ElementsInterestMessage>
-                    <ElementsInterestScheduling class="mt-8" full />
+                    <ElementsInterestScheduling
+                        :event="eventResume"
+                        class="mt-0 sm:mt-8"
+                        :title="modal.choice === 'buy' ? 'Deseja agendar sua visita agora?' : 'Agende sua avaliação e visita'"
+                        full
+                    />
                 </div>
             </ElementsContainer>
         </div>
@@ -172,19 +168,28 @@
         <ElementsInterestResume
             v-if="modal.resume"
             name="Tiago"
+            :exchange="modal.choice === 'exchange' ? true : false"
+            :carImage="carImage"
+            :carName="carName"
+            :carPrice="carPrice"
+            :carBuildYear="carBuildYear"
+            :carModelYear="carModelYear"
+            :carKM="carKM"
+            :carBrand="carBrand"
+            :carColor="carColor"
+            :carModel="carModel"
+            :carVersion="carVersion"
         />
     </div>
 </template>
 
 <script setup lang="ts">
-const visible = ref(true)
-
-const modal: object = reactive({
+const modal = reactive({
     choice: "",
     buy: false,
     exchange: false,
     scheduling: false,
-    resume: true,
+    resume: false,
     personalInfos: false,
     exchangeData: {
         value: "59000",
@@ -203,16 +208,31 @@ defineProps({
     carPrice: Number,
     carBuildYear: Number,
     carModelYear: Number,
+    carKM: Number,
     carBrand: String,
     carColor: String,
-    carKM: Number,
     carVersion: String,
     carModel: String,
     localeName: String,
     localeRegion: String,
     localeAddress: String,
     localeURL: String,
+    car: Object,
+    open: Boolean,
 })
+
+function eventBuy() {
+    modal.scheduling = true
+    modal.buy = false
+    modal.exchange = false
+}
+
+function eventResume() {
+    modal.scheduling = false
+    modal.resume = true
+}
+
+defineEmits(["update:open"])
 </script>
 
 <style lang="scss" scoped>
@@ -245,22 +265,37 @@ defineProps({
             }
         
             p {
+                color: $dark;
                 font: 400 18px/26px $inter;
+
+                @media screen and (max-width: $mobile) {
+                    font: 400 16px/24px $inter;
+                }
             }
 
-            h5 {
-                font: 500 16px/24px $inter;
-                color: $grey-4;
-            }
+            .buttons {
+                h5 {
+                    font: 500 16px/24px $inter;
+                    color: $grey-4;
 
-            h3 {
-                font: 700 24px/28px $gotham;
-            }
+                    @media screen and (max-width: $mobile) {
+                        font: 500 14px/22px $inter;
+                    }
+                }
 
-            button {
-                &:hover {
-                    .arrow {
-                        transform: translateX(4px);
+                h3 {
+                    font: 700 24px/28px $gotham;
+
+                    @media screen and (max-width: $mobile) {
+                        font: 700 20px/26px $inter;
+                    }
+                }
+
+                button {
+                    &:hover {
+                        .arrow {
+                            transform: translateX(4px);
+                        }
                     }
                 }
             }
@@ -291,20 +326,40 @@ defineProps({
 
             &,
             & * {
-                color: $dark;
                 font: 500 18px/26px $inter;
                 
                 @media screen and (max-width: $mobile) {
                     font: 500 16px/24px $inter;
                 }
             }
+
+            a {
+                color: $grey-4;
+
+                &:hover {
+                    color: $dark;
+                }
+            }
         }
     }
 
     .scheduling {
+        
+        .container {
+
+            @media screen and (max-width: $mobile) {
+                padding: 0;
+            }
+        }
 
         .content {
             max-width: 1010px;
+        }
+    }
+
+    .message {
+        @media screen and (max-width: $tablet) {
+            margin-bottom: 43px;
         }
     }
 }

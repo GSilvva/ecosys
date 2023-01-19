@@ -10,6 +10,8 @@
             :type="type ? type : 'checkbox'"
             :value="label"
             :required="required"
+            v-model="value"
+            @input="$emit('update:modelValue', $event.target.value)"
         >
         <div class="rounded mt-px relative transition"></div>
         <span :class="`w-full inline-block ${form ? 'form' : ''}`">{{ label }}</span>
@@ -17,6 +19,8 @@
 </template>
 
 <script setup lang="ts">
+const value = ref("")
+
 defineProps({
     label: String,
     name: String,

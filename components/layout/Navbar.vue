@@ -102,8 +102,8 @@ const navigationLinks = [
   },
   {
     text: "News",
-    url: "/news",
-    newLayer: false,
+    url: "https://bcar-blog.fuselab.design/",
+    newLayer: true,
     mobile: false
   },
   {
@@ -122,7 +122,6 @@ defineProps({
 <style lang="scss" scoped>
 .nav {
   height: 88px;
-  box-shadow: $nav;
 
   @media screen and (max-width: $tablet) {
     height: 72px;
@@ -134,6 +133,7 @@ defineProps({
 
   &.nav--fixed {
     height: 72px;
+    box-shadow: $nav;
 
     @media screen and (max-width: $mobile) {
       height: 64px;

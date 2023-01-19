@@ -57,7 +57,12 @@ export default defineNuxtConfig({
           rel: 'stylesheet',
           href: 'https://fonts.cdnfonts.com/css/gotham-bold',
         }
-      ]    
+      ],
+      script: [
+        {
+          src: "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js",
+        }
+      ],
     }
   },
   modules: [

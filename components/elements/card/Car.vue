@@ -6,8 +6,8 @@
     >
         <figure class="images relative h-full w-full xl:h-56 2xl:h-64">
             <div class="tags flex absolute top-0 left-0 z-20">
-                <span class="recent py-2 px-2 md:px-3 md:py-2.5 pb-2 text-white uppercase flex items-center" v-if="recent">Novo</span>
-                <span class="promo py-2 px-2 md:px-3 md:py-2.5 pb-2 text-white uppercase flex items-center" v-if="promotion">Promoção</span>
+                <span class="recent px-2 md:px-3 pt-px h-7 text-white uppercase flex items-center" v-if="recent">Novo</span>
+                <span class="promo px-2 md:px-3 pt-px h-7 text-white uppercase flex items-center" v-if="promotion">Promoção</span>
             </div>
             <template v-if="photos">
                 <swiper
@@ -217,17 +217,16 @@ defineProps({
     }
 
     @media screen and (max-width: $tablet) {
-
         .images {
-            min-width: 330px;
-            max-width: 330px;
+            min-width: 330px !important;
+            max-width: 330px !important;
         }
     }
 
     @media screen and (max-width: $mobile) {
         .images {
-            min-width: 180px;
-            max-width: 180px;
+            min-width: 180px !important;
+            max-width: 180px !important;
         }
     } 
 }

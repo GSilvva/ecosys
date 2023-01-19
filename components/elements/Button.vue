@@ -1,7 +1,7 @@
 <template>
     <nuxt-link
         v-if="href"
-        :class="`xl:py-5 ${outline ? 'outlined' : ''} ${black ? 'black' : ''} ${small ? 'small' : ''} ${classes}`"
+        :class="`xl:py-5 ${outline ? 'outlined' : ''} ${black ? 'black' : ''} ${small ? 'small' : ''} ${green ? 'green' : ''} ${classes}`"
         :to="href"
         :target="blank ? '_blank' : ''"
     >
@@ -9,7 +9,7 @@
     </nuxt-link>
     <button
         v-else
-        :class="`${outline ? 'outlined' : ''} ${black ? 'black' : ''} ${small ? 'small' : ''} ${classes}`"
+        :class="`${outline ? 'outlined' : ''} ${black ? 'black' : ''} ${small ? 'small' : ''} ${green ? 'green' : ''} ${classes}`"
         :type="submit ? 'submit' : 'button'"
     >
         <slot />
@@ -26,6 +26,7 @@ defineProps({
   outline: Boolean,
   black: Boolean,
   small: Boolean,
+  green: Boolean,
 });
 </script>
 
@@ -61,6 +62,7 @@ button {
         border-color: $green;
         
         &:hover {
+            background: $dark;
             border-color: $dark;
         }
     }
@@ -78,7 +80,13 @@ button {
 
     &.small {
         font-size: 16px;
-        padding: 15px 32px;
+        padding: 16px 32px;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background: $grey-3;
+        border-color: $grey-3;
     }
 }
 </style>

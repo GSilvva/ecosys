@@ -12,12 +12,13 @@
                 :name="name ? name : $formatStringSimple(label)"
                 :required="required"
             >
+                <option v-if="placeholder" value="">Selecione</option>
                 <option
                     v-for="(option, index) in options"
                     :key="index"
-                    :value="option.value ? option.name : ''"
+                    :value="option"
                 >
-                    {{ option.name ? option.name : option }}
+                    {{ option }}
                 </option>
             </select>
             <VectorsArrowSelect />
@@ -35,6 +36,7 @@ defineProps({
     legend: String,
     name: String,
     required: Boolean,
+    placeholder: Boolean,
 });
 </script>
 

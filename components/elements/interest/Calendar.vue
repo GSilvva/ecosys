@@ -1,6 +1,11 @@
 <template>
-    <div :class="`modal fixed left-0 top-0 z-50 w-full h-full opacity-0 invisible flex items-center justify-center transition overflow-hidden ${calendar.open ? 'visible' : ''}`">
-        <div class="max-w-md w-full m-auto bg-white relative z-40 p-10">
+    <form
+        @submit.prevent="event"
+        method="POST"
+        action=""
+        :class="`modal fixed left-0 top-0 z-50 w-full h-full flex items-end sm:items-center justify-end sm:justify-center transition overflow-hidden opacity-0 invisible ${open ? 'visible' : ''}`"
+    >
+        <div class="max-w-md w-full sm:m-auto bg-white relative z-40 pt-6 px-6 pb-8 sm:p-10 overflow-y-auto sm:overflow-y-hidden">
             <h3 class="month-year uppercase py-6 text-center">
                 {{
                     new Intl
@@ -43,6 +48,7 @@
                                 :value="day"
                                 @change="daySelected"
                                 v-model="calendar.selectedDay"
+                                required
                             >
                             <span>{{ day }}</span>
                         </label>
@@ -52,24 +58,24 @@
             </div>
 
             <ElementsFormSelect
-                class="mt-10"
+                class="mt-8 sm:mt-10"
                 floating
                 label="Horário"
-                :options="['Selecione', ...calendar.schedules]"
+                :options="calendar.schedules"
                 required
             />
 
-            <div class="actions mt-8 flex items-center justify-between">
+            <div class="actions mt-8 flex items-center justify-end sm:justify-between gap-2 sm:gap-0">
                 <ElementsButton
-                    @click="calendar.open = false"
+                    @click="$emit('update:open', false)"
                     outline
                     small
                 >
                     Voltar
                 </ElementsButton>
                 <ElementsButton
-                    @click="calendar.open = false"
                     small
+                    submit
                 >
                     Continuar
                 </ElementsButton>
@@ -77,11 +83,10 @@
         </div>
 
         <div
-            @click="calendar.open = false"
-            @click.prevent="$preventScrollBody"
+            @click="$emit('update:open', false)"
             class="overlay fixed top-0 left-0 w-full h-full z-30"
         ></div>
-    </div>
+    </form>
 </template>
 
 <script setup lang="ts">
@@ -212,9 +217,15 @@ function daySelected() {
 
 const calendar = reactive({
     selectedDay: 0,
-    schedules: [],
-    open: false,
+    schedules: ["Selecione"],
 })
+
+defineProps({
+    open: Boolean,
+    event: Function,
+})
+
+defineEmits(["update:open"])
 </script>
 
 <style lang="scss" scoped>
@@ -226,6 +237,10 @@ const calendar = reactive({
 .month-year {
     font: 700 24px/28px $gotham;
     border: 1px solid $grey-2;
+
+    @media screen and (max-width: $mobile) {
+        font: 700 16px/1 $gotham;
+    }
 }
 
 .calendar {
@@ -290,9 +305,5 @@ const calendar = reactive({
 
 .overlay {
     background: rgba(0, 0, 0, 0.2);
-
-    @media screen and (max-width: $tablet) {
-        background: rgba(0, 0, 0, 1);
-    }
 }
 </style>

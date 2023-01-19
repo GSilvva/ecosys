@@ -7,25 +7,37 @@
                 <section class="content xl:grid gap-8 xl:pb-28">
                     <aside class="infos">
                         <figure class="images gap-4 hidden xl:grid">
-                            <aside class="others flex flex-col gap-4">
-                                <button @click="openModal = true" class="flex-1" type="button"><img src="/images/home/article.jpg" alt="Foto" class="object-cover w-full h-full"></button>
-                                <button @click="openModal = true" class="flex-1" type="button"><img src="/images/home/article.jpg" alt="Foto" class="object-cover w-full h-full"></button>
-                                <button @click="openModal = true" class="flex-1 relative" type="button">
-                                    <img src="/images/home/article.jpg" alt="Foto" class="object-cover w-full h-full opacity-50">
-                                    <p class="absolute top-1/2 left-1/2 text-white">+12</p>
+                            <aside class="others flex flex-col gap-4 h-full">
+                                <button
+                                    @click="carPage.openModal = true"
+                                    type="button"
+                                >
+                                    <img
+                                        :src="carData.photos[1].url_path"
+                                        alt="Foto"
+                                        class="object-cover w-full h-full"
+                                    >
+                                </button>
+                                <button @click="carPage.openModal = true" type="button"><img :src="carData.photos[2].url_path" alt="Foto" class="object-cover w-full h-full"></button>
+                                <button @click="carPage.openModal = true" class="relative" type="button">
+                                    <img :src="carData.photos[3].url_path" alt="Foto" class="object-cover w-full h-full opacity-50">
+                                    <p class="absolute top-1/2 left-1/2 text-white">+{{ thumbsDesktop.length }}</p>
                                 </button>
                             </aside>
-                            <button @click="openModal = true" class="w-full h-full" type="button"><img class="object-cover w-full h-full" src="/images/home/article.jpg" alt="Foto"></button>
+                            <button @click="carPage.openModal = true" class="w-full h-full block" type="button"><img class="object-cover w-full h-full" :src="carData.photos[0].url_path" alt="Foto"></button>
                         </figure>
 
                         <figure class="carousel xl:hidden">
                             <swiper
                                 class="h-72 sm:h-96"
                                 :modules="modules"
-                                :loop="carPage.photos.length > 1 ? true : false"
+                                :loop="carData.photos.length > 1 ? true : false"
                                 :pagination="{ clickable: true, dynamicBullets: true }"
                             >
-                                <swiper-slide v-for="(photo, index) in carPage.photos" :key="index">
+                                <swiper-slide
+                                    @click="carPage.openModal = true"
+                                    v-for="(photo, index) in carData.photos" :key="index"
+                                >
                                     <img
                                         class="object-cover w-full h-full"
                                         :src="photo.url_path"
@@ -36,8 +48,10 @@
                         </figure>
 
                         <section class="box mt-0 xl:mt-8 px-6 sm:px-12 xl:px-10 pt-6 pb-12 sm:py-12 xl:p-10 bg-white">
-                            <h1>BMW M3</h1>
-                            <h5 class="mt-4 xl:mt-3 mb-6">3.0 V6 Gasolina Limited 4X4 <br> Automático</h5>
+                            <h1>{{ carData.name }}</h1>
+                            <h5 class="mt-4 xl:mt-3 mb-6">
+                                {{ carData.car.version.engine }} {{ carData.car.version.fuel }} {{ carData.car.version.name }} <br> {{ carData.car.version.transmission }}
+                            </h5>
                             <div class="tags flex gap-2 flex-wrap">
                                 <span class="uppercase py-1.5 sm:py-2.5 px-3">Garantia de fábrica</span>
                                 <span class="uppercase py-1.5 sm:py-2.5 px-3">Único dono</span>
@@ -56,31 +70,31 @@
                             <ul class="mt-12 grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-5 gap-y-6 xl:gap-y-8">
                                 <li>
                                     <p>Ano</p>
-                                    <p><strong>2019/2020</strong></p>
+                                    <p><strong>{{ carData.car.build_year }}/{{ carData.car.model_year }}</strong></p>
                                 </li>
                                 <li>
                                     <p>KM</p>
-                                    <p><strong>30.000</strong></p>
+                                    <p><strong>{{ $formatNumber(carData.km) }}</strong></p>
                                 </li>
                                 <li>
                                     <p>Motor</p>
-                                    <p><strong>3.0 V6</strong></p>
+                                    <p><strong>{{ carData.car.version.engine }}</strong></p>
                                 </li>
                                 <li>
                                     <p>Carroceria</p>
-                                    <p><strong>Sedan</strong></p>
+                                    <p><strong>{{ carData.car.category }}</strong></p>
                                 </li>
                                 <li>
                                     <p>Câmbio</p>
-                                    <p><strong>CVT</strong></p>
+                                    <p><strong>{{ carData.car.version.transmission }}</strong></p>
                                 </li>
                                 <li>
                                     <p>Combustível</p>
-                                    <p><strong>Gasolina</strong></p>
+                                    <p><strong>{{ carData.car.version.transmission }}</strong></p>
                                 </li>
                                 <li>
                                     <p>Cor</p>
-                                    <p><strong>Prata</strong></p>
+                                    <p><strong>{{ carData.car.color }}</strong></p>
                                 </li>
                             </ul>
                         </section>
@@ -88,61 +102,26 @@
                         <section class="box xl:mt-8 px-6 sm:px-12 xl:px-10 py-12 xl:p-10 bg-white">
                             <h4 class="uppercase mb-8">Opcionais</h4>
                             <ul class="grid xl:grid-cols-2 gap-y-3 gap-x-16">
-                                <li class="flex gap-4">
+                                <li
+                                    v-for="feature in carData.car.features"
+                                    :key="feature"
+                                    class="flex gap-4"
+                                >
                                     <VectorsCheck class="mt-0.5" />
-                                    <p class="w-full"><strong>AEB - Sistema Autônomo de frenagem de emergência</strong></p>
-                                </li>
-                                <li class="flex gap-4">
-                                    <VectorsCheck class="mt-0.5" />
-                                    <p class="w-full"><strong>Controle de Tração e Estabilidade</strong></p>
-                                </li>
-                                <li class="flex gap-4">
-                                    <VectorsCheck class="mt-0.5" />
-                                    <p class="w-full"><strong>Air bag duplo</strong></p>
-                                </li>
-                                <li class="flex gap-4">
-                                    <VectorsCheck class="mt-0.5" />
-                                    <p class="w-full"><strong>Pára-choques na cor do veículo</strong></p>
-                                </li>
-                                <li class="flex gap-4">
-                                    <VectorsCheck class="mt-0.5" />
-                                    <p class="w-full"><strong>Alarme</strong></p>
-                                </li>
-                                <li class="flex gap-4">
-                                    <VectorsCheck class="mt-0.5" />
-                                    <p class="w-full"><strong>Sensor de estacionamento dianteiro</strong></p>
-                                </li>
-                                <li class="flex gap-4">
-                                    <VectorsCheck class="mt-0.5" />
-                                    <p class="w-full"><strong>Ar condicionado</strong></p>
-                                </li>
-                                <li class="flex gap-4">
-                                    <VectorsCheck class="mt-0.5" />
-                                    <p class="w-full"><strong>Travas elétricas</strong></p>
+                                    <p class="w-full"><strong>{{ feature }}</strong></p>
                                 </li>
                             </ul>
                         </section>
                         
                         <section class="box xl:mt-8 px-6 sm:px-12 xl:px-10 py-12 xl:p-10 bg-white">
                             <h4 class="uppercase mb-4 sm:mb-8">Sobre o veículo</h4>
-                            <p class="about">
-                                Um verdadeiro rastro de elegância e classe é deixado por onde passa, chamando a atenção e captando os olhares de todos. em seu aspecto visual externo, são diversos detalhes que fazem desse, um sinônimo de luxo.
-                                <br>
-                                <br>
-                                Além de contar com uma grade imponente em black-piano e uma iluminação de outro mundo, o carro também é equipado com sensores de estacionamento dianteiro, sensor de chuva e até mesmo os crepusculares.
-                                <br>
-                                <br>
-                                Faróis escurecidos e led nas lanternas traseiras chamam mais uma vez a atenção para o design bem ajustado do modelo, e com uma nomenclatura escura na traseira remetendo à versão, a esportividade não passará despercebida por aqui.
-                                <br>
-                                <br>
-                                São absurdos 340 cavalos de potência nessa motorização 3.0 à gasolina.
-                            </p>
+                            <p class="about">{{ carData.special_features }}</p>
                         </section>
                     </aside>
 
                     <article class="add-infos fixed xl:relative bottom-0 left-0 w-full h-16 sm:h-20 xl:h-full z-30">
                         <div class="xl:sticky bg-white xl:px-8 xl:py-10 grid grid-cols-2 xl:block h-full xl:h-max">
-                            <h2 class="flex items-center sm:justify-center xl:block pl-6 sm:pl-0">R$ 125.900</h2>
+                            <h2 class="flex items-center sm:justify-center xl:block pl-6 sm:pl-0">{{ $formatCurrency(carData.price) }}</h2>
                             <div class="local hidden xl:block my-8">
                                 <h6 class="mb-5">Visita disponível:</h6>
                                 <div class="flex gap-5">
@@ -153,12 +132,20 @@
                                     </p>
                                 </div>
                             </div>
-                            <ElementsButton class="w-full hidden xl:block">Tenho interesse</ElementsButton>
+                            <ElementsButton
+                                @click="carPage.openInterest = true"
+                                @click.prevent="$preventScrollBody"
+                                class="w-full hidden xl:block"
+                            >
+                                Tenho interesse
+                            </ElementsButton>
                             <footer class="mt-8 pt-8 justify-between items-center hidden xl:flex">
                                 <p>147 pessoas viram <br> esse anúncio nas últimas 24h</p>
                                 <VectorsViews />
                             </footer>
                             <button
+                                @click="carPage.openInterest = true"
+                                @click.prevent="$preventScrollBody"
                                 class="btn-mob text-white xl:hidden"
                                 type="button"
                             >
@@ -232,18 +219,18 @@
                 </section>
             </ElementsContainer>
 
-            <article :class="`modal fixed left-0 top-0 z-50 w-full h-full opacity-0 invisible flex items-center justify-between flex-col transition overflow-hidden pb-8 sm:pb-14 ${carPage.openModal ? 'visible' : ''}`">
-                <div class="relative z-50 principal py-6 xl:pt-0 m-auto h-full w-full flex flex-col justify-between xl:justify-center">
+            <article :class="`modal fixed left-0 top-0 z-50 w-full h-full opacity-0 invisible flex items-center justify-between flex-col transition overflow-hidden pb-8 2xl:pb-14 ${carPage.openModal ? 'visible' : ''}`">
+                <div class="principal relative z-50 w-full pb-8">
                     <button
-                        class="close rounded-full py-1 px-3 transition mr-6 xl:mr-0 xl:mb-3 block ml-auto"
+                        class="close rounded-full py-1 px-3 transition mt-6 xl:mt-3 mr-6 xl:mr-0 mb-6 xl:mb-3 block ml-auto"
                         @click="carPage.openModal = false"
-                        @click.prevent="$preventScrollBody"
+                        @click.prevent="$scrollBody"
                         type="button"
                     >
                         Fechar
                     </button>
 
-                    <div class="relative w-full m-auto xl:m-0">
+                    <div class="relative w-full carousel">
                         <button
                             class="prev absolute top-1/2 hidden xl:block"
                             type="button"
@@ -252,6 +239,7 @@
                         </button>
 
                         <swiper
+                            class="h-full"
                             :modules="modules"
                             :loop="true"
                             :thumbs="{ swiper: thumbsSwiper }"
@@ -260,22 +248,13 @@
                                 nextEl: '.next',
                             }"
                         >
-                            <swiper-slide>
+                            <swiper-slide
+                                v-for="(photo, index) in carData.photos" :key="index"
+                            >
                                 <img
                                     class="object-cover w-full h-full"
-                                    src="/images/home/article.jpg"
-                                >
-                            </swiper-slide>
-                            <swiper-slide>
-                                <img
-                                    class="object-cover w-full h-full"
-                                    src="/images/home/article.jpg"
-                                >
-                            </swiper-slide>
-                            <swiper-slide>
-                                <img
-                                    class="object-cover w-full h-full"
-                                    src="/images/home/article.jpg"
+                                    :src="photo.url_path"
+                                    :alt="`Foto ${index + 1}`"
                                 >
                             </swiper-slide>
                         </swiper>
@@ -300,22 +279,14 @@
                         watch-slides-progress
                         @swiper="setThumbsSwiper"
                     >
-                        <swiper-slide>
+                        <swiper-slide
+                            class="cursor-pointer"
+                            v-for="(photo, index) in carData.photos" :key="index"
+                        >
                             <img
                                 class="object-cover w-full h-full"
-                                src="/images/home/article.jpg"
-                            >
-                        </swiper-slide>
-                        <swiper-slide>
-                            <img
-                                class="object-cover w-full h-full"
-                                src="/images/home/article.jpg"
-                            >
-                        </swiper-slide>
-                        <swiper-slide>
-                            <img
-                                class="object-cover w-full h-full"
-                                src="/images/home/article.jpg"
+                                :src="photo.url_path"
+                                :alt="`Foto ${index + 1}`"
                             >
                         </swiper-slide>
                     </swiper>
@@ -326,20 +297,21 @@
         </section>
 
         <ElementsInterestModal
-            carImage="../../images/general/car.jpg"
-            carName="BMW M3 5.0"
-            :carPrice="125900"
-            :carBuildYear="2018"
-            :carModelYear="2019"
-            carBrand="Mitsubishi"
-            carColor="Prata"
-            carVersion="V6 3.0 GT"
-            carModel="Outlander V6 3.0"
-            :carKM="158836"
+            :carImage="carData.photos[0].url_path"
+            :carName="carData.name"
+            :carPrice="carData.price"
+            :carBuildYear="carData.car.build_year"
+            :carModelYear="carData.car.model_year"
+            :carBrand="carData.car.model.brand.name"
+            :carColor="carData.car.color"
+            :carModel="carData.car.version.name"
+            :carVersion="carData.car.version.engine + ' ' + carData.car.version.fuel"
+            :carKM="carData.km"
             localeName="Terraço Shopping"
             localeAddress="QS 1 Rua 210, 24, Lote, Areal (Águas claras)"
             localeRegion="Sudoeste, Brasília/DF"
-            localeURL="https://www.google.com.br/maps"   
+            localeURL="https://www.google.com.br/maps"
+            v-model:open="carPage.openInterest"
         />
     </main>
 </template>
@@ -366,6 +338,7 @@ const { data: car } = await useFetch(`/anuncios/${id}`, {
 })
 
 const carData: any = car.value
+const thumbsDesktop = carData.photos.slice(4, carData.photos.length)
 
 const carPage: object = reactive({
     links: [
@@ -381,24 +354,8 @@ const carPage: object = reactive({
             text: carData.name,
         }
     ],
-    photos: [
-        {
-            url_path: "../../images/home/article.jpg"
-        },
-        {
-            url_path: "../../images/home/article.jpg"
-        },
-        {
-            url_path: "../../images/home/article.jpg"
-        },
-        {
-            url_path: "../../images/home/article.jpg"
-        },
-        {
-            url_path: "../../images/home/article.jpg"
-        }
-    ],
     openModal: false,
+    openInterest: false,
 });
 
 useHead({
@@ -432,9 +389,16 @@ useHead({
 
     .images {
         grid-template-columns: 175px 1fr;
-        height: 443px;
+
+        aside {
+
+            button {
+                height: 138px;
+            }
+        }
 
         button {
+            height: 446px;
             background: $dark;
 
             p {
@@ -517,6 +481,10 @@ useHead({
         box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
     }
 
+    @media screen and (max-width: $mobile) {
+        height: 72px;
+    }
+
     & > div {
         top: 105px;
     }
@@ -571,10 +539,10 @@ useHead({
 
         &,
         & * {
-            font: 500 18px/26px $inter;
+            font: 500 18px/26px $inter !important;
             
             @media screen and (max-width: $mobile) {
-                font: 500 16px/24px $inter;
+                font: 500 16px/24px $inter !important;
             }
         }
 
@@ -596,6 +564,23 @@ useHead({
 
     .principal {
         max-width: 805px;
+        height: calc(100% - 110px);
+
+        @media screen and (max-width: 1500px) {
+            height: calc(100% - 88px);
+        }
+
+        @media screen and (max-width: $mobile) {
+            height: calc(100% - 72px);
+        }
+
+        .carousel {
+            height: calc(100% - 28px - 12px - 12px);
+
+            @media screen and (max-width: $tablet) {
+                height: calc(100% - 28px - 24px - 24px);
+            }
+        }
 
         .close {
             font: 500 12px/20px $inter;
@@ -627,10 +612,15 @@ useHead({
 .modal .thumbs .swiper-slide {
     width: 148px;
     height: 110px;
+    
+    @media screen and (max-width: 1500px) {
+        width: 120px;
+        height: 88px;
+    }
 
     @media screen and (max-width: $mobile) {
         width: 98px;
-        height: 73px;
+        height: 72px;
     }
 }
 </style>

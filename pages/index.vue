@@ -44,12 +44,12 @@
 
     <section class="about pt-24 xl:pt-36 pb-32 xl:pb-48" id="sobre">
       <ElementsContainer block>
-        <div class="text flex items-center gap-8 xl:gap-12 mb-20 xl:mb-36">
+        <div data-animate class="text flex items-center gap-8 xl:gap-12 mb-20 xl:mb-36">
           <VectorsIconLogo />
           <p class="w-full">Há 10 anos resolvendo a vida de quem quer comprar ou vender um seminovo com garantia e segurança.</p>
         </div>
-        <h2 class="title mb-8 md:mb-12 xl:mb-20">visite nossas <br> lojas em brasília</h2>
-        <section class="cards flex justify-between gap-6 md:gap-8 overflow-x-auto xl:overflow-x-visible px-6 md:px-12 xl:px-0">
+        <h2 data-animate class="title mb-8 md:mb-12 xl:mb-20">visite nossas <br> lojas em brasília</h2>
+        <section data-animate class="cards flex justify-between gap-6 md:gap-8 overflow-x-auto xl:overflow-x-visible px-6 md:px-12 xl:px-0">
           <div class="card w-full">
             <img class="object-cover w-full h-60 xl:h-72" src="/images/general/terraco.jpg" alt="Foto">
             <div class="pt-6 xl:p-10 xl:bg-white">
@@ -110,7 +110,7 @@
 
     <section class="services pb-28 xl:pb-48">
       <ElementsContainer class="gap-8">
-        <aside class="bg-white mb-6 xl:mb-0">
+        <aside data-animate class="bg-white mb-6 xl:mb-0">
           <header class="py-6 px-6 md:pt-10 md:pr-10 md:pb-14 md:pl-14">
             <VectorsBuy class="ml-auto mb-8" />
             <nuxt-link class="relative block" href="/comprar">
@@ -123,21 +123,21 @@
           </header>
           <ul>
             <li class="py-6 px-6 md:pt-10 md:pb-10 md:pl-14 md:pr-20 flex gap-6">
-              <VectorsEye class="w-7" />
+              <VectorsEye class="min-w-max" />
               <div class="w-full">
                 <h6 class="mb-2">Carros 100% vistoriados</h6>
                 <p>Especialistas experientes que irão lhe auxiliar durante todo o processo de compra.</p>
               </div>
             </li>
             <li class="py-6 px-6 md:pt-10 md:pb-10 md:pl-14 md:pr-20 flex gap-6">
-              <VectorsShield class="w-7" />
+              <VectorsShield class="min-w-max" />
               <div class="w-full">
                 <h6 class="mb-2">Garantia de 1 ano*</h6>
                 <p>Todas as nossas transações são seguras com garantia de procedência.</p>
               </div>
             </li>
             <li class="py-6 px-6 md:pt-10 md:pb-10 md:pl-14 md:pr-20 flex gap-6">
-              <VectorsDolla class="w-7" />
+              <VectorsDolla class="min-w-max" />
               <div class="w-full">
                 <h6 class="mb-2">Ótimos preços</h6>
                 <p>Todos os veículos ofertados seguem o valor de mercado.</p>
@@ -146,7 +146,7 @@
           </ul>
         </aside>
 
-        <aside class="bg-white">
+        <aside data-animate class="bg-white">
           <header class="py-6 px-6 md:pt-10 md:pr-10 md:pb-14 md:pl-14">
             <VectorsSale class="ml-auto mb-8" />
             <nuxt-link class="relative block" href="/vender">
@@ -159,21 +159,21 @@
           </header>
           <ul>
             <li class="py-6 px-6 md:pt-10 md:pb-10 md:pl-14 md:pr-20 flex gap-6">
-              <VectorsSmiley class="w-7" />
+              <VectorsSmiley class="min-w-max" />
               <div class="w-full">
                 <h6 class="mb-2">Sem dores de cabeça</h6>
                 <p>Proteção contra falsos compradores hora de comprar o seu carro novo.</p>
               </div>
             </li>
             <li class="py-6 px-6 md:pt-10 md:pb-10 md:pl-14 md:pr-20 flex gap-6">
-              <VectorsNotebook class="w-7" />
+              <VectorsNotebook class="min-w-max" />
               <div class="w-full">
                 <h6 class="mb-2">Venda sem pagar nada</h6>
                 <p>Cuidamos de tudo na hora de vender seu carro e você não paga nada por isso.</p>
               </div>
             </li>
             <li class="py-6 px-6 md:pt-10 md:pb-10 md:pl-14 md:pr-20 flex gap-6">
-              <VectorsCar class="w-7" />
+              <VectorsCar class="min-w-max" />
               <div class="w-full">
                 <h6 class="mb-2">Deixe tudo com a gente</h6>
                 <p>Resolvemos tudo por você na hora de vender seu carro e voce pode continuar usando ele.</p>
@@ -194,8 +194,8 @@
 
     <section class="finance pb-24 xl:pb-36">
       <ElementsContainer center>
-        <img class="mb-12 xl:mb-0 w-full" src="/images/home/finance.jpg" alt="Foto">
-        <aside>
+        <img data-animate class="mb-12 xl:mb-0 w-full" src="/images/home/finance.jpg" alt="Foto">
+        <aside data-animate>
           <h6 class="mb-4 xl:mb-6">Financie com a gente</h6>
           <h2 class="mb-6 xl:mb-8">Agilidade e sem burocracia</h2>
           <p class="mb-6 xl:mb-8">Segurança, atendimento diferenciado e as melhores condições do mercado. Escolha o carro que deseja solicite um orçamento personalizado pelo nosso chat.</p>
@@ -207,10 +207,10 @@
     <section class="blog pb-28 xl:pb-48">
       <ElementsContainer block>
         <section class="relative bg-white flex-col-reverse xl:flex-row flex xl:items-end justify-between pl-6 md:pl-10 xl:pl-0">
-          <aside class="w-full py-10 xl:py-24 pr-14 xl:pl-24 flex flex-col items-start">
+          <aside data-animate class="w-full py-10 xl:py-24 pr-14 xl:pl-24 flex flex-col items-start">
             <h2 class="mb-5 xl:mb-8">Conheça <br> a Car News</h2>
             <p class="mb-6 xl:mb-8 w-full">Veja as noticias e conteúdos mais relevantes do mercado automotivo.</p>
-            <ElementsButton href="/news">Ver últimas notícias</ElementsButton>
+            <ElementsButton href="https://bcar-blog.fuselab.design/">Ver últimas notícias</ElementsButton>
             <footer class="hidden xl:flex mt-12 pt-8">
               <span class="flex items-center">Veículos</span>
               <span class="flex items-center">Carros</span>
@@ -219,7 +219,7 @@
             </footer>
           </aside>
 
-          <img class="relative z-20" src="/images/home/blog.png" alt="Blog">
+          <img data-animate class="relative z-20" src="/images/home/blog.png" alt="Blog">
         </section>
       </ElementsContainer>
     </section>
@@ -236,17 +236,17 @@
       <ElementsContainer block class="container relative z-20">
         <section class="overflow-hidden px-6 pt-24 xl:pt-28 xl:pr-8 pb-16 xl:pb-10 xl:pl-24">
           <div class="flex flex-col-reverse xl:flex-row justify-between items-center">
-            <aside class="flex flex-col items-center xl:items-start w-full mt-16 xl:mt-0">
+            <aside data-animate class="flex flex-col items-center xl:items-start w-full mt-16 xl:mt-0">
               <h2 class="text-center xl:text-left text-white !normal-case">DESCUBRA AGORA O SEU b.car IDEAL</h2>
               <p class="text-center xl:text-left mt-6 mb-8 xl:my-8 text-white">Responda o nosso questionário a seguir. Cada pergunta respondida representa um caminho pra você encontrar seu carro ideal.</p>
               <ElementsButton black href="/descubra">Descobrir meu carro</ElementsButton>
             </aside>
             <figure class="relative w-full">
               <img class="mix-blend-multiply relative z-20" src="/images/general/mystery-car.png" alt="Carro misterioso">
-              <img class="absolute top-1/2 left-1/2 z-10" src="/images/general/graphism-mystery-car.svg" alt="Graphismo">
+              <img class="absolute top-1/2 left-1/2 z-10 xl:max-w-max" src="/images/general/graphism-mystery-car.svg" alt="Graphismo">
             </figure>
           </div>
-          <h6 class="hidden xl:block text-white text-right pr-2 mt-3.5">Entre 200 veículos, <br> 1 com certeza tem a sua cara</h6>
+          <h6 data-animate class="hidden xl:block text-white text-right pr-2 mt-3.5">Entre 200 veículos, <br> 1 com certeza tem a sua cara</h6>
         </section>
       </ElementsContainer>
     </section>
@@ -254,14 +254,14 @@
     <section class="featured">
       <ElementsContainer block>
         <section class="xl:flex items-center justify-between py-16 xl:pt-40 xl:pb-32">
-          <figure class="relative w-full xl:pl-7 xl:pt-20 xl:pb-16">
+          <figure data-animate class="relative w-full xl:pl-7 xl:pt-20 xl:pb-16">
             <article class="relative z-20 flex items-center xl:justify-center gap-6 xl:gap-8 mb-6 pb-6 xl:pb-0 xl:mb-8 xl:pr-36">
               <VectorsFirst />
-              <p class="text-white">A autotech mais bem <br> avaliada do segmento</p>
+              <p class="text-white">A autotech mais bem avaliada <br> do segmento</p>
             </article>
             <img class="relative z-20 hidden xl:block" src="/images/home/car-footer.png" alt="Carro">
           </figure>
-          <aside class="w-full">
+          <aside data-animate class="w-full">
             <h2 class="h1 text-white mb-6 md:mb-10">Mais de <br> 200 carros pra você</h2>
             <p class="text-white w-full mb-8 md:mb-10">Veja nosso catálogo de veículos e fique a vontade para falar com a gente ou nos visitar em brasília.</p>
             <ElementsButton href="/comprar">Ver todos os carros</ElementsButton>
@@ -518,6 +518,10 @@
       h6 {
         @include paragraph;
         font-weight: 600 !important;
+
+        @media screen and (max-width: $mobile) {
+          font: 600 18px/28px $inter;
+        }
       }
       p {
         font: 400 17px/25px $inter; 

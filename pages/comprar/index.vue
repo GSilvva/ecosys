@@ -13,6 +13,7 @@
                     name="busca"
                     placeholder="Buscar um carro"
                     small
+                    v-model="buyPage.search"
                 />
                 <div class="local mb-10">
                     <button
@@ -37,7 +38,8 @@
                     class="mb-10"
                     label="Marca"
                     name="marca"
-                    :options="buyPage.brands"
+                    :options="[]"
+                    placeholder
                     small
                 />
                 <div class="flex items-end gap-4 mb-10">
@@ -47,12 +49,14 @@
                         placeholder="De"
                         legend="ex: 2014"
                         small
+                        mask="####"
                     />
                     <ElementsFormInput
                         name="anoAte"
                         placeholder="Até"
                         legend="ex: 2018"
                         small
+                        mask="####"
                     />
                 </div>
                 <div class="flex items-end gap-4 mb-10">
@@ -62,12 +66,14 @@
                         placeholder="De"
                         legend="ex: R$ 20.000"
                         small
+                        number
                     />
                     <ElementsFormInput
                         name="precoAte"
                         placeholder="Até"
                         legend="ex: R$ 80.000"
                         small
+                        number
                     />
                 </div>
                 <div class="flex items-end gap-4 mb-10">
@@ -77,12 +83,14 @@
                         placeholder="De"
                         legend="ex: 10.000"
                         small
+                        number
                     />
                     <ElementsFormInput
                         name="kmAte"
                         placeholder="Até"
                         legend="ex: 50.000"
                         small
+                        number
                     />
                 </div>
                 <div class="mb-10">
@@ -234,20 +242,11 @@ const buyPage = reactive({
             url: ""
         }
     ],
-    brands: [
-        {
-            name: "Selecione",
-            value: false
-        },
-        {
-            name: "Toyota",
-            value: true
-        },
-    ],
     filtersActive: false,
     listView: false,
     allOptions: false,
     allLocales: true,
+    search: "",
 })
 
 useHead({
@@ -255,6 +254,10 @@ useHead({
     htmlAttrs: {
         class: 'xl:overflow-hidden'
     }
+})
+
+const formattNumbers = computed((value) => {
+    return value.rawSalary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 })
 </script>
 

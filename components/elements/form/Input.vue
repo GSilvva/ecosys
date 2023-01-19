@@ -12,6 +12,8 @@
             :name="name ? name : $formatStringSimple(label)"
             :placeholder="placeholder"
             :required="required"
+            v-model="value"
+            @input="$emit('update:modelValue', $event.target.value)"
         ></textarea>
         <input
             v-else
@@ -21,12 +23,23 @@
             :type="type ? type : 'text'"
             :placeholder="placeholder"
             :required="required"
+            v-model="value"
+            @input="
+                $emit('update:modelValue', $event.target.value),
+                number ? maskNumber($event) : ''
+            "
+            v-maska
+            :data-maska="mask"
         >
         <small v-if="legend" class="mt-2">{{ legend }}</small>
     </fieldset>
 </template>
 
 <script setup lang="ts">
+import { vMaska } from "maska"
+
+const value = ref("")
+
 defineProps({
     classes: String,
     classesFieldset: String,
@@ -40,7 +53,14 @@ defineProps({
     textarea: Boolean,
     placeholder: String,
     required: Boolean,
-});
+    number: Boolean,
+    mask: String,
+})
+
+function maskNumber(event: any) {
+    const mask = event.target.value.replace(/\D/g, '')
+    event.target.value = mask
+}
 </script>
 
 <style lang="scss" scoped>

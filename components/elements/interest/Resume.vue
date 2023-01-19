@@ -1,26 +1,33 @@
 <template>
     <NuxtLayout name="simple">
         <div class="resume">
-            <ElementsContainer block>
+            <ElementsContainer class="container" block>
                 <div class="content w-full m-auto">
                     <ElementsInterestMessage :name="name">
-                        Agradecemos por agendar sua visita. <br> Vamos te retornar em até 24h para verificar as informações e confirmar a sua visita.
+                        <template v-if="sale">
+                            Agradecemos por agendar a avaliação do seu veículo.
+                        </template>
+                        <template v-else>
+                            Agradecemos por agendar sua visita.
+                        </template>
+                        <br>
+                        Vamos te retornar em até 24h para verificar as informações e confirmar a sua visita.
                     </ElementsInterestMessage>
 
-                    <div class="box bg-white p-10 flex flex-col items-end">
-                        <section class="section schedule pb-10 mb-10 w-full">
+                    <div class="box bg-white px-6 pt-8 pb-10 sm:p-10 flex flex-col items-end">
+                        <section class="section schedule pb-8 mb-8 sm:pb-10 pb-8 mb-8 sm:mb-10 w-full">
                             <h6 class="title uppercase mb-6">Agendamento</h6>
 
                             <div class="flex flex-wrap justify-between gap-y-8">
-                                <div class="flex gap-6 w-1/2">
+                                <div class="flex gap-4 w-max sm:w-1/2">
                                     <VectorsCalendar />
                                     <p>16 de Janeiro</p>
                                 </div>
-                                <div class="flex gap-6 w-1/2">
+                                <div class="flex gap-4 w-5/12 sm:w-1/2">
                                     <VectorsClock />
                                     <p>10:30</p>
                                 </div>
-                                <div class="flex gap-6 w-full">
+                                <div class="flex gap-4 w-full">
                                     <VectorsMap />
                                     <p>
                                         B.CAR Águas Claras
@@ -32,52 +39,50 @@
                             </div>
                         </section>
 
-                        <section class="section car pb-10 mb-10 w-full">
+                        <section
+                            v-if="!sale"
+                            class="section car pb-8 mb-8 sm:pb-10 pb-8 mb-8 sm:mb-10 w-full"
+                        >
                             <h6 class="title uppercase mb-6">Veículo desejado</h6>
 
-                            <div class="car-preview mb-8 flex items-center gap-8">
-                                <img
-                                    class="w-full object-cover h-32 w-40"
-                                    src="/images/general/car.jpg"
-                                    alt="BMW M3 5.0"
-                                >
-                                <div>
-                                    <h5 class="mb-0.5">BMW M3 5.0</h5>
-                                    <h6 class="mb-5">{{ $formatCurrency(125900) }}</h6>
-                                    <footer class="flex gap-2 items-center">
-                                        <small>2018/2019</small>
-                                        <div class="square"></div>
-                                        <small>{{ $formatNumber(158836) }}km</small>
-                                    </footer>
-                                </div>
-                            </div>
+                            <ElementsInterestCarPreview
+                                :carImage="carImage"
+                                :carName="carName"
+                                :carPrice="carPrice"
+                                :carBuildYear="carBuildYear"
+                                :carModelYear="carModelYear"
+                                :carKM="carKM"
+                            />
 
                             <div class="infos grid grid-cols-2 gap-y-6">
                                 <p>
                                     Marca
                                     <br>
-                                    <strong>Mitsubishi</strong>
+                                    <strong>{{ carBrand }}</strong>
                                 </p>
                                 <p>
                                     Cor
                                     <br>
-                                    <strong>Prata</strong>
+                                    <strong>{{ carColor }}</strong>
                                 </p>
                                 <p>
                                     Modelos
                                     <br>
-                                    <strong>Outlander V6 3.0</strong>
+                                    <strong>{{ carModel }}</strong>
                                 </p>
                                 <p>
                                     Versão
                                     <br>
-                                    <strong>V6 3.0 GT</strong>
+                                    <strong>{{ carVersion }}T</strong>
                                 </p>
                             </div>
                         </section>
 
-                        <seciton class="section exchange pb-8 mb-8 w-full">
-                            <h6 class="title uppercase mb-6">Veículo para troca</h6>
+                        <section
+                            v-if="exchange || sale"
+                            class="section exchange pb-8 mb-8 w-full"
+                        >
+                            <h6 class="title uppercase mb-6">Veículo {{ exchange ? "para troca" : "" }}</h6>
 
                             <h3 class="mb-0.5">{{ $formatCurrency(59000) }}</h3>
                             <h5 class="mb-8">Valor de mercado</h5>
@@ -114,9 +119,16 @@
                                     <strong>V6 3.0 GT</strong>
                                 </p>
                             </div>
-                        </seciton>
+                        </section>
                         
-                        <ElementsButton href="/" outline small>Voltar para a home</ElementsButton>
+                        <ElementsButton
+                            @click="$scrollBody"
+                            href="/"
+                            outline
+                            small
+                        >
+                            Voltar para a home
+                        </ElementsButton>
                     </div>
                 </div>
             </ElementsContainer>
@@ -127,12 +139,35 @@
 <script setup lang="ts">
 defineProps({
     name: String,
+    title: String,
+    exchange: Boolean,
+    sale: Boolean,
+    carImage: String,
+    carName: String,
+    carPrice: Number,
+    carBuildYear: Number,
+    carModelYear: Number,
+    carKM: Number,
+    carBrand: String,
+    carColor: String,
+    carVersion: String,
+    carModel: String,
 })
 </script>
 
 <style lang="scss" scoped>
 .content {
     max-width: 525px;
+
+    @media screen and (max-width: $mobile) {
+        max-width: 100%;
+    }
+}
+
+.container {
+    @media screen and (max-width: $mobile) {
+        padding: 0;
+    }
 }
 
 .title {

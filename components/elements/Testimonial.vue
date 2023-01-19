@@ -1,7 +1,7 @@
 <template>
     <section class="pb-28 xl:pb-48">
         <ElementsContainer class="flex flex-col-reverse xl:flex-row">
-            <article class="mt-20 xl:mt-0">
+            <article data-animate class="mt-20 xl:mt-0">
                 <div class="mb-6 flex items-center gap-2">
                     <VectorsStar />
                     <h3 class="uppercase pt-1"><strong>4.8</strong>/5</h3>
@@ -9,7 +9,7 @@
                 <p class="mb-0.5 xl:mb-1">Avaliação no Google</p>
                 <a class="transition" href="##" target="_blank">Ver todas</a>
             </article>
-            <aside class="w-full">
+            <aside data-animate class="w-full">
                 <p><slot>{{ text }}</slot></p>
                 <footer class="mt-8 xl:mt-10 flex items-center gap-5 xl:gap-8">
                     <img class="w-16 h-16 xl:w-20 xl:h-20 rounded-full object-cover" :src="photo" :alt="name">
