@@ -1,5 +1,5 @@
 <template>
-  <nav :class="`nav bg-white fixed top-0 left-0 w-full transition z-40 ${openMenu ? 'nav--open' : ''}`">
+  <nav :class="`nav bg-white fixed top-0 left-0 w-full transition z-40 ${openMenu ? 'nav--open' : ''} ${shadow ? 'shadow' : ''}`">
     <ElementsContainer :class="`h-full flex ${full ? 'full' : ''}`" center>
       <aside class="content flex items-center xl:gap-20 h-full">
         <button
@@ -117,7 +117,8 @@ const navigationLinks = [
 ];
 
 defineProps({
-  full: Boolean
+  full: Boolean,
+  shadow: Boolean,
 })
 </script>
 
@@ -177,6 +178,10 @@ defineProps({
       }
     }
   }
+}
+
+.shadow {
+  box-shadow: $nav;
 }
 
 .logo {

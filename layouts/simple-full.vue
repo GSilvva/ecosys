@@ -1,6 +1,6 @@
 <template>
   <div class="__app">
-    <LayoutNavbar full />
+    <LayoutNavbar full shadow />
     <slot />
   </div>
 </template>
