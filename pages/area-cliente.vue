@@ -3,10 +3,19 @@
     <header class="header relative bg-white mb-16 py-5 sm:hidden">
       <ElementsContainer>
         <aside class="absolute top-2/4 left-6">
-          <button v-if="validPhone" @click="validPhone = false" type="button">
+          <button
+            class="w-10 h-10 flex items-center"
+            v-if="validPhone"
+            @click="validPhone = false"
+            type="button"
+          >
             <VectorsBack />
           </button>
-          <nuxt-link v-else to="/">
+          <nuxt-link
+            class="w-10 h-10 flex items-center"
+            v-else
+            to="/"
+          >
             <VectorsClose />
           </nuxt-link>
         </aside>

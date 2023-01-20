@@ -6,10 +6,10 @@
 
                 <section class="content xl:grid gap-8 xl:pb-28">
                     <aside class="infos">
-                        <figure class="images gap-4 hidden xl:grid">
-                            <aside class="others flex flex-col gap-4 h-full">
+                        <figure class="images gap-4 xl:grid">
+                            <aside class="others hidden xl:flex flex-col gap-4 h-full">
                                 <button
-                                    @click="carPage.openModal = true"
+                                    @click="carPage.openModal = true, carPage.slide = 2"
                                     type="button"
                                 >
                                     <img
@@ -18,37 +18,77 @@
                                         class="object-cover w-full h-full"
                                     >
                                 </button>
-                                <button @click="carPage.openModal = true" type="button"><img :src="carData.photos[2].url_path" alt="Foto" class="object-cover w-full h-full"></button>
-                                <button @click="carPage.openModal = true" class="relative" type="button">
-                                    <img :src="carData.photos[3].url_path" alt="Foto" class="object-cover w-full h-full opacity-50">
-                                    <p class="absolute top-1/2 left-1/2 text-white">+{{ thumbsDesktop.length }}</p>
-                                </button>
-                            </aside>
-                            <button @click="carPage.openModal = true" class="w-full h-full block" type="button"><img class="object-cover w-full h-full" :src="carData.photos[0].url_path" alt="Foto"></button>
-                        </figure>
-
-                        <figure class="carousel xl:hidden">
-                            <swiper
-                                class="h-72 sm:h-96"
-                                :modules="modules"
-                                :loop="carData.photos.length > 1 ? true : false"
-                                :pagination="{ clickable: true, dynamicBullets: true }"
-                            >
-                                <swiper-slide
-                                    @click="carPage.openModal = true"
-                                    v-for="(photo, index) in carData.photos" :key="index"
+                                <button
+                                    @click="carPage.openModal = true, carPage.slide = 3"
+                                    type="button"
                                 >
                                     <img
+                                        :src="carData.photos[2].url_path"
+                                        alt="Foto"
                                         class="object-cover w-full h-full"
-                                        :src="photo.url_path"
-                                        :alt="`Foto ${index + 1}`"
                                     >
-                                </swiper-slide>
-                            </swiper>
+                                </button>
+                                <button
+                                    @click="carPage.openModal = true"
+                                    class="relative"
+                                    type="button"
+                                >
+                                    <img
+                                        :src="carData.photos[3].url_path"
+                                        alt="Foto" class="object-cover w-full h-full opacity-50"
+                                    >
+                                    <p class="absolute top-1/2 left-1/2 text-white">
+                                        +{{ thumbsDesktop.length }}
+                                    </p>
+                                </button>
+                            </aside>
+
+                            <div class="carousel relative w-full h-full block">
+                                <button
+                                    class="prev absolute top-1/2 left-6 hidden xl:block z-20"
+                                    type="button"
+                                >
+                                    <VectorsArrowPrevWhite />
+                                </button>
+
+                                <swiper
+                                    class="z-10 w-full h-full"
+                                    :modules="modulesCarousel"
+                                    :loop="true"
+                                    :thumbs="{ swiper: thumbsSwiper }"
+                                    :pagination="{ dynamicBullets: true, clickable: true }"
+                                    :navigation="{
+                                        prevEl: '.prev',
+                                        nextEl: '.next',
+                                    }"
+                                >
+                                    <swiper-slide
+                                        class="cursor-pointer"
+                                        v-for="(photo, index) in carData.photos" :key="index"
+                                        @click="carPage.openModal = true; carPage.slide = Number(index) + 1"
+                                    >
+                                        <img
+                                            class="object-cover w-full h-full"
+                                            :src="photo.url_path"
+                                            :alt="`Foto ${index + 1}`"
+                                        >
+                                    </swiper-slide>
+                                </swiper>
+
+                                <button
+                                    class="next absolute top-1/2 right-6 hidden xl:block z-20"
+                                    type="button"
+                                >
+                                    <VectorsArrowNextWhite />
+                                </button>
+                            </div>
                         </figure>
 
                         <section class="box mt-0 xl:mt-8 px-6 sm:px-12 xl:px-10 pt-6 pb-12 sm:py-12 xl:p-10 bg-white">
-                            <h1>{{ carData.name }}</h1>
+                            <div class="flex items-start justify-between">
+                                <h1>{{ carData.name }}</h1>
+                                <ElementsFavorite class="mt-1 ml-4" />
+                            </div>
                             <h5 class="mt-4 xl:mt-3 mb-6">
                                 {{ carData.car.version.engine }} {{ carData.car.version.fuel }} {{ carData.car.version.name }} <br> {{ carData.car.version.transmission }}
                             </h5>
@@ -240,19 +280,21 @@
 
                         <swiper
                             class="h-full"
-                            :modules="modules"
+                            :modules="modulesCarousel"
                             :loop="true"
                             :thumbs="{ swiper: thumbsSwiper }"
+                            @swiper="onSwiper"
                             :navigation="{
                                 prevEl: '.prev',
                                 nextEl: '.next',
                             }"
                         >
                             <swiper-slide
+                                class="flex items-center justify-center"
                                 v-for="(photo, index) in carData.photos" :key="index"
                             >
                                 <img
-                                    class="object-cover w-full h-full"
+                                    class="object-cover w-full"
                                     :src="photo.url_path"
                                     :alt="`Foto ${index + 1}`"
                                 >
@@ -271,7 +313,7 @@
                 <div class="thumbs relative z-50 w-full">
                     <swiper
                         class="w-full h-full"
-                        :modules="modules"
+                        :modules="modulesCarousel"
                         :loop="true"
                         :freeMode="true"
                         slides-per-view="auto"
@@ -322,8 +364,9 @@ import { Navigation, Thumbs, Pagination, A11y } from 'swiper'
 
 import 'swiper/css'
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-const modules = [Navigation, Thumbs, Pagination, A11y]
+const modulesCarousel = [Navigation, Thumbs, Pagination, A11y]
 
 const thumbsSwiper = ref(null)
 const setThumbsSwiper = (swiper: any) => {
@@ -340,7 +383,7 @@ const { data: car } = await useFetch(`/anuncios/${id}`, {
 const carData: any = car.value
 const thumbsDesktop = carData.photos.slice(4, carData.photos.length)
 
-const carPage: object = reactive({
+const carPage = reactive({
     links: [
         {
             text: "Home",
@@ -356,7 +399,20 @@ const carPage: object = reactive({
     ],
     openModal: false,
     openInterest: false,
-});
+    slide: 0,
+})
+
+const swiperRef: any = ref(null)
+const { slide } = toRefs(carPage)
+watch(slide, () => {
+    if(swiperRef.value !== null) {
+        swiperRef.value.slideTo(carPage.slide)
+    }
+})
+
+const onSwiper = (swiper: any) => {
+    swiperRef.value = swiper
+}
 
 useHead({
     title: `${carData.name} | b.car`
@@ -388,22 +444,36 @@ useHead({
 .infos {
 
     .images {
-        grid-template-columns: 175px 1fr;
+        grid-template-columns: 1fr 600px;
 
-        aside {
-
+        .others {
+            
             button {
                 height: 138px;
+                background: $dark;
+
+                p {
+                    font-weight: 500;
+                    transform: translate(-50%, -50%);
+                }
             }
         }
 
-        button {
+        .carousel {
             height: 446px;
             background: $dark;
 
-            p {
-                font-weight: 500;
-                transform: translate(-50%, -50%);
+            @media screen and (max-width: $tablet) {
+                height: 385px;
+            }
+
+            @media screen and (max-width: $mobile) {
+                height: 285px;
+            }
+
+            .prev,
+            .next {
+                transform: translateY(-50%);
             }
         }
     }

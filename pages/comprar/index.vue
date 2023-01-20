@@ -130,13 +130,12 @@
                         </template>
                     </div>
                     <button
-                        v-if="!buyPage.allOptions"
-                        @click="buyPage.allOptions = true"
+                        @click="buyPage.allOptions = !buyPage.allOptions"
                         class="more-filters flex items-center underline gap-3 mt-6"
                         type="button"
                     >
-                        Ter todos os opcionais
-                        <VectorsSmallArrowRight />
+                        {{ buyPage.allOptions ? "Esconder opcionais" : "Ver todos os opcionais" }}
+                        <VectorsSmallArrowRight v-if="!buyPage.allOptions" />
                     </button>
                 </div>
                 <ElementsButton class="m-auto flex" outline small>Limpar filtros</ElementsButton>
@@ -144,7 +143,7 @@
         </aside>
 
         <section class="content overflow-y-auto xl:pt-8 xl:px-14 xl:pb-14">
-            <div class="container">
+            <div class="container-cards">
                 <header class="p-6 md:pt-3 md:pb-8 md:px-12 xl:p-0 xl:mb-10">
                     <ElementsBreadcrumb :links="buyPage.links" />
 
@@ -189,7 +188,7 @@
                     </section>
                 </header>
 
-                <section :class="`cards grid gap-1 xl:gap-8 ${buyPage.listView ? 'col' : ''}`">
+                <section :class="`cards grid gap-1 xl:gap-6 2xl:gap-8 ${buyPage.listView ? 'col' : ''}`">
                     <template v-if="pending">
                         <ElementsCardPreview
                             v-for="(ads, index) in data.ads.data"
@@ -315,9 +314,9 @@ const formattNumbers = computed((value) => {
 
 .content {
 
-    .container {
+    .container-cards {
         @media screen and (max-width: 1400px) {
-            zoom: .88;
+            zoom: .9;
         }
 
         @media screen and (max-width: $tablet) {

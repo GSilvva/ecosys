@@ -129,7 +129,7 @@
     }
 
     &:hover svg {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
     }
   }
 

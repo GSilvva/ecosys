@@ -10,7 +10,7 @@
                 <ElementsContainer block>
                     <div class="relative">
                         <button
-                            class="absolute left-0 top-1/2"
+                            class="absolute left-0 top-1/2 w-10 h-10 flex items-center"
                             @click="$emit('update:open', false)"
                             @click.prevent="$scrollBody"
                             type="button"

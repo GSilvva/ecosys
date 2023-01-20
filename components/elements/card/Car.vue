@@ -14,6 +14,10 @@
                     :modules="modules"
                     :loop="photos.length > 1 ? true : false"
                     :pagination="{ clickable: true, dynamicBullets: true }"
+                    :navigation="{
+                        prevEl: '.swiper .prev',
+                        nextEl: '.swiper .next',
+                    }"
                     class="photos"
                 >
                     <swiper-slide v-for="(photo, index) in photos" :key="index">
@@ -23,6 +27,18 @@
                             :alt="`Foto ${index + 1}`"
                         >
                     </swiper-slide>
+                    <button
+                        class="transition opacity-0 prev absolute top-1/2 left-4 hidden xl:block z-20 w-8 h-8"
+                        type="button"
+                    >
+                        <VectorsArrowPrevWhite class="w-full h-full" />
+                    </button>
+                    <button
+                        class="transition opacity-0 next absolute top-1/2 right-4 hidden xl:block z-20 w-8 h-8"
+                        type="button"
+                    >
+                        <VectorsArrowNextWhite class="w-full h-full" />
+                    </button>
                 </swiper>
             </template>
             <img v-else src="/images/general/default-image.svg" alt="Foto">
@@ -43,13 +59,14 @@
                     {{ transmission }}
                 </p>
             </div>
-            <div v-else class="title">
-                <h3 class="uppercase">{{ name }}</h3>
+            <div v-else class="title relative">
+                <h3 class="uppercase pr-5 xl:pr-8">{{ name }}</h3>
                 <p class="mt-1 sm:mt-4">
                     {{ characteristics }}
                     <br>
                     {{ transmission }}
                 </p>
+                <ElementsFavorite class="absolute top-0.5 right-0 w-4 sm:w-6" />
             </div>
             <div class="bottom">
                 <section v-if="!list" class="price xl:mt-12 flex items-center justify-between">
@@ -67,12 +84,13 @@
 
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Pagination, A11y } from 'swiper';
+import { Pagination, Navigation, A11y } from 'swiper';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
-const modules = [Pagination, A11y];
+const modules = [Pagination, A11y, Navigation];
 
 defineProps({
     url: String,
@@ -95,19 +113,19 @@ defineProps({
 .card-car {
     background: $white;
 
-    &:hover {
-        box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.12);
-
-        article {
-            border-color: $orange;
-        }
-    }
-
     .images {
 
         .swiper,
         .swiper-slide {
             height: 100%;
+
+            &:hover {
+
+                .prev,
+                .next {
+                    opacity: 1;
+                }
+            }
         }
     }
 
@@ -128,6 +146,11 @@ defineProps({
                 background: $dark;
             }
         }
+    }
+
+    .prev,
+    .next {
+        transform: translateY(-50%);
     }
 
     .content {
@@ -229,5 +252,15 @@ defineProps({
             max-width: 180px !important;
         }
     } 
+
+    @media screen and (min-width: $tablet) {
+        &:hover {
+            box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.12);
+
+            article {
+                border-color: $orange;
+            }
+        }
+    }
 }
 </style>

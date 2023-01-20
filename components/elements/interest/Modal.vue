@@ -8,7 +8,7 @@
                 <div class="relative">
                     <button
                         v-if="modal.buy === false && modal.exchange === false && modal.scheduling === false || modal.scheduling && modal.choice === 'buy'"
-                        class="absolute left-0 top-1/2"
+                        class="absolute left-0 top-1/2 w-10 h-10 flex items-center"
                         @click="$emit('update:open', false)"
                         @click.prevent="$scrollBody"
                         type="button"
@@ -18,7 +18,7 @@
                     <button
                         v-else
                         v-on="modal.choice === 'exchange' && modal.scheduling ? { click: () => (modal.scheduling = false, modal.exchange = true) } : { click: () => (modal.buy = false, modal.exchange = false) }"
-                        class="absolute left-0 top-1/2"
+                        class="absolute left-0 top-1/2 w-10 h-10 flex items-center"
                         type="button"
                     >
                         <VectorsArrowBack />

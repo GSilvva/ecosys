@@ -1,13 +1,14 @@
 <template>
   <nav :class="`nav bg-white fixed top-0 left-0 w-full transition z-40 ${openMenu ? 'nav--open' : ''}`">
     <ElementsContainer :class="`h-full flex ${full ? 'full' : ''}`" center>
-      <aside class="content flex items-center gap-5 xl:gap-20 h-full">
+      <aside class="content flex items-center xl:gap-20 h-full">
         <button
           @click="openMenu = !openMenu"
-          @click.prevent="$preventScrollBody"
-          class="hamb flex xl:hidden relative z-40 transition"
+          class="hamb flex items-center w-10 h-10 xl:hidden relative z-40 transition"
           type="button"
-        ></button>
+        >
+          <div class="relative transition"></div>
+        </button>
         
         <nuxt-link class="logo relative z-40" to="/"><VectorsLogotype /></nuxt-link>
 
@@ -16,6 +17,7 @@
             <ul class="links flex xl:items-center flex-col xl:flex-row gap-6 xl:gap-8 xl:h-full">
               <li :class="`h-full flex items-center relative pl-8 xl:pl-0 ${link.mobile ? 'xl:hidden' : ''}`" v-for="(link, index) in navigationLinks" :key="index">
                 <nuxt-link
+                  @click="openMenu = false"
                   class="transition"
                   :to="link.url"
                   :target="link.newLayer ? '_blank' : ''"
@@ -65,11 +67,11 @@
       </aside>
 
       <aside class="actions flex items-center gap-12 relative z-10">
-        <nuxt-link class="support hidden md:flex items-center gap-2 transition opacity-50 hover:opacity-100" to="/central-ajuda">
+        <nuxt-link class="support hidden md:flex items-center gap-2 transition opacity-50 hover:opacity-100" to="/central-ajuda" @click="$scrollBody">
           <VectorsSupport />
           Central de ajuda
         </nuxt-link>
-        <nuxt-link class="login rounded-full flex items-center gap-3 sm:gap-4 py-2 pl-1.5 sm:pl-2 pr-4 sm:pr-5 transition h-11 sm:h-12" to="/area-cliente">
+        <nuxt-link class="login rounded-full flex items-center gap-3 sm:gap-4 py-2 pl-1.5 sm:pl-2 pr-4 sm:pr-5 transition h-11 sm:h-12" to="/area-cliente" @click="$scrollBody">
           <VectorsLogin />
           Entrar
         </nuxt-link>
@@ -142,14 +144,18 @@ defineProps({
 
   &.nav--open {
     .hamb {
-      background: $white;
-      transform: rotate(180deg);
+      
+      div {
+        background: $white;
+        transform: rotate(180deg);
 
-      &::before {
-        transform: translateY(7px) rotate(-45deg);
-      }
-      &::after {
-        transform: translateY(-7px) rotate(45deg);
+        &::before {
+          transform: translateY(7px) rotate(-45deg);
+        }
+
+        &::after {
+          transform: translateY(-7px) rotate(45deg);
+        }
       }
     }
     
@@ -184,29 +190,32 @@ defineProps({
 }
 
 .hamb {
-  &,
-  &::before,
-  &::after {
-    background: $dark;
-    height: 2px;
-    min-width: 20px;
-    max-width: 20px;
-  }
+  
+  div {
+    &,
+    &::before,
+    &::after {
+      background: $dark;
+      height: 2px;
+      min-width: 20px;
+      max-width: 20px;
+    }
 
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    transition: .3s ease;
-  }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: .3s ease;
+    }
 
-  &::before {
-    top: -7px;
-  }
+    &::before {
+      top: -7px;
+    }
 
-  &::after {
-    bottom: -7px;
+    &::after {
+      bottom: -7px;
+    }
   }
 }
 

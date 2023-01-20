@@ -42,67 +42,71 @@
       </ElementsContainer>
     </section>
 
-    <section class="about pt-24 xl:pt-36 pb-32 xl:pb-48" id="sobre">
+    <section class="about mt-24 xl:mt-28 pb-32 xl:pb-48" id="sobre">
       <ElementsContainer block>
-        <div data-animate class="text flex items-center gap-8 xl:gap-12 mb-20 xl:mb-36">
-          <VectorsIconLogo />
-          <p class="w-full">Há 10 anos resolvendo a vida de quem quer comprar ou vender um seminovo com garantia e segurança.</p>
-        </div>
-        <h2 data-animate class="title mb-8 md:mb-12 xl:mb-20">visite nossas <br> lojas em brasília</h2>
-        <section data-animate class="cards flex justify-between gap-6 md:gap-8 overflow-x-auto xl:overflow-x-visible px-6 md:px-12 xl:px-0">
-          <div class="card w-full">
-            <img class="object-cover w-full h-60 xl:h-72" src="/images/general/terraco.jpg" alt="Foto">
-            <div class="pt-6 xl:p-10 xl:bg-white">
-              <header class="mb-6 flex justify-between xl:block">
-                <aside>
-                  <h3 class="mb-1">Terraço Shopping</h3>
-                  <h6>Sudoeste, Brasília/DF</h6>
-                </aside>
-                <a class="inline-block xl:hidden underline mt-1" href="##" target="_blank">Ver no maps</a>
-              </header>
-              <p>
-                <strong>Seg a Sex:</strong> 8h30 às 18h
-                <br>
-                <strong>Sáb:</strong> 9h às 14h
-              </p>
-              <a class="hidden xl:inline-block underline mt-6" href="##" target="_blank">Ver no maps</a>
+        <section class="divisor xl:pt-28">
+          <h2 data-animate class="title mb-8 md:mb-12 xl:mb-20">visite nossas <br> lojas em brasília</h2>
+
+          <section data-animate class="cards flex justify-between gap-6 md:gap-8 overflow-x-auto xl:overflow-x-visible px-6 md:px-12 xl:px-0">
+            <div class="card w-full">
+              <img class="object-cover w-full h-60 xl:h-72" src="/images/general/terraco.jpg" alt="Foto">
+              <div class="pt-6 xl:p-10 xl:bg-white">
+                <header class="mb-6 flex justify-between xl:block">
+                  <aside>
+                    <h3 class="mb-1">Terraço Shopping</h3>
+                    <h6>Sudoeste, Brasília/DF</h6>
+                  </aside>
+                  <a class="inline-block xl:hidden underline mt-1" href="##" target="_blank">Ver no maps</a>
+                </header>
+                <p>
+                  <strong>Seg a Sex:</strong> 8h30 às 18h
+                  <br>
+                  <strong>Sáb:</strong> 9h às 14h
+                </p>
+                <a class="hidden xl:inline-block underline mt-6" href="##" target="_blank">Ver no maps</a>
+              </div>
             </div>
-          </div>
-          <div class="card w-full">
-            <img class="object-cover w-full h-60 xl:h-72" src="/images/general/boulevard.jpg" alt="Foto">
-            <div class="pt-6 xl:p-10 xl:bg-white">
-              <header class="mb-6 flex justify-between xl:block">
-                <aside>
-                  <h3 class="mb-1">Boulevard Shopping</h3>
-                  <h6>Sudoeste, Brasília/DF</h6>
-                </aside>
-                <a class="inline-block xl:hidden underline mt-1" href="##" target="_blank">Ver no maps</a>
-              </header>
-              <p>
-                <strong>Seg a Sex:</strong> 8h30 às 18h
-                <br>
-                <strong>Sáb:</strong> 9h às 14h
-              </p>
-              <a class="hidden xl:inline-block underline mt-6" href="##" target="_blank">Ver no maps</a>
+            <div class="card w-full">
+              <img class="object-cover w-full h-60 xl:h-72" src="/images/general/boulevard.jpg" alt="Foto">
+              <div class="pt-6 xl:p-10 xl:bg-white">
+                <header class="mb-6 flex justify-between xl:block">
+                  <aside>
+                    <h3 class="mb-1">Boulevard Shopping</h3>
+                    <h6>Sudoeste, Brasília/DF</h6>
+                  </aside>
+                  <a class="inline-block xl:hidden underline mt-1" href="##" target="_blank">Ver no maps</a>
+                </header>
+                <p>
+                  <strong>Seg a Sex:</strong> 8h30 às 18h
+                  <br>
+                  <strong>Sáb:</strong> 9h às 14h
+                </p>
+                <a class="hidden xl:inline-block underline mt-6" href="##" target="_blank">Ver no maps</a>
+              </div>
             </div>
-          </div>
-          <div class="card w-full">
-            <img class="object-cover w-full h-60 xl:h-72" src="/images/general/aguas-claras.jpg" alt="Foto">
-            <div class="pt-6 xl:p-10 xl:bg-white">
-              <header class="mb-6 flex justify-between xl:block">
-                <aside>
-                  <h3 class="mb-1">Águas Claras</h3>
-                  <h6>Sudoeste, Brasília/DF</h6>
-                </aside>
-                <a class="inline-block xl:hidden underline mt-1" href="##" target="_blank">Ver no maps</a>
-              </header>
-              <p>
-                <strong>Seg a Sex:</strong> 8h30 às 18h
-                <br>
-                <strong>Sáb:</strong> 9h às 14h
-              </p>
-              <a class="hidden xl:inline-block underline mt-6" href="##" target="_blank">Ver no maps</a>
+            <div class="card w-full">
+              <img class="object-cover w-full h-60 xl:h-72" src="/images/general/aguas-claras.jpg" alt="Foto">
+              <div class="pt-6 xl:p-10 xl:bg-white">
+                <header class="mb-6 flex justify-between xl:block">
+                  <aside>
+                    <h3 class="mb-1">Águas Claras</h3>
+                    <h6>Sudoeste, Brasília/DF</h6>
+                  </aside>
+                  <a class="inline-block xl:hidden underline mt-1" href="##" target="_blank">Ver no maps</a>
+                </header>
+                <p>
+                  <strong>Seg a Sex:</strong> 8h30 às 18h
+                  <br>
+                  <strong>Sáb:</strong> 9h às 14h
+                </p>
+                <a class="hidden xl:inline-block underline mt-6" href="##" target="_blank">Ver no maps</a>
+              </div>
             </div>
+          </section>
+
+          <div data-animate class="text flex items-center gap-8 xl:gap-12 mt-20 xl:mt-24">
+            <VectorsIconLogo />
+            <p class="w-full">Há 10 anos resolvendo a vida de quem quer comprar ou vender um seminovo com garantia e segurança.</p>
           </div>
         </section>
       </ElementsContainer>
@@ -239,7 +243,13 @@
             <aside data-animate class="flex flex-col items-center xl:items-start w-full mt-16 xl:mt-0">
               <h2 class="text-center xl:text-left text-white !normal-case">DESCUBRA AGORA O SEU b.car IDEAL</h2>
               <p class="text-center xl:text-left mt-6 mb-8 xl:my-8 text-white">Responda o nosso questionário a seguir. Cada pergunta respondida representa um caminho pra você encontrar seu carro ideal.</p>
-              <ElementsButton black href="/descubra">Descobrir meu carro</ElementsButton>
+              <ElementsButton
+                black
+                @click="openDiscover = true"
+                @click.prevent="$preventScrollBody"
+              >
+                Descobrir meu carro
+              </ElementsButton>
             </aside>
             <figure class="relative w-full">
               <img class="mix-blend-multiply relative z-20" src="/images/general/mystery-car.png" alt="Carro misterioso">
@@ -270,7 +280,14 @@
       </ElementsContainer>
     </section>
   </main>
+
+  <ElementsDiscoverModal v-model:open="openDiscover" />
 </template>
+
+<script setup lang="ts">
+const openDiscover = ref(false)
+</script>
+
 
 <style lang="scss" scoped>
 .header {
@@ -395,6 +412,12 @@
 }
 
 .about {
+  .divisor {
+    @media screen and (min-width: $tablet) {
+      border-top: 1px solid $grey-2;
+    }
+  }
+
   .text {
     p {
       max-width: 375px;
