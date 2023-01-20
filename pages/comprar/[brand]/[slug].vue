@@ -174,7 +174,6 @@
                             </div>
                             <ElementsButton
                                 @click="carPage.openInterest = true"
-                                @click.prevent="$preventScrollBody"
                                 class="w-full hidden xl:block"
                             >
                                 Tenho interesse
@@ -185,7 +184,6 @@
                             </footer>
                             <button
                                 @click="carPage.openInterest = true"
-                                @click.prevent="$preventScrollBody"
                                 class="btn-mob text-white xl:hidden"
                                 type="button"
                             >
@@ -334,7 +332,7 @@
                     </swiper>
                 </div>
 
-                <div @click="carPage.openModal = false" @click.prevent="$preventScrollBody" class="overlay fixed top-0 left-0 w-full h-full z-40"></div>
+                <div @click="carPage.openModal = false" class="overlay fixed top-0 left-0 w-full h-full z-40"></div>
             </article>
         </section>
 

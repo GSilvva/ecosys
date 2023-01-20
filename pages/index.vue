@@ -246,7 +246,6 @@
               <ElementsButton
                 black
                 @click="openDiscover = true"
-                @click.prevent="$preventScrollBody"
               >
                 Descobrir meu carro
               </ElementsButton>

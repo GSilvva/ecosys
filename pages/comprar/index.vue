@@ -179,7 +179,6 @@
                                 @click="buyPage.filtersActive = true"
                                 class="flex xl:hidden items-center gap-2 bg-white rounded-full h-10 px-5"
                                 type="button"
-                                @click.prevent="$preventScrollBody"
                             >
                                 Filtros
                                 <VectorsFilters />

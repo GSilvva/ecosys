@@ -7,7 +7,6 @@
           <p class="text-white my-6 xl:my-8 text-center xl:text-left">Responda o nosso questionário a seguir. Cada pergunta respondida representa um caminho pra você encontrar seu carro ideal.</p>
           <ElementsButton
             @click="discover.openModal = true"
-            @click.prevent="$preventScrollBody"
             black
           >
             Descobrir meu carro
