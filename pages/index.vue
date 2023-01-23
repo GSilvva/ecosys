@@ -127,21 +127,21 @@
           </header>
           <ul>
             <li class="py-6 px-6 md:pt-10 md:pb-10 md:pl-14 md:pr-20 flex gap-6">
-              <VectorsEye class="min-w-max" />
+              <VectorsEye class="min-w-min" />
               <div class="w-full">
                 <h6 class="mb-2">Carros 100% vistoriados</h6>
                 <p>Especialistas experientes que irão lhe auxiliar durante todo o processo de compra.</p>
               </div>
             </li>
             <li class="py-6 px-6 md:pt-10 md:pb-10 md:pl-14 md:pr-20 flex gap-6">
-              <VectorsShield class="min-w-max" />
+              <VectorsShield class="min-w-min" />
               <div class="w-full">
                 <h6 class="mb-2">Garantia de 1 ano*</h6>
                 <p>Todas as nossas transações são seguras com garantia de procedência.</p>
               </div>
             </li>
             <li class="py-6 px-6 md:pt-10 md:pb-10 md:pl-14 md:pr-20 flex gap-6">
-              <VectorsDolla class="min-w-max" />
+              <VectorsDolla class="min-w-min" />
               <div class="w-full">
                 <h6 class="mb-2">Ótimos preços</h6>
                 <p>Todos os veículos ofertados seguem o valor de mercado.</p>
@@ -163,21 +163,21 @@
           </header>
           <ul>
             <li class="py-6 px-6 md:pt-10 md:pb-10 md:pl-14 md:pr-20 flex gap-6">
-              <VectorsSmiley class="min-w-max" />
+              <VectorsSmiley class="min-w-min" />
               <div class="w-full">
                 <h6 class="mb-2">Sem dores de cabeça</h6>
                 <p>Proteção contra falsos compradores hora de comprar o seu carro novo.</p>
               </div>
             </li>
             <li class="py-6 px-6 md:pt-10 md:pb-10 md:pl-14 md:pr-20 flex gap-6">
-              <VectorsNotebook class="min-w-max" />
+              <VectorsNotebook class="min-w-min" />
               <div class="w-full">
                 <h6 class="mb-2">Venda sem pagar nada</h6>
                 <p>Cuidamos de tudo na hora de vender seu carro e você não paga nada por isso.</p>
               </div>
             </li>
             <li class="py-6 px-6 md:pt-10 md:pb-10 md:pl-14 md:pr-20 flex gap-6">
-              <VectorsCar class="min-w-max" />
+              <VectorsCar class="min-w-min" />
               <div class="w-full">
                 <h6 class="mb-2">Deixe tudo com a gente</h6>
                 <p>Resolvemos tudo por você na hora de vender seu carro e voce pode continuar usando ele.</p>
