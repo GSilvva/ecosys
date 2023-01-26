@@ -670,6 +670,30 @@ useHead({
         }
     }
 
+    @media screen and (max-height: 480px) {
+
+        .close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            z-index: 9;
+            margin: 0;
+        }
+
+        .principal {
+            padding-bottom: 0;
+            height: 100vh;
+
+            .carousel {
+                height: 100%;
+            }
+        }
+
+        .thumbs {
+            display: none;
+        }
+    }
+
     .overlay {
         background: $dark;
     }

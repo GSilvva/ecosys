@@ -7,6 +7,7 @@
                 <h5 class="text-center">Filtros</h5>
                 <button @click="buyPage.filtersActive = false" class="absolute left-6 md:left-12" type="button"><VectorsCloseOverlay /></button>
             </div>
+
             <div class="pt-24 pb-11 px-6 md:px-12 xl:pt-9 xl:pb-10 xl:px-8 relative z-10">
                 <ElementsFormInput
                     class="mb-10"
@@ -138,7 +139,22 @@
                         <VectorsSmallArrowRight v-if="!buyPage.allOptions" />
                     </button>
                 </div>
-                <ElementsButton class="m-auto flex" outline small>Limpar filtros</ElementsButton>
+                <div class="flex justify-between">
+                    <ElementsButton
+                        class="!px-6 !py-3"
+                        outline
+                        small
+                    >
+                        Limpar filtros
+                    </ElementsButton>
+                    <ElementsButton
+                        class="!px-6 !py-3"
+                        small
+                        @click="buyPage.filtersActive = false"
+                    >
+                        Aplicar filtros
+                    </ElementsButton>
+                </div>
             </div>
         </aside>
 
@@ -181,7 +197,8 @@
                                 type="button"
                             >
                                 Filtros
-                                <VectorsFilters />
+                                <span class="block w-5 h-5 flex items-center justify-center rounded-full" v-if="buyPage.filtersSelected">3</span>
+                                <VectorsFilters v-else />
                             </button>
                         </div>
                     </section>
@@ -241,6 +258,7 @@ const buyPage = reactive({
         }
     ],
     filtersActive: false,
+    filtersSelected: 3,
     listView: false,
     allOptions: false,
     allLocales: true,
@@ -354,6 +372,12 @@ const formattNumbers = computed((value) => {
 
         @media screen and (max-width: $mobile) {
             font-size: 14px;
+        }
+
+        span {
+            font: 500 14px/1 $inter;
+            color: $white;
+            background: $orange;
         }
     }
 

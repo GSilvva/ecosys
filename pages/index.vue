@@ -287,7 +287,6 @@
 const openDiscover = ref(false)
 </script>
 
-
 <style lang="scss" scoped>
 .header {
   .call {

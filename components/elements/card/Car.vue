@@ -73,7 +73,7 @@
                     <h4>{{ $formatCurrency(price) }}</h4>
                     <h6 v-if="old_price" class="line-through">{{ $formatCurrency(old_price) }}</h6>
                 </section>
-                <footer class="infos mt-1 sm:mt-4 sm:pt-4 flex items-center justify-between">
+                <footer class="infos mt-1.5 sm:mt-4 pt-1.5 sm:pt-4 flex items-center justify-between">
                     <small>{{ build_year }}/{{ model_year }}</small>
                     <small>{{ $formatNumber(km) }}km</small>
                 </footer>
@@ -189,12 +189,11 @@ defineProps({
                 font: 600 24px/1 $inter;
 
                 @media screen and (max-width: $mobile) {
-                    font: 600 14px/1 $inter;
+                    font: 700 14px/1 $gotham;
                 }
             }
 
             h6 {
-                color: $grey-5;
                 font: 400 16px/1 $inter;
 
                 @media screen and (max-width: $mobile) {
@@ -205,10 +204,6 @@ defineProps({
 
         .infos {
             border-top: 1px solid $grey-2;
-
-            @media screen and (max-width: $mobile) {
-                border: unset;
-            }
 
             small {
                 color: $grey-4;

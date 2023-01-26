@@ -15,14 +15,15 @@
         <article class="menu h-full w-full bg-white top-0 right-0 opacity-0 translate-x-full xl:translate-x-0 xl:opacity-100 transition fixed xl:relative z-20 pt-28 xl:p-0 overflow-y-scroll xl:overflow-y-visible">
           <div class="xl:h-full px-6 md:px-10 xl:p-0 md:flex md:flex-col md:items-start xl:block">
             <ul class="links flex xl:items-center flex-col xl:flex-row gap-6 xl:gap-8 xl:h-full">
-              <li :class="`h-full flex items-center relative pl-8 xl:pl-0 ${link.mobile ? 'xl:hidden' : ''}`" v-for="(link, index) in navigationLinks" :key="index">
+              <li :class="`h-full flex items-center relative pl-8 xl:pl-0 ${link.mobile ? 'xl:hidden' : ''} ${!link.active ? 'disabled' : ''}`" v-for="(link, index) in navigationLinks" :key="index">
                 <nuxt-link
                   @click="openMenu = false"
-                  class="transition"
-                  :to="link.url"
+                  :class="`transition ${!link.active ? 'flex items-center gap-2.5' : ''}`"
+                  :to="link.active ? link.url : ''"
                   :target="link.newLayer ? '_blank' : ''"
                 >
                   {{ link.text }}
+                  <small v-if="!link.active" class="uppercase inline-block px-2 py-1.5">EM BREVE</small>
                 </nuxt-link>
                 <span class="absolute bottom-0 left-0 transition opacity-0 w-0.5 h-full xl:h-0.5 xl:w-full"></span>
               </li>
@@ -88,31 +89,36 @@ const navigationLinks = [
     text: "Estoque",
     url: "/comprar",
     newLayer: false,
-    mobile: false
+    mobile: false,
+    active: true,
   },
   {
     text: "Venda seu carro",
     url: "/vender",
     newLayer: false,
-    mobile: false
+    mobile: false,
+    active: true,
   },
   {
     text: "Descubra",
     url: "/descubra",
     newLayer: false,
-    mobile: false
+    mobile: false,
+    active: true,
   },
   {
     text: "News",
-    url: "https://bcar-blog.fuselab.design/",
-    newLayer: true,
-    mobile: false
+    url: "",
+    newLayer: false,
+    mobile: false,
+    active: false,
   },
   {
     text: "Dúvidas e sugestões",
     url: "/central-ajuda",
     newLayer: false,
-    mobile: true
+    mobile: true,
+    active: true,
   },
 ];
 
@@ -230,6 +236,25 @@ defineProps({
   }
   
   li {
+
+    &.disabled {
+
+      a {
+        cursor: not-allowed;
+        color: rgba(125, 126, 128, .5);
+
+        &:hover,
+        &.router-link-active {
+          color: rgba(125, 126, 128, .5);
+        }
+
+        small {
+          font: 700 10px/1 $gotham;
+          color: rgba(125, 126, 128, .5);
+          border: 1px solid $grey-2;
+        }
+      }
+    }
 
     a {
       font-weight: 500;
