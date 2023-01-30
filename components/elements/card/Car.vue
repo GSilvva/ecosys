@@ -1,7 +1,7 @@
 <template>
     <nuxt-link
         :to="url"
-        :class="`flex xl:block card-car w-full transition h-36 md:h-60 xl:h-fit ${list ? 'horizontal' : ''}`"
+        :class="`flex xl:block card-car w-full transition md:h-60 xl:h-fit ${list ? 'horizontal' : ''}`"
         target="_blank"
     >
         <figure class="images relative h-full w-full xl:h-56 2xl:h-64">
@@ -44,7 +44,7 @@
             <img v-else src="/images/general/default-image.svg" alt="Foto">
         </figure>
 
-        <article class="content transition px-4 pt-4 xl:pt-8 pb-4 md:px-8 flex flex-col justify-between w-full h-full">
+        <article class="content transition px-4 pt-4 xl:pt-8 pb-1 sm:pb-4 md:px-8 flex flex-col justify-between w-full h-full">
             <div v-if="list" class="title">
                 <div class="flex items-center justify-between mb-5">
                     <h3 class="uppercase">{{ name }}</h3>
@@ -69,11 +69,11 @@
                 <ElementsFavorite class="absolute top-0.5 right-0 w-4 sm:w-6" />
             </div>
             <div class="bottom">
-                <section v-if="!list" class="price xl:mt-12 flex items-center justify-between">
+                <section v-if="!list" class="price mt-4 xl:mt-12 flex-col-reverse sm:flex-row flex sm:items-center justify-between">
                     <h4>{{ $formatCurrency(price) }}</h4>
-                    <h6 v-if="old_price" class="line-through">{{ $formatCurrency(old_price) }}</h6>
+                    <h6 v-if="old_price" class="line-through mb-1 sm:mb-0">{{ $formatCurrency(old_price) }}</h6>
                 </section>
-                <footer class="infos mt-1.5 sm:mt-4 pt-1.5 sm:pt-4 flex items-center justify-between">
+                <footer class="infos mt-2 sm:mt-4 pt-1.5 sm:pt-4 flex items-center justify-between">
                     <small>{{ build_year }}/{{ model_year }}</small>
                     <small>{{ $formatNumber(km) }}km</small>
                 </footer>
