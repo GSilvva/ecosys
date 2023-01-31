@@ -208,7 +208,7 @@
       </ElementsContainer>
     </section>
 
-    <section class="blog pb-28 xl:pb-48">
+    <!-- <section class="blog pb-28 xl:pb-48">
       <ElementsContainer block>
         <section class="relative bg-white flex-col-reverse xl:flex-row flex xl:items-end justify-between pl-6 md:pl-10 xl:pl-0">
           <aside data-animate class="w-full py-10 xl:py-24 pr-14 xl:pl-24 flex flex-col items-start">
@@ -224,6 +224,25 @@
           </aside>
 
           <img data-animate class="relative z-20" src="/images/home/blog.png" alt="Blog">
+        </section>
+      </ElementsContainer>
+    </section> -->
+
+    <section class="blog pb-28 xl:pb-48">
+      <ElementsContainer block>
+        <section class="relative bg-white flex-col-reverse xl:flex-row flex xl:items-end justify-between pl-6 md:pl-10 xl:pl-0">
+          <aside data-animate class="w-full py-10 xl:py-24 xl:pl-24 flex flex-col items-start">
+            <h2 class="mb-5 xl:mb-8">em breve <br> o seu portal de notícias</h2>
+            <p class="w-full">Estamos trabalhando para trazer para você as noticias e conteúdos mais relevantes do mercado automotivo.</p>
+            <footer class="hidden xl:flex pt-8 mt-16 relative">
+              <span class="flex items-center">Veículos</span>
+              <span class="flex items-center">Carros</span>
+              <span class="flex items-center">Esportivos</span>
+              <span class="flex items-center">E mais</span>
+            </footer>
+          </aside>
+
+          <img data-animate class="relative z-20" src="/images/home/blog2.png" alt="Mockup mão segurando celular">
         </section>
       </ElementsContainer>
     </section>
@@ -600,12 +619,28 @@ const openDiscover = ref(false)
     aside {
       h2 {
         @include titlePage;
+
+        @media screen and (max-width: $mobile) {
+          br {
+            display: none;
+          }
+        }
       }
       p {
         max-width: 440px;
       }
       footer {
         border-top: 1px solid $grey-2;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          transform: translateY(-100%);
+          left: 0;
+          background: $orange;
+          height: 4px;
+          width: 20px;
+        }
         span {
           color: $grey-5;
           font: 500 18px/24px $inter;
