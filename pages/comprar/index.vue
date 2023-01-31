@@ -139,16 +139,16 @@
                         <VectorsSmallArrowRight v-if="!buyPage.allOptions" />
                     </button>
                 </div>
-                <div class="flex justify-between">
+                <div class="flex justify-between gap-4">
                     <ElementsButton
-                        class="!px-6 !py-3"
+                        class="!px-6 !py-3 xl:m-auto"
                         outline
                         small
                     >
                         Limpar filtros
                     </ElementsButton>
                     <ElementsButton
-                        class="!px-6 !py-3"
+                        class="!px-6 !py-3 xl:hidden"
                         small
                         @click="buyPage.filtersActive = false"
                     >
