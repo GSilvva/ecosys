@@ -605,14 +605,14 @@ const openDiscover = ref(false)
       content: "";
       background: $grey-1;
       width: 100%;
-      height: 50px;
+      height: 96px;
       position: absolute;
       top: 0;
       left: 0;
       z-index: 10;
 
       @media screen and (max-width: $mobile) {
-        height: 28px;
+        height: 32px;
       }
     }
 
