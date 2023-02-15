@@ -29,7 +29,7 @@
                                     >
                                 </button>
                                 <button
-                                    @click="carPage.openModal = true"
+                                    @click="carPage.openModal = true, carPage.slide = 4"
                                     class="relative"
                                     type="button"
                                 >
@@ -55,6 +55,7 @@
                                     class="z-10 w-full h-full"
                                     :modules="modulesCarousel"
                                     :loop="true"
+                                    :lazy="true"
                                     :thumbs="{ swiper: thumbsSwiper }"
                                     :pagination="{ dynamicBullets: true, clickable: true }"
                                     :navigation="{
@@ -64,13 +65,14 @@
                                 >
                                     <swiper-slide
                                         class="cursor-pointer"
-                                        v-for="(photo, index) in carData.photos" :key="index"
-                                        @click="carPage.openModal = true; carPage.slide = Number(index) + 1"
+                                        v-for="(photo, index) in carData.photos.slice(0, 8)" :key="index"
+                                        @click="carPage.openModal = true, carPage.slide = Number(index) + 1"
                                     >
                                         <img
                                             class="object-cover w-full h-full"
                                             :src="photo.url_path"
                                             :alt="`Foto ${index + 1}`"
+                                            loading="lazy"
                                         >
                                     </swiper-slide>
                                 </swiper>
@@ -358,13 +360,14 @@
 
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Navigation, Thumbs, Pagination, A11y } from 'swiper'
+import { Lazy, Navigation, Thumbs, Pagination, A11y } from 'swiper'
 
 import 'swiper/css'
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import 'swiper/css/lazy'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
-const modulesCarousel = [Navigation, Thumbs, Pagination, A11y]
+const modulesCarousel = [Lazy, Navigation, Thumbs, Pagination, A11y]
 
 const thumbsSwiper = ref(null)
 const setThumbsSwiper = (swiper: any) => {

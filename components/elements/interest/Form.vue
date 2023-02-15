@@ -102,7 +102,7 @@
                         label="Telefone"
                         type="tel"
                         required
-                        mask="(##) #####-####"
+                        phone
                     />
                     <div class="options mb-8">
                         <div class="flex items-center justify-between">
@@ -177,7 +177,7 @@
 <script setup lang="ts">
 const signCar = ref(false)
 
-const formComponent: object = reactive({
+const formComponent = reactive({
     financing: false,
     message: false,
     version: false,

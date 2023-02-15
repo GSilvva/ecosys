@@ -26,10 +26,12 @@
             v-model="value"
             @input="
                 $emit('update:modelValue', $event.target.value),
-                number ? maskNumber($event) : ''
+                number ? maskNumber($event) : '',
+                phone ? maskPhone($event) : ''
             "
             v-maska
             :data-maska="mask"
+            :maxlength="phone ? 15 : false"
         >
         <small v-if="legend" class="mt-2">{{ legend }}</small>
     </fieldset>
@@ -55,10 +57,19 @@ defineProps({
     required: Boolean,
     number: Boolean,
     mask: String,
+    phone: Boolean
 })
 
 function maskNumber(event: any) {
     const mask = event.target.value.replace(/\D/g, '')
+    event.target.value = mask
+}
+
+function maskPhone(event: any) {
+    const mask = event.target.value
+                                    .replace(/\D/g, '')
+                                    .replace(/(\d{2})(\d)/,"($1) $2")
+                                    .replace(/(\d)(\d{4})$/,"$1-$2")
     event.target.value = mask
 }
 </script>

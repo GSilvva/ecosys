@@ -23,7 +23,7 @@
                     <swiper-slide v-for="(photo, index) in photos" :key="index">
                         <img
                             class="object-cover w-full h-full"
-                            :src="photo.url_path"
+                            :src="photo.url_path + '?w=300&q=80'"
                             :alt="`Foto ${index + 1}`"
                         >
                     </swiper-slide>
