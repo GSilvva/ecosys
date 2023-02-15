@@ -45,24 +45,41 @@
 
                             <div class="carousel relative w-full h-full block">
                                 <button
-                                    class="prev absolute top-1/2 left-6 z-20"
+                                    class="prev absolute top-1/2 left-6 hidden xl:block z-20"
                                     type="button"
-                                    @click="carPage.imageActive === 0 ? carPage.imageActive = carData.photos.length - 1 : carPage.imageActive--"
                                 >
                                     <VectorsArrowPrevWhite />
                                 </button>
 
-                                <img
-                                    class="z-10 relative object-cover w-full h-full cursor-pointer"
-                                    :src="carData.photos[carPage.imageActive].url_path"
-                                    :alt="`Foto ${carPage.imageActive + 1}`"
-                                    @click="carPage.openModal = true, carPage.slide = carPage.imageActive + 1"
+                                <swiper
+                                    class="z-10 w-full h-full"
+                                    :modules="modulesCarousel"
+                                    :loop="true"
+                                    :lazy="true"
+                                    :thumbs="{ swiper: thumbsSwiper }"
+                                    :pagination="{ dynamicBullets: true, clickable: true }"
+                                    :navigation="{
+                                        prevEl: '.prev',
+                                        nextEl: '.next',
+                                    }"
                                 >
+                                    <swiper-slide
+                                        class="cursor-pointer"
+                                        v-for="(photo, index) in carData.photos.slice(0, 8)" :key="index"
+                                        @click="carPage.openModal = true, carPage.slide = Number(index) + 1"
+                                    >
+                                        <img
+                                            class="object-cover w-full h-full"
+                                            :src="photo.url_path"
+                                            :alt="`Foto ${index + 1}`"
+                                            loading="lazy"
+                                        >
+                                    </swiper-slide>
+                                </swiper>
 
                                 <button
-                                    class="next absolute top-1/2 right-6 z-20"
+                                    class="next absolute top-1/2 right-6 hidden xl:block z-20"
                                     type="button"
-                                    @click="carPage.imageActive === carData.photos.length - 1 ? carPage.imageActive = 0 : carPage.imageActive++"
                                 >
                                     <VectorsArrowNextWhite />
                                 </button>
@@ -384,7 +401,6 @@ const carPage = reactive({
     openModal: false,
     openInterest: false,
     slide: 0,
-    imageActive: 0,
 })
 
 const swiperRef: any = ref(null)
