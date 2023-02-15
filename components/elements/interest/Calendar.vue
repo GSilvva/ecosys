@@ -6,14 +6,30 @@
         :class="`modal fixed left-0 top-0 z-50 w-full h-full flex items-end sm:items-center justify-end sm:justify-center transition overflow-hidden opacity-0 invisible ${open ? 'visible' : ''}`"
     >
         <div class="max-w-md w-full sm:m-auto bg-white relative z-40 pt-6 px-6 pb-8 sm:p-10 overflow-y-auto sm:overflow-y-hidden">
-            <h3 class="month-year uppercase py-6 text-center">
-                {{
-                    new Intl
-                        .DateTimeFormat('pt-BR', { month: 'long' })
-                        .format(new Date(0, availability.month, 0))
-                }}
-                {{ availability.year }}
-            </h3>
+            <header class="month-year py-5 px-8 flex items-center justify-between">
+                <button
+                    @click="month - 1 !== new Date().getMonth() ? prevMonth() : false"
+                    :class="`transition rotate-180 flex items-center justify-end w-8 h-8 ${month - 1 === new Date().getMonth() ? 'disabled' : ''}`"
+                    type="button"
+                >
+                    <VectorsArrowCalendar />
+                </button>
+                <h3 class="uppercase text-center">
+                    {{
+                        new Intl
+                            .DateTimeFormat('pt-BR', { month: 'long' })
+                            .format(new Date(0, month, 0))
+                    }}
+                    {{ date().realMonthIndex === 12 ? date().year - 1 : date().year }}
+                </h3>
+                <button
+                    @click="nextMonth"
+                    class="transition flex items-center justify-end w-8 h-8"
+                    type="button"
+                >
+                    <VectorsArrowCalendar />
+                </button>
+            </header>
 
             <div class="calendar p-5">
                 <div class="days row grid grid-cols-7 gap-x-2 mb-5">
@@ -28,11 +44,11 @@
 
                 <div class="numbers row grid grid-cols-7 gap-y-1 gap-x-2">
                     <span
-                        v-for="previousDay in firstDayOfMonthIndex"
-                        :key="previousDay"
+                        v-for="day in date().firstDayOfMonthIndex"
+                        :key="day"
                     ></span>
                     <template
-                        v-for="day in daysInMonth"
+                        v-for="day in date().days"
                         :key="day"
                     >
                         <label
@@ -90,12 +106,14 @@
 </template>
 
 <script setup lang="ts">
-const availability = {
-    year: 2022,
-    month: 9,
-    days: [
+const calendar = reactive({
+    selectedDay: 0,
+    schedules: ["Selecione"],
+    availability: [
         {
             day: 15,
+            month: 2,
+            year: 2023,
             schedules: [
                 "10:30",
                 "11:00",
@@ -107,6 +125,8 @@ const availability = {
         },
         {
             day: 16,
+            month: 2,
+            year: 2023,
             schedules: [
                 "13:30",
                 "11:30",
@@ -115,6 +135,8 @@ const availability = {
         },
         {
             day: 19,
+            month: 3,
+            year: 2023,
             schedules: [
                 "16:30",
                 "16:45",
@@ -123,6 +145,8 @@ const availability = {
         },
         {
             day: 20,
+            month: 4,
+            year: 2023,
             schedules: [
                 "09:20",
                 "10:50",
@@ -131,6 +155,8 @@ const availability = {
         },
         {
             day: 21,
+            month: 4,
+            year: 2023,
             schedules: [
                 "15:30",
                 "16:00",
@@ -139,6 +165,8 @@ const availability = {
         },
         {
             day: 22,
+            month: 4,
+            year: 2023,
             schedules: [
                 "12:30",
                 "13:00",
@@ -147,6 +175,8 @@ const availability = {
         },
         {
             day: 23,
+            month: 5,
+            year: 2023,
             schedules: [
                 "19:30",
                 "17:20",
@@ -155,6 +185,8 @@ const availability = {
         },
         {
             day: 26,
+            month: 9,
+            year: 2023,
             schedules: [
                 "14:30",
                 "15:00",
@@ -163,6 +195,8 @@ const availability = {
         },
         {
             day: 27,
+            month: 9,
+            year: 2023,
             schedules: [
                 "09:00",
                 "10:00",
@@ -171,6 +205,8 @@ const availability = {
         },
         {
             day: 28,
+            month: 10,
+            year: 2023,
             schedules: [
                 "08:30",
                 "16:30",
@@ -179,46 +215,77 @@ const availability = {
         },
         {
             day: 29,
+            month: 10,
+            year: 2023,
             schedules: [
                 "12:30",
             ]
         },
         {
-            day: 30,
+            day: 14,
+            month: 11,
+            year: 2023,
             schedules: [
                 "09:00",
                 "09:30"
             ]
         },
-    ],
-}
-const daysInMonth = new Date(availability.year, availability.month, 0).getDate()
-const daysInMonthArr: any[] = []
-const pushingDays = () => {
-    for (let index = 0; index <= daysInMonth; index++) {
-        daysInMonthArr.push(index)
-    }
-
-    return daysInMonthArr
-}
-const firstDayOfMonthIndex = new Date(availability.year, availability.month - 1, 1).getDay()
+        {
+            day: 22,
+            month: 12,
+            year: 2023,
+            schedules: [
+                "09:00",
+                "09:30"
+            ]
+        },
+        {
+            day: 9,
+            month: 3,
+            year: 2024,
+            schedules: [
+                "19:30",
+                "17:20",
+                "17:40",
+            ]
+        }
+    ]
+})
 
 function verifyDayAvailable(day: number) {
     let is
 
-    availability.days.forEach(el => el.day === day ? is = true : false)
+    calendar.availability.forEach(el => el.day === day && el.month === date().realMonthIndex && el.year === date().realYearIndex ? is = true : false)
 
     return is
 }
 
 function daySelected() {
-    availability.days.filter(el => el.day === calendar.selectedDay ? calendar.schedules = el.schedules : [])
+    calendar.availability.filter(el => el.day === calendar.selectedDay ? calendar.schedules = el.schedules : [])
 }
 
-const calendar = reactive({
-    selectedDay: 0,
-    schedules: ["Selecione"],
-})
+// MONTHS
+let month = ref(new Date().getMonth() + 1)
+let date = () => {
+    const days = new Date(new Date().getFullYear(), month.value, 0).getDate()
+    const monthIndex = new Date(new Date().getFullYear(), month.value).getMonth()
+    const realMonthIndex = monthIndex === 0 ? 12 : monthIndex
+    const year = new Date(new Date().getFullYear(), month.value).getFullYear()
+    const realYearIndex = realMonthIndex === 12 ? year - 1 : year
+    const firstDayOfMonthIndex = new Date(year, month.value - 1, 1).getDay()
+
+    return { days, year, firstDayOfMonthIndex, realMonthIndex, realYearIndex }
+}
+
+function prevMonth() {
+    month.value--
+    date()
+}
+
+function nextMonth() {
+    month.value++
+    date()
+}
 
 defineProps({
     open: Boolean,
@@ -235,11 +302,22 @@ defineEmits(["update:open"])
 }
 
 .month-year {
-    font: 700 24px/28px $gotham;
     border: 1px solid $grey-2;
+    
+    h3 {
+        font: 700 24px/28px $gotham;
 
-    @media screen and (max-width: $mobile) {
-        font: 700 16px/1 $gotham;
+        @media screen and (max-width: $mobile) {
+            font: 700 16px/1 $gotham;
+        }
+    }
+
+    button {
+        
+        &.disabled {
+            cursor: not-allowed;
+            opacity: .2;
+        }
     }
 }
 
