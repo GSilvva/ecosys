@@ -9,18 +9,16 @@
 </template>
 
 <script setup lang="ts">
-const favorited = ref(false)
+defineProps({
+    favorited: Boolean
+})
 </script>
 
 <style lang="scss">
 .favorited {
-    
-    svg {
-
-        path {
-            stroke: $orange;
-            fill: $orange;
-        }
+    path {
+        stroke: $orange;
+        fill: $orange;
     }
 }
 </style>

@@ -179,8 +179,10 @@ p {
     width: 100%;
 
     label {
+        display: inline-block;
         font: 500 16px/24px $inter;
         z-index: 9;
+        margin: 0 0 12px 0;
     }
     
     input {
@@ -203,7 +205,6 @@ p {
             margin: 0;
             background: $white;
             color: $grey-4;
-            display: inline-block;
         }
     }
 }

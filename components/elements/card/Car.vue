@@ -1,10 +1,10 @@
 <template>
     <nuxt-link
         :to="url"
-        :class="`flex xl:block card-car w-full transition ${list ? 'horizontal' : ''}`"
+        :class="`flex xl:block card-car w-full transition ${list ? 'horizontal' : ''} ${!nohover ? 'hover' : ''}`"
         target="_blank"
     >
-        <figure :class="`images relative w-full ${paid_out ? 'xl:h-52' : 'xl:h-56 2xl:h-64'}`">
+        <figure :class="`images relative w-full ${paid_out || nohover ? 'xl:h-52' : 'xl:h-56 2xl:h-64'}`">
             <div class="tags flex absolute top-0 left-0 z-20">
                 <span class="recent px-2 md:px-3 pt-px h-7 text-white uppercase flex items-center" v-if="recent">Novo</span>
                 <span class="promo px-2 md:px-3 pt-px h-7 text-white uppercase flex items-center" v-if="promotion">Promoção</span>
@@ -44,14 +44,14 @@
             <img v-else src="/images/general/default-image.svg" alt="Foto">
         </figure>
 
-        <article class="content transition px-4 pt-4 xl:pt-8 pb-1 sm:pb-4 md:px-8 flex flex-col justify-between w-full">
+        <article :class="`content transition px-4 pt-4 pb-1 sm:pb-4 md:px-8 flex flex-col justify-between w-full ${paid_out || nohover ? 'xl:pt-6' : 'xl:pt-8'}`">
             <div v-if="list" class="title">
                 <div class="flex items-center justify-between mb-5">
                     <h3 class="uppercase">{{ name }}</h3>
                     <section class="price flex items-center gap-4">
                         <h4>{{ $formatCurrency(price) }}</h4>
                         <h6 v-if="old_price" class="line-through">{{ $formatCurrency(old_price) }}</h6>
-                        <ElementsFavorite class="mb-1" />
+                        <ElementsFavorite :favorited="favorited" class="mb-1" />
                     </section>
                 </div>
                 <p class="mb-4">
@@ -67,18 +67,20 @@
                     <br>
                     {{ transmission }}
                 </p>
-                <ElementsFavorite class="absolute top-0.5 right-0 w-4 sm:w-6" />
+                <ElementsFavorite :favorited="favorited" class="absolute top-0.5 right-0 w-4 sm:w-6" />
             </div>
             <div class="bottom">
-                <div v-if="paid_out" class="value mt-4 xl:mt-9 xl:mb-6">
+                <div v-if="paid_out" class="value mt-4 xl:mt-10 xl:mb-6">
                     <small class="mb-1.5">Valor pago</small>
                     <h4>{{ $formatCurrency(paid_out) }} </h4>
                 </div>
                 <template v-else>
-                    <section v-if="!list" class="price mt-4 xl:mt-12 flex-col-reverse sm:flex-row flex sm:items-center justify-between">
-                        <h4>{{ $formatCurrency(price) }}</h4>
-                        <h6 v-if="old_price" class="line-through mb-1 sm:mb-0">{{ $formatCurrency(old_price) }}</h6>
-                    </section>
+                    <template v-if="!clean">
+                        <section v-if="!list" class="price mt-4 xl:mt-12 flex-col-reverse sm:flex-row flex sm:items-center justify-between">
+                            <h4>{{ $formatCurrency(price) }}</h4>
+                            <h6 v-if="old_price" class="line-through mb-1 sm:mb-0">{{ $formatCurrency(old_price) }}</h6>
+                        </section>
+                    </template>
                 </template>
                 <footer class="infos mt-2 sm:mt-4 pt-1.5 sm:pt-4 flex items-center justify-between">
                     <small>{{ build_year }}/{{ model_year }}</small>
@@ -113,7 +115,10 @@ defineProps({
     model_year: Number,
     km: Number,
     list: Boolean,
-    paid_out: Number
+    paid_out: Number,
+    nohover: Boolean,
+    favorited: Boolean,
+    clean: Boolean
 });
 </script>
 
@@ -162,8 +167,7 @@ defineProps({
     }
 
     .content {
-        border-bottom: 2px solid $white;
-
+    
         .title {
 
             h3 {
@@ -275,11 +279,16 @@ defineProps({
     } 
 
     @media screen and (min-width: $tablet) {
-        &:hover {
-            box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.12);
+        &.hover {
+            .content {
+                border-bottom: 2px solid $white;
+            }
+            &:hover {
+                box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.12);
 
-            article {
-                border-color: $orange;
+                .content {
+                    border-color: $orange;
+                }
             }
         }
     }

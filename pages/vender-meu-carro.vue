@@ -1,6 +1,6 @@
 <template>
     <LayoutNavbarActions v-if="!saleCar.resume">
-        <div class="steps flex items-center gap-4 sm:gap-8">
+        <div class="steps flex items-center gap-4 sm:gap-8 xl:pl-6">
             <div
                 v-for="(step, index) in saleCar.steps"
                 :key="step"

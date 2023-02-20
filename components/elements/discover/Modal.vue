@@ -143,30 +143,13 @@ const modalDiscover = reactive({
             slug: "",
             photos: [
                 {
-                    url_path: "./images/general/car2.jpg",
+                    url_path: "/images/general/car2.jpg",
                 },
                 {
-                    url_path: "./images/general/car2.jpg",
+                    url_path: "/images/general/car2.jpg",
                 },
                 {
-                    url_path: "./images/general/car2.jpg",
-                },
-            ],
-            name: "BMW M3",
-            characteristics: "2.0 16V Diesel Limited 4X4",
-            transmission: "Automático",
-            price: 125900,
-            old_price: 999999,
-            build_year: 2018,
-            model_year: 2019,
-            km: 100000
-        },
-        {
-            brand: "",
-            slug: "",
-            photos: [
-                {
-                    url_path: "./images/general/car2.jpg",
+                    url_path: "/images/general/car2.jpg",
                 },
             ],
             name: "BMW M3",
@@ -183,10 +166,27 @@ const modalDiscover = reactive({
             slug: "",
             photos: [
                 {
-                    url_path: "./images/general/car2.jpg",
+                    url_path: "/images/general/car2.jpg",
+                },
+            ],
+            name: "BMW M3",
+            characteristics: "2.0 16V Diesel Limited 4X4",
+            transmission: "Automático",
+            price: 125900,
+            old_price: 999999,
+            build_year: 2018,
+            model_year: 2019,
+            km: 100000
+        },
+        {
+            brand: "",
+            slug: "",
+            photos: [
+                {
+                    url_path: "/images/general/car2.jpg",
                 },
                 {
-                    url_path: "./images/general/car2.jpg",
+                    url_path: "/images/general/car2.jpg",
                 },
             ],
             name: "BMW M3",

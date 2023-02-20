@@ -153,10 +153,79 @@
                 </div>
             </template>
             <template v-slot:tab-2>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam iusto laudantium illum ipsam exercitationem labore nisi, consequatur modi quo officiis architecto eum minima doloribus necessitatibus assumenda corporis, quas praesentium! Alias?
+                <div class="flex flex-col xl:grid grid-cols-2 gap-12">
+                    <aside>
+                        <h2 class="subtitle">Visitas para vender</h2>
+                        <ul class="flex flex-col gap-y-6">
+                            <li class="flex flex-col gap-y-1">
+                                <div class="bg-white px-6 sm:px-12 xl:px-8 py-6 sm:py-8">
+                                    <div class="flex items-start justify-between">
+                                        <p class="mb-6"><strong>Segunda, 10 out 2023 <br> 16:15 horas</strong></p>
+                                        <ElementsTag />
+                                    </div>
+                                    <p class="mb-2"><strong>Onde o comprador vai</strong></p>
+                                    <p>Avenida Epitácio Pessoa, 2566 <br> Lagoa, Chapecó, SC</p>
+                                    <div class="mt-8 flex gap-2">
+                                        <ElementsButton small green>Confirmar</ElementsButton>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="flex flex-col gap-y-1">
+                                <div class="bg-white px-6 sm:px-12 xl:px-8 py-6 sm:py-8">
+                                    <div class="flex items-start justify-between">
+                                        <p class="mb-6"><strong>Segunda, 10 out 2023 <br> 16:15 horas</strong></p>
+                                        <ElementsTag pending />
+                                    </div>
+                                    <p class="mb-2"><strong>Onde o comprador vai</strong></p>
+                                    <p>Avenida Epitácio Pessoa, 2566 <br> Lagoa, Chapecó, SC</p>
+                                </div>
+                            </li>
+                            <li class="flex flex-col gap-y-1">
+                                <div class="bg-white px-6 sm:px-12 xl:px-8 py-6 sm:py-8">
+                                    <div class="flex items-start justify-between">
+                                        <p class="mb-6"><strong>Segunda, 10 out 2023 <br> 16:15 horas</strong></p>
+                                        <ElementsTag confirmed green />
+                                    </div>
+                                    <p class="mb-2"><strong>Onde o comprador vai</strong></p>
+                                    <p>Avenida Epitácio Pessoa, 2566 <br> Lagoa, Chapecó, SC</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </aside>
+
+                    <aside>
+                        <h2 class="subtitle">Concluído</h2>
+                        <ul class="flex flex-col gap-y-6">
+                            <li class="flex flex-col gap-y-1">
+                                <div class="bg-white px-6 sm:px-12 xl:px-8 py-6 sm:py-8">
+                                    <div class="flex items-start justify-between">
+                                        <p class="mb-6"><strong>Segunda, 10 out 2023 <br> 16:15 horas</strong></p>
+                                        <ElementsTag concluded />
+                                    </div>
+                                    <p class="mb-2"><strong>Onde o comprador vai</strong></p>
+                                    <p>Avenida Epitácio Pessoa, 2566 <br> Lagoa, Chapecó, SC</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
             </template>
             <template v-slot:tab-3>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam iusto laudantium illum ipsam exercitationem labore nisi, consequatur modi quo officiis architecto eum minima doloribus necessitatibus assumenda corporis, quas praesentium! Alias? Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus aspernatur modi ad nisi itaque, placeat in recusandae, expedita sint distinctio nobis quam facilis praesentium voluptate quas sed eius vero ratione.
+                <ul class="grid grid-cols-1 xl:grid-cols-3 gap-1 xl:gap-6">
+                    <li v-for="(car, index) in venda.cars" :key="index">
+                        <ElementsCardCar
+                            :url="`/comprar/${car.brand}/${car.slug}`"
+                            :photos="car.photos"
+                            :name="car.name"
+                            :characteristics="car.characteristics"
+                            :transmission="car.transmission"
+                            :build_year="car.build_year"
+                            :model_year="car.model_year"
+                            :km="car.km"
+                            :paid_out="car.paid_out"
+                        />
+                    </li>
+                </ul>
             </template>
         </ElementsTabs>
 
@@ -165,7 +234,7 @@
             v-model:open="venda.openModal"
         >
             <div class="fields mb-10">
-                <div class="flex gap-6 mb-7">
+                <div class="flex gap-4 sm:gap-6 mb-7">
                     <fieldset class="fieldset floating">
                         <label for="ajuste1">Ajustar para</label>
                         <input
@@ -173,7 +242,7 @@
                             id="ajuste1"
                             type="text"
                             ref="inputRef"
-                            :value="'R$ ' + venda.slider1.value"
+                            v-model="venda.slider1.value"
                         >
                     </fieldset>
                     <ElementsFormInput
@@ -189,12 +258,11 @@
                     :min="venda.slider1.min"
                     :max="venda.slider1.max"
                     :step="venda.slider1.step"
-                    :lazy="false"
                 />
                 <small class="mt-5">O mínimo de ajuste é 25%</small>
             </div>
-            <div class="fields mb-10">
-                <div class="flex gap-6 mb-7">
+            <div class="fields">
+                <div class="flex gap-4 sm:gap-6 mb-7">
                     <ElementsFormInput
                         label="Mínimo"
                         name="minimo"
@@ -208,7 +276,7 @@
                             name="ajuste2"
                             id="ajuste2"
                             type="text"
-                            :value="venda.slider2.value + 'km'"
+                            v-model="venda.slider2.value"
                         >
                     </fieldset>
                 </div>
@@ -217,7 +285,6 @@
                     :min="venda.slider2.min"
                     :max="venda.slider2.max"
                     :lazy="false"
-                    :format-data="(n, v) => ({[n]: console.log(n, v) })"
                 />
                 <small class="mt-5">O mínimo de ajuste é 25%</small>
             </div>
@@ -248,9 +315,9 @@ const { inputRef } = useCurrencyInput(opts)
 
 const venda = reactive({
     tabs: ["Anúncios", "Em negociação", "Vendidos"],
-    openModal: true,
+    openModal: false,
     slider1: {
-        value: 0,
+        value: "",
         min: 0,
         max: 124000,
         step: 50
@@ -260,6 +327,46 @@ const venda = reactive({
         min: 0,
         max: 300000
     },
+    cars: [
+        {
+            brand: "",
+            slug: "",
+            photos: [
+                {
+                    url_path: "/images/general/car2.jpg",
+                },
+                {
+                    url_path: "/images/general/car2.jpg",
+                },
+                {
+                    url_path: "/images/general/car2.jpg",
+                },
+            ],
+            name: "BMW M3",
+            characteristics: "2.0 16V Diesel Limited 4X4",
+            transmission: "Automático",
+            build_year: 2018,
+            model_year: 2019,
+            km: 100000,
+            paid_out: 125900
+        },
+        {
+            brand: "",
+            slug: "",
+            photos: [
+                {
+                    url_path: "/images/general/car2.jpg",
+                }
+            ],
+            name: "BMW M3",
+            characteristics: "2.0 16V Diesel Limited 4X4",
+            transmission: "Automático",
+            build_year: 2018,
+            model_year: 2019,
+            km: 100000,
+            paid_out: 125900
+        }
+    ]
 })
 
 definePageMeta({

@@ -12,8 +12,32 @@
         
         <nuxt-link class="logo relative z-40" to="/"><VectorsLogotype /></nuxt-link>
 
-        <article class="menu h-full w-full bg-white top-0 right-0 opacity-0 translate-x-full xl:translate-x-0 xl:opacity-100 transition fixed xl:relative z-20 pt-28 xl:p-0 overflow-y-scroll xl:overflow-y-visible">
-          <div class="xl:h-full px-6 md:px-10 xl:p-0 md:flex md:flex-col md:items-start xl:block">
+        <article :class="`menu h-full w-full bg-white top-0 right-0 opacity-0 translate-x-full xl:translate-x-0 xl:opacity-100 transition fixed xl:relative z-20 ${userName ? 'pt-16 diff' : 'pt-28'} xl:p-0 overflow-y-scroll xl:overflow-y-visible`">
+          <div class="xl:h-full px-6 md:px-12 xl:p-0 md:flex md:flex-col md:items-start xl:block">
+
+            <div v-if="userName" class="xl:hidden pt-6 pb-10 mb-10 px-6 sm:px-12 account">
+              <h6 class="mb-6 subtitle">Área do cliente</h6>
+              <ul class="links flex xl:items-center flex-col xl:flex-row gap-6 xl:gap-8 xl:h-full">
+                <li
+                  class="h-full flex items-center relative pl-8 xl:pl-0"
+                  v-for="link in navigationLinksClient"
+                  :key="link.text"
+                >
+                  <nuxt-link
+                    @click="openMenu = false"
+                    class="transition"
+                    :to="link.url"
+                    :target="link.newLayer ? '_blank' : ''"
+                  >
+                    {{ link.text }}
+                  </nuxt-link>
+                  <span class="absolute bottom-0 left-0 transition opacity-0 w-0.5 h-full xl:h-0.5 xl:w-full"></span>
+                </li>
+              </ul>
+            </div>
+
+            <h6 v-if="userName" class="mb-6 subtitle xl:hidden">Navegação</h6>
+
             <ul class="links flex xl:items-center flex-col xl:flex-row gap-6 xl:gap-8 xl:h-full">
               <li :class="`h-full flex items-center relative pl-8 xl:pl-0 ${link.mobile ? 'xl:hidden' : ''} ${!link.active ? 'disabled' : ''}`" v-for="(link, index) in navigationLinks" :key="index">
                 <nuxt-link
@@ -35,7 +59,7 @@
             </a>
           </div>
 
-          <footer class="stores pt-8 pb-10 px-6 md:px-10 xl:hidden">
+          <footer class="stores pt-8 pb-10 px-6 md:px-12 xl:hidden">
             <div class="flex items-center gap-4 mb-5">
               <VectorsMap />
               <h6>Nossas lojas</h6>
@@ -67,15 +91,47 @@
         </article>
       </aside>
 
-      <aside class="actions flex items-center gap-12 relative z-10">
+      <aside :class="`actions flex items-center gap-12 relative z-40`">
         <nuxt-link class="support hidden md:flex items-center gap-2 transition opacity-50 hover:opacity-100" to="/central-ajuda" @click="$scrollBody">
           <VectorsSupport />
           Central de ajuda
         </nuxt-link>
-        <nuxt-link class="login rounded-full flex items-center gap-3 sm:gap-4 py-2 pl-1.5 sm:pl-2 pr-4 sm:pr-5 transition h-11 sm:h-12" to="/area-cliente" @click="$scrollBody">
+        <nuxt-link
+          class="login rounded-full flex items-center gap-3 sm:gap-4 py-2 pl-1.5 sm:pl-2 pr-4 sm:pr-5 transition h-11 sm:h-12"
+          :to="userName ? '/area-cliente/compra' : '/area-cliente'"
+          @click="$scrollBody"
+          @mouseenter="submenu = true"
+          @mouseleave="submenu = false"
+        >
           <VectorsLogin />
-          Entrar
+          <template v-if="userName">
+            {{ userName }}
+          </template>
+          <template v-else> 
+            Entrar
+          </template>
         </nuxt-link>
+        <div
+          v-if="userName"
+          :class="`submenu invisible pt-3 opacity-0 transition hidden xl:block ${submenu ? '!visible !opacity-100' : ''}`"
+          @mouseenter="submenu = true"
+          @mouseleave="submenu = false"
+        >
+          <div class="box pt-2.5 bg-white flex flex-col">
+            <nuxt-link
+              class="w-full transition py-2.5 px-6"
+              :to="link.url"
+              :target="link.newLayer ? '_blank' : ''"
+              v-for="link in navigationLinksClient"
+              :key="link.text"
+            >
+              {{ link.text }}
+            </nuxt-link>
+            <div class="px-6 pt-2.5">
+              <nuxt-link to="/area-cliente/entrar" class="w-full transition py-5 block">Sair</nuxt-link>
+            </div>
+          </div>
+        </div>
       </aside>
     </ElementsContainer>
   </nav>
@@ -84,6 +140,8 @@
 <script setup lang="ts">
 const route = useRoute();
 const openMenu = ref(false);
+const userName = ref("Tiago")
+const submenu = ref(false)
 const navigationLinks = [
   {
     text: "Estoque",
@@ -120,6 +178,33 @@ const navigationLinks = [
     mobile: true,
     active: true,
   },
+];
+const navigationLinksClient = [
+  {
+    text: "Favoritos",
+    url: "/area-cliente/favoritos",
+    newLayer: false,
+  },
+  {
+    text: "Compra",
+    url: "/area-cliente/compra",
+    newLayer: false,
+  },
+  {
+    text: "Venda",
+    url: "/area-cliente/venda",
+    newLayer: false,
+  },
+  {
+    text: "Meus carros",
+    url: "/area-cliente/meus-carros",
+    newLayer: false,
+  },
+  {
+    text: "Perfil",
+    url: "/area-cliente/perfil",
+    newLayer: false,
+  }
 ];
 
 defineProps({
@@ -291,6 +376,24 @@ defineProps({
   }
 }
 
+.account {
+  border-top: 4px solid $grey-1;
+  border-bottom: 4px solid $grey-1;
+  width: calc(100% + 96px);
+  transform: translateX(-48px);
+  @media screen and (max-width: $mobile) {
+    width: calc(100% + 48px);
+    transform: translateX(-24px);
+  }
+}
+
+.subtitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: $grey-4;
+}
+
 .call {
   border: 1px solid $grey-2;
   font-weight: 500;
@@ -324,6 +427,45 @@ defineProps({
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
+}
+
+.submenu {
+  max-width: 250px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateY(100%);
+
+  .box {
+    box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.12);
+
+    a {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: $grey-4;
+
+      &:hover {
+        color: $dark;
+        background: #F5F6F7;
+      }
+    }
+    div {
+      a {
+        border-top: 1px solid $grey-2;
+        &:hover {
+          background: $white;
+        }
+      }
+    }
+  }
+}
+
+.diff {
+  @media (min-width: $mobile) and (max-width: $tablet) {
+    padding-top: 72px;
+  }
 }
 
 .login {
