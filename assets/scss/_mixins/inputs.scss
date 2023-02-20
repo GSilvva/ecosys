@@ -2,6 +2,7 @@ input,
 textarea,
 select,
 option {
+    position: relative;
     height: 56px;
     border: 1px solid $grey-2;
     font: 500 16px/24px $inter;
@@ -11,6 +12,7 @@ option {
     &:hover,
     &:focus {
         border-color: $dark;
+        z-index: 5;
     }
 
     &.legend::placeholder {
@@ -21,6 +23,12 @@ option {
         font-weight: 400;
         color: $grey-4;
         opacity: 1;
+    }
+
+    &:disabled {
+        font-weight: 400;
+        background: $grey-1;
+        color: rgba(82, 82, 89, .64);
     }
 }
 

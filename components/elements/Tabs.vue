@@ -1,13 +1,13 @@
 <template>
     <section class="tabs">
         <header class="mb-8 md:mb-10">
-            <ElementsContainer block>
+            <ElementsContainer :fluid="full" block>
                 <section class="flex justify-start gap-8 overflow-x-auto">
                     <button
                         @click="activeTab = index + 1"
                         v-for="(tab, index) in tabs"
                         :key="index"
-                        :class="`pb-4 relative transition ${activeTab === index + 1 ? 'active' : ''}`"
+                        :class="`pb-4 relative transition ${activeTab === index + 1 ? 'active' : ''} ${small ? 'small' : ''}`"
                         type="button"
                     >
                         {{ tab }}
@@ -27,6 +27,8 @@ const activeTab = ref(1);
 
 defineProps({
     tabs: Array,
+    full: Boolean,
+    small: Boolean
 });
 </script>
 
@@ -60,6 +62,10 @@ header {
                 transition: .3s ease;
             }
 
+            &.small {
+                font-size: 16px;
+            }
+
             &.active {
                 color: $dark;
 
@@ -70,5 +76,10 @@ header {
             }
         }
     }
+}
+
+.full {
+    max-width: 100%;
+    padding: 0;
 }
 </style>

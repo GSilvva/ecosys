@@ -8,54 +8,12 @@
       </div>
     </ElementsContainer>
   </main>
-
-  <!-- <article class="box box--code w-full m-auto sm:p-10 bg-transparent sm:bg-white" v-if="validPhone">
-    <header>
-      <h2 class="mb-4 sm:mb-6 uppercase">Informe o código</h2>
-      <p class="mb-8">Enviamos um código de confirmação para contato@fuselab.com</p>
-    </header>
-    <form>
-      <ElementsFormLabel class="mb-2.5" label="Digite o código" />
-      <div class="flex items-end">
-        <ElementsFormInput
-          classesFieldset="sm:!w-20"
-          name="digito1"
-          big
-          required
-        />
-        <ElementsFormInput
-          classesFieldset="sm:!w-20"
-          name="digito2"
-          big
-          required
-        />
-        <ElementsFormInput
-          classesFieldset="sm:!w-20"
-          name="digito3"
-          big
-          required
-        />
-        <ElementsFormInput
-          classesFieldset="sm:!w-20"
-          name="digito4"
-          big
-          required
-        />
-      </div>
-    </form>
-    <footer class="flex justify-between mt-8">
-      <button class="underline" type="button">Não recebi o código</button>
-      <button class="underline" @click="validPhone = false" type="button">Editar celular</button>
-    </footer>
-  </article> -->
 </template>
 
 <script setup lang="ts">
 definePageMeta({
   layout: "simple",
 })
-
-const validPhone = ref(false);
 
 useHead({
   title: `b.car | Área do Cliente`,

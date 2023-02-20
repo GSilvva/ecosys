@@ -18,6 +18,7 @@
   "dependencies": {
     "@vueform/slider": "^2.1.7",
     "maska": "^2.1.4",
-    "swiper": "^8.4.5"
+    "swiper": "^8.4.5",
+    "vue-currency-input": "^3.0.3"
   }
 }

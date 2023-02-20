@@ -80,7 +80,7 @@ button {
 
     &.small {
         font-size: 16px;
-        padding: 16px 32px;
+        padding: 12px 32px;
     }
 
     &:disabled {

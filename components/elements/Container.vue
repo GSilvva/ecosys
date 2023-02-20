@@ -1,5 +1,5 @@
 <template>
-    <div :class="`${block ? 'block' : 'xl:flex justify-between'} ${center ? 'items-center' : ''}  `">
+    <div :class="`${block ? 'block' : 'xl:flex justify-between'} ${center ? 'items-center' : ''}  ${fluid ? '!px-0 !max-w-none' : ''}`">
         <slot />
     </div>
 </template>
@@ -8,6 +8,7 @@
 defineProps({
     block: Boolean,
     center: Boolean,
+    fluid: Boolean
 });
 </script>
 
@@ -35,5 +36,4 @@ defineProps({
             }
         }
     }
-
-</style>
+</style>    

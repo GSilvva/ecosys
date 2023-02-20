@@ -15,24 +15,43 @@
             v-model="value"
             @input="$emit('update:modelValue', $event.target.value)"
         ></textarea>
-        <input
-            v-else
-            :class="['block w-full transition px-4', (small ? 'sm' : ''), (big ? 'big' : ''), (legend ? 'legend' : ''), classes]"
-            :id="label ? $formatStringSimple(label) : name"
-            :name="name ? name : $formatStringSimple(label)"
-            :type="type ? type : 'text'"
-            :placeholder="placeholder"
-            :required="required"
-            v-model="value"
-            @input="
-                $emit('update:modelValue', $event.target.value),
-                number ? maskNumber($event) : '',
-                phone ? maskPhone($event) : ''
-            "
-            v-maska
-            :data-maska="mask"
-            :maxlength="phone ? 15 : false"
-        >
+        <template v-else>
+            <input
+                v-if="valueInput"
+                :class="['block w-full transition px-4', (small ? 'sm' : ''), (big ? 'big' : ''), (legend ? 'legend' : ''), classes]"
+                :id="label ? $formatStringSimple(label) : name"
+                :name="name ? name : $formatStringSimple(label)"
+                :type="type ? type : 'text'"
+                :placeholder="placeholder"
+                :required="required"
+                :value="valueInput"
+                @input="
+                    number ? maskNumber($event) : '',
+                    phone ? maskPhone($event) : ''
+                "
+                v-maska
+                :data-maska="mask"
+                :maxlength="phone ? 15 : false"
+            >
+            <input
+                v-else
+                :class="['block w-full transition px-4', (small ? 'sm' : ''), (big ? 'big' : ''), (legend ? 'legend' : ''), classes]"
+                :id="label ? $formatStringSimple(label) : name"
+                :name="name ? name : $formatStringSimple(label)"
+                :type="type ? type : 'text'"
+                :placeholder="placeholder"
+                :required="required"
+                v-model="value"
+                @input="
+                    $emit('update:modelValue', $event.target.value),
+                    number ? maskNumber($event) : '',
+                    phone ? maskPhone($event) : ''
+                "
+                v-maska
+                :data-maska="mask"
+                :maxlength="phone ? 15 : false"
+            >
+        </template>
         <small v-if="legend" class="mt-2">{{ legend }}</small>
     </fieldset>
 </template>
@@ -57,7 +76,8 @@ defineProps({
     required: Boolean,
     number: Boolean,
     mask: String,
-    phone: Boolean
+    phone: Boolean,
+    valueInput: String
 })
 
 function maskNumber(event: any) {
