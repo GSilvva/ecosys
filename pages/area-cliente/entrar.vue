@@ -269,6 +269,8 @@
                 big
                 required
                 mask="#"
+                v-model="login.code.digito1"
+                @input="TEMPvalCode"
               />
               <ElementsFormInput
                 classes="text-center !text-2xl"
@@ -276,6 +278,8 @@
                 big
                 required
                 mask="#"
+                v-model="login.code.digito2"
+                @input="TEMPvalCode"
               />
               <ElementsFormInput
                 classes="text-center !text-2xl"
@@ -283,6 +287,8 @@
                 big
                 required
                 mask="#"
+                v-model="login.code.digito3"
+                @input="TEMPvalCode"
               />
               <ElementsFormInput
                 classes="text-center !text-2xl"
@@ -290,6 +296,8 @@
                 big
                 required
                 mask="#"
+                v-model="login.code.digito4"
+                @input="TEMPvalCode"
               />
             </div>
           </form>
@@ -348,8 +356,18 @@
 const validPhone = ref(false)
 const validCode = ref(false)
 
+function TEMPvalCode() {
+  login.code.digito1 && login.code.digito2 && login.code.digito3 && login.code.digito4 ? (validCode.value = true, validPhone.value = true) : false
+}
+
 const login = reactive({
-  phone: ""
+  phone: "",
+  code: {
+    digito1: "",
+    digito2: "",
+    digito3: "",
+    digito4: ""
+  }
 })
 
 definePageMeta({
