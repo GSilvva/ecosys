@@ -11,7 +11,7 @@
                                 <div class="bg-white px-6 sm:px-12 xl:px-8 py-6 sm:py-8">
                                     <div class="flex items-start justify-between">
                                         <p class="mb-6"><strong>Segunda, 10 out 2023 <br> 16:15 horas</strong></p>
-                                        <ElementsTag confirmed green />
+                                        <ElementsTag confirmed />
                                     </div>
                                     <p class="mb-2"><strong>Onde levar seu carro</strong></p>
                                     <p>Avenida Epitácio Pessoa, 2566 <br> Lagoa, Chapecó, SC</p>
@@ -184,7 +184,7 @@
                                 <div class="bg-white px-6 sm:px-12 xl:px-8 py-6 sm:py-8">
                                     <div class="flex items-start justify-between">
                                         <p class="mb-6"><strong>Segunda, 10 out 2023 <br> 16:15 horas</strong></p>
-                                        <ElementsTag confirmed green />
+                                        <ElementsTag confirmed />
                                     </div>
                                     <p class="mb-2"><strong>Onde o comprador vai</strong></p>
                                     <p>Avenida Epitácio Pessoa, 2566 <br> Lagoa, Chapecó, SC</p>

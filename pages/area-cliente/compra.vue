@@ -26,7 +26,6 @@
                     </aside>
                     <aside>
                         <h2 class="subtitle">Visitas</h2>
-                        
                         <ul class="flex flex-col gap-y-6">
                             <li class="flex flex-col gap-y-1">
                                 <div class="bg-white px-6 sm:px-12 xl:px-8 py-6 sm:py-8">
@@ -46,7 +45,13 @@
                                     <p class="mt-4"><a href="##" target="_blank">Como chegar</a></p>
                                     <div class="mt-8 flex gap-2">
                                         <ElementsButton small green>Confirmar</ElementsButton>
-                                        <ElementsButton small outline>Reagendar</ElementsButton>
+                                        <ElementsButton
+                                            small
+                                            outline
+                                            @click="compra.openCalendar = true"
+                                        >
+                                            Reagendar
+                                        </ElementsButton>
                                     </div>
                                 </div>
                                 <div class="bg-white pt-6 px-6 sm:px-12 xl:px-8 pb-6 sm:pb-8">
@@ -121,7 +126,13 @@
                                     <p>Avenida Epitácio Pessoa, 2566 <br> Lagoa, Chapecó, SC</p>
                                     <p class="mt-4"><a href="##" target="_blank">Como chegar</a></p>
                                     <div class="mt-8 flex gap-2">
-                                        <ElementsButton small outline>Reagendar</ElementsButton>
+                                        <ElementsButton
+                                            small
+                                            outline
+                                            @click="compra.openCalendar = true"
+                                        >
+                                            Reagendar
+                                        </ElementsButton>
                                     </div>
                                 </div>
                                 <div class="bg-white pt-6 px-6 sm:px-8 pb-6 sm:pb-8">
@@ -149,6 +160,11 @@
                         </ul>
                     </aside>
                 </div>
+
+                <ElementsInterestCalendar
+                    v-model:open="compra.openCalendar"
+                    :event="() => compra.openCalendar = false"
+                />
             </template>
             <template v-slot:tab-2>
                 <ul class="grid grid-cols-1 xl:grid-cols-3 gap-1 xl:gap-6">
@@ -213,7 +229,8 @@ const compra = reactive({
             km: 100000,
             paid_out: 125900
         }
-    ]
+    ],
+    openCalendar: false
 })
 
 definePageMeta({
