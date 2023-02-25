@@ -356,7 +356,7 @@
 
 <script setup lang="ts">
 import { vMaska } from "maska"
-const validPhone = ref(true)
+const validPhone = ref(false)
 const validCode = ref(false)
 
 function TEMPvalCode() {
