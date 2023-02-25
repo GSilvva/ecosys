@@ -262,43 +262,44 @@
           </header>
           <form>
             <ElementsFormLabel class="mb-2.5" label="Digite o código" />
-            <div class="flex items-end gap-2">
-              <ElementsFormInput
-                classes="text-center !text-2xl"
-                name="digito1"
-                big
+            <div class="flex items-end gap-2 codes">
+              <input
+                class="text-center !text-2xl"
+                type="text"
                 required
-                mask="#"
                 v-model="login.code.digito1"
-                @input="TEMPvalCode"
-              />
-              <ElementsFormInput
-                classes="text-center !text-2xl"
-                name="digito2"
-                big
+                @input="$event.target.value && !isNaN($event.target.value) ? $event.target.nextElementSibling.focus() : false, TEMPvalCode()"
+                v-maska
+                data-maska="#"
+                ref="myinput"
+              >
+              <input
+                class="text-center !text-2xl"
+                type="text"
                 required
-                mask="#"
                 v-model="login.code.digito2"
-                @input="TEMPvalCode"
-              />
-              <ElementsFormInput
-                classes="text-center !text-2xl"
-                name="digito3"
-                big
+                @input="$event.target.value && !isNaN($event.target.value) ? $event.target.nextElementSibling.focus() : false, TEMPvalCode()"
+                v-maska
+                data-maska="#"
+              >
+              <input
+                class="text-center !text-2xl"
+                type="text"
                 required
-                mask="#"
                 v-model="login.code.digito3"
-                @input="TEMPvalCode"
-              />
-              <ElementsFormInput
-                classes="text-center !text-2xl"
-                name="digito4"
-                big
+                @input="$event.target.value && !isNaN($event.target.value) ? $event.target.nextElementSibling.focus() : false, TEMPvalCode()"
+                v-maska
+                data-maska="#"
+              >
+              <input
+                class="text-center !text-2xl"
+                type="text"
                 required
-                mask="#"
                 v-model="login.code.digito4"
-                @input="TEMPvalCode"
-              />
+                @input="!isNaN($event.target.value) ? TEMPvalCode() : false"
+                v-maska
+                data-maska="#"
+              >
             </div>
           </form>
           <footer class="flex justify-between mt-8">
@@ -338,6 +339,7 @@
                 label="CPF"
                 floating
                 required
+                mask="###.###.###-##"
               />
               <footer class="mt-8 w-full flex items-center justify-between">
                 <small>Todos os campos são obrigatórios</small>
@@ -353,7 +355,8 @@
 </template>
 
 <script setup lang="ts">
-const validPhone = ref(false)
+import { vMaska } from "maska"
+const validPhone = ref(true)
 const validCode = ref(false)
 
 function TEMPvalCode() {
@@ -469,6 +472,13 @@ useHead({
       font-weight: 500;
       font-size: 16px;
       line-height: 24px;
+    }
+  }
+  .codes {
+    @import '@/assets/scss/_mixins/inputs';
+    input {
+      width: 72px;
+      height: 64px;
     }
   }
 }

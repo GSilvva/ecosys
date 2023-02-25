@@ -17,7 +17,13 @@
                                     <p>Avenida Epitácio Pessoa, 2566 <br> Lagoa, Chapecó, SC</p>
                                     <p class="mt-4"><a href="##" target="_blank">Como chegar</a></p>
                                     <div class="mt-8 flex gap-2">
-                                        <ElementsButton small outline>Desativar</ElementsButton>
+                                        <ElementsButton
+                                            small
+                                            outline
+                                            @click="venda.openCalendar = true"
+                                        >
+                                            Reagendar
+                                        </ElementsButton>
                                     </div>
                                 </div>
                                 <div class="bg-white pt-6 px-6 sm:px-12 xl:px-8 pb-6 sm:pb-8">
@@ -151,6 +157,11 @@
                         </ul>
                     </aside>
                 </div>
+
+                <ElementsInterestCalendar
+                    v-model:open="venda.openCalendar"
+                    :event="() => venda.openCalendar = false"
+                />
             </template>
             <template v-slot:tab-2>
                 <div class="flex flex-col xl:grid grid-cols-2 gap-12">
@@ -316,6 +327,7 @@ const { inputRef } = useCurrencyInput(opts)
 const venda = reactive({
     tabs: ["Anúncios", "Em negociação", "Vendidos"],
     openModal: false,
+    openCalendar: false,
     slider1: {
         value: "",
         min: 0,
