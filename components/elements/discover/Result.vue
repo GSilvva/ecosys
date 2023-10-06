@@ -12,14 +12,6 @@
                                 <p>Estes são os resultados</p>
                             </div>
                             <div class="hidden xl:flex sm:justify-between gap-4 w-full xl:w-max">
-                                <button
-                                    class="items-center justify-center bg-white rounded-full h-12 w-12 flex"
-                                    @click="resultDiscover.listView = !resultDiscover.listView"
-                                    type="button"
-                                >
-                                    <VectorsListView v-if="!resultDiscover.listView" />
-                                    <VectorsCardView v-else />
-                                </button>
                                 <fieldset class="relative bg-white rounded-full">
                                     <select
                                         class="rounded-full h-10 xl:h-12 pr-9 xl:pr-10 pl-5 xl:pl-6 appearance-none relative z-20 bg-transparent"
@@ -36,7 +28,7 @@
                         </section>
                     </header>
 
-                    <section :class="`hidden xl:grid cards gap-8 ${resultDiscover.listView ? 'col' : ''}`">
+                    <section :class="`hidden xl:grid cards gap-8`">
                         <div
                             class="relative inline-flex"
                             v-for="(car, index) in cars"
@@ -44,7 +36,6 @@
                         >
                             <span class="tag absolute top-0 left-0 block px-3 py-2.5 z-30">{{ index + 1 }}º</span>
                             <ElementsCardCar
-                                :list="resultDiscover.listView"
                                 :url="`/comprar/${car.brand}/${car.slug}`"
                                 :photos="car.photos"
                                 :name="car.name"
@@ -87,10 +78,6 @@
 </template>
 
 <script setup lang="ts">
-const resultDiscover: object = reactive({
-    listView: true,
-})
-
 const breadcrumbResult: object = [
     {
         text: "Home",
@@ -120,7 +107,7 @@ defineProps({
         @include titlePageNormal;
 
         @media screen and (max-width: $mobile) {
-            font: 700 24px/32px $gotham;
+            font: 700 24px/32px $poppins;
         }
     }
 
@@ -151,7 +138,7 @@ defineProps({
     }
 
     .cards {
-        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
 
         &.col {
             grid-template-columns: 1fr;
@@ -164,8 +151,8 @@ defineProps({
 }
 
 .tag {
-    background: $orange;
+    background: $blue;
     color: $white;
-    font: 700 12px/1 $gotham;
+    font: 700 12px/1 $poppins;
 }
 </style>

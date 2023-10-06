@@ -1,15 +1,2 @@
-@font-face {
-    font-family: "Gotham Bold";
-    font-style: bold;
-    font-weight: 700;
-    src: url('@/assets/fonts/gotham/GothamBold.eot');
-    src: local(''),
-        url('@/assets/fonts/gotham/GothamBold.eot?#iefix') format('embedded-opentype'),
-        url('@/assets/fonts/gotham/GothamBold.woff2') format('woff2'),
-        url('@/assets/fonts/gotham/GothamBold.woff') format('woff'),
-        url('@/assets/fonts/gotham/GothamBold.ttf') format('truetype'),
-        url('@/assets/fonts/gotham/GothamBold.svg#GothamBold') format('svg');
-}
-
-$gotham: "Gotham Bold", sans-serif;
+$poppins: "Poppins", sans-serif;
 $inter: "Inter", sans-serif;

@@ -42,7 +42,7 @@ defineEmits(["update:open"])
         border-bottom: 1px solid $grey-2;
     
         h5 {
-            font-family: $gotham;
+            font-family: $poppins;
             font-weight: 700;
             font-size: 16px;
             line-height: 24px;

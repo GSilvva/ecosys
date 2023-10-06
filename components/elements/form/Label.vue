@@ -1,6 +1,6 @@
 <template>
     <label
-        :class="['block mb-2 cursor-pointer', (floating ? 'floating' : '')]"
+        :class="['block mb-2 cursor-pointer', (floating ? 'floating' : ''), (blue ? 'blue' : '')]"
         :for="$formatStringSimple(label)"
     >
         {{ label }}
@@ -11,12 +11,13 @@
 defineProps({
     label: String,
     floating: Boolean,
+    blue: Boolean
 });
 </script>
 
 <style lang="scss" scoped>
 label {
-    font: 500 16px/24px $inter;
+    font: 500 16px/32px $inter;
     z-index: 9;
     
     &.floating {
@@ -31,6 +32,10 @@ label {
         background: $white;
         color: $grey-4;
         display: inline-block;
+    }
+
+    &.blue {
+        color: $blue;
     }
 }
 </style>

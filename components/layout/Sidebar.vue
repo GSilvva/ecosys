@@ -29,7 +29,7 @@ a {
     border-left: 2px solid $white;
 
     &.router-link-active {
-        border-color: $orange;
+        border-color: $blue;
         color: $dark;
     }
 
@@ -40,7 +40,7 @@ a {
     span {
         font-weight: 500;
         font-size: 10px;
-        background: $orange;
+        background: $blue;
     }
 }
 </style>

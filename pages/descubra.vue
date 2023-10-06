@@ -36,7 +36,7 @@ const discover: object = reactive({
 
 <style lang="scss" scoped>
 .page {
-  background: $orange;
+  background: $blue;
 
   .text {
     max-width: 440px;
@@ -45,7 +45,7 @@ const discover: object = reactive({
       @include titlePage;
 
       @media screen and (max-width: $mobile) {
-        font: 700 28px/34px $gotham;
+        font: 700 28px/34px $poppins;
       }
     }
   }

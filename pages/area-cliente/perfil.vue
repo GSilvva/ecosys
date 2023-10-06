@@ -62,7 +62,7 @@ definePageMeta({
 })
 
 useHead({
-    title: `b.car | Perfil`,
+    title: `Ecosys Auto | Perfil`,
     bodyAttrs: {
         class: "body"
     }

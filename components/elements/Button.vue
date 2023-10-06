@@ -1,7 +1,7 @@
 <template>
     <nuxt-link
         v-if="href"
-        :class="`xl:py-5 ${outline ? 'outlined' : ''} ${black ? 'black' : ''} ${small ? 'small' : ''} ${green ? 'green' : ''} ${classes}`"
+        :class="`xl:py-4 ${outline ? 'outlined' : ''} ${black ? 'black' : ''} ${small ? 'small' : ''} ${green ? 'green' : ''} ${outlineWhite ? 'outline-white' : ''} ${lightBlack ? 'light-black' : ''} ${classes}`"
         :to="href"
         :target="blank ? '_blank' : ''"
     >
@@ -9,7 +9,7 @@
     </nuxt-link>
     <button
         v-else
-        :class="`${outline ? 'outlined' : ''} ${black ? 'black' : ''} ${small ? 'small' : ''} ${green ? 'green' : ''} ${classes}`"
+        :class="`${outline ? 'outlined' : ''} ${black ? 'black' : ''} ${small ? 'small' : ''} ${green ? 'green' : ''} ${outlineWhite ? 'outline-white' : ''} ${lightBlack ? 'light-black' : ''} ${classes}`"
         :type="submit ? 'submit' : 'button'"
     >
         <slot />
@@ -17,30 +17,28 @@
 </template>
 
 <script setup lang="ts">
-const classes = "rounded-full transition inline-block px-8 py-4 text-center";
+const classes = "rounded-md transition inline-block px-8 py-4 text-center";
 
 defineProps({
-  href: String,
-  blank: Boolean,
-  submit: Boolean,
-  outline: Boolean,
-  black: Boolean,
-  small: Boolean,
-  green: Boolean,
+    href: String,
+    blank: Boolean,
+    submit: Boolean,
+    outline: Boolean,
+    outlineWhite: Boolean,
+    black: Boolean,
+    lightBlack: Boolean,
+    small: Boolean,
+    green: Boolean
 });
 </script>
 
 <style lang="scss" scoped>
 a,
 button {
-    font: 500 18px/24px $inter;
+    font: 500 16px/24px $inter;
     color: $white;
-    background: $orange;
-    border: 1px solid $orange;
-
-    @media screen and (max-width: $mobile) {
-        font-size: 16px;
-    }
+    background: $blue;
+    border: 1px solid $blue;
 
     &:hover {
         background: $dark;
@@ -79,8 +77,28 @@ button {
     }
 
     &.small {
-        font-size: 16px;
-        padding: 12px 32px;
+        padding: 11px 32px;
+    }
+
+    &.outline-white {
+        color: $white;
+        border-color: #333333;
+        background: transparent;
+
+        &:hover {
+            border-color: $white;
+        }
+    }
+
+    &.light-black {
+        background: #242526;
+        border-color: #242526;
+
+        &:hover {
+            background: $white;
+            border-color: $white;
+            color: $dark;
+        }
     }
 
     &:disabled {

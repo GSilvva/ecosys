@@ -4,6 +4,7 @@
             v-if="label"
             :floating="floating"
             :label="label"
+            :blue="blue"
         />
         <div class="relative w-full">
             <select
@@ -37,6 +38,7 @@ defineProps({
     name: String,
     required: Boolean,
     placeholder: Boolean,
+    blue: Boolean
 });
 </script>
 

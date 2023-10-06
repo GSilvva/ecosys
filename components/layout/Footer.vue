@@ -3,7 +3,7 @@
     <header class="top py-16 xl:py-32">
       <ElementsContainer class="justify-between">
         <aside class="logo flex justify-between flex-col mb-16 xl:m-0">
-          <VectorsIconLogo class="w-16 h-16 xl:w-max xl:h-max" />
+          <VectorsIconLogo />
           <p class="mt-9 xl:mt-0 text-white">Compre, troque <br> ou anuncie seu carro</p>
         </aside>
 
@@ -12,36 +12,20 @@
             <h6 class="mb-6">Navegação</h6>
             <div class="flex flex-col gap-3.5 xl:gap-3">
               <nuxt-link class="transition" to="/">Início</nuxt-link>
-              <nuxt-link class="transition" to="/comprar">Veículos</nuxt-link>
-              <nuxt-link class="transition" to="/vender">Anunciar</nuxt-link>
+              <nuxt-link class="transition" to="/comprar">Comprar</nuxt-link>
+              <nuxt-link class="transition" to="/revendedor">Sou lojista</nuxt-link>
               <nuxt-link class="text-white transition" to="/descubra">Descubra</nuxt-link>
               <nuxt-link class="transition" to="https://bcar-blog.fuselab.design/">News</nuxt-link>
+              <nuxt-link class="transition" to="/qvmc">QVMC</nuxt-link>
             </div>
           </article>
           <article class="w-6/12 md:w-max">
-            <h6 class="mb-6">Central b.car</h6>
+            <h6 class="mb-6">Ecosys Auto</h6>
             <div class="flex flex-col gap-3.5 xl:gap-3">
               <nuxt-link class="transition" to="/central-ajuda">Central de ajuda</nuxt-link>
               <nuxt-link class="transition" to="/politica-termos">Política de privacidade</nuxt-link>
               <nuxt-link class="transition" to="/politica-termos">Termos de uso</nuxt-link>
               <nuxt-link class="transition" to="/central-ajuda">Política de cookies</nuxt-link>
-            </div>
-          </article>
-          <article>
-            <h6 class="mb-6">Nossas lojas</h6>
-            <div class="flex flex-col gap-6">
-              <p>
-                Terraço Shopping
-                <a class="block transition" href="##" target="_blank">Sudoeste, Brasília/DF</a>
-              </p>
-              <p>
-                Boulevard Shopping
-                <a class="block transition" href="##" target="_blank">Sudoeste, Brasília/DF</a>
-              </p>
-              <p>
-                Águas Claras
-                <a class="block transition" href="##" target="_blank">Av. Jacarandá, 29, Brasília/DF</a>
-              </p>
             </div>
           </article>
         </aside>

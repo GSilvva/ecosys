@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover',
-      title: 'b.car | Comprar e vender seu carro seminovo e usado',
+      title: 'Ecosys Auto | Comprar e vender seu carro seminovo e usado',
       htmlAttrs: {
         lang: 'pt-BR'
       },
@@ -16,7 +16,7 @@ export default defineNuxtConfig({
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'b.car'
+          content: 'Ecosys Auto'
         },
         {
           hid: 'og:description',
@@ -36,7 +36,7 @@ export default defineNuxtConfig({
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://b.car/'
+          content: 'https://ecosysauto.com.br/'
         },
         {
           name: 'format-detection',
@@ -50,7 +50,7 @@ export default defineNuxtConfig({
         },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap',
+          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Poppins:wght@200;300;400;500;600;700;800&display=swap',
           crossorigin: ''
         },
       ],

@@ -113,7 +113,7 @@ function slotName(index: number) {
 };
 
 useHead({
-  title: `b.car | Central de Ajuda`,
+  title: `Central de Ajuda | Ecosys Auto`,
 });
 </script>
 

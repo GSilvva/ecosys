@@ -1,6 +1,6 @@
 <template>
     <label
-        class="flex gap-4 cursor-pointer"
+        class="flex gap-3 cursor-pointer"
         :for="label ? $formatStringSimple(label) : name"
     >
         <input
@@ -13,7 +13,8 @@
             v-model="value"
             @input="$emit('update:modelValue', $event.target.value)"
         >
-        <div class="rounded mt-px relative transition"></div>
+        <div class="rounded mt-px relative transition" :style="`background: ${color}; border-color: ${color};`"></div>
+        <img v-if="image" :src="image" alt="Imagem">
         <span :class="`w-full inline-block ${form ? 'form' : ''}`">{{ label }}</span>
     </label>
 </template>
@@ -27,6 +28,8 @@ defineProps({
     type: String,
     required: Boolean,
     form: Boolean,
+    image: String,
+    color: String
 });
 </script>
 
@@ -47,8 +50,12 @@ label {
     input:checked {
 
         & ~ div {
-            background: $orange;
-            border-color: $orange;
+            background: $blue;
+            border-color: $blue;
+
+            &::before {
+                opacity: 1;
+            }
         }
     }
 
@@ -68,6 +75,8 @@ label {
             width: 8px;
             height: 8px;
             border-radius: 2px;
+            opacity: 0;
+            transition: .3s;
         }
     }
 

@@ -9,7 +9,7 @@
             :checked="checked"
         >
         <span
-            :class="`transition block rounded-full xl:whitespace-nowrap cursor-pointer text-center ${big ? 'py-4 px-8' : 'py-3 px-6'}`"
+            :class="`transition block rounded xl:whitespace-nowrap cursor-pointer text-center ${big ? 'py-4 px-8' : 'py-3 px-6'}`"
         >
             {{ label }}
         </span>

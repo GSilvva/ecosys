@@ -279,10 +279,10 @@ defineProps({
 }
 
 .title {
-    font: 700 24px/28px $gotham;
+    font: 700 24px/28px $poppins;
 
     @media screen and (max-width: $tablet) {
-        font: 700 20px/28px $gotham;
+        font: 700 20px/28px $poppins;
         max-width: 245px;
         width: 100%;
     }

@@ -17,8 +17,8 @@ defineProps({
 <style lang="scss">
 .favorited {
     path {
-        stroke: $orange;
-        fill: $orange;
+        stroke: $blue;
+        fill: $blue;
     }
 }
 </style>

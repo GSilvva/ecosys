@@ -47,10 +47,10 @@
     max-width: 790px;
 
     h1 {
-        font: 700 48px/52px $gotham;
+        font: 700 48px/52px $poppins;
 
         @media screen and (max-width: $mobile) {
-            font: 700 24px/32px $gotham;
+            font: 700 24px/32px $poppins;
         }
     }
 

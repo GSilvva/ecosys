@@ -26,9 +26,9 @@ defineProps({
 span {
     font-weight: 700;
     font-size: 12px;
-    font-family: $gotham;
+    font-family: $poppins;
     background: rgba(246, 83, 26, 0.1);
-    color: $orange;
+    color: $blue;
 
     &.confirmed {
         background: rgba(77, 160, 37, 0.1);

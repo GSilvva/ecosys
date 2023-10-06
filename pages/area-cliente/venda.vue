@@ -386,7 +386,7 @@ definePageMeta({
 })
 
 useHead({
-    title: `b.car | Venda`,
+    title: `Ecosys Auto | Venda`,
 })
 </script>
 

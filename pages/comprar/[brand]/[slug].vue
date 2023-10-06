@@ -400,7 +400,7 @@ const onSwiper = (swiper: any) => {
 }
 
 useHead({
-    title: `${carData.name} | b.car`
+    title: `${carData.name} | Ecosys Auto`
 })
 </script>
 
@@ -470,16 +470,16 @@ useHead({
         }
 
         h1 {
-            font: 700 32px/38px $gotham;
+            font: 700 32px/38px $poppins;
 
             @media screen and (max-width: $mobile) {
-                font: 700 24px/32px $gotham;
+                font: 700 24px/32px $poppins;
             }
         }
 
         h4 {
             color: $grey-3;
-            font: 700 16px/24px $gotham;
+            font: 700 16px/24px $poppins;
         }
 
         h5 {
@@ -495,7 +495,7 @@ useHead({
 
             span {
                 border: 1px solid $dark;
-                font: 700 12px/10px $gotham;
+                font: 700 12px/10px $poppins;
 
                 @media screen and (max-width: $mobile) {
                     font-size: 10px;
@@ -545,10 +545,10 @@ useHead({
     }
 
     h2 {
-        font: 600 32px/40px $gotham;
+        font: 600 32px/40px $poppins;
 
         @media screen and (max-width: $mobile) {
-            font: 700 20px/1 $gotham;
+            font: 700 20px/1 $poppins;
         }
     }
 
@@ -566,7 +566,7 @@ useHead({
 
     .btn-mob {
         font: 500 20px/1 $inter;
-        background: $orange;
+        background: $blue;
 
         @media screen and (max-width: $mobile) {
             font-size: 16px;

@@ -1,127 +1,87 @@
 <template>
-  <main class="home">
-    <section class="header pt-big">
+  <main class="home pt-sm">
+    <section class="header relative mb-32 my-14 xl:overflow-hidden">
       <ElementsContainer block>
-        <section class="call xl:flex items-end justify-between">
-          <aside class="pb-16 xl:pb-0">
-            <h1 class="h1">compre, venda ou troque seu carro</h1>
-            <p class="mt-8 xl:mt-10">Tudo de forma inteligente, <br> segura e simplificada.</p>
-            <div class="mt-8 xl:mt-12 w-full">
-              <ElementsButton href="/comprar" class="h-16 md:h-20 flex items-center justify-between mb-3 md:mb-4">
-                Comprar ou trocar
-                <VectorsArrowRightBig />
-              </ElementsButton>
-              <ElementsButton href="/vender" class="h-16 md:h-20 mt-3 flex items-center justify-between" outline>
-                Vender
-                <VectorsArrowLeftBig />
-              </ElementsButton>
-            </div>
-          </aside>
-
-          <figure class="w-full">
-            <div class="car relative xl:pr-10 xl:pt-16 pb-6 xl:pb-16 bg-white">
-              <article class="relative z-20 flex items-center xl:justify-center gap-6 xl:gap-8 mb-6 xl:mb-12 xl:pl-36 pb-7 xl:pb-0">
-                <VectorsFirst />
-                <p>A autotech mais bem avaliada <br> do segmento</p>
-              </article>
-              <img class="relative z-20 pr-6 xl:pr-0" src="/images/home/car-header.png" alt="Carro">
-            </div>
-            <div class="thumb ml-auto w-full">
-              <ElementsVideo video="https://www.youtube.com/embed/dYk_2QXpkgc">
-                <img class="h-full w-full object-cover opacity-60" src="/images/home/thumbnail.jpg" alt="Foto">
-                <div class="text absolute top-1/2 left-8 md:left-20 flex items-center gap-6">
-                  <div class="transition h-19 w-19">
-                    <VectorsPlay />
-                  </div>
-                  <p class="text-white text-left">Veja como <br> funciona</p>
-                </div>
-              </ElementsVideo>
-            </div>
+        <section class="banner xl:flex items-center justify-between relative">
+          <h1 class="text-white uppercase pl-4 sm:pl-0 xl:pl-10">
+            <span class="text-white block">Chegou o novo</span>
+            BMW X1 <br /> M1GT
+          </h1>
+          <figure class="xl:absolute">
+            <picture>
+              <source media="(max-width: 1180px)" srcset="/images/home/car-mob.png" />
+              <img src="/images/home/car-desk.png" alt="Carro">
+            </picture>
           </figure>
+          <p class="text-white xl:flex items-end flex-col xl:text-right mt-12 xlmt-0 pl-4 sm:pl-0 sm:pr-8">
+            Entrada de 20 mil <br /> s/ juros
+            <nuxt-link class="text-white block pt-5 xl:pt-6" to="/comprar">Saiba mais</nuxt-link>
+          </p>
         </section>
+        <form class="form bg-white pt-6 px-5 sm:p-8 rounded mt-12 xl:mt-20 z-10 relative" action="" method="GET">
+          <header class="flex gap-1.5 xl:gap-2 mb-6">
+            <label class="relative block cursor-pointer" for="comprar">
+              <input class="opacity-0 absolute" id="comprar" name="typeSearch" type="radio" checked>
+              <span class="capitalize rounded-full py-3 px-5 sm:px-6 block transition">Comprar <small class="hidden sm:inline">carros</small></span>
+            </label>
+            <label class="relative block cursor-pointer" for="vender">
+              <input class="opacity-0 absolute" id="vender" name="typeSearch" type="radio" check>
+              <span class="capitalize rounded-full py-3 px-5 sm:px-6 block transition">Vender <small class="hidden sm:inline">meu carro</small></span>
+            </label>
+            <label class="relative block cursor-pointer" for="financiar">
+              <input class="opacity-0 absolute" id="financiar" name="typeSearch" type="radio">
+              <span class="capitalize rounded-full py-3 px-5 sm:px-6 block transition"><small class="hidden sm:inline">Quero</small> financiar</span>
+            </label>
+          </header>
+          <footer class="sm:flex gap-4">
+            <fieldset class="w-full flex items-center relative">
+              <div class="absolute">
+                <VectorsSearch />
+              </div>
+              <input class="block w-full h-14 sm:h-full pr-4" type="search" placeholder="Digite marca ou modelo do carro">
+            </fieldset>
+            <ElementsButton class="whitespace-nowrap w-full sm:w-auto" submit>Ver ofertas (101.559)</ElementsButton>
+          </footer>
+        </form>
       </ElementsContainer>
     </section>
 
-    <section class="about mt-24 xl:mt-28 pb-32 xl:pb-48" id="sobre">
+    <section class="cars pb-20 xl:pb-48" data-animate>
       <ElementsContainer block>
-        <section class="divisor xl:pt-28">
-          <h2 data-animate class="title mb-8 md:mb-12 xl:mb-20">visite nossas <br> lojas em brasília</h2>
-
-          <section data-animate class="cards flex justify-between gap-6 md:gap-8 overflow-x-auto xl:overflow-x-visible px-6 md:px-12 xl:px-0">
-            <div class="card w-full">
-              <img class="object-cover w-full h-60 xl:h-72" src="/images/general/terraco.jpg" alt="Foto">
-              <div class="pt-6 xl:p-10 xl:bg-white">
-                <header class="mb-6 flex justify-between xl:block">
-                  <aside>
-                    <h3 class="mb-1">Terraço Shopping</h3>
-                    <h6>Sudoeste, Brasília/DF</h6>
-                  </aside>
-                  <a class="inline-block xl:hidden underline mt-1" href="##" target="_blank">Ver no maps</a>
-                </header>
-                <p>
-                  <strong>Seg a Sex:</strong> 8h30 às 18h
-                  <br>
-                  <strong>Sáb:</strong> 9h às 14h
-                </p>
-                <a class="hidden xl:inline-block underline mt-6" href="##" target="_blank">Ver no maps</a>
-              </div>
-            </div>
-            <div class="card w-full">
-              <img class="object-cover w-full h-60 xl:h-72" src="/images/general/boulevard.jpg" alt="Foto">
-              <div class="pt-6 xl:p-10 xl:bg-white">
-                <header class="mb-6 flex justify-between xl:block">
-                  <aside>
-                    <h3 class="mb-1">Boulevard Shopping</h3>
-                    <h6>Sudoeste, Brasília/DF</h6>
-                  </aside>
-                  <a class="inline-block xl:hidden underline mt-1" href="##" target="_blank">Ver no maps</a>
-                </header>
-                <p>
-                  <strong>Seg a Sex:</strong> 8h30 às 18h
-                  <br>
-                  <strong>Sáb:</strong> 9h às 14h
-                </p>
-                <a class="hidden xl:inline-block underline mt-6" href="##" target="_blank">Ver no maps</a>
-              </div>
-            </div>
-            <div class="card w-full">
-              <img class="object-cover w-full h-60 xl:h-72" src="/images/general/aguas-claras.jpg" alt="Foto">
-              <div class="pt-6 xl:p-10 xl:bg-white">
-                <header class="mb-6 flex justify-between xl:block">
-                  <aside>
-                    <h3 class="mb-1">Águas Claras</h3>
-                    <h6>Sudoeste, Brasília/DF</h6>
-                  </aside>
-                  <a class="inline-block xl:hidden underline mt-1" href="##" target="_blank">Ver no maps</a>
-                </header>
-                <p>
-                  <strong>Seg a Sex:</strong> 8h30 às 18h
-                  <br>
-                  <strong>Sáb:</strong> 9h às 14h
-                </p>
-                <a class="hidden xl:inline-block underline mt-6" href="##" target="_blank">Ver no maps</a>
-              </div>
-            </div>
-          </section>
-
-          <div data-animate class="text flex items-center gap-8 xl:gap-12 mt-20 xl:mt-24">
-            <VectorsIconLogo />
-            <p class="w-full">Há 10 anos resolvendo a vida de quem quer comprar ou vender um seminovo com garantia e segurança.</p>
-          </div>
+        <h2 class="mb-8 sm:mb-12">Destaques</h2>
+      </ElementsContainer>
+      <ElementsContainer class="container" block>
+        <section class="cards grid gap-1 xl:gap-8">
+          <ElementsCardCar
+            v-for="(car, index) in cars"
+            :key="index"
+            :url="`/comprar/${car.brand}/${car.slug}`"
+            :photos="car.photos"
+            :name="car.name"
+            :brand="car.brand"
+            :characteristics="car.characteristics"
+            :transmission="car.transmission"
+            :price="car.price"
+            :old_price="car.old_price"
+            :build_year="car.build_year"
+            :model_year="car.model_year"
+            :km="car.km"
+            :store="car.store"
+          />
         </section>
       </ElementsContainer>
     </section>
 
-    <section class="services pb-28 xl:pb-48">
+    <section class="services pb-28 xl:pb-48" data-animate>
       <ElementsContainer class="gap-8">
-        <aside data-animate class="bg-white mb-6 xl:mb-0">
-          <header class="py-6 px-6 md:pt-10 md:pr-10 md:pb-14 md:pl-14">
-            <VectorsBuy class="ml-auto mb-8" />
+        <aside data-animate class="bg-white mb-12 xl:mb-0">
+          <header class="p-6 sm:pt-10 sm:pr-10 sm:pb-14 sm:pl-14">
+            <VectorsBuy class="xl:ml-auto mb-8 w-16 h-16" />
             <nuxt-link class="relative block" href="/comprar">
-              <h5 class="mb-4">Eu quero</h5>
-              <h2 class="uppercase">Comprar <br> ou trocar</h2>
-              <div class="absolute bottom-3 right-7 xl:right-0 transition">
-                <VectorsArrowRight class="w-5" />
+              <h5 class="sm:mb-4">Eu quero</h5>
+              <h2>Comprar <br> ou trocar</h2>
+              <div class="absolute bottom-1 sm:bottom-3 right-0 transition">
+                <VectorsArrowRight class="w-3 xl:w-5" />
               </div>
             </nuxt-link>
           </header>
@@ -151,13 +111,13 @@
         </aside>
 
         <aside data-animate class="bg-white">
-          <header class="py-6 px-6 md:pt-10 md:pr-10 md:pb-14 md:pl-14">
-            <VectorsSale class="ml-auto mb-8" />
+          <header class="p-6 sm:pt-10 sm:pr-10 sm:pb-14 sm:pl-14">
+            <VectorsSale class="xl:ml-auto mb-8 w-16 h-16" />
             <nuxt-link class="relative block" href="/vender">
-              <h5 class="mb-4">Eu quero</h5>
-              <h2 class="uppercase">Vender <br> meu carro</h2>
-              <div class="absolute bottom-3 right-7 xl:right-0 transition">
-                <VectorsArrowRight class="w-5" />
+              <h5 class="sm:mb-4">Eu quero</h5>
+              <h2>Vender <br> meu carro</h2>
+              <div class="absolute bottom-1 sm:bottom-3 right-0 transition">
+                <VectorsArrowRight class="w-3 xl:w-5" />
               </div>
             </nuxt-link>
           </header>
@@ -188,25 +148,7 @@
       </ElementsContainer>
     </section>
     
-    <ElementsTestimonial
-      photo="./images/home/man.png"
-      name="Tiago Luchtenberg"
-      description="Comprou seu BMW Vulcano"
-    >
-      Um ótimo negócio para quem deseja vender ou comprar seu carro sem dor de cabeça. Ótimo atendimento e colaboradores excepcionais. Indico de olhos fechados a b.car.
-    </ElementsTestimonial>
-
-    <section class="finance pb-24 xl:pb-36">
-      <ElementsContainer center>
-        <img data-animate class="mb-12 xl:mb-0 w-full" src="/images/home/finance.jpg" alt="Foto">
-        <aside data-animate>
-          <h6 class="mb-4 xl:mb-6">Financie com a gente</h6>
-          <h2 class="mb-6 xl:mb-8">Agilidade e sem burocracia</h2>
-          <p class="mb-6 xl:mb-8">Segurança, atendimento diferenciado e as melhores condições do mercado. Escolha o carro que deseja solicite um orçamento personalizado pelo nosso chat.</p>
-          <ElementsButton href="/comprar">Escolher um carro</ElementsButton>
-        </aside>
-      </ElementsContainer>
-    </section>
+    <ElementsTestimonial />
 
     <!-- <section class="blog pb-28 xl:pb-48">
       <ElementsContainer block>
@@ -232,7 +174,7 @@
       <ElementsContainer block>
         <section class="relative bg-white flex-col-reverse xl:flex-row flex xl:items-end justify-between pl-6 md:pl-10 xl:pl-0">
           <aside data-animate class="w-full py-10 xl:py-24 xl:pl-24 flex flex-col items-start">
-            <h2 class="mb-5 xl:mb-8">em breve <br> o seu portal de notícias</h2>
+            <h2 class="mb-5 xl:mb-8">Em breve o seu portal de notícias</h2>
             <p class="w-full">Estamos trabalhando para trazer para você as noticias e conteúdos mais relevantes do mercado automotivo.</p>
             <footer class="hidden xl:flex pt-8 mt-16 relative">
               <span class="flex items-center">Veículos</span>
@@ -247,51 +189,52 @@
       </ElementsContainer>
     </section>
 
-    <ElementsTestimonial
-      photo="./images/home/women.png"
-      name="Luciana Gimenez"
-      description="Vendeu seu Chevrolet Camaro"
-    >
-      Atendimento profissional, respeitoso, tanto com o cliente vendedor quanto para o cliente comprador. <br><br> Vendi o meu carro pela BCar e em todos os contatos fui muito bem orientada e recebi todos os feedbacks necessários para uma transação de qualidade.
-    </ElementsTestimonial>
+    <section class="finance pb-24 xl:pb-48">
+      <ElementsContainer center>
+        <img data-animate class="mb-12 xl:mb-0 w-full" src="/images/home/finance.jpg" alt="Foto">
+        <aside data-animate>
+          <h6 class="mb-4 xl:mb-6">Financie com a gente</h6>
+          <h2 class="mb-6 xl:mb-8">Agilidade e <br/> sem burocracia</h2>
+          <p class="mb-6 xl:mb-10">Segurança, atendimento diferenciado e as melhores condições do mercado. Escolha o carro que deseja solicite um orçamento personalizado pelo nosso chat.</p>
+          <ElementsButton href="/comprar">Escolher um carro</ElementsButton>
+        </aside>
+      </ElementsContainer>
+    </section>
 
-    <section class="discover pb-14 xl:pb-48 relative">
+    <section class="discover relative">
       <ElementsContainer block class="container relative z-20">
-        <section class="overflow-hidden px-6 pt-24 xl:pt-28 xl:pr-8 pb-16 xl:pb-10 xl:pl-24">
-          <div class="flex flex-col-reverse xl:flex-row justify-between items-center">
-            <aside data-animate class="flex flex-col items-center xl:items-start w-full mt-16 xl:mt-0">
-              <h2 class="text-center xl:text-left text-white !normal-case">DESCUBRA AGORA O SEU b.car IDEAL</h2>
-              <p class="text-center xl:text-left mt-6 mb-8 xl:my-8 text-white">Responda o nosso questionário a seguir. Cada pergunta respondida representa um caminho pra você encontrar seu carro ideal.</p>
-              <ElementsButton
-                black
-                @click="openDiscover = true"
-              >
-                Descobrir meu carro
-              </ElementsButton>
-            </aside>
-            <figure class="relative w-full">
-              <img class="mix-blend-multiply relative z-20" src="/images/general/mystery-car.png" alt="Carro misterioso">
-              <img class="absolute top-1/2 left-1/2 z-10 xl:max-w-max" src="/images/general/graphism-mystery-car.svg" alt="Graphismo">
-            </figure>
-          </div>
-          <h6 data-animate class="hidden xl:block text-white text-right pr-2 mt-3.5">Entre 200 veículos, <br> 1 com certeza tem a sua cara</h6>
+        <section data-animate class="pt-24 pb-20 sm:p-24 relative overflow-hidden flex flex-col-reverse xl:flex-row justify-between items-center">
+          <aside class="flex flex-col items-center xl:items-start max-w-md w-full mt-16 xl:mt-0 px-8 sm:px-0 z-20">
+            <h2 class="text-center xl:text-left text-white !normal-case">Descubra agora o seu carro ideal</h2>
+            <p class="text-center xl:text-left mt-6 mb-8 sm:my-8 text-white">Responda o nosso questionário a seguir. <br /> Cada pergunta respondida representa um caminho pra você encontrar seu carro ideal.</p>
+            <ElementsButton
+              black
+              @click="openDiscover = true"
+            >
+              Descobrir meu carro
+            </ElementsButton>
+          </aside>
+          <figure class="relative xl:absolute top-0 right-0 z-10 xl:h-full flex items-center">
+            <img class="relative z-20" src="/images/general/mystery-car.png" alt="Carro misterioso">
+            <img class="absolute right-0 z-10" src="/images/general/graphism-mystery-car.svg" alt="Graphismo">
+          </figure>
         </section>
       </ElementsContainer>
     </section>
 
     <section class="featured">
       <ElementsContainer block>
-        <section class="xl:flex items-center justify-between py-16 xl:pt-40 xl:pb-32">
+        <section class="xl:flex items-center justify-between py-16 xl:pt-48 xl:pb-36">
           <figure data-animate class="relative w-full xl:pl-7 xl:pt-20 xl:pb-16">
-            <article class="relative z-20 flex items-center xl:justify-center gap-6 xl:gap-8 mb-6 pb-6 xl:pb-0 xl:mb-8 xl:pr-36">
+            <article class="relative z-20 flex items-center xl:justify-center gap-6 xl:gap-8 mb-4 pb-4 xl:pb-0 xl:mb-8 xl:pr-36">
               <VectorsFirst />
-              <p class="text-white">A autotech mais bem avaliada <br> do segmento</p>
+              <p class="text-white">A autotech mais bem avaliada <br /> do segmento</p>
             </article>
             <img class="relative z-20 hidden xl:block" src="/images/home/car-footer.png" alt="Carro">
           </figure>
           <aside data-animate class="w-full">
-            <h2 class="h1 text-white mb-6 md:mb-10">Mais de <br> 200 carros pra você</h2>
-            <p class="text-white w-full mb-8 md:mb-10">Veja nosso catálogo de veículos e fique a vontade para falar com a gente ou nos visitar em brasília.</p>
+            <h2 class="h1 text-white mb-6 md:mb-10">Mais de <br /> 200 carros <br /> pra você</h2>
+            <p class="text-white w-full mb-8 md:mb-10">Veja nosso catálogo de veículos e fique a vontade para falar com a gente.</p>
             <ElementsButton href="/comprar">Ver todos os carros</ElementsButton>
           </aside>
         </section>
@@ -304,235 +247,292 @@
 
 <script setup lang="ts">
 const openDiscover = ref(false)
+const cars = [
+  {
+      brand: "BMW",
+      slug: "",
+      photos: [
+          {
+              url_path: "/images/general/card4.png",
+          },
+          {
+              url_path: "/images/general/car3.png",
+          },
+          {
+              url_path: "/images/general/car2.jpg",
+          },
+      ],
+      name: "M3",
+      characteristics: "2.0 16V Diesel Limited 4X4",
+      transmission: "Automático",
+      price: 125900,
+      old_price: 999999,
+      build_year: 2018,
+      model_year: 2019,
+      km: 100000,
+      store: "Webmotors"
+  },
+  {
+      brand: "Toyota",
+      slug: "",
+      photos: [
+          {
+              url_path: "/images/general/car3.png",
+          },
+      ],
+      name: "Corolla",
+      characteristics: "2.0 16V Diesel Limited 4X4",
+      transmission: "Automático",
+      price: 125900,
+      old_price: 999999,
+      build_year: 2018,
+      model_year: 2019,
+      km: 100000,
+      store: "Webmotors"
+  },
+  {
+      brand: "BMW",
+      slug: "",
+      photos: [
+          {
+              url_path: "/images/general/carnew.png",
+          },
+          {
+              url_path: "/images/general/card4.png",
+          },
+      ],
+      name: "M3",
+      characteristics: "2.0 16V Diesel Limited 4X4",
+      transmission: "Automático",
+      price: 125900,
+      old_price: 999999,
+      build_year: 2018,
+      model_year: 2019,
+      km: 100000,
+      store: "Webmotors"
+  }
+]
 </script>
 
 <style lang="scss" scoped>
 .header {
-  .call {
-    aside {
-      max-width: 465px;
-      width: 100%;
-      @media screen and (max-width: $tablet) {
-        max-width: 100%;
+  background: $blue;
+  margin: 0 0 120px 0;
+
+  @media (max-width: $mobile) {
+    margin: 0 0 108px 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 136px;
+    background: $grey-1;
+    z-index: 1;
+
+    @media (max-width: $mobile) {
+      height: 176px;
+    }
+  }
+
+  .banner {
+    padding: 53px 0 0 0;
+
+    @media (max-width: $mobile) {
+      padding: 60px 0 0 0; 
+    }
+
+    h1 {
+      font: 600 80px/70px $poppins;
+
+      @media (max-width: $mobile) {
+        font: 600 56px/48px $poppins;
       }
 
-      p {
-        font: 400 22px/30px $inter;
-      }
+      span {
+        font: 600 24px/70px $poppins;
 
-      div {
-        max-width: 375px;
-        @media screen and (max-width: $tablet) {
-          max-width: 100%;
+        @media (max-width: $mobile) {
+          font: 600 16px/1.6 $poppins;
         }
       }
     }
 
     figure {
-      max-width: 632px;
+      top: -57px;
+      left: 277px;
 
-      @media screen and (max-width: $tablet) {
-        max-width: 100%;
-      }
+      @media (max-width: $tablet) {
+        margin-top: -120px;
+        transform: translateX(-48px);
+        min-width: calc(100% + calc(48px * 2));
+        max-width: calc(100% + calc(48px * 2));
 
-      .car {
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 10;
-          height: 100%;
-          background: $grey-1;
-          width: 112px;
-
-          @media screen and (max-width: $mobile) {
-            width: 72px;
-          }
-        }
-
-        article {
-          @media screen and (max-width: $tablet) {
-            background: $grey-1;
-          }
-
-          @media screen and (max-width: $mobile) {          
-            svg {
-              width: 48px;
-              height: 48px;
-            }
-          }
-
-          p {
-            color: $dark;
-            font: 400 18px/26px $inter;
-
-            @media screen and (max-width: $mobile) {
-              font: 400 14px/20px $inter;
-            }
-          }
+        img {
+          width: 100%;
         }
       }
 
-      .thumb {
-        max-width: calc(100% - 112px);
-        background: $dark;
-        height: 136px;
+      @media (max-width: $mobile) {
+        margin-top: -52px;
+        transform: translateX(-24px);
+        min-width: calc(100% + calc(24px * 2));
+        max-width: calc(100% + calc(24px * 2));
+      }
 
-        @media screen and (max-width: $tablet) {
-          max-width: 100%;
-          height: 140px;
+      @media (max-width: 340px) {
+        margin-top: -36px;
+      }
+    }
+
+    p {
+      font: 600 20px/24px $poppins;
+
+      a {
+        font: 500 16px/24px $poppins;
+      }
+    }
+  }
+
+  .form {
+
+    @media (max-width: $mobile) {
+      width: calc(100% + 16px);
+      transform: translateX(-8px);
+    }
+
+    header {
+
+      @media (max-width: 340px) {
+        overflow-x: auto;
+      }
+      
+      label {
+
+        &:hover {
+
+          span {
+            border-color: $dark;
+          }
         }
 
-        .text {
+        input {
+
+          &:checked ~ span {
+            border-color: $blue;
+            color: $blue;
+            background: rgba(0, 146, 253, 0.04);
+          }
+        }
+
+        span {
+          border: 1px solid $grey-2;
+
+          &,
+          & * {
+            font: 500 16px/24px $inter;
+
+            @media (max-width: $mobile) {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+
+    footer {
+
+      fieldset {
+
+        @media (max-width: $mobile) {
+          margin: 0 0 -13px 0;
+        }
+
+        div {
+          top: 50%;
+          left: 16px;
           transform: translateY(-50%);
+        }
+        
+        input {
+          font: 500 16px/24px $inter;
+          padding-left: 52px;
+          border: 1px solid $grey-2;
+          border-radius: 5px;
+          background: #F5F6F7;
 
-          div {
-            animation: scale 3s ease infinite;
-            width: 72px;
-            height: 72px;
-
-            @media screen and (max-width: $mobile) {
-              width: 56px;
-              height: 56px;
-            }
-
-            svg {
-              width: 100%;
-              height: 100%;
-            }
-
-            @keyframes scale {
-                  0%, 40%, 80%, 100% {
-                      transform: scale(1);
-                  }
-                  30% {
-                      transform: scale(1.2);
-                  }
-                  60% {
-                      transform: scale(1);
-                  }
-            }
+          &::placeholder {
+            opacity: 1;
+            color: rgba(17, 18, 20, .4);
           }
+        }
+      }
 
-          p {
-            font: 500 18px/24px $inter;
-
-            @media screen and (max-width: $mobile) {
-              font: 500 16px/22px $inter;
-            }
-          }
+      button {
+        
+        @media (max-width: $mobile) {
+          transform: translateY(50%);
         }
       }
     }
   }
 }
 
-.about {
-  .divisor {
-    @media screen and (min-width: $tablet) {
-      border-top: 1px solid $grey-2;
+.cars {
+
+  .container {
+    @media screen and (max-width: $tablet) {
+      padding: 0;
     }
   }
 
-  .text {
-    p {
-      max-width: 375px;
-      font: 400 18px/26px $inter;
-      @media screen and (max-width: $mobile) {
-        font: 400 14px/20px $inter;
-      }
+  h2 {
+    font: 600 40px/44px $poppins;
+    @media (max-width: $mobile) {
+      font: 600 28px/34px $poppins;
     }
-
-    svg {
-      min-width: 72px;
-      max-width: 72px;
-      height: 72px;
-
-      @media screen and (max-width: $mobile) {
-        min-width: 56px;
-        max-width: 56px;
-        height: 56px;
-      }
-    }
-  }
-
-  .title {
-    @include titlePage;
   }
 
   .cards {
+    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+
+    &.col {
+      grid-template-columns: 1fr;
+    }
 
     @media screen and (max-width: $tablet) {
-      width: calc(100% + 96px);
-      transform: translateX(-48px);
-    }
-
-    @media screen and (max-width: $mobile) {
-      width: calc(100% + 48px);
-      transform: translateX(-24px);
-    }
-
-    .card {
-
-      @media screen and (max-width: $tablet) {
-        min-width: 330px;
-        max-width: 330px;
-      }
-
-      @media screen and (max-width: 390px) {
-        min-width: 305px;
-        max-width: 305px;
-      }
-
-      h3 {
-        font: 600 24px/32px $inter;
-
-        @media screen and (max-width: $tablet) {
-          font: 500 20px/28px $inter;
-        }
-      }
-
-      h6 {
-        font: 400 18px/26px $inter;
-        color: $grey-5;
-        
-        @media screen and (max-width: $tablet) {
-          font: 400 16px/22px $inter;
-        }
-      }
-
-      p {
-        font: 400 16px/24px $inter;
-
-        @media screen and (max-width: $tablet) {
-          font-size: 14px;
-          line-height: 22px;
-        }
-
-        strong {
-          font-weight: 500;
-        }
-      }
-
-      a {
-        font: 500 16px/24px $inter;
-
-        @media screen and (max-width: $tablet) {
-          font: 500 14px/20px $inter;
-        }
-      }
+      grid-template-columns: 1fr;
     }
   }
 }
 
 .services {
-
   aside {
+    header {
+      & > svg {
+        @media (min-width: $tablet) {
+          width: 72px !important;
+          height: 72px !important;
+        }
+      }
+    }
     a {
-      font: 700 40px/44px $gotham;
-      @media screen and (max-width: $mobile) {
-        font: 700 24px/28px $gotham;
+      h2 {
+        font: 600 40px/44px $poppins;
+
+        @media screen and (max-width: $mobile) {
+          font: 600 24px/28px $poppins;
+        }
+
+        br {
+
+          @media (max-width: $tablet) {
+            display: none;
+          }
+        }
       }
       
       h5 {
@@ -555,6 +555,10 @@ const openDiscover = ref(false)
       @media screen and (max-width: $tablet) {
         border-top-width: 5px;
       }
+        svg {
+          min-width: 28px;
+          height: 28px;
+        }
       h6 {
         @include paragraph;
         font-weight: 600 !important;
@@ -564,7 +568,7 @@ const openDiscover = ref(false)
         }
       }
       p {
-        font: 400 17px/25px $inter; 
+        font: 500 18px/26px $inter; 
         @media screen and (max-width: $mobile) {
           font: 400 16px/24px $inter;
         }
@@ -591,7 +595,13 @@ const openDiscover = ref(false)
     h2 {
       @include titlePage;
       @media screen and (max-width: $mobile) {
-        font: 700 28px/34px $gotham;
+        font: 700 28px/34px $poppins;
+      }
+    }
+    p {
+      font: 500 18px/26px $inter;
+      @media screen and (max-width: $mobile) {
+        font: 400 16px/24px $inter;
       }
     }
   }
@@ -627,7 +637,11 @@ const openDiscover = ref(false)
         }
       }
       p {
+        font: 500 20px/28px $inter;
         max-width: 440px;
+        @media (max-width: $mobile) {
+          font: 400 16px/24px $inter;
+        }
       }
       footer {
         border-top: 1px solid $grey-2;
@@ -637,7 +651,7 @@ const openDiscover = ref(false)
           top: 0;
           transform: translateY(-100%);
           left: 0;
-          background: $orange;
+          background: $blue;
           height: 4px;
           width: 20px;
         }
@@ -673,36 +687,50 @@ const openDiscover = ref(false)
     left: 0;
     bottom: -1px;
     width: 100%;
-    height: 180px;
+    height: 130px;
     background: $dark;
-    display: none;
-    @media screen and (max-width: $tablet) {
-      display: block;
+    @media (max-width: $mobile) {
+      height: 360px;
     }
   }
   section {
-    background: $orange;
-
+    background: $blue;
     aside {
-      max-width: 360px;
-
+      max-width: 450px;
       @media screen and (max-width: $tablet) {
         max-width: 100%;
-        padding: 0 8px;
       }
       h2 {
         @include titlePage;
       }
       p {
+        font: 400 18px/28px $inter;
         @media screen and (max-width: $mobile) {
           font: 400 14px/22px $inter;
+          br {
+            display: none;
+          }
         }
       }
     }
     figure {
-      max-width: 632px;
-      img:last-of-type {
-        transform: translate(-50%, -50%);
+      img {
+        &:first-of-type {
+          right: -100px;
+          @media (max-width: $tablet) {
+            right: unset;
+          }
+        }
+        &:last-of-type {
+          top: -48px;
+          @media (max-width: $mobile) {
+            max-width: 296px;
+            top: -60px;
+            left: 12px;
+            right: unset;
+            width: 100%;
+          }
+        }
       }
     }
   }
@@ -716,7 +744,7 @@ const openDiscover = ref(false)
 
     figure {
       max-width: 640px;
-      background: rgba(86, 86, 89, .24);
+      background: rgba(86, 87, 89, .24);
 
       @media screen and (max-width: $tablet) {
         background: transparent;
@@ -752,14 +780,14 @@ const openDiscover = ref(false)
     }
 
     aside {
-      max-width: 495px;
+      max-width: 400px;
 
       p {
-        font: 400 22px/30px $inter;
-        max-width: 420px;
+        font: 400 18px/30px $inter;
+        color: $grey-2;
 
         @media screen and (max-width: $mobile) {
-          font: 400 18px/26px $inter;
+          font: 400 14px/24px $inter;
         }
       }
     }

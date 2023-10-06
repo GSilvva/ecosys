@@ -89,8 +89,8 @@
   }
 
   &:hover {
-    background: $orange;
-    border-color: $orange;
+    background: $blue;
+    border-color: $blue;
     color: $white;
   }
 }

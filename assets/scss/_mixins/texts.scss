@@ -1,54 +1,54 @@
 // RESETS
 @mixin h1 {
-    font: 72px/74px $gotham;
+    font: 600 72px/74px $poppins;
 
     @media screen and (max-width: $mobile) {
-        font: 42px/44px $gotham;
+        font: 600 42px/44px $poppins;
     }
 }
 
 @mixin h2 {
-    font: 56px/62px $gotham;
+    font: 600 56px/62px $poppins;
 
     @media screen and (max-width: $mobile) {
-        font: 28px/34px $gotham;
+        font: 600 28px/34px $poppins;
     }
 }
 
 @mixin h3 {
-    font: 48px/1 $gotham;
+    font: 600 48px/1 $poppins;
 
     @media screen and (max-width: $mobile) {
-        font: 24px/30px $gotham;
+        font: 600 24px/30px $poppins;
     }
 }
 
 @mixin h4 {
-    font: 40px/44px $gotham;
+    font: 600 40px/44px $poppins;
 
     @media screen and (max-width: $mobile) {
-        font: 20px/26px $gotham;
+        font: 600 20px/26px $poppins;
     }
 }
 
 @mixin h5 {
-    font: 32px/40px $gotham;
+    font: 600 32px/40px $poppins;
 
     @media screen and (max-width: $mobile) {
-        font: 14px/22px $gotham;
+        font: 600 14px/22px $poppins;
     }
 }
 
 @mixin h6 {
-    font: 24px/28px $gotham;
+    font: 600 24px/28px $poppins;
 
     @media screen and (max-width: $mobile) {
-        font: 10px/1 $gotham;
+        font: 600 10px/1 $poppins;
     }
 }
 
 @mixin paragraph {
-    font: 400 20px/28px $inter;
+    font: 400 18px/26px $inter;
 
     @media screen and (max-width: $mobile) {
         font: 400 16px/24px $inter;
@@ -57,24 +57,17 @@
 
 // TITLES
 @mixin titlePage {
-    font: 48px/1 $gotham;
-    text-transform: uppercase;
+    font: 600 40px/1 $poppins;
 
     @media screen and (max-width: $mobile) {
-        font: 24px/28px $gotham;
+        font: 600 28px/34px $poppins;
     }
 }
 
 @mixin titlePageNormal {
-    font: 32px/40px $gotham;
-    text-transform: uppercase;
+    font: 600 32px/40px $poppins;
 
     @media screen and (max-width: $mobile) {
-        font: 20px/28px $gotham;
+        font: 600 24px/32px $poppins;
     }
-}
-
-@mixin titlePageMobile {
-    font: 24px/32px $gotham;
-    text-transform: uppercase;
 }

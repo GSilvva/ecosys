@@ -13,14 +13,14 @@ defineProps({
 
 <style lang="scss" scoped>
 .message {
-    background: $orange;
+    background: $blue;
 
     @media screen and (max-width: $mobile) {
         margin: -48px 0 0 0;
     }
 
     h3 {
-        font: 700 24px/28px $gotham;
+        font: 700 24px/28px $poppins;
     }
 
     p {

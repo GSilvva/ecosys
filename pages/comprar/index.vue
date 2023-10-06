@@ -8,41 +8,66 @@
                 <button @click="buyPage.filtersActive = false" class="absolute left-6 md:left-12" type="button"><VectorsCloseOverlay /></button>
             </div>
 
-            <div class="pt-24 pb-11 px-6 md:px-12 xl:pt-9 xl:pb-10 xl:px-8 relative z-10">
-                <ElementsFormInput
+            <div class="pt-24 pb-11 px-6 md:px-12 xl:pt-8 xl:pb-10 xl:px-8 relative z-10">
+                <ElementsFormSearchSelect
                     class="mb-10"
-                    name="busca"
-                    placeholder="Buscar um carro"
-                    small
-                    v-model="buyPage.search"
-                />
-                <div class="local mb-10">
+                    label="Localização"
+                    placeholder="Escolha cidade ou estado"
+                    :items="locations"
+                >
+                    <VectorsArrowSelect />
+                </ElementsFormSearchSelect>
+                <div class="mb-10">
+                    <ElementsFormSearchSelect
+                        class="mb-6"
+                        label="Revendedor"
+                        placeholder="Digite o nome"
+                        :items="stores"
+                    >
+                        <VectorsSearch />
+                    </ElementsFormSearchSelect>
+                    <ElementsFormCheckbox
+                        v-for="(store, index) in stores[0].options.slice(0, 5)"
+                        :key="index"
+                        :label="store"
+                    />
+                </div>
+                <div class="mb-10">
+                    <ElementsFormSearchSelect
+                        class="mb-6"
+                        label="Marca"
+                        placeholder="Busque"
+                        :items="brands"
+                    >
+                        <VectorsSearch />
+                    </ElementsFormSearchSelect>
+                    <ElementsFormCheckbox
+                        v-for="(brand, index) in brands[0].options.slice(0, 5)"
+                        :key="index"
+                        :label="brand"
+                    />
+                    <template v-if="buyPage.allBrands">
+                        <ElementsFormCheckbox
+                            v-for="(brand, index) in brands[0].options.slice(5, brands[0].options.length)"
+                            :key="index"
+                            :label="brand"
+                        />
+                    </template>
                     <button
-                        class="flex items-center justify-between w-full mb-3.5 relative z-10"
-                        @click="buyPage.allLocales = !buyPage.allLocales"
+                        @click="buyPage.allBrands = !buyPage.allBrands"
+                        class="more-filters flex items-center underline gap-3 mt-6"
                         type="button"
                     >
-                        <ElementsFormLabel label="Localização" />
-                        <VectorsArrowSelect />
+                        {{ buyPage.allBrands ? "Esconder" : "Ver mais" }}
                     </button>
-                    <ul v-if="buyPage.allLocales">
-                        <li>
-                            <ElementsFormCheckbox class="mb-3" label="Brasília" />
-                            <div class="pl-9">
-                                <ElementsFormCheckbox label="Shopping Ataguaçú" />
-                                <ElementsFormCheckbox label="Via das rendeiras" />
-                            </div>
-                        </li>
-                    </ul>
                 </div>
-                <ElementsFormSelect
-                    class="mb-10"
-                    label="Marca"
-                    name="marca"
-                    :options="[]"
-                    placeholder
-                    small
-                />
+                <div class="mb-10">
+                    <ElementsFormLabel label="Carro" blue />
+                    <div class="flex items-center gap-20">
+                        <ElementsFormCheckbox class="!m-0" label="Novo" />
+                        <ElementsFormCheckbox label="Usado" />
+                    </div>
+                </div>
                 <div class="flex items-end gap-4 mb-10">
                     <ElementsFormInput
                         label="Ano"
@@ -51,6 +76,7 @@
                         legend="ex: 2014"
                         small
                         mask="####"
+                        blue
                     />
                     <ElementsFormInput
                         name="anoAte"
@@ -68,6 +94,7 @@
                         legend="ex: R$ 20.000"
                         small
                         number
+                        blue
                     />
                     <ElementsFormInput
                         name="precoAte"
@@ -85,6 +112,7 @@
                         legend="ex: 10.000"
                         small
                         number
+                        blue
                     />
                     <ElementsFormInput
                         name="kmAte"
@@ -95,17 +123,18 @@
                     />
                 </div>
                 <div class="mb-10">
-                    <ElementsFormLabel label="Categoria" />
+                    <ElementsFormLabel blue label="Categoria" />
                     <div class="flex flex-col items-start">
                         <ElementsFormCheckbox
-                            v-for="(filter, index) in data.filters.categories"
+                            v-for="(categorie, index) in categories"
                             :key="index"
-                            :label="filter.name"
+                            :label="categorie.label"
+                            :image="categorie.image"
                         />
                     </div>
                 </div>
                 <div class="mb-10">
-                    <ElementsFormLabel label="Câmbio" />
+                    <ElementsFormLabel blue label="Câmbio" />
                     <div class="flex flex-col items-start">
                         <ElementsFormCheckbox
                             v-for="(filter, index) in data.filters.transmissions"
@@ -115,7 +144,7 @@
                     </div>
                 </div>
                 <div class="mb-10">
-                    <ElementsFormLabel label="Opcionais" />
+                    <ElementsFormLabel blue label="Opcionais" />
                     <div class="flex flex-col items-start">
                         <ElementsFormCheckbox
                             v-for="(filter, index) in data.filters.car_features.slice(0, 4)"
@@ -135,20 +164,31 @@
                         class="more-filters flex items-center underline gap-3 mt-6"
                         type="button"
                     >
-                        {{ buyPage.allOptions ? "Esconder opcionais" : "Ver todos os opcionais" }}
-                        <VectorsSmallArrowRight v-if="!buyPage.allOptions" />
+                        {{ buyPage.allOptions ? "Esconder" : "Ver mais" }}
                     </button>
+                </div>
+                <div class="mb-10">
+                    <ElementsFormLabel blue label="Cores" />
+                    <div class="flex items-center flex-wrap">
+                        <ElementsFormCheckbox
+                            v-for="(color, index) in colors"
+                            :key="index"
+                            :label="color.cor"
+                            :color="color.hex === '#FFFFFF' ? '' : color.hex"
+                            class="w-6/12"
+                        />
+                    </div>
                 </div>
                 <div class="flex justify-between gap-4">
                     <ElementsButton
-                        class="!px-6 !py-3 xl:m-auto"
+                        class="!font-medium !px-6 !py-3 xl:m-auto w-full"
                         outline
                         small
                     >
                         Limpar filtros
                     </ElementsButton>
                     <ElementsButton
-                        class="!px-6 !py-3 xl:hidden"
+                        class="!font-medium !px-6 !py-3 xl:hidden w-full"
                         small
                         @click="buyPage.filtersActive = false"
                     >
@@ -171,15 +211,7 @@
                             <p v-else>{{ data.ads.total }} carros encontrados</p>
                         </div>
                         <div class="flex justify-between gap-4 w-full xl:w-max">
-                            <button
-                                class="items-center justify-center bg-white rounded-full h-12 w-12 hidden xl:flex"
-                                @click="buyPage.listView = !buyPage.listView"
-                                type="button"
-                            >
-                                <VectorsListView v-if="!buyPage.listView" />
-                                <VectorsCardView v-else />
-                            </button>
-                            <fieldset class="relative bg-white rounded-full">
+                            <fieldset class="relative bg-white">
                                 <select
                                     class="rounded-full h-10 xl:h-12 pr-9 xl:pr-10 pl-5 xl:pl-6 appearance-none relative z-20 bg-transparent"
                                     name="filtro"
@@ -193,7 +225,7 @@
                             </fieldset>
                             <button
                                 @click="buyPage.filtersActive = true"
-                                class="flex xl:hidden items-center gap-2 bg-white rounded-full h-10 px-5"
+                                class="flex xl:hidden items-center gap-2 bg-white h-10 px-5"
                                 type="button"
                             >
                                 Filtros
@@ -204,7 +236,7 @@
                     </section>
                 </header>
 
-                <section :class="`cards grid gap-1 xl:gap-6 2xl:gap-8 ${buyPage.listView ? 'col' : ''}`">
+                <section :class="`cards grid gap-1 xl:gap-6 2xl:gap-8`">
                     <template v-if="pending">
                         <ElementsCardPreview
                             v-for="(ads, index) in data.ads.data"
@@ -215,7 +247,6 @@
                         <ElementsCardCar
                             v-for="(ads, index) in adverts.ads.data"
                             :key="index"
-                            :list="buyPage.listView"
                             :url="`/comprar/${ads.car.model.brand.slug}/${ads.slug}`"
                             :photos="ads.photos"
                             :recent="true"
@@ -259,21 +290,159 @@ const buyPage = reactive({
     ],
     filtersActive: false,
     filtersSelected: 3,
-    listView: false,
     allOptions: false,
-    allLocales: true,
-    search: "",
+    allBrands: false,
 })
 
+const locations = [
+    {
+        "label": "Cidades",
+        "options": [
+            "Florianópolis - SC",
+            "Florestópolis - PR",
+            "Floraí - PR"
+        ]
+    },
+    {
+        "label": "Estados",
+        "options": [
+            "Santa Catarina",
+            "Paraná",
+            "São Paulo"
+        ]
+    }
+]
+
+const stores = [
+    {
+        "options": [
+            "Webmotors",
+            "O chefe das vendas",
+            "Miguel forte",
+            "Tiagão vendedor",
+            "Fordaza",
+            "Outra loja"
+        ]
+    }
+]
+
+const brands = [
+    {
+        "options": [
+            "Aston Martin",
+            "Bulgatti",
+            "BMW",
+            "Chevrolet",
+            "Mercedes Benz",
+            "Volkswagen",
+            "Chevrolet",
+            "Ford",
+            "Fiat",
+            "Fordaza",
+            "Renault"
+        ]
+    }
+]
+
+const categories = [
+    {
+        "label": "SUV / Utilitário",
+        "image": "./temp/suv.png"
+    },
+    {
+        "label": "Hatch",
+        "image": "./temp/hatch.png"
+    },
+    {
+        "label": "Sedan",
+        "image": "./temp/sedan.png"
+    },
+    {
+        "label": "Picape",
+        "image": "./temp/pickup.png"
+    },
+    {
+        "label": "Wagon / Mini van",
+        "image": "./temp/minivan.png"
+    },
+    {
+        "label": "Conversível",
+        "image": "./temp/convertible.png"
+    },
+    {
+        "label": "Coupe",
+        "image": "./temp/coupe.png"
+    },
+    {
+        "label": "Perua",
+        "image": "./temp/sw.png"
+    }
+]
+
+const colors = [
+    {
+        "cor": "Branco",
+        "hex": "#FFFFFF"
+    },
+    {
+        "cor": "Vingo",
+        "hex": "#981929"
+    },
+    {
+        "cor": "Prata",
+        "hex": "#D8DAE1"
+    },
+    {
+        "cor": "Vermelho",
+        "hex": "#FF0000"
+    },
+    {
+        "cor": "Cinza",
+        "hex": "#FF0000"
+    },
+    {
+        "cor": "Marrom",
+        "hex": "#AD7452"
+    },
+    {
+        "cor": "Chumbo",
+        "hex": "#545D62"
+    },
+    {
+        "cor": "Dourado",
+        "hex": "#E1B83E"
+    },
+    {
+        "cor": "Preto",
+        "hex": "#000000"
+    },
+    {
+        "cor": "Amarelo",
+        "hex": "#FFD600"
+    },
+    {
+        "cor": "Azul",
+        "hex": "#0065FF"
+    },
+    {
+        "cor": "Beje",
+        "hex": "#E8B989"
+    },
+    {
+        "cor": "Verde",
+        "hex": "#28A745"
+    },
+    {
+        "cor": "Laranja",
+        "hex": "#FF9639"
+    }
+]
+
 useHead({
-    title: "Comprar carros | b.car",
+    title: "Comprar carros | Ecosys Auto",
     htmlAttrs: {
         class: 'xl:overflow-hidden'
     }
-})
-
-const formattNumbers = computed((value) => {
-    return value.rawSalary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 })
 </script>
 
@@ -319,10 +488,6 @@ const formattNumbers = computed((value) => {
         }
     }
 
-    .local button label {
-        margin: 0;
-    }
-
     .more-filters {
         color: $grey-5;
         font: 500 16px/24px $inter;
@@ -345,7 +510,7 @@ const formattNumbers = computed((value) => {
         @include titlePageNormal;
 
         @media screen and (max-width: $mobile) {
-            font: 700 24px/32px $gotham;
+            font: 700 24px/32px $poppins;
         }
     }
 
@@ -377,12 +542,12 @@ const formattNumbers = computed((value) => {
         span {
             font: 500 14px/1 $inter;
             color: $white;
-            background: $orange;
+            background: $blue;
         }
     }
 
     .cards {
-        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
 
         &.col {
             grid-template-columns: 1fr;

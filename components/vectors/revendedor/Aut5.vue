@@ -1,0 +1,16 @@
+<template>
+    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00781 8.11914L13.3411 8.11387L13.3464 13.4472L8.01308 13.4525L8.00781 8.11914Z" stroke="#0092FD" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M8.01953 18.7856L13.3529 18.7804L13.3581 24.1137L8.0248 24.119L8.01953 18.7856Z" stroke="#0092FD" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M24.0117 13.4365L18.6784 13.4418L18.6731 8.10846L24.0064 8.10319L24.0117 13.4365Z" stroke="#0092FD" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M21.4019 21.3918C21.428 21.4178 21.428 21.46 21.402 21.4861C21.376 21.5121 21.3338 21.5122 21.3077 21.4861C21.2817 21.4601 21.2816 21.4179 21.3076 21.3919C21.3336 21.3658 21.3759 21.3658 21.4019 21.3918" stroke="#00487D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.73 18.7282C18.7561 18.7542 18.7561 18.7964 18.7301 18.8225C18.7041 18.8485 18.6619 18.8486 18.6359 18.8226C18.6098 18.7966 18.6098 18.7543 18.6358 18.7283C18.6618 18.7022 18.704 18.7022 18.73 18.7282" stroke="#00487D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.7339 24.0612C18.76 24.0872 18.7601 24.1294 18.734 24.1555C18.708 24.1815 18.6658 24.1816 18.6398 24.1556C18.6137 24.1296 18.6137 24.0874 18.6397 24.0613C18.6657 24.0352 18.7079 24.0352 18.7339 24.0612" stroke="#00487D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24.0699 24.0558C24.0959 24.0818 24.096 24.1241 24.07 24.1501C24.044 24.1762 24.0018 24.1762 23.9757 24.1502C23.9496 24.1242 23.9496 24.082 23.9756 24.0559C24.0016 24.0299 24.0438 24.0298 24.0699 24.0558" stroke="#00487D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28.6823 10.7357L28.6777 6.09841C28.6763 4.62508 27.4818 3.43293 26.0084 3.43438L21.3711 3.43896" stroke="#00487D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M10.6399 3.44981L6.0026 3.4544C4.52927 3.45585 3.33712 4.65036 3.33857 6.1237L3.34316 10.761" stroke="#00487D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M3.35547 21.4863L3.36005 26.1237C3.36151 27.597 4.55602 28.7891 6.02935 28.7877L10.6667 28.7831" stroke="#00487D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M21.3939 28.7723L26.0313 28.7677C27.5046 28.7662 28.6968 27.5717 28.6953 26.0984L28.6907 21.461" stroke="#00487D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24.066 18.7228C24.092 18.7488 24.0921 18.791 24.0661 18.8171C24.0401 18.8432 23.9979 18.8432 23.9718 18.8172C23.9457 18.7912 23.9457 18.749 23.9717 18.7229C23.9977 18.6969 24.0399 18.6968 24.066 18.7228" stroke="#00487D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</template>

@@ -53,7 +53,7 @@
               </li>
             </ul>
 
-            <a class="call flex items-center gap-12 xl:hidden my-12 py-2.5 pl-3 rounded-full md:pr-14" href="tel:+551199999999" target="_blank">
+            <a class="call flex items-center gap-12 xl:hidden my-12 py-2.5 pl-3 rounded md:pr-14" href="tel:+551199999999" target="_blank">
               <VectorsPhone />
               Ligar para a b.car
             </a>
@@ -97,7 +97,7 @@
           Central de ajuda
         </nuxt-link>
         <nuxt-link
-          class="login rounded-full flex items-center gap-3 sm:gap-4 py-2 pl-1.5 sm:pl-2 pr-4 sm:pr-5 transition h-11 sm:h-12"
+          class="login rounded flex items-center gap-3 sm:gap-4 py-2 pl-1.5 sm:pl-2 pr-4 sm:pr-5 transition h-11 sm:h-12"
           :to="userName ? '/area-cliente/compra' : '/area-cliente'"
           @click="$scrollBody"
           @mouseenter="submenu = true"
@@ -144,15 +144,22 @@ const userName = ref("Tiago")
 const submenu = ref(false)
 const navigationLinks = [
   {
-    text: "Estoque",
+    text: "Comprar",
     url: "/comprar",
     newLayer: false,
     mobile: false,
     active: true,
   },
   {
-    text: "Venda seu carro",
+    text: "Vender",
     url: "/vender",
+    newLayer: false,
+    mobile: false,
+    active: true,
+  },
+  {
+    text: "Sou lojista",
+    url: "/sou-lojista",
     newLayer: false,
     mobile: false,
     active: true,
@@ -169,15 +176,15 @@ const navigationLinks = [
     url: "",
     newLayer: false,
     mobile: false,
-    active: false,
-  },
-  {
-    text: "Dúvidas e sugestões",
-    url: "/central-ajuda",
-    newLayer: false,
-    mobile: true,
     active: true,
   },
+  {
+    text: "QVMC",
+    url: "/qvmc",
+    newLayer: false,
+    mobile: false,
+    active: true,
+  }
 ];
 const navigationLinksClient = [
   {
@@ -279,8 +286,8 @@ defineProps({
 
   svg {
     @media screen and (max-width: $mobile) {
-      width: 79px;
-      height: 28px;
+      width: 100px;
+      height: 32px;
     }
   }
 }
@@ -334,7 +341,7 @@ defineProps({
         }
 
         small {
-          font: 700 10px/1 $gotham;
+          font: 700 10px/1 $poppins;
           color: rgba(125, 126, 128, .5);
           border: 1px solid $grey-2;
         }
@@ -367,7 +374,7 @@ defineProps({
     }
 
     span {
-      background: $orange;
+      background: $blue;
 
       @media screen and (max-width: $tablet) {
         left: -1px;
@@ -480,8 +487,8 @@ defineProps({
   }
 
   &:hover {
-    background: $orange;
-    border-color: $orange;
+    background: $blue;
+    border-color: $blue;
     color: $white;
   }
 }

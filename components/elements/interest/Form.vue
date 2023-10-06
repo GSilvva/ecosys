@@ -204,7 +204,7 @@ defineProps({
     }
 
     .title {
-        font: 700 24px/28px $gotham;
+        font: 700 24px/28px $poppins;
         max-width: 300px;
     }
 

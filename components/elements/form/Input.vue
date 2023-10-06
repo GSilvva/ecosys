@@ -4,6 +4,7 @@
             v-if="label"
             :floating="floating"
             :label="label"
+            :blue="blue"
         />
         <textarea
             v-if="textarea"
@@ -77,7 +78,8 @@ defineProps({
     number: Boolean,
     mask: String,
     phone: Boolean,
-    valueInput: String
+    valueInput: String,
+    blue: Boolean
 })
 
 function maskNumber(event: any) {

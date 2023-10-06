@@ -378,7 +378,7 @@ definePageMeta({
 })
 
 useHead({
-  title: `b.car | Entrar`,
+  title: `Ecosys Auto | Entrar`,
   bodyAttrs: {
     class: "body"
   }
@@ -395,7 +395,7 @@ useHead({
   h2 {
     font-size: 24px;
     line-height: 32px;
-    font-family: $gotham;
+    font-family: $poppins;
   }
   p {
     font-size: 16px;

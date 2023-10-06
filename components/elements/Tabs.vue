@@ -58,7 +58,7 @@ header {
                 visibility: hidden;
                 width: 100%;
                 height: 2px;
-                background: $orange;
+                background: $blue;
                 transition: .3s ease;
             }
 

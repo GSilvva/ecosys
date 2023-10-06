@@ -171,7 +171,7 @@ defineProps({
 }
 
 .title {
-    font: 700 16px/24px $gotham;
+    font: 700 16px/24px $poppins;
 }
 
 .section {
@@ -217,7 +217,7 @@ defineProps({
 .exchange {
 
     h3 {
-        font: 700 24px/32px $gotham;
+        font: 700 24px/32px $poppins;
     }
 
     h5 {

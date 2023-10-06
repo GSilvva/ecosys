@@ -1,6 +1,6 @@
 // RESETS
 ::selection {
-    background: $orange;
+    background: $blue;
     color: $white;
 }
 
@@ -53,7 +53,6 @@ small {
 // TEXTS
 .h1 {
     @include h1;
-    text-transform: uppercase;
 }
 
 p {
@@ -86,7 +85,7 @@ p {
 .pt-sm {
     padding-top: 88px;
 
-    @media screen and (max-width: $mobile) {
+    @media screen and (max-width: $tablet) {
         padding-top: 72px;
     }
 
@@ -134,7 +133,7 @@ p {
     
     .slider-handle {
         top: -10px !important;
-        background: $orange;
+        background: $blue;
         width: 24px !important;
         height: 24px !important;
         box-shadow: unset;
@@ -146,8 +145,8 @@ p {
     }
 
     .slider-tooltip {
-        background: $orange;
-        border-color: $orange;
+        background: $blue;
+        border-color: $blue;
         transition: 400ms ease;
         display: block !important;
         border-radius: 1000px;

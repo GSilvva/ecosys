@@ -284,7 +284,7 @@ defineEmits(["update:open"])
                 }
 
                 h3 {
-                    font: 700 24px/28px $gotham;
+                    font: 700 24px/28px $poppins;
 
                     @media screen and (max-width: $mobile) {
                         font: 700 20px/26px $inter;

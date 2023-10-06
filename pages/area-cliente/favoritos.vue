@@ -82,7 +82,7 @@ definePageMeta({
 })
 
 useHead({
-    title: `b.car | Favoritos`,
+    title: `Ecosys Auto | Favoritos`,
 })
 </script>
 
@@ -93,7 +93,7 @@ li {
     border-bottom: 2px solid $white;
     &:hover {
         box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.12);
-        border-color: $orange;
+        border-color: $blue;
     }
 }
 

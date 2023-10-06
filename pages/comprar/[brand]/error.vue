@@ -16,7 +16,7 @@ definePageMeta({
 })
 
 useHead({
-  title: `b.car | Anúncio não encontrado`,
+  title: `Ecosys Auto | Anúncio não encontrado`,
 });
 </script>
 
@@ -27,7 +27,7 @@ useHead({
     @include titlePageNormal;
 
     @media screen and (max-width: $mobile) {
-      font: 700 24px/32px $gotham;
+      font: 700 24px/32px $poppins;
     }
   }
 

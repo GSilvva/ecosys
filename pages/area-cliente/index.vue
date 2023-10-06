@@ -16,7 +16,7 @@ definePageMeta({
 })
 
 useHead({
-  title: `b.car | Área do Cliente`,
+  title: `Ecosys Auto | Área do Cliente`,
 });
 </script>
 
@@ -40,7 +40,7 @@ useHead({
   h2 {
     font-size: 24px;
     line-height: 32px;
-    font-family: $gotham;
+    font-family: $poppins;
   }
 
   p {
@@ -88,7 +88,7 @@ useHead({
     @include titlePageNormal;
 
     @media screen and (max-width: $mobile) {
-      font: 700 24px/32px $gotham;
+      font: 700 24px/32px $poppins;
     }
   }
 

@@ -1,8 +1,8 @@
 <template>
-    <svg width="410" height="410" viewBox="0 0 410 410" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect opacity="0.08" width="205" height="205" fill="#F6531A"/>
-        <rect opacity="0.04" y="205" width="205" height="205" fill="#F6531A"/>
-        <rect opacity="0.04" x="205" width="205" height="205" fill="#F6531A"/>
-        <path d="M96.72 109.48H104.76L123.48 56.2L124.68 52H107.64L106.44 56.2L96.72 109.48ZM85.68 136H101.64L106.08 119.56H90L85.68 136Z" fill="#F6531A"/>
-    </svg>
+<svg width="410" height="410" viewBox="0 0 410 410" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect opacity="0.08" width="205" height="205" fill="#0092FD"/>
+<rect opacity="0.04" y="205" width="205" height="205" fill="#0092FD"/>
+<rect opacity="0.04" x="205" width="205" height="205" fill="#0092FD"/>
+<path d="M118.44 56.76L116.04 114.24H98.64L96.24 56.76H118.44ZM107.64 144.96C104.04 144.96 101.08 143.92 98.76 141.84C96.52 139.68 95.4 137.04 95.4 133.92C95.4 130.72 96.52 128.04 98.76 125.88C101.08 123.72 104.04 122.64 107.64 122.64C111.16 122.64 114.04 123.72 116.28 125.88C118.6 128.04 119.76 130.72 119.76 133.92C119.76 137.04 118.6 139.68 116.28 141.84C114.04 143.92 111.16 144.96 107.64 144.96Z" fill="#0092FD"/>
+</svg>
 </template>

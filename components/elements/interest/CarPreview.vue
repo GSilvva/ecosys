@@ -32,10 +32,10 @@ defineProps({
 .car-preview {
 
     h5 {
-        font: 700 24px/32px $gotham;
+        font: 700 24px/32px $poppins;
 
         @media screen and (max-width: $mobile) {
-            font: 700 16px/24px $gotham;
+            font: 700 16px/24px $poppins;
         }
     }
 

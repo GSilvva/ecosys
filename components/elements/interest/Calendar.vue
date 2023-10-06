@@ -305,10 +305,10 @@ defineEmits(["update:open"])
     border: 1px solid $grey-2;
     
     h3 {
-        font: 700 24px/28px $gotham;
+        font: 700 24px/28px $poppins;
 
         @media screen and (max-width: $mobile) {
-            font: 700 16px/1 $gotham;
+            font: 700 16px/1 $poppins;
         }
     }
 
@@ -357,11 +357,11 @@ defineEmits(["update:open"])
             input:checked ~ span {
                 cursor: initial;
                 color: $white;
-                border-color: $orange;
-                background: $orange;
+                border-color: $blue;
+                background: $blue;
 
                 &:hover {
-                    border-color: $orange;
+                    border-color: $blue;
                 }
             }
         }
