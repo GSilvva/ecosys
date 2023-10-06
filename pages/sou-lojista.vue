@@ -573,7 +573,7 @@
         </ElementsContainer>
     </footer>
 
-    <article class="flex items-center justify-center bar pt-2.5 pb-4 bg-white fixed bottom-0 left-0 w-full xl:hidden">
+    <article class="flex items-center justify-center bar pt-2.5 pb-4 bg-white fixed bottom-0 left-0 w-full xl:hidden z-50">
         <a class="flex-1 flex flex-col items-center gap-1" href="#vendas">
             <VectorsVendas />
             <span class="block text-center">Vendas</span>
