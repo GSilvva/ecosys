@@ -406,7 +406,7 @@
                 </div>
             </figure>
             <aside class="py-8 sm:py-16 pl-6 sm:pl-20 pr-6 sm:pr-20 xl:pr-12 bg-white flex flex-col">
-                <h5 class="mb-6 sm:mb-7">Marketing e vendas</h5>
+                <h5 class="mb-6 sm:mb-7">Gestão, marketing e vendas</h5>
                 <ul>
                     <li class="flex items-center gap-4">
                         <VectorsCheckBlue />
@@ -458,8 +458,8 @@
                     </li>
                 </ul>
                 <footer class="pt-6 sm:pt-7 mt-8 sm:mt-14">
-                    <h6 class="text-center">A partir de R$ <strong>499,00</strong></h6>
-                    <p class="sm:mt-2 mb-7 text-center">para 20 veículos anunciados.</p>
+                    <h6 class="text-center">De <span class="line-through">1499,00</span> <strong>por a partir 499,00</strong></h6>
+                    <p class="mt-2 mb-7 text-center">para 20 veículos anunciados.</p>
                     <ElementsButton class="w-full" green href="#demonstracao">Agendar demonstração</ElementsButton>
                 </footer>
             </aside>
@@ -1224,18 +1224,23 @@ useHead({
             border-top: 1px solid rgba(17, 18, 20, .2);
 
             h6 {
-                font: 600 24px/48px $inter;
 
-                @media (max-width: $mobile) {
-                    font: 600 16px/48px $inter;
-                } 
-
-                strong {
-                    font: 600 40px/48px $inter;
+                &,
+                & * {
+                    font: 600 24px/48px $inter;
 
                     @media (max-width: $mobile) {
-                        font: 600 32px/48px $inter;
-                    } 
+                        font: 600 18px/24px $inter;
+                    }
+                }
+
+                &,
+                & span {
+                    color: $grey-4;
+                }
+            
+                strong {
+                    color: $dark;
                 }
             }
 
