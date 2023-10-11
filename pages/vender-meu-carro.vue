@@ -30,6 +30,7 @@
                 textButton="Continuar"
                 car
                 class="form-data sm:m-auto"
+                cep
             >
                 <template v-slot:button>
                     <ElementsButton

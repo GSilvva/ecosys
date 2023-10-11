@@ -27,7 +27,7 @@ useHead({
     @include titlePageNormal;
 
     @media screen and (max-width: $mobile) {
-      font: 700 24px/32px $poppins;
+      font: 600 24px/32px $poppins;
     }
   }
 

@@ -71,16 +71,23 @@
 
                         <section class="box mt-0 xl:mt-8 px-6 sm:px-12 xl:px-10 pt-6 pb-12 sm:py-12 xl:p-10 bg-white">
                             <div class="flex items-start justify-between">
-                                <h1>{{ carData.name }}</h1>
+                                <h1>{{ carData.car.model.brand.name }} <strong>{{ carData.name }}</strong></h1>
                                 <ElementsFavorite class="mt-1 ml-4" />
                             </div>
                             <h5 class="mt-4 xl:mt-3 mb-6">
                                 {{ carData.car.version.engine }} {{ carData.car.version.fuel }} {{ carData.car.version.name }} <br> {{ carData.car.version.transmission }}
                             </h5>
                             <div class="tags flex gap-2 flex-wrap">
-                                <span class="uppercase py-1.5 sm:py-2.5 px-3">Garantia de fábrica</span>
-                                <span class="uppercase py-1.5 sm:py-2.5 px-3">Único dono</span>
-                                <span class="uppercase py-1.5 sm:py-2.5 px-3">Sem passagem por leilão</span>
+                                <span class="rounded uppercase py-1.5 sm:py-2.5 px-3">Garantia de fábrica</span>
+                                <span class="rounded uppercase py-1.5 sm:py-2.5 px-3">Único dono</span>
+                                <span class="rounded uppercase py-1.5 sm:py-2.5 px-3">Sem passagem por leilão</span>
+                            </div>
+                            <div class="xl:hidden store flex items-center gap-4 mt-8">
+                                <VectorsSaleFor />
+                                <span>
+                                    <small class="block mb-1.5">Vendido por</small>
+                                    Webmotors
+                                </span>
                             </div>
                             <div class="local xl:hidden mt-12">
                                 <h6 class="mb-5">Visita disponível:</h6>
@@ -132,7 +139,7 @@
                                     :key="feature"
                                     class="flex gap-4"
                                 >
-                                    <VectorsCheck class="mt-0.5" />
+                                    <VectorsCheck style="min-width: 20px;max-width: 20px;" class="mt-0.5" />
                                     <p class="w-full"><strong>{{ feature }}</strong></p>
                                 </li>
                             </ul>
@@ -145,7 +152,14 @@
                     </aside>
 
                     <article class="add-infos fixed xl:relative bottom-0 left-0 w-full h-16 sm:h-20 xl:h-full z-30">
-                        <div class="xl:sticky bg-white xl:px-8 xl:py-10 grid grid-cols-2 xl:block h-full xl:h-max">
+                        <div class="xl:sticky bg-white xl:px-8 xl:pt-8 xl:pb-6 grid grid-cols-2 xl:block h-full xl:h-max">
+                            <div class="hidden xl:flex store items-center gap-2 sm:gap-4 mb-8">
+                                <VectorsSaleFor class="w-6 h-6 sm:h-12 sm:w-12" />
+                                <span>
+                                    <small class="block mb-1.5">Vendido por</small>
+                                    Webmotors
+                                </span>
+                            </div>
                             <h2 class="flex items-center sm:justify-center xl:block pl-6 sm:pl-0">{{ $formatCurrency(carData.price) }}</h2>
                             <div class="local hidden xl:block my-8">
                                 <h6 class="mb-5">Visita disponível:</h6>
@@ -163,9 +177,9 @@
                             >
                                 Tenho interesse
                             </ElementsButton>
-                            <footer class="mt-8 pt-8 justify-between items-center hidden xl:flex">
-                                <p>147 pessoas viram <br> esse anúncio nas últimas 24h</p>
+                            <footer class="mt-8 pt-8 items-center hidden xl:flex gap-6">
                                 <VectorsViews />
+                                <p>147 pessoas viram <br> esse anúncio nas últimas 24h</p>
                             </footer>
                             <button
                                 @click="carPage.openInterest = true"
@@ -183,6 +197,7 @@
 
                     <div class="grid grid-cols-1 xl:grid-cols-4 gap-1 xl:gap-6 2xl:gap-8">
                         <ElementsCardCar
+                            small
                             url="##"
                             :photos="[{ url_path: '../../images/home/article.jpg' }]"
                             :recent="false"
@@ -197,6 +212,7 @@
                             :km="158836"
                         />
                         <ElementsCardCar
+                            small
                             url="##"
                             :photos="[{ url_path: '../../images/home/article.jpg' }]"
                             :recent="false"
@@ -211,6 +227,7 @@
                             :km="158836"
                         />
                         <ElementsCardCar
+                            small
                             url="##"
                             :photos="[{ url_path: '../../images/home/article.jpg' }]"
                             :recent="false"
@@ -225,6 +242,7 @@
                             :km="158836"
                         />
                         <ElementsCardCar
+                            small
                             url="##"
                             :photos="[{ url_path: '../../images/home/article.jpg' }]"
                             :recent="true"
@@ -470,10 +488,18 @@ useHead({
         }
 
         h1 {
-            font: 700 32px/38px $poppins;
+            
+            &,
+            & * {
+                font: 700 32px/38px $poppins;
 
-            @media screen and (max-width: $mobile) {
-                font: 700 24px/32px $poppins;
+                @media screen and (max-width: $mobile) {
+                    font: 700 24px/32px $poppins;
+                }
+            }
+
+            strong {
+                color: $blue;
             }
         }
 
@@ -484,7 +510,6 @@ useHead({
 
         h5 {
             font: 500 18px/26px $inter;
-            color: $grey-4;
             
             @media screen and (max-width: $mobile) {
                 font: 500 16px/24px $inter;
@@ -494,8 +519,9 @@ useHead({
         .tags {
 
             span {
-                border: 1px solid $dark;
+                background: rgba(53, 146, 251, 0.10);
                 font: 700 12px/10px $poppins;
+                color: $blue;
 
                 @media screen and (max-width: $mobile) {
                     font-size: 10px;
@@ -536,10 +562,6 @@ useHead({
         box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
     }
 
-    @media screen and (max-width: $mobile) {
-        height: 72px;
-    }
-
     & > div {
         top: 105px;
     }
@@ -560,7 +582,7 @@ useHead({
         border-top: 1px solid $grey-2;
 
         p {
-            font: 500 14px/20px $inter;
+            font: 500 14px/22px $inter;
         }
     }
 
@@ -570,6 +592,18 @@ useHead({
 
         @media screen and (max-width: $mobile) {
             font-size: 16px;
+        }
+    }
+}
+
+.store {
+
+    span {
+        font: 500 16px/1 $inter;
+
+        small {
+            color: $grey-4;
+            font: 400 12px/1 $inter;
         }
     }
 }
@@ -598,14 +632,6 @@ useHead({
             
             @media screen and (max-width: $mobile) {
                 font: 500 16px/24px $inter !important;
-            }
-        }
-
-        a {
-            color: $grey-4;
-
-            &:hover {
-                color: $dark;
             }
         }
     }

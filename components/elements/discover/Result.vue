@@ -1,6 +1,6 @@
 <template>
     <NuxtLayout name="default">
-        <main class="result pb-20 xl:pb-32">
+        <main class="result pb-20 xl:pb-52">
             <ElementsContainer class="container" block>
                 <section class="content">
                     <header class="p-6 pb-8 md:pt-3 md:px-12 xl:p-0 xl:mb-12">
@@ -12,9 +12,9 @@
                                 <p>Estes são os resultados</p>
                             </div>
                             <div class="hidden xl:flex sm:justify-between gap-4 w-full xl:w-max">
-                                <fieldset class="relative bg-white rounded-full">
+                                <fieldset class="relative bg-white">
                                     <select
-                                        class="rounded-full h-10 xl:h-12 pr-9 xl:pr-10 pl-5 xl:pl-6 appearance-none relative z-20 bg-transparent"
+                                        class="h-10 xl:h-12 pr-9 xl:pr-10 pl-5 xl:pl-6 appearance-none relative z-20 bg-transparent"
                                         name="filtro"
                                         id="filtro"
                                     >

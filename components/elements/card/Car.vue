@@ -49,8 +49,8 @@
         <article :class="`content transition flex flex-col justify-between w-full py-3 sm:pt-6 sm:pb-6 xl:pb-5 xl:px-8`">
             <div class="title px-3 sm:px-8 xl:px-0">
                 <h3 class="uppercase pr-5 xl:pr-0">
-                    <strong>{{ brand }}</strong>
-                    {{ name }}
+                    {{ brand }}
+                    <strong>{{ name }}</strong>
                 </h3>
                 <p class="mt-1 sm:mt-4">
                     {{ characteristics }}

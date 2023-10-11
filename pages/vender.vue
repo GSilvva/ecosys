@@ -3,7 +3,7 @@
         <ElementsContainer block>
             <header class="header pt-big flex flex-col-reverse xl:flex-row items-center justify-between gap-12 xl:gap-0">
                 <aside class="w-full">
-                    <h1 class="uppercase">Venda <br> seu carro</h1>
+                    <h1>Venda <br> seu carro</h1>
                     <p class="my-4 sm:my-8">Agende uma avaliação gratuita e venda seu carro pelo melhor preço. <br> Seguro e rápido.</p>
                     <ElementsButton href="/vender-meu-carro">Agendar avaliação</ElementsButton>
                 </aside>

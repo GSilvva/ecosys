@@ -24,10 +24,10 @@
     }
     h1 {
         max-width: 450px;
-        font: 700 48px/52px $poppins;
+        font: 600 48px/52px $poppins;
 
         @media screen and (max-width: $mobile) {
-            font: 700 32px/36px $poppins;
+            font: 600 32px/36px $poppins;
         }
     }
     p {

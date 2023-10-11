@@ -16,7 +16,7 @@
 
                     <div class="box bg-white px-6 pt-8 pb-10 sm:p-10 flex flex-col items-end">
                         <section class="section schedule pb-8 mb-8 sm:pb-10 pb-8 mb-8 sm:mb-10 w-full">
-                            <h6 class="title uppercase mb-6">Agendamento</h6>
+                            <h6 class="title mb-6">Agendamento</h6>
 
                             <div class="flex flex-wrap justify-between gap-y-8">
                                 <div class="flex gap-4 w-max sm:w-1/2">
@@ -43,7 +43,7 @@
                             v-if="!sale"
                             class="section car pb-8 mb-8 sm:pb-10 pb-8 mb-8 sm:mb-10 w-full"
                         >
-                            <h6 class="title uppercase mb-6">Veículo desejado</h6>
+                            <h6 class="title mb-6">Veículo desejado</h6>
 
                             <ElementsInterestCarPreview
                                 :carImage="carImage"
@@ -82,7 +82,7 @@
                             v-if="exchange || sale"
                             class="section exchange pb-8 mb-8 w-full"
                         >
-                            <h6 class="title uppercase mb-6">Veículo {{ exchange ? "para troca" : "" }}</h6>
+                            <h6 class="title mb-6">Veículo {{ exchange ? "para troca" : "" }}</h6>
 
                             <h3 class="mb-0.5">{{ $formatCurrency(59000) }}</h3>
                             <h5 class="mb-8">Valor de mercado</h5>
@@ -171,7 +171,7 @@ defineProps({
 }
 
 .title {
-    font: 700 16px/24px $poppins;
+    font: 600 16px/24px $poppins;
 }
 
 .section {
@@ -217,7 +217,7 @@ defineProps({
 .exchange {
 
     h3 {
-        font: 700 24px/32px $poppins;
+        font: 600 24px/32px $poppins;
     }
 
     h5 {

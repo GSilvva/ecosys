@@ -72,7 +72,6 @@
                     <small>Quanto mais respostas <br> melhor o resultado</small>
                     <ElementsButton
                         submit
-                        small
                         :disabled="modalDiscover.active < modalDiscover.questions.length ? true : false"
                     >
                         <span class="hidden sm:block">Encontrar meu carro</span>

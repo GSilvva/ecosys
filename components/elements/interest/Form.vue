@@ -1,6 +1,6 @@
 <template>
     <div class="form w-full bg-white pt-8 pb-10 px-6 sm:p-10">
-        <h2 class="title uppercase mb-10 sm:mb-12 w-full">{{ title }}</h2>
+        <h2 class="title mb-10 sm:mb-12 w-full">{{ title }}</h2>
 
         <form
             class="fields"
@@ -77,6 +77,18 @@
                             label="Versão"
                             :options="[]"
                             required
+                        />
+                    </div>
+                    <div v-if="cep" class="cep">
+                        <h4>Endereço</h4>
+                        <ElementsFormInput
+                            classesFieldset="mt-8"
+                            floating
+                            label="Insira seu CEP"
+                            id="cep"
+                            type="text"
+                            required
+                            mask="##.###-###"
                         />
                     </div>
                 </template>
@@ -190,6 +202,7 @@ defineProps({
     car: Boolean,
     event: Function,
     template: Boolean,
+    cep: Boolean
 })
 </script>
 
@@ -204,7 +217,7 @@ defineProps({
     }
 
     .title {
-        font: 700 24px/28px $poppins;
+        font: 600 24px/28px $poppins;
         max-width: 300px;
     }
 
@@ -230,6 +243,13 @@ defineProps({
 
         .button {
             font: 500 16px/24px $inter;
+        }
+    }
+
+    .cep {
+
+        h4 {
+            font: 600 20px/28px $poppins;
         }
     }
 }

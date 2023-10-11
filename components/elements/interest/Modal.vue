@@ -37,7 +37,7 @@
         >
             <ElementsContainer block>
                 <div class="content w-full m-auto">
-                    <h2 class="uppercase mb-4 sm:mb-6">Como podemos te  <br class="sm:hidden"> ajudar?</h2>
+                    <h2 class="mb-4 sm:mb-6">Como podemos te  <br class="sm:hidden"> ajudar?</h2>
                     <p class="mb-10">Escolha uma opção para começar. <br> As outras continuarão disponíveis no seu processo de compra.</p>
                     <ElementsInterestCarPreview
                         :carImage="carImage"
@@ -53,10 +53,10 @@
                             class="flex-1 bg-white pt-6 sm:pt-8 pr-6 sm:pr-8 pb-8 sm:pb-10 pl-8 sm:pl-10"
                             type="button"
                         >
-                            <VectorsBuy class="w-14 h-14 sm:h-14 sm:w-16 ml-auto mb-0 sm:mb-4" />
+                            <VectorsBuyCar class="w-14 h-14 sm:h-14 sm:w-16 ml-auto mb-0 sm:mb-4" />
                             <h5 class="mb-1 text-left">Eu quero</h5>
                             <div class="flex items-end justify-between">
-                                <h3 class="uppercase text-left">Comprar <br> este carro</h3>
+                                <h3 class="text-left">Comprar <br> este carro</h3>
                                 <div class="arrow bottom-1 right-7 relative transition">
                                     <VectorsArrowRight class="h-4" />
                                 </div>
@@ -67,10 +67,10 @@
                             class="flex-1 bg-white pt-6 sm:pt-8 pr-6 sm:pr-8 pb-8 sm:pb-10 pl-8 sm:pl-10"
                             type="button"
                         >
-                            <VectorsExchange class="w-14 h-14 sm:h-14 sm:w-16 ml-auto mb-0 sm:mb-4" />
+                            <VectorsChangeCar class="w-14 h-14 sm:h-14 sm:w-16 ml-auto mb-0 sm:mb-4" />
                             <h5 class="mb-1 text-left">Eu quero</h5>
                             <div class="flex items-end justify-between">
-                                <h3 class="uppercase text-left">Dar meu carro <br> na troca</h3>
+                                <h3 class="text-left">Dar meu carro <br> na troca</h3>
                                 <div class="arrow bottom-1 right-7 relative transition">
                                     <VectorsArrowRight class="h-4" />
                                 </div>
@@ -284,7 +284,7 @@ defineEmits(["update:open"])
                 }
 
                 h3 {
-                    font: 700 24px/28px $poppins;
+                    font: 600 24px/28px $poppins;
 
                     @media screen and (max-width: $mobile) {
                         font: 700 20px/26px $inter;
@@ -330,14 +330,6 @@ defineEmits(["update:open"])
                 
                 @media screen and (max-width: $mobile) {
                     font: 500 16px/24px $inter;
-                }
-            }
-
-            a {
-                color: $grey-4;
-
-                &:hover {
-                    color: $dark;
                 }
             }
         }

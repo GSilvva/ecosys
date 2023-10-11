@@ -2,7 +2,7 @@
     <main class="policy-privacy">
         <ElementsContainer class="container">
             <article class="pb-20 xl:pb-28 pt-big">
-                <h1 class="mb-8 md:mb-16 uppercase">Política e termos <br> de privacidade</h1>
+                <h1 class="mb-8 md:mb-16">Política e termos <br> de privacidade</h1>
 
                 <p>
                     The Privacy Act 2020 gives you the right to request access to your personal information held by Finsol. If you would like to access, correct or change the collected information at any time, please get in touch with our Privacy Officer by email at finsol@finsol.co.nz. Visit www.privacy.org.nz for more details on the Act.
@@ -47,10 +47,10 @@
     max-width: 790px;
 
     h1 {
-        font: 700 48px/52px $poppins;
+        font: 600 48px/52px $poppins;
 
         @media screen and (max-width: $mobile) {
-            font: 700 24px/32px $poppins;
+            font: 600 24px/32px $poppins;
         }
     }
 

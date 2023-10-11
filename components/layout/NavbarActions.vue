@@ -5,7 +5,7 @@
 
         <slot />
 
-        <nuxt-link class="login rounded-full hidden xl:flex items-center gap-3 sm:gap-4 py-2 pl-1.5 sm:pl-2 pr-4 sm:pr-5 transition h-11 sm:h-12" to="/area-cliente" @click="$scrollBody">
+        <nuxt-link class="login rounded hidden xl:flex items-center gap-3 sm:gap-4 py-2 pl-1.5 sm:pl-2 pr-4 sm:pr-5 transition h-11 sm:h-12" to="/area-cliente" @click="$scrollBody">
           <VectorsLogin />
           Entrar
         </nuxt-link>
