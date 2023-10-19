@@ -28,7 +28,7 @@
                             :src="photo.url_path + '?w=300&q=80'"
                             :alt="`Foto ${index + 1}`"
                         >
-                    </swiper-slide>
+                      </swiper-slide>
                     <button
                         class="transition opacity-0 prev absolute top-1/2 left-4 hidden xl:block z-20 w-8 h-8"
                         type="button"
@@ -49,8 +49,8 @@
         <article :class="`content transition flex flex-col justify-between w-full py-3 sm:pt-6 sm:pb-6 xl:pb-5 xl:px-8`">
             <div class="title px-3 sm:px-8 xl:px-0">
                 <h3 class="uppercase pr-5 xl:pr-0">
-                    {{ brand }}
-                    <strong>{{ name }}</strong>
+                    <strong>{{ brand }}</strong>
+                    {{ name }}
                 </h3>
                 <p class="mt-1 sm:mt-4">
                     {{ characteristics }}
@@ -58,11 +58,13 @@
                     {{ model_year }} • {{ transmission }}
                 </p>
                 <div class="infos flex items-end justify-between">
-                    <p>{{ $formatNumber(km) }}km</p>
-                    <p><strong>{{ $formatCurrency(price) }}</strong></p>
+                    <ClientOnly>
+                        <p>{{ $formatNumber(km) }}km</p>
+                        <p><strong v-if="price">{{ $formatCurrency(price) }}</strong></p>
+                    </ClientOnly>
                 </div>
             </div>
-            <div class="store flex items-center gap-2 sm:gap-4 pt-3 sm:pt-6 xl:pt-0 mt-3 sm:mt-6 px-3 sm:px-8 xl:px-0">
+            <div v-if="!clean" class="store flex items-center gap-2 sm:gap-4 pt-3 sm:pt-6 xl:pt-0 mt-3 sm:mt-6 px-3 sm:px-8 xl:px-0">
                 <VectorsSaleFor class="w-6 h-6 sm:h-12 sm:w-12" />
                 <span>
                     <small class="block mb-1.5">Vendido por</small>
@@ -194,11 +196,6 @@ defineProps({
         }
 
         .infos {
-            margin: -4px 0 0 0;
-
-            @media (max-width: $mobile) {
-                margin: 0;
-            }
 
             p {
                 font: 500 16px/24px $inter;
@@ -206,6 +203,14 @@ defineProps({
 
                 @media screen and (max-width: $mobile) {
                     font: 500 10px/14px $inter;
+                }
+
+                &:last-of-type {
+                    margin: -4px 0 0 0;
+
+                    @media (max-width: $mobile) {
+                        margin: 0;
+                    }
                 }
 
                 strong {
@@ -267,6 +272,12 @@ defineProps({
     }
 
     @media screen and (min-width: $tablet) {
+        overflow: hidden;
+        border-radius: 0 0 4px 4px;
+
+        &.nohover {
+            border-radius: 0;
+        }
 
         &.hover {
 
@@ -312,7 +323,13 @@ defineProps({
                 }
 
                 .infos {
-                    margin: -6px 0 0 0;
+                    
+                    p {
+
+                        &:last-of-type {
+                            margin: -6px 0 0 0;
+                        }
+                    }
                 }
             }
         }

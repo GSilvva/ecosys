@@ -9,21 +9,36 @@
                         
                         <ul class="flex flex-col gap-y-6">
                             <li>
-                                <div class="bg-white py-6 sm:py-8 px-6 sm:px-12 xl:px-8">
-                                    <p class="mb-6"><strong>Segunda, 10 out 2023 <br> 16:15 horas</strong></p>
-                                    <img
-                                        class="w-40 h-32 mb-6"
-                                        src="/images/general/car.jpg"
-                                        alt="Foto"
-                                    >
-                                    <h3 class="mb-4">BMW M3</h3>
-                                    <p class="mb-6">2.0 16V Diesel Limited 4X4 <br> Automático</p>
-                                    <p class="mb-2"><strong>Mensagem</strong></p>
-                                    <p>Opa, tudo bem? Aceita 50mil nesse <br> carro hoje?</p>
+                                <div class="bg-white">
+                                    <div class="pt-6 sm:pt-8 px-6 sm:px-12 xl:px-8">
+                                        <p class="mb-6"><strong>Segunda, 10 out 2023 <br> 16:15 horas</strong></p>
+                                        <img
+                                            class="w-40 h-32 mb-6"
+                                            src="/images/general/car.jpg"
+                                            alt="Foto"
+                                        >
+                                        <h3 class="mb-4">BMW M3</h3>
+                                        <div class="flex items-end justify-between mb-6">
+                                            <p>
+                                                XEi 2.0 16V CVT FLEX
+                                                <br>
+                                                2021 • Automático
+                                                <br>
+                                                158.869km
+                                            </p>
+                                            <h2 class="price">R$ 125.900</h2>
+                                        </div>
+                                        <ElementsStore class="mb-5" />
+                                    </div>
+                                    <footer class="footer px-6 sm:px-12 xl:px-8 py-6">
+                                        <p class="mb-2"><strong>Mensagem</strong></p>
+                                        <p>Opa, tudo bem? Aceita 50mil nesse <br> carro hoje?</p>
+                                    </footer>
                                 </div>
                             </li>
                         </ul>
                     </aside>
+                    
                     <aside>
                         <h2 class="subtitle">Visitas</h2>
                         <ul class="flex flex-col gap-y-6">
@@ -39,7 +54,17 @@
                                         alt="Foto"
                                     >
                                     <h3 class="mb-4">BMW M3</h3>
-                                    <p class="mb-6">2.0 16V Diesel Limited 4X4 <br> Automático</p>
+                                    <div class="flex items-end justify-between mb-6">
+                                        <p>
+                                            XEi 2.0 16V CVT FLEX
+                                            <br>
+                                            2021 • Automático
+                                            <br>
+                                            158.869km
+                                        </p>
+                                        <h2 class="price">R$ 125.900</h2>
+                                    </div>
+                                    <ElementsStore class="mb-6 sm:mb-8" />
                                     <p class="mb-2"><strong>Local da visita e avaliação</strong></p>
                                     <p>Avenida Epitácio Pessoa, 2566 <br> Lagoa, Chapecó, SC</p>
                                     <p class="mt-4"><a href="##" target="_blank">Como chegar</a></p>
@@ -170,6 +195,7 @@
                 <ul class="grid grid-cols-1 xl:grid-cols-3 gap-1 xl:gap-6">
                     <li v-for="(car, index) in compra.cars" :key="index">
                         <ElementsCardCar
+                            small
                             :url="`/comprar/${car.brand}/${car.slug}`"
                             :photos="car.photos"
                             :name="car.name"
@@ -262,5 +288,13 @@ h6 {
     font-weight: 500;
     font-size: 18px;
     line-height: 26px;
+}
+
+.price {
+    font: 600 20px/20px $poppins;
+}
+
+.footer {
+    border-top: 4px solid #F5F6F7;
 }
 </style>

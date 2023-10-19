@@ -1,5 +1,5 @@
 <template>
-    <span :class="`uppercase flex items-center justify-center px-3 h-7 ${confirmed ? 'confirmed' : ''} ${active ? 'active' : ''} ${pending ? 'pending' : ''} ${concluded ? 'concluded !px-2.5' : ''} ${disabled ? 'disabled' : ''} ${green ? 'green' : ''}`">
+    <span :class="`rounded uppercase flex items-center justify-center px-3 h-7 ${confirmed ? 'confirmed' : ''} ${active ? 'active' : ''} ${pending ? 'pending' : ''} ${concluded ? 'concluded !px-2.5' : ''} ${disabled ? 'disabled' : ''} ${green ? 'green' : ''}`">
         <template v-if="confirmed">Confirmado</template>
         <template v-else-if="active">Ativo</template>
         <template v-else-if="concluded"><VectorsCheckGreen /></template>
@@ -27,7 +27,7 @@ span {
     font-weight: 700;
     font-size: 12px;
     font-family: $poppins;
-    background: rgba(246, 83, 26, 0.1);
+    background: rgba(0, 146, 253, 0.10);
     color: $blue;
 
     &.confirmed {

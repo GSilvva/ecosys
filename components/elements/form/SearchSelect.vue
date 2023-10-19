@@ -1,7 +1,11 @@
 <template>
     <div class="select relative">
         <div class="input relative z-10">
-            <ElementsFormLabel :label="label" blue />
+            <ElementsFormLabel
+                :label="label"
+                :blue="floating ? false : true"
+                :floating="floating"
+            />
             <div class="relative">
                 <input
                     class="block w-full transition px-4 sm"
@@ -20,7 +24,7 @@
                 </button>
             </div>
         </div>
-        <div :class="`list absolute left-0 bottom-0 bg-white w-full z-20 transition ${!open ? 'opacity-0 invisible' : ''}`">
+        <div :class="`list absolute left-0 bottom-0 bg-white w-full z-20 transition ${!open || !items ? 'opacity-0 invisible' : ''}`">
             <template v-for="(item, index) in filtered" :key="index">
                 <h6
                     class="text-white uppercase py-2.5 px-4"
@@ -35,6 +39,7 @@
                     >
                         <button
                             @click="(filter = option), (open = false)"
+                            @click.prevent="event"
                             class="text-left w-full py-2 px-4 transition cursor-pointer"
                             type="button"
                         >
@@ -54,7 +59,9 @@ const open = ref(false)
 const props = defineProps({
     label: String,
     placeholder: String,
-    items: Array
+    items: Array,
+    floating: Boolean,
+    event: Function
 })
 
 const filtered = computed(() => {

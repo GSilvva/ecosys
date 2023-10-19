@@ -5,7 +5,7 @@
         <article class="box box--form flex justify-between w-full m-auto bg-transparent sm:bg-white" v-if="!validPhone && !validCode">
           <aside class="sm:p-10 w-full">
             <header>
-              <h2 class="mb-4 sm:mb-6 uppercase">Entrar</h2>
+              <h2 class="mb-4 sm:mb-6">Entrar</h2>
               <p class="mb-8 max-w-xs w-full">Insira seu número de celular para receber um código de verificação.</p>
             </header>
             <form @submit.prevent="validPhone = true">
@@ -252,12 +252,11 @@
               </div>
             </form>
           </aside>
-          <img class="object-cover w-full hidden xl:block" src="/images/area-cliente/foto.jpg" alt="Foto">
         </article>
 
         <article class="box box--code w-full m-auto sm:p-10 bg-transparent sm:bg-white" v-if="validPhone && !validCode">
           <header>
-            <h2 class="mb-4 sm:mb-6 uppercase">Informe o código</h2>
+            <h2 class="mb-4 sm:mb-6">Informe o código</h2>
             <p class="max-w-xs w-full mb-8">Enviamos um código de confirmação para o seu WhatsApp.</p>
           </header>
           <form>
@@ -311,7 +310,7 @@
         <article class="box box--form flex justify-between w-full m-auto bg-transparent sm:bg-white" v-if="validPhone && validCode">
           <aside class="sm:p-10 w-full">
             <header class="mb-11">
-              <h2 class="uppercase">Quase lá</h2>
+              <h2>Quase lá</h2>
             </header>
             <form @submit.prevent="validPhone = true">
               <ElementsFormInput
@@ -347,7 +346,6 @@
               </footer>
             </form>
           </aside>
-          <img class="object-cover w-full hidden sm:block" src="/images/area-cliente/foto.jpg" alt="Foto">
         </article>
       </ElementsContainer>
     </div>
@@ -394,6 +392,7 @@ useHead({
 .box {
   h2 {
     font-size: 24px;
+    font-weight: 600;
     line-height: 32px;
     font-family: $poppins;
   }
@@ -416,6 +415,7 @@ useHead({
       border-left: 1px solid $grey-2;
       border-bottom: 1px solid $grey-2;
       font: 500 16px/24px $inter;
+      background: $white;
       appearance: none;
     }
       svg {
@@ -458,7 +458,7 @@ useHead({
     }
   }
   &--form {
-    max-width: 740px;
+    max-width: 455px;
     img {
       max-width: 285px;
     }

@@ -11,6 +11,7 @@
         <ul v-else class="grid grid-cols-1 xl:grid-cols-3 gap-1 xl:gap-6">
             <li class="transition" v-for="(car, index) in favs.cars" :key="index">
                 <ElementsCardCar
+                    small
                     :url="`/comprar/${car.brand}/${car.slug}`"
                     :photos="car.photos"
                     :name="car.name"
@@ -24,7 +25,7 @@
                     nohover
                     :favorited="true"
                 />
-                <div class="bg-white px-8 pt-2 pb-8 hidden xl:block">
+                <div class="bg-white px-5 pt-2 pb-5 hidden xl:block">
                     <ElementsButton class="w-full" blank small :href="`/comprar/${car.brand}/${car.slug}`">Ver carro</ElementsButton>
                 </div>
             </li>

@@ -245,6 +245,7 @@
                     </template>
                     <template v-else>
                         <ElementsCardCar
+                            small
                             v-for="(ads, index) in adverts.ads.data"
                             :key="index"
                             :url="`/comprar/${ads.car.model.brand.slug}/${ads.slug}`"

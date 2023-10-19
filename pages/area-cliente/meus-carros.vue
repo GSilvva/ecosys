@@ -8,6 +8,7 @@
         <ul class="grid-cols-3 gap-6 hidden xl:grid">
             <li class="transition" v-for="(car, index) in myCars.cars" :key="index">
                 <ElementsCardCar
+                    small
                     :url="`/comprar/${car.brand}/${car.slug}`"
                     :photos="car.photos"
                     :name="car.name"
@@ -19,11 +20,19 @@
                     nohover
                     clean
                 />
-                <div class="bg-white">
-                    <div class="pt-5 pb-6 px-8">
-                        <div class="mb-6">
-                            <small>Média b.car</small>
-                            <h3>{{ $formatCurrency(car.media) }}</h3>
+                <div class="bg-white others">
+                    <div class="pb-5 px-5 flex gap-12">
+                        <div>
+                            <small class="flex items-center gap-2">
+                                QVMC
+                                <article class="relative">
+                                    <button type="button">
+                                        <VectorsQuestion />
+                                    </button>
+                                    <p class="opacity-0 invisible absolute bg-white py-4 px-5 rounded">Preço definido pelo nosso sistem <br /> “Quanto Vale o Meu Carro?”</p>
+                                </article>
+                            </small>
+                            <h3>{{ $formatCurrency(car.qvmc) }}</h3>
                         </div>
                         <div>
                             <small>Tabela FIPE</small>
@@ -91,8 +100,11 @@
                         </div>
                         <div class="pt-10 flex justify-between">
                             <div class="xl:mb-6">
-                                <small>Média b.car</small>
-                                <h3>{{ $formatCurrency(car.media) }}</h3>
+                                <small class="flex items-center gap-2">
+                                    QVMC
+                                    <VectorsQuestion />
+                                </small>
+                                <h3>{{ $formatCurrency(car.qvmc) }}</h3>
                             </div>
                             <div>
                                 <small>Tabela FIPE</small>
@@ -166,7 +178,7 @@ const myCars = reactive({
             build_year: 2018,
             model_year: 2019,
             km: 100000,
-            media: 125900,
+            qvmc: 125900,
             fipe: 139610
         },
         {
@@ -186,7 +198,7 @@ const myCars = reactive({
             build_year: 2018,
             model_year: 2019,
             km: 100000,
-            media: 125900,
+            qvmc: 125900,
             fipe: 139610
         },
     ]
@@ -197,7 +209,7 @@ definePageMeta({
 })
 
 useHead({
-    title: `Ecosys Auto | Meus carros`,
+    title: `b.car | Meus carros`,
 })
 </script>
 
@@ -212,21 +224,61 @@ li {
             border-color: $blue;
         }
     }
+    .others {
+        margin: -4px 0 0 0;
+    }
     div {
         small {
             color: $grey-4;
             font-weight: 500;
             font-size: 14px;
             line-height: 24px;
+            button {
+
+                &:hover {
+
+                    & ~ p {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+            p {
+                bottom: -16px;
+                left: 50%;
+                transform: translate(-50%, 100%);
+                color: $dark;
+                font: 500 14px/22px $inter;
+                max-width: 270px;
+                min-width: 270px;
+                width: 100%;
+                filter: drop-shadow(0px 8px 20px rgba(23, 44, 86, 0.10));
+                transition: .4s;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: translate(-50%, -50%) rotate(45deg);
+                    background: $white;
+                    width: 16px;
+                    height: 16px;
+                }
+            }
         }
         h3 {
             font-weight: 600;
-            font-size: 24px;
-            line-height: 32px;
+            font-size: 16px;
+            line-height: 24px;
         }
     }
     footer {
         border-top: 4px solid $grey-1;
+        border-radius: 0 0 4px 4px;
+        @media (max-width: $tablet) {
+            border-radius: 0;
+        }
         button {
             font-weight: 500;
             font-size: 16px;

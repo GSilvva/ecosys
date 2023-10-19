@@ -91,26 +91,30 @@
                         <h2 class="subtitle">Anúncios</h2>
                         <ul class="flex flex-col gap-y-6">
                             <li>
-                                <div class="bg-white px-6 sm:px-12 xl:px-8 py-6 sm:py-8">
-                                    <div class="mb-6 flex justify-between items-start">
-                                        <img
-                                            class="w-40 h-32"
-                                            src="/images/general/car.jpg"
-                                            alt="Foto"
-                                        >
-                                        <ElementsTag active />
-                                    </div>
-                                    <h3 class="mb-4">BMW M3</h3>
-                                    <p class="mb-8">2.0 16V Diesel Limited 4X4 <br> Automático</p>
-                                    <div class="infos-car">
-                                        <small>Valor anunciado</small>
-                                        <h2>R$ 125.900</h2>
-                                        <div class="pt-4 mt-6 flex justify-between">
-                                            <small>2018/2019</small>
-                                            <small>158.836km</small>
+                                <div class="bg-white">
+                                    <div class="pt-6 sm:pt-8 px-6 sm:px-12 xl:px-8">
+                                        <div class="mb-6 flex justify-between items-start">
+                                            <img
+                                                class="w-40 h-32"
+                                                src="/images/general/car.jpg"
+                                                alt="Foto"
+                                            >
+                                            <ElementsTag active />
                                         </div>
+                                        <h3 class="mb-4">BMW M3</h3>
+                                        <div class="flex items-end justify-between mb-6">
+                                            <p>
+                                                XEi 2.0 16V CVT FLEX
+                                                <br>
+                                                2021 • Automático
+                                                <br>
+                                                158.869km
+                                            </p>
+                                            <h2 class="price">R$ 125.900</h2>
+                                        </div>
+                                        <ElementsStore class="mb-5" />
                                     </div>
-                                    <div class="mt-8 flex justify-between">
+                                    <div class="footer flex justify-between px-6 sm:px-12 xl:px-8 py-6">
                                         <ElementsButton small outline>Desativar</ElementsButton>
                                         <ElementsButton
                                             small
@@ -123,27 +127,31 @@
                                 </div>
                             </li>
                             <li>
-                                <div class="bg-white px-6 sm:px-12 xl:px-8 py-6 sm:py-8">
-                                    <div class="mb-6 flex justify-between items-start">
-                                        <img
-                                            class="w-40 h-32"
-                                            src="/images/general/car.jpg"
-                                            alt="Foto"
-                                        >
-                                        <ElementsTag disabled />
-                                    </div>
-                                    <h3 class="mb-4">BMW M3</h3>
-                                    <p class="mb-8">2.0 16V Diesel Limited 4X4 <br> Automático</p>
-                                    <div class="infos-car">
-                                        <small>Valor anunciado</small>
-                                        <h2>R$ 125.900</h2>
-                                        <div class="pt-4 mt-6 flex justify-between">
-                                            <small>2018/2019</small>
-                                            <small>158.836km</small>
+                                <div class="bg-white">
+                                    <div class="pt-6 sm:pt-8 px-6 sm:px-12 xl:px-8">
+                                        <div class="mb-6 flex justify-between items-start">
+                                            <img
+                                                class="w-40 h-32"
+                                                src="/images/general/car.jpg"
+                                                alt="Foto"
+                                            >
+                                            <ElementsTag active />
                                         </div>
+                                        <h3 class="mb-4">BMW M3</h3>
+                                        <div class="flex items-end justify-between mb-6">
+                                            <p>
+                                                XEi 2.0 16V CVT FLEX
+                                                <br>
+                                                2021 • Automático
+                                                <br>
+                                                158.869km
+                                            </p>
+                                            <h2 class="price">R$ 125.900</h2>
+                                        </div>
+                                        <ElementsStore class="mb-5" />
                                     </div>
-                                    <div class="mt-8 flex justify-between">
-                                        <ElementsButton small>Ativar</ElementsButton>
+                                    <div class="footer flex justify-between px-6 sm:px-12 xl:px-8 py-6">
+                                        <ElementsButton small green>Ativar</ElementsButton>
                                         <ElementsButton
                                             small
                                             outline
@@ -171,9 +179,10 @@
                             <li class="flex flex-col gap-y-1">
                                 <div class="bg-white px-6 sm:px-12 xl:px-8 py-6 sm:py-8">
                                     <div class="flex items-start justify-between">
-                                        <p class="mb-6"><strong>Segunda, 10 out 2023 <br> 16:15 horas</strong></p>
+                                        <p class="mb-6 sm:mb-8"><strong>Segunda, 10 out 2023 <br> 16:15 horas</strong></p>
                                         <ElementsTag />
                                     </div>
+                                    <ElementsStore class="mb-4 sm:mb-6" />
                                     <p class="mb-2"><strong>Onde o comprador vai</strong></p>
                                     <p>Avenida Epitácio Pessoa, 2566 <br> Lagoa, Chapecó, SC</p>
                                     <div class="mt-8 flex gap-2">
@@ -187,6 +196,7 @@
                                         <p class="mb-6"><strong>Segunda, 10 out 2023 <br> 16:15 horas</strong></p>
                                         <ElementsTag pending />
                                     </div>
+                                    <ElementsStore class="mb-4 sm:mb-6" />
                                     <p class="mb-2"><strong>Onde o comprador vai</strong></p>
                                     <p>Avenida Epitácio Pessoa, 2566 <br> Lagoa, Chapecó, SC</p>
                                 </div>
@@ -197,6 +207,7 @@
                                         <p class="mb-6"><strong>Segunda, 10 out 2023 <br> 16:15 horas</strong></p>
                                         <ElementsTag confirmed />
                                     </div>
+                                    <ElementsStore class="mb-4 sm:mb-6" />
                                     <p class="mb-2"><strong>Onde o comprador vai</strong></p>
                                     <p>Avenida Epitácio Pessoa, 2566 <br> Lagoa, Chapecó, SC</p>
                                 </div>
@@ -225,6 +236,7 @@
                 <ul class="grid grid-cols-1 xl:grid-cols-3 gap-1 xl:gap-6">
                     <li v-for="(car, index) in venda.cars" :key="index">
                         <ElementsCardCar
+                            small
                             :url="`/comprar/${car.brand}/${car.slug}`"
                             :photos="car.photos"
                             :name="car.name"
@@ -264,12 +276,14 @@
                         disabled
                     />
                 </div>
-                <Slider
-                    v-model="venda.slider1.value"
-                    :min="venda.slider1.min"
-                    :max="venda.slider1.max"
-                    :step="venda.slider1.step"
-                />
+                <div class="slider2">
+                    <Slider
+                        v-model="venda.slider1.value"
+                        :min="venda.slider1.min"
+                        :max="venda.slider1.max"
+                        :step="venda.slider1.step"
+                    />
+                </div>
                 <small class="mt-5">O mínimo de ajuste é 25%</small>
             </div>
             <div class="fields">
@@ -291,12 +305,14 @@
                         >
                     </fieldset>
                 </div>
-                <Slider
-                    v-model="venda.slider2.value"
-                    :min="venda.slider2.min"
-                    :max="venda.slider2.max"
-                    :lazy="false"
-                />
+                <div class="slider2">
+                    <Slider
+                        v-model="venda.slider2.value"
+                        :min="venda.slider2.min"
+                        :max="venda.slider2.max"
+                        :lazy="false"
+                    />
+                </div>
                 <small class="mt-5">O mínimo de ajuste é 25%</small>
             </div>
             <div class="flex justify-end mt-1.5">
@@ -418,24 +434,12 @@ useHead({
     }
 }
 
-.infos-car {
+.price {
+    font: 600 20px/20px $poppins;
+}
 
-    small {
-        color: $grey-4;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 24px;
-    }
-
-    h2 {
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 32px;
-    }
-
-    div {
-        border-top: 1px solid $grey-2;
-    }
+.footer {
+    border-top: 4px solid #F5F6F7;
 }
 
 h3 {

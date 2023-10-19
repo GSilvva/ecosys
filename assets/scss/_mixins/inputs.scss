@@ -27,7 +27,7 @@ option {
 
     &:disabled {
         font-weight: 400;
-        background: $grey-1;
+        background: rgba(0, 0, 0, 0.04);
         color: rgba(82, 82, 89, .64);
     }
 }

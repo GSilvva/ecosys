@@ -2,14 +2,9 @@ export default defineNuxtPlugin((/* nuxtApp */) => {
     return {
         provide: {
             formatCurrency: (value) => {
-                return value
-                    .toLocaleString(
-                        'pt-br',
-                        {
-                            style: 'currency',
-                            currency: 'BRL',
-                            maximumFractionDigits: 0
-                        });
+                const number = parseFloat(value)                
+
+                return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0 }).format(number)
             }
         }
     }
