@@ -272,7 +272,7 @@ useHead({
 @import '@/assets/scss/_mixins/area-cliente';
 
 h3 {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 24px;
     line-height: 28px;
 }

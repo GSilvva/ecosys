@@ -67,63 +67,65 @@
     </template>
 
     <template v-if="infos.type === 'steps'">
-        <section class="pt-big infos flex items-start flex-col-reverse sm:flex-row justify-center sm:gap-8 sm:pb-10">
-            <aside class="data bg-white sm:bg-transparent w-full flex justify-between sm:flex-col flex-wrap gap-1 px-6 pb-10 sm:p-0">
-                <button
-                    @click="infos.type = 'model'"
-                    class="gap-2 pt-3 pb-3 pl-4 pr-4 sm:pr-5 text-left sm:w-full bg-white flex items-center justify-between"
-                    type="button"
-                >
-                    <p>
-                        Modelo
-                        <strong class="block">{{ infos.model ? infos.model : "-" }}</strong>
-                    </p>
-                    <VectorsArrowSmall />
-                </button>
-                <button
-                    @click="infos.index = 1"
-                    class="gap-2 pt-3 pb-3 pl-4 pr-4 sm:pr-5 text-left sm:w-full bg-white flex items-center justify-between"
-                    type="button"
-                >
-                    <p>
-                        Ano
-                        <strong class="block">{{ infos.year ? infos.year : "-" }}</strong>
-                    </p>
-                    <VectorsArrowSmall />
-                </button>
-                <button
-                    @click="infos.index = 2"
-                    class="gap-2 pt-3 pb-3 pl-4 pr-4 sm:pr-5 text-left sm:w-full bg-white flex items-center justify-between"
-                    type="button"
-                >
-                    <p>
-                        Versão
-                        <strong class="block truncate">{{ infos.version ? infos.version : "-" }}</strong>
-                    </p>
-                    <VectorsArrowSmall />
-                </button>
-                <button
-                    @click="infos.index = 3"
-                    class="gap-2 pt-3 pb-3 pl-4 pr-4 sm:pr-5 text-left sm:w-full bg-white flex items-center justify-between"
-                    type="button"
-                >
-                    <p>
-                        Quilometragem
-                        <strong class="block">{{ infos.slider.value ? $formatNumber(infos.slider.value) + " km" : "-" }}</strong>
-                    </p>
-                    <VectorsArrowSmall />
-                </button>
-                <button
-                    @click="infos.index = 4"
-                    class="gap-2 pt-3 pb-3 pl-4 pr-4 sm:pr-5 text-left sm:w-full bg-white flex items-center justify-between"
-                    type="button"
-                >
-                    <p>
-                        Cidade
-                        <strong class="block">{{ infos.city ? infos.city : "-" }}</strong>
-                    </p>
-                    <VectorsArrowSmall />
-                </button>
+        <section class="pt-big infos flex items-start flex-col-reverse sm:flex-row justify-end sm:justify-center sm:gap-8 sm:pb-10">
+            <aside class="data bg-white sm:bg-transparent w-full px-6 pb-10 sm:p-0">
+                <div class="flex justify-between sm:flex-col flex-wrap gap-1">
+                    <button
+                        @click="infos.type = 'model'"
+                        class="gap-2 pt-3 pb-3 pl-4 pr-4 sm:pr-5 text-left sm:w-full bg-white flex items-center justify-between"
+                        type="button"
+                    >
+                        <p>
+                            Modelo
+                            <strong class="block">{{ infos.model ? infos.model : "-" }}</strong>
+                        </p>
+                        <VectorsArrowSmall />
+                    </button>
+                    <button
+                        @click="infos.index = 1"
+                        class="gap-2 pt-3 pb-3 pl-4 pr-4 sm:pr-5 text-left sm:w-full bg-white flex items-center justify-between"
+                        type="button"
+                    >
+                        <p>
+                            Ano
+                            <strong class="block">{{ infos.year ? infos.year : "-" }}</strong>
+                        </p>
+                        <VectorsArrowSmall />
+                    </button>
+                    <button
+                        @click="infos.index = 2"
+                        class="gap-2 pt-3 pb-3 pl-4 pr-4 sm:pr-5 text-left sm:w-full bg-white flex items-center justify-between"
+                        type="button"
+                    >
+                        <p>
+                            Versão
+                            <strong class="block truncate">{{ infos.version ? infos.version : "-" }}</strong>
+                        </p>
+                        <VectorsArrowSmall />
+                    </button>
+                    <button
+                        @click="infos.index = 3"
+                        class="gap-2 pt-3 pb-3 pl-4 pr-4 sm:pr-5 text-left sm:w-full bg-white flex items-center justify-between"
+                        type="button"
+                    >
+                        <p>
+                            Quilometragem
+                            <strong class="block">{{ infos.slider.value ? $formatNumber(infos.slider.value) + " km" : "-" }}</strong>
+                        </p>
+                        <VectorsArrowSmall />
+                    </button>
+                    <button
+                        @click="infos.index = 4"
+                        class="gap-2 pt-3 pb-3 pl-4 pr-4 sm:pr-5 text-left sm:w-full bg-white flex items-center justify-between"
+                        type="button"
+                    >
+                        <p>
+                            Cidade
+                            <strong class="block">{{ infos.city ? infos.city : "-" }}</strong>
+                        </p>
+                        <VectorsArrowSmall />
+                    </button>
+                </div>
             </aside>
 
             <article class="content bg-white py-8 px-6 pb-10 sm:p-10 max-w-md w-full">
@@ -167,7 +169,7 @@
                     </div>
                     <div class="flex justify-end">
                         <ElementsButton
-                            class="mt-36"
+                            class="mt-20 sm:mt-28"
                             small
                             @click="infos.index = 4"
                         >
@@ -368,7 +370,9 @@ useHead({
 .infos {
 
     @media (max-width: $mobile) {
-        padding-top: 68px;
+        padding: 0;
+        margin-top: 68px;
+        min-height: calc(100vh - 68px);
     }
 
     .data {
@@ -376,6 +380,7 @@ useHead({
 
         @media (max-width: $mobile) {
             max-width: 100%;
+            flex: 2;
         }
 
         button {

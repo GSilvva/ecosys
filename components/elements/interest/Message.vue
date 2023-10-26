@@ -20,7 +20,7 @@ defineProps({
     }
 
     h3 {
-        font: 700 24px/28px $poppins;
+        font: 600 24px/28px $poppins;
     }
 
     p {

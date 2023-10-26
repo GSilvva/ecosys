@@ -140,6 +140,9 @@ defineProps({
     max-width: 865px;
 }
 .slide {
+    @media (max-width: $mobile) {
+        padding: 0 24px;
+    }
     h6 {
         font: 600 20px/28px $inter;
 

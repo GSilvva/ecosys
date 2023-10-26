@@ -57,7 +57,7 @@
             @include titlePage;
 
             @media screen and (max-width: $mobile) {
-                font: 700 28px/34px $poppins;
+                font: 600 28px/34px $poppins;
             }
         }
     }

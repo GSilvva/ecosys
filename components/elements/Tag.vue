@@ -24,7 +24,7 @@ defineProps({
 
 <style lang="scss" scoped>
 span {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 12px;
     font-family: $poppins;
     background: rgba(0, 146, 253, 0.10);

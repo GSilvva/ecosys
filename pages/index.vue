@@ -171,12 +171,12 @@
     </section> -->
 
     <section class="blog pb-28 xl:pb-48">
-      <ElementsContainer block>
-        <section class="relative bg-white flex-col-reverse xl:flex-row flex xl:items-end justify-between pl-6 md:pl-10 xl:pl-0">
+      <ElementsContainer class="container" block>
+        <section class="relative bg-white flex-col-reverse xl:flex-row flex xl:items-end justify-between px-6 sm:pr-0 md:pl-10 xl:pl-0">
           <aside data-animate class="w-full py-10 xl:py-24 xl:pl-24 flex flex-col items-start">
             <h2 class="mb-5 xl:mb-8">Em breve o seu portal de notícias</h2>
             <p class="w-full">Estamos trabalhando para trazer para você as noticias e conteúdos mais relevantes do mercado automotivo.</p>
-            <footer class="hidden xl:flex pt-8 mt-16 relative">
+            <footer class="flex pt-4 xl:pt-8 mt-10 xl:mt-16 relative">
               <span class="flex items-center">Veículos</span>
               <span class="flex items-center">Carros</span>
               <span class="flex items-center">Esportivos</span>
@@ -595,7 +595,7 @@ const cars = [
     h2 {
       @include titlePage;
       @media screen and (max-width: $mobile) {
-        font: 700 28px/34px $poppins;
+        font: 600 28px/34px $poppins;
       }
     }
     p {
@@ -608,6 +608,12 @@ const cars = [
 }
 
 .blog {
+
+  .container {
+    @media (max-width: $mobile) {
+      padding: 0;
+    }
+  }
 
   section {
 
@@ -658,6 +664,9 @@ const cars = [
         span {
           color: $grey-5;
           font: 500 18px/24px $inter;
+          @media (max-width: $mobile) {
+            font: 500 14px/22px $inter;
+          }
           &:not(:last-of-type) {
             &::after {
               content: "";
@@ -690,7 +699,7 @@ const cars = [
     height: 130px;
     background: $dark;
     @media (max-width: $mobile) {
-      height: 360px;
+      height: 140px;
     }
   }
   section {

@@ -144,7 +144,7 @@ defineProps({
     .tags {
 
         span {
-            font: 700 12px/10px $poppins;
+            font: 600 12px/10px $poppins;
 
             @media screen and (max-width: $mobile) {
                 font-size: 10px;
@@ -170,14 +170,14 @@ defineProps({
         .title {
 
             h3 {
-                font: 700 20px/28px $poppins;
+                font: 600 20px/28px $poppins;
                 -webkit-line-clamp: 1;
                 -webkit-box-orient: vertical;
                 display: -webkit-box;
                 overflow: hidden;
 
                 @media screen and (max-width: $mobile) {
-                    font: 700 12px/16px $poppins;
+                    font: 600 12px/16px $poppins;
                 }
 
                 strong {
@@ -218,7 +218,7 @@ defineProps({
                     font: 600 18px/28px $poppins;
 
                     @media (max-width: $mobile) {
-                        font: 700 10px/14px $poppins;
+                        font: 600 10px/14px $poppins;
                     }
                 }
             }
@@ -307,7 +307,7 @@ defineProps({
             .title {
     
                 h3 {
-                    font: 700 16px/26px $poppins;
+                    font: 600 16px/26px $poppins;
                 }
     
                 & > p {

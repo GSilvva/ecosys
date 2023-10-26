@@ -305,10 +305,10 @@ defineEmits(["update:open"])
     border: 1px solid $grey-2;
     
     h3 {
-        font: 700 24px/28px $poppins;
+        font: 600 24px/28px $poppins;
 
         @media screen and (max-width: $mobile) {
-            font: 700 16px/1 $poppins;
+            font: 600 16px/1 $poppins;
         }
     }
 

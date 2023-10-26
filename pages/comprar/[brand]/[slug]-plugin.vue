@@ -486,16 +486,16 @@ useHead({
         }
 
         h1 {
-            font: 700 32px/38px $poppins;
+            font: 600 32px/38px $poppins;
 
             @media screen and (max-width: $mobile) {
-                font: 700 24px/32px $poppins;
+                font: 600 24px/32px $poppins;
             }
         }
 
         h4 {
             color: $grey-3;
-            font: 700 16px/24px $poppins;
+            font: 600 16px/24px $poppins;
         }
 
         h5 {
@@ -511,7 +511,7 @@ useHead({
 
             span {
                 border: 1px solid $dark;
-                font: 700 12px/10px $poppins;
+                font: 600 12px/10px $poppins;
 
                 @media screen and (max-width: $mobile) {
                     font-size: 10px;
@@ -564,7 +564,7 @@ useHead({
         font: 600 32px/40px $poppins;
 
         @media screen and (max-width: $mobile) {
-            font: 700 20px/1 $poppins;
+            font: 600 20px/1 $poppins;
         }
     }
 

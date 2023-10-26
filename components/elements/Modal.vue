@@ -43,7 +43,7 @@ defineEmits(["update:open"])
     
         h5 {
             font-family: $poppins;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 16px;
             line-height: 24px;
         }

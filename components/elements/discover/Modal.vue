@@ -266,7 +266,7 @@ defineProps({
             }
 
             small {
-                font: 700 16px/28px $poppins;
+                font: 600 16px/28px $poppins;
                 color: $grey-2;
                 min-width: 64px;
                 max-width: 64px;

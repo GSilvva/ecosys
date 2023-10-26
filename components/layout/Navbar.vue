@@ -341,7 +341,7 @@ defineProps({
         }
 
         small {
-          font: 700 10px/1 $poppins;
+          font: 600 10px/1 $poppins;
           color: rgba(125, 126, 128, .5);
           border: 1px solid $grey-2;
         }

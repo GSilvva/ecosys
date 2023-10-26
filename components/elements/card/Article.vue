@@ -49,7 +49,7 @@ defineProps({
         }
 
         h6 {
-            font: 700 12px/10px $poppins;
+            font: 600 12px/10px $poppins;
             background: $grey-5;
 
             @media screen and (max-width: $mobile) {

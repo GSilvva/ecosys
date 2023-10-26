@@ -579,7 +579,7 @@
             <span class="block text-center">Vendas</span>
         </a>
         <a class="flex-1 flex flex-col items-center gap-1" href="#gestao">
-            <VectorsVendas />
+            <VectorsGestao />
             <span class="block text-center">Gestão</span>
         </a>
         <a class="flex-1 flex flex-col items-center gap-1" href="#integracao">
@@ -1397,7 +1397,7 @@ useHead({
         input,
         textarea {
             color: $dark;
-            background: $grey-1;
+            border: 1px solid $grey-2;
             resize: none;
 
             &::placeholder {

@@ -287,7 +287,7 @@ defineEmits(["update:open"])
                     font: 600 24px/28px $poppins;
 
                     @media screen and (max-width: $mobile) {
-                        font: 700 20px/26px $inter;
+                        font: 600 20px/26px $inter;
                     }
                 }
 

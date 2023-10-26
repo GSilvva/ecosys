@@ -200,11 +200,14 @@
 
         <section class="content overflow-y-auto xl:pt-8 xl:px-14 xl:pb-14">
             <div class="container-cards">
-                <header class="p-6 md:pt-3 md:pb-8 md:px-12 xl:p-0 xl:mb-10">
-                    <ElementsBreadcrumb :links="buyPage.links" />
+                <header class="p-6 xl:pt-3 md:pb-8 md:px-12 xl:p-0 xl:mb-10">
+                    <ElementsBreadcrumb
+                        class="hidden xl:flex"
+                        :links="buyPage.links"
+                    />
 
                     <section class="flex-col xl:flex-row flex justify-between xl:items-end gap-6">
-                        <div>
+                        <div class="hidden xl:block">
                             <h1 class="mb-1">Carros Novos e Usados</h1>
                             <p v-if="data.ads.total <= 0">Nenhum carro encontrado</p>
                             <p v-else-if="data.ads.total === 1">1 carro encontrado</p>
@@ -511,7 +514,7 @@ useHead({
         @include titlePageNormal;
 
         @media screen and (max-width: $mobile) {
-            font: 700 24px/32px $poppins;
+            font: 600 24px/32px $poppins;
         }
     }
 
